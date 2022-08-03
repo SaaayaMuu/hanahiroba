@@ -1,24 +1,44 @@
-# README
+# つまみ細工-花広場-
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+伝統工芸「つまみ細工」のECサイト
 
-Things you may want to cover:
+### サイトテーマ
+__～身近にもっと和を。～__<br>
+約200年の歴史のある伝統工芸「つまみ細工」の魅力を知っていただくため、目で楽しんでいただき、そして購入もできるECサイトを作ろうと思いました。
 
-* Ruby version
 
-* System dependencies
+### テーマを選んだ理由
+以前つまみ細工の職人の方に教えていただき自身で作ったイヤリングが今でも一番のお気に入りです。<br>
+正しく教えていただきながら作れば、自分の手で伝統工芸作品を作ることもできるんです。<br>
+その親しみやすさと和を感じる華やかな作品を沢山の方に知っていただき、実際に手にしていただく手伝いができればと思い、このテーマを選びました。
 
-* Configuration
+### ターゲットユーザ
+- 和文化に興味がある方
+- ものづくりが好きな方
+- アクセサリーや飾りが好きな方
+- 何か趣味をみつけたい方
 
-* Database creation
 
-* Database initialization
+### 主な利用シーン
+- 和の髪飾りやアクセサリーを購入したいとき。
+- 自宅で作れるつまみ細工のキットを購入したいとき。
 
-* How to run the test suite
+## 実装機能
+[実装機能リスト][list]
 
-* Services (job queues, cache servers, search engines, etc.)
+[list]: https://docs.google.com/spreadsheets/d/1-oPgZIs2n-BgcpRbfvRqX2JsRwInN5UiNiGvxSLKbkc/edit?usp=sharing
 
-* Deployment instructions
+## 設計書
+<...>
 
-* ...
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
+
+## 使用素材
+- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
+- 使用しない場合は、使用素材の項目をREADMEから削除してください。
