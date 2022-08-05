@@ -13,3 +13,87 @@
  *= require_tree .
  *= require_self
  */
+
+
+@import "skippr";
+
+ * {
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+
+ #theTarget {
+   width: 100%;
+   height: 100vh;
+   position: relative;
+ }
+
+.image1 {
+  background-image: url(image1.jpg);
+  width: 100%;
+  height: auto;
+  background-size: cover;
+  background-position: top;
+}
+.image2 {
+  background-image: url(image2.jpg);
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: top;
+}
+.image3 {
+  background-image: url(image3.jpg);
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: top;
+}
+.image4 {
+  background-image: url(image4.jpg);
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: top;
+}
+.image5 {
+  background-image: url(image5.jpg);
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: top;
+}
+
+.image6 {
+  background-image: url(image5.jpg);
+  width: 100%;
+  height: 1300px;
+  background-size: cover;
+  background-position: top;
+}
+
+
+@media screen and (min-width: 1200px) {
+  .image1 {
+    background-image: url(image6.jpg);
+    background-position: bottom center;
+  }
+  .image2 {
+    background-image: url(image7.jpg);
+    background-position: top right;
+  }
+  .image3 {
+    background-image: url(image8.jpg);
+    background-position: top center;
+  }
+  .image4 {
+    background-image: url(image9.jpg);
+    background-position: top;
+  }
+  .image5 {
+    background-image: url(image10.jpg);
+    background-position: top center;
+  }
+
+

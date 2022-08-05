@@ -1,0 +1,14 @@
+<h1>商品追加</h1>
+
+<%= form_with model: @design, url: admin_designs_path, local: true do |f| %>
+
+
+  <%= f.file_field :images, direct_upload: true, multiple: true %>
+
+<% end %>
+
+<% if @design.images.attached? %>
+  <% @design.images.each do |image| %>
+    <%= image_tag image.variant(resize: '300x100').processed %>
+  <% end %>
+<% end %>
