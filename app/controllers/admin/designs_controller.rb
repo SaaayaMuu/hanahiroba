@@ -10,7 +10,6 @@ class Admin::DesignsController < ApplicationController
 
   def create
     @design = Design.new(design_params)
-
     @item = Item.new(item_params)
   end
 

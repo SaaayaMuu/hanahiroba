@@ -1,3 +1,4 @@
+<!--
 <h1>商品追加</h1>
 
 <%= form_with model: @design, url: admin_designs_path, local: true do |f| %>
@@ -12,3 +13,56 @@
     <%= image_tag image.variant(resize: '300x100').processed %>
   <% end %>
 <% end %>
+
+-->
+
+
+
+
+
+<body>
+
+  <%= form_with model: @design, url: admin_designs_path, local: true do |f| %>
+  <header>
+      <h1>管理者（商品追加）</h1>
+  </header>
+  <article>
+      <label for="files">画像追加</label>
+      <input id="files" type="file" multiple/>
+      <output id="result" />
+  </article>
+
+  <label for="design[name]">デザイン名</label>
+  <%= f.text_field :name, autofocus: true, required: true%><br>
+
+  <label for="design[introduction]">デザイン説明</label>
+  <%= f.text_area :introduction, required: true%><br>
+
+  <label for="design[genre_id]">ジャンル</label>
+  <%= f.collection_select :genre_id, Genre.all, :id, :name, {:include_blank => "ジャンルを選択"},{required: true} %><br>
+
+  <label for="design[price]">税抜価格</label>
+  <%= f.text_field :price, required: true%><br>
+
+
+  <h3>商品追加</h3>
+
+  <%= f.fields_for @item, url: admin_items_path, local: true do |f| %>
+
+  <article>
+      <label for="files">画像追加</label>
+      <input id="files" type="file" multiple/>
+      <output id="result" />
+  </article>
+
+  <label for="item[is_active]">販売ステータス</label>
+  <label><input type="radio" name="item[is_active]" class="check" value="true" checked="checked">販売中</label>
+  <label><input type="radio" name="item[is_active]" class="check" value="false">販売停止中</label><br>
+
+
+  <%= f.submit '保存' %>
+  <% end %>
+  <% end %>
+
+
+</body>

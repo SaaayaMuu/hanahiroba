@@ -25,6 +25,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 
   namespace :admin do
     resources :designs, only: [:new, :create, :show, :edit, :update, :index, :destroy]
+    resources :items, only: [:create]
     resources :genres, only: [:index, :edit, :create, :update, :destroy]
   end
 
@@ -43,8 +44,14 @@ end
 #             PATCH  /admin/designs/:id(.:format)                          admin/designs#update
 #             DELETE /admin/designs/:id(.:format)                          admin/designs#destroy
 
+#admin_items POST   /admin/items(.:format)                                 admin/items#create
+
 #admin_genres GET    /admin/genres(.:format)                                admin/genres#index
 #             POST   /admin/genres(.:format)                                admin/genres#create
 #edit_admin_genre GET    /admin/genres/:id/edit(.:format)                   admin/genres#edit
 #admin_genre PATCH  /admin/genres/:id(.:format)                             admin/genres#update
 #            DELETE /admin/genres/:id(.:format)                             admin/genres#destroy
+
+
+#new_customer_password GET    /customers/password/new(.:format)             devise/passwords#new
+#edit_customer_password GET    /customers/password/edit(.:format)           devise/passwords#edit
