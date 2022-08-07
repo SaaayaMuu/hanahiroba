@@ -1,6 +1,13 @@
 <body>
-  
 
+  <% if customer_signed_in?%>
+   <li class="nav-item mr-4 mb-3">
+      <%= link_to destroy_customer_session_path, method: :delete, class: "border text-dark font-weight-bold p-2" do %>ログアウト
+      <% end %>
+    </li>
+  <% else %>
+    <p>未ログイン</p>
+  <% end %>
   <div id="container">
     <div id="theTarget">
       <div class="image1"></div>

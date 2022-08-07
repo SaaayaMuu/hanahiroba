@@ -1,15 +1,50 @@
-<h2>Log in</h2>
+<  <div class="container mt-4">
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <div class="row mb-3">
+      <div class="col-xl-1"></div><p class="col-5 col-sm-3 col-xl-2 text-center"><span class="lead">ログイン</span></p>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-sm-2"></div><p class="col-sm-7"><span class="lead">会員の方はこちらからログイン</span></p>
+    </div>
+
+    <%= form_with model: @customer, url: customer_session_path do |f| %>
+
+    <div class="row mb-3 justify-content-center">
+      <label for="admin_email" class="col-sm-4 col-lg-3 col-xl-2 col-form-label">メールアドレス</label>
+      <div class="col-sm-4 col-lg-5 col-xl-5 col-md-4">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", size: "40x10" %>
+      </div>
+    </div>
+
+    <div class="row mb-3 justify-content-center">
+      <label for="admin_password" class="col-sm-4 col-lg-3 col-xl-2 col-form-label">パスワード</label>
+      <div class="col-sm-4 col-lg-5 col-xl-5 col-md-4">
+        <%= f.password_field :password, autocomplete: "current-password", size: "40x10" %>
+      </div>
+    </div>
+
+    <div class="row mb-3 justify-content-center">
+      <label for="admin_password" class="col-sm-4 col-lg-3 col-xl-2 col-form-label"></label>
+      <div class="col-sm-4 col-lg-5 col-xl-5 col-md-4">
+        <%= f.submit "ログイン", class: "btn btn-sm btn-primary px-4 py-1 mb-5" %>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-sm-2"></div><p class="col-sm-7"><span class="lead">会員登録がお済みでない方</span></p>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-3"></div>
+      <div class-"col-sm-6"><%= link_to "こちら", new_customer_registration_path %>
+      <%= "から新規登録を行ってください。" %>
+      </div>
+    </div>
+
   </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
 
   <% if devise_mapping.rememberable? %>
     <div class="field">

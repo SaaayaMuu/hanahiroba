@@ -1,10 +1,7 @@
 Rails.application.routes.draw do
 
 
-  namespace :admin do
-    get 'genres/index'
-    get 'genres/edit'
-  end
+
   root to: 'public/homes#top'
 
   namespace :public do
@@ -13,7 +10,8 @@ Rails.application.routes.draw do
 # URL /customers/sign_in ...
 devise_for :customers, controllers: {
   registrations: "public/registrations",
-  sessions: 'public/sessions'
+  sessions: 'public/sessions',
+  passwords: 'public/passwords'
 }
 
 # 管理者用
@@ -29,6 +27,11 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     resources :genres, only: [:index, :edit, :create, :update, :destroy]
   end
 
+  scope module: :public do
+    get '/customers/unsubscribe' => 'customers#unsubscribe'
+    resources :customers, only: [:show, :edit, :unsubscribe]
+
+  end
 end
 
 
@@ -55,3 +58,16 @@ end
 
 #new_customer_password GET    /customers/password/new(.:format)             devise/passwords#new
 #edit_customer_password GET    /customers/password/edit(.:format)           devise/passwords#edit
+
+#new_customer_registration GET    /customers/sign_up(.:format)              public/registrations#new
+#edit_customer_registration GET    /customers/edit(.:format)                public/registrations#edit
+
+#customers_unsubscribe GET    /customers/unsubscribe(.:format)              public/customers#unsubscribe
+#edit_customer GET    /customers/:id/edit(.:format)                         public/customers#edit
+#customer GET    /customers/:id(.:format)                                   public/customers#show
+
+#new_customer_password GET    /customers/password/new(.:format)             devise/passwords#new
+#edit_customer_password GET    /customers/password/edit(.:format)           devise/passwords#edit
+#customer_password PATCH  /customers/password(.:format)                     devise/passwords#update
+#PUT    /customers/password(.:format)                                       devise/passwords#update
+#POST   /customers/password(.:format)                                       devise/passwords#create
