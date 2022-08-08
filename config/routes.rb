@@ -2,6 +2,11 @@ Rails.application.routes.draw do
 
 
 
+  namespace :admin do
+    get 'customers/index'
+    get 'customers/edit'
+    get 'customers/show'
+  end
   root to: 'public/homes#top'
 
   namespace :public do
@@ -25,6 +30,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     resources :designs, only: [:new, :create, :show, :edit, :update, :index, :destroy]
     resources :items, only: [:create]
     resources :genres, only: [:index, :edit, :create, :update, :destroy]
+    resources :customers, only: [:index, :show, :edit, :update]
   end
 
   scope module: :public do
@@ -54,6 +60,11 @@ end
 #edit_admin_genre GET    /admin/genres/:id/edit(.:format)                   admin/genres#edit
 #admin_genre PATCH  /admin/genres/:id(.:format)                             admin/genres#update
 #            DELETE /admin/genres/:id(.:format)                             admin/genres#destroy
+
+#admin_customers GET    /admin/customers(.:format)                          admin/customers#index
+#edit_admin_customer GET    /admin/customers/:id/edit(.:format)             admin/customers#edit
+#admin_customer GET    /admin/customers/:id(.:format)                       admin/customers#show
+#               PATCH  /admin/customers/:id(.:format)                       admin/customers#update
 
 
 #new_customer_password GET    /customers/password/new(.:format)             devise/passwords#new

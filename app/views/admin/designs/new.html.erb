@@ -23,9 +23,10 @@
 <body>
 
   <%= form_with model: @design, url: admin_designs_path, local: true do |f| %>
-  <header>
-      <h1>管理者（商品追加）</h1>
-  </header>
+  <div class="container">
+
+  <h2 class="mb-3">商品追加</h2>
+
   <article>
       <label for="files">画像追加</label>
       <input id="files" type="file" multiple/>
@@ -45,13 +46,13 @@
   <%= f.text_field :price, required: true%><br>
 
 
-  <h3>商品追加</h3>
+  <h3 class="add_item">商品追加</h3>
 
   <%= f.fields_for @item, url: admin_items_path, local: true do |f| %>
 
   <article>
-      <label for="files">画像追加</label>
-      <input id="files" type="file" multiple/>
+      <label for="item_files">画像追加</label>
+      <input id="item_files" type="file" multiple/>
       <output id="result" />
   </article>
 
@@ -64,5 +65,5 @@
   <% end %>
   <% end %>
 
-
+</div>
 </body>

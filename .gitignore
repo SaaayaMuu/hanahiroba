@@ -40,3 +40,5 @@ yarn-debug.log*
 .yarn-integrity
 
 db/seeds.rb
+config/environments/development.rb
+config/initializers/devise.rb

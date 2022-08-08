@@ -1,0 +1,23 @@
+<div class="container">
+
+  <h2 class="mb-3">顧客一覧</h2>
+
+
+  <table class="table">
+    <tr>
+      <th></th>
+      <th>名前</th>
+      <th>会員登録日時</th>
+      <th>退会ステータス</th>
+    </tr>
+    <% @customers.each do |customer| %>
+    <tr>
+      <td><%= link_to admin_customer_path(customer.id) do %><%= customer.id %><% end %></td>
+      <td><%= customer.last_name %><%= customer.first_name %></td>
+      <td><%= customer.created_at %></td>
+      <td><%= customer.is_deleted %></td>
+    </tr>
+    <% end %>
+  </table>
+
+</div>

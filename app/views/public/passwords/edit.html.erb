@@ -1,6 +1,7 @@
 <h2>パスワード再設定</h2>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+<%= form_with model: @customer, url: customer_password_path, method: :patch, class: 'registration-main', local: true do |f| %>
+
   <%= render "public/shared/error_messages", resource: resource %>
   <%= f.hidden_field :reset_password_token %>
 
@@ -22,4 +23,4 @@
   </div>
 <% end %>
 
-<%= render "publics/shared/links" %>
+<%= render "public/shared/links" %>

@@ -1,4 +1,4 @@
-<h2>パスワードをリセットしますか？</h2>
+<h2>パスワードの再設定をしますか？</h2>
 
 
 <%= form_with model: @custoemr, url: customer_password_path, class: 'registration-main', local: true do |f| %>
@@ -10,7 +10,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
+    <%= f.submit "入力したアドレスに再設定メールを送信" %>
   </div>
 <% end %>
 

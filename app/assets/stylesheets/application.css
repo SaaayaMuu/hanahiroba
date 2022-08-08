@@ -15,7 +15,9 @@
  */
 
 
+
 @import "skippr";
+
 
  * {
   margin:0;
@@ -23,12 +25,23 @@
   box-sizing: border-box;
 }
 
+header {
+  background-color: #008080;
+  color :#FFFFFF;
+}
+
+h2 {
+  text-align: center;
+  width: 170px;
+  background:linear-gradient(transparent 60%, #ffff66 0%);
+}
+
  #theTarget {
    width: 100%;
    height: 100vh;
    position: relative;
  }
-
+/*
 .image1 {
   background-image: url(image1.jpg);
   width: 100%;
@@ -72,7 +85,7 @@
   background-size: cover;
   background-position: top;
 }
-
+*/
 
 body{
     font-family: 'Segoe UI';
@@ -86,23 +99,32 @@ header h1{
     padding: 20px;
 
 }
-article
-{
+article{
     width: 80%;
     height: 400px;
     margin:auto;
     margin-top:10px;
-}
+ }
 
 
 .thumbnail{
     height: 100px;
     margin: 10px;
     float: left;
-}
+ }
+
+.item_thumbnail{
+    height: 100px;
+    margin: 10px;
+    float: left;
+ }
+
+ .add_item {
+   color: red;
+ }
 
 
-
+/*
 @media screen and (min-width: 1200px) {
   .image1 {
     background-image: url(image6.jpg);
@@ -125,5 +147,5 @@ article
     background-position: top center;
   }
 
-
+*/
 

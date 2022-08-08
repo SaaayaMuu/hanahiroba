@@ -1,4 +1,5 @@
 class Admin::DesignsController < ApplicationController
+  
   def index
   end
 
