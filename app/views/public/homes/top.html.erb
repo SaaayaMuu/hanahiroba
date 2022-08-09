@@ -1,21 +1,44 @@
-<body>
+
+  <div class="top-body">
 
 
-  
- 
-  
-  <div id="container">
-    <div id="theTarget">
-      <div class="image1"></div>
-      <div class="image2"></div>
-      <div class="image3"></div>
-      <div class="image4"></div>
-      <div class="image5"></div>
+    <div class="main">
+      <div class="menu1">
+        <%= link_to do %><span class="menu-text1">商品一覧</span><% end %>
+        <%= link_to do %><span class="menu-text2">カート</span><% end %>
+        <%= link_to do %><span class="menu-text3">お買い物ガイド</span><% end %>
       </div>
+
+      <div class="center-text">
+        <div class="hanahiroba"><%= link_to root_path, class: "hanahiroba-border" do %><span class="hanahiroba-text">花広場 ～つまみ細工～</span><% end %></div>
+        <div id="theTarget">
+          <div class="image1"></div>
+          <div class="image2"></div>
+          <div class="image3"></div>
+          <div class="image4"></div>
+        </div>
+        <% if customer_signed_in?%>
+        <div class="tsumami"><span class="tsumami-text">--身近にもっと和を--</span></div>
+        <% end %>
+      </div>
+
+      <% if customer_signed_in?%>
+      <div class="menu2">
+        <p class="customer-name"></p>
+        <%= link_to do %><span class="menu-text4">マイページ</span><% end %>
+        <%= link_to do %><span class="menu-text5">カート</span><% end %>
+        <%= link_to destroy_customer_session_path, method: :delete do %><span class="menu-text6">ログアウト</span><% end %>
+      </div>
+
+      <% else %>
+      <div class="menu2">
+        <%= link_to new_customer_registration_path do %><p class="menu-text5">新規登録</p><% end %>
+        <%= link_to new_customer_session_path do %><p class="menu-text6">ログイン</p><% end %>
+      </div>
+      <% end %>
     </div>
+
+
   </div>
 
 
-
-
-</body>

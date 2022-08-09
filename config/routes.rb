@@ -73,6 +73,10 @@ end
 #new_customer_registration GET    /customers/sign_up(.:format)              public/registrations#new
 #edit_customer_registration GET    /customers/edit(.:format)                public/registrations#edit
 
+#new_customer_session GET    /customers/sign_in(.:format)                   public/sessions#new
+#customer_session POST   /customers/sign_in(.:format)                       public/sessions#create
+#destroy_customer_session DELETE /customers/sign_out(.:format)              public/sessions#destroy
+
 #customers_unsubscribe GET    /customers/unsubscribe(.:format)              public/customers#unsubscribe
 #edit_customer GET    /customers/:id/edit(.:format)                         public/customers#edit
 #customer GET    /customers/:id(.:format)                                   public/customers#show

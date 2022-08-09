@@ -1,7 +1,7 @@
-<h2>パスワードの再設定をしますか？</h2>
+<h3>パスワードの再設定をしますか？</h3>
 
 
-<%= form_with model: @custoemr, url: customer_password_path, class: 'registration-main', local: true do |f| %>
+<%= form_with model: @customer, url: customer_password_path, class: 'registration-main', local: true do |f| %>
   <%= render "public/shared/error_messages", resource: resource %>
 
   <div class="field">

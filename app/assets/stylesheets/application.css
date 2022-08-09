@@ -18,17 +18,25 @@
 
 @import "skippr";
 
-
  * {
   margin:0;
   padding:0;
   box-sizing: border-box;
 }
 
+
+/*
 header {
   background-color: #008080;
   color :#FFFFFF;
 }
+*/
+
+body{
+  width: 100%;
+  background-color: #000;
+}
+
 
 h2 {
   text-align: center;
@@ -36,61 +44,234 @@ h2 {
   background:linear-gradient(transparent 60%, #ffff66 0%);
 }
 
+
+/*top画面*/
+
+.top-body {
+  font-family: 'Kaisei Tokumin', serif;
+}
+
+.main {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+
+}
+
+.center-text {
+   width: 90%;
+   height: 100%;
+}
+
  #theTarget {
    width: 100%;
-   height: 100vh;
+   height: 90%;
    position: relative;
  }
-/*
+
+ .hanahiroba {
+   width: 100%;
+   height: 5%;
+   border: double 7px #AA0000;
+   padding-left: 30px;
+   display:table;
+ }
+
+ .hanahiroba-text {
+    display:table-cell;
+    vertical-align:middle;
+    font-size: 30px;
+    font-family: 'Yuji Syuku', serif;
+    font-weight: bold;
+    color: #880000;
+ }
+
+ .tsumami {
+   width: 100%;
+   height: 5%;
+   border: double 7px #AA0000;
+   display:table;
+   text-align: right;
+   padding-right: 30px;
+ }
+
+ .tsumami-text {
+   display:table-cell;
+   vertical-align:middle;
+   font-size: 25px;
+   font-family: 'Yuji Syuku', serif;
+ }
+
+
+ .menu1 {
+   width: 5%;
+   height: auto;
+   position: relative;
+   font-size: 25px;
+   border: double 7px #AA0000;/*左線*/
+  }
+
+
+
+  .menu2 {
+    width: 5%;
+    height: 100%;
+    position: relative;
+    font-size: 25px;
+    border: double 7px #AA0000;/*左線*/
+  }
+
+
+  .menu-text1 {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    display: inline;
+    transform: translate(-50%, -50%);
+    writing-mode: vertical-rl;
+    color: #006633;
+    padding: 10px 0;
+    transition: 0.2s;
+  }
+  .menu-text1:hover {
+    font-size: 28px;
+  }
+
+  .menu-text2 {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    display: inline;
+    transform: translate(-50%, -50%);
+    writing-mode: vertical-rl;
+    color: #6600FF;
+    padding: 10px 0;
+    transition: 0.2s;
+  }
+  .menu-text2:hover {
+    font-size: 28px;
+  }
+
+  .menu-text3 {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    display: inline;
+    transform: translate(-50%, -50%);
+    writing-mode: vertical-rl;
+    color: #800000;
+    padding: 10px 0;
+    transition: 0.2s;
+  }
+  .menu-text3:hover {
+    font-size: 28px;
+  }
+
+  .menu-text4 {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    display: inline;
+    transform: translate(-50%, -50%);
+    writing-mode: vertical-rl;
+    color: #CC6600;
+    padding: 10px 0;
+    transition: 0.2s;
+  }
+  .menu-text4:hover {
+    font-size: 28px;
+  }
+
+  .menu-text5 {
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    display: inline;
+    transform: translate(-50%, -50%);
+    writing-mode: vertical-rl;
+    color:#6633CC;
+    padding: 10px 0;
+    transition: 0.2s;
+  }
+  .menu-text5:hover {
+    font-size: 28px;
+  }
+  .menu-text6 {
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    display: inline;
+    transform: translate(-50%, -50%);
+    writing-mode: vertical-rl;
+    color:#CC3366;
+    padding: 10px 0;
+    transition: 0.2s;
+  }
+  .menu-text6:hover {
+    font-size: 28px;
+  }
+
+
 .image1 {
-  background-image: url(image1.jpg);
-  width: 100%;
+  background-image: url(top1.jpg);
+  width: 90%;
   height: auto;
   background-size: cover;
   background-position: top;
 }
 .image2 {
-  background-image: url(image2.jpg);
+  background-image: url(top5.jpg);
   width: 100%;
   height: 100%;
   background-size: cover;
   background-position: top;
 }
 .image3 {
-  background-image: url(image3.jpg);
+  background-image: url(top2.jpg);
   width: 100%;
   height: 100%;
   background-size: cover;
   background-position: top;
 }
 .image4 {
-  background-image: url(image4.jpg);
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: top;
-}
-.image5 {
-  background-image: url(image5.jpg);
+  background-image: url(top7.jpg);
   width: 100%;
   height: 100%;
   background-size: cover;
   background-position: top;
 }
 
-.image6 {
-  background-image: url(image5.jpg);
-  width: 100%;
-  height: 1300px;
-  background-size: cover;
-  background-position: top;
+section {
+  width :100%;
+  height: 600px;
+  position: relative;
+  margin-top: 50px;
+  text-align: center;
 }
-*/
 
-body{
-    font-family: 'Segoe UI';
-    font-size: 12pt;
+.title {
+    position: absolute;
+    top: 30%;
+    left: 80%;
+    display: inline;
+    transform: translate(-50%, -50%);
+    writing-mode: vertical-rl;
 }
+
+.introduction {
+    line-height: 40px;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    display: inline;
+    transform: translate(-50%, -50%);
+    writing-mode: vertical-rl;
+}
+
+
+/*topここまで*/
+
 
 header h1{
     font-size:12pt;
@@ -149,3 +330,107 @@ article{
 
 */
 
+
+@media screen and (max-height: 1058px) {
+  .menu-text4 {
+    top: 40%;
+  }
+  .menu-text5 {
+    top: 60%;
+  }
+  .menu-text6 {
+    top: 80%;
+  }
+}
+
+
+
+@media screen and (max-width: 1187px) {
+
+  .menu1 {
+   font-size: 1em;
+  }
+
+  .menu2 {
+   font-size: 1em;
+  }
+}
+
+
+@media screen and (max-height: 1200px) {
+
+  #theTarget {
+   height: 86%;
+ }
+
+ .hanahiroba {
+   height: 7%;
+ }
+
+ .tsumami {
+   height: 7%;
+ }
+
+}
+
+@media screen and (max-height: 883px) {
+
+  .hanahiroba-text {
+    font-size: 1.5em;
+  }
+
+  .tsumami-text {
+    font-size: 1.5em;
+  }
+
+  .menu1 {
+   font-size: 20px;
+ }
+
+ .menu2 {
+   font-size: 20px;
+ }
+
+}
+
+@media screen and (max-height: 700px) {
+  .menu-text4 {
+    top: 35%;
+  }
+  .menu-text5 {
+    top: 55%;
+  }
+  .menu-text6 {
+    top: 75%;
+  }
+
+
+}
+@media screen and (max-width: 500px) {
+
+  .center-texxt {
+   width: 82%;
+ }
+
+ .menu1 {
+   width: 9%;
+ }
+
+ .menu2 {
+   width: 9%;
+ }
+
+ .tsumami-text {
+   text-align: center;
+   padding-right: 0;
+ }
+
+  .hanahiroba-text {
+    font-size: 20px;
+  }
+
+  .tsumami-text {
+    font-size: 20px;
+  }
+
+}

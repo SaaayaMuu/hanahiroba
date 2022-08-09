@@ -42,3 +42,5 @@ yarn-debug.log*
 db/seeds.rb
 config/environments/development.rb
 config/initializers/devise.rb
+
+/.env
