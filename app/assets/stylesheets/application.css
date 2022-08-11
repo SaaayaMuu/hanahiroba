@@ -37,241 +37,238 @@ body{
   background-color: #000;
 }
 
+.container {
+  width: 100%;
+  height: 100vh;
+}
 
-h2 {
+
+
+h3 {
   text-align: center;
   width: 170px;
   background:linear-gradient(transparent 60%, #ffff66 0%);
 }
 
-
+.path:hover {
+    text-decoration: none;
+  }
+.path_line:hover {
+   text-decoration-color: white;
+}
 /*top画面*/
-
-.top-body {
+.top-container {
+  width: 100%;
+  height: 100vh;
   font-family: 'Kaisei Tokumin', serif;
 }
 
-.main {
-  margin: 0;
-  height: 100vh;
+
+.row-header {
+  width: 100%;
+  height: 7%;
+  border: double 7px #AA0000;
+  display:table;
+  padding-left: 20px;
+}
+.header-text {
+  font-family: 'Yuji Syuku', serif;
+  font-weight: bold;
+  display:table-cell;
+  vertical-align:middle;
+  font-size: 2em;
+  color: #880000;
+}
+
+.row-center {
+  width: 100%;
+  height: 86%;
   display: flex;
   justify-content: center;
-
+  font-size: 1.5em;
 }
 
-.center-text {
-   width: 90%;
-   height: 100%;
+.m1-center{
+  writing-mode: vertical-rl;
+  border: double 7px #AA0000;
 }
 
- #theTarget {
-   width: 100%;
-   height: 90%;
-   position: relative;
- }
-
- .hanahiroba {
-   width: 100%;
-   height: 5%;
-   border: double 7px #AA0000;
-   padding-left: 30px;
-   display:table;
- }
-
- .hanahiroba-text {
-    display:table-cell;
-    vertical-align:middle;
-    font-size: 30px;
-    font-family: 'Yuji Syuku', serif;
-    font-weight: bold;
-    color: #880000;
- }
-
- .tsumami {
-   width: 100%;
-   height: 5%;
-   border: double 7px #AA0000;
-   display:table;
-   text-align: right;
-   padding-right: 30px;
- }
-
- .tsumami-text {
-   display:table-cell;
-   vertical-align:middle;
-   font-size: 25px;
-   font-family: 'Yuji Syuku', serif;
- }
-
-
- .menu1 {
-   width: 5%;
-   height: auto;
-   position: relative;
-   font-size: 25px;
-   border: double 7px #AA0000;/*左線*/
-  }
-
-
-
-  .menu2 {
-    width: 5%;
-    height: 100%;
-    position: relative;
-    font-size: 25px;
-    border: double 7px #AA0000;/*左線*/
-  }
-
-
-  .menu-text1 {
-    position: absolute;
-    top: 10%;
-    left: 50%;
-    display: inline;
-    transform: translate(-50%, -50%);
-    writing-mode: vertical-rl;
-    color: #006633;
-    padding: 10px 0;
-    transition: 0.2s;
-  }
-  .menu-text1:hover {
-    font-size: 28px;
-  }
-
-  .menu-text2 {
-    position: absolute;
-    top: 30%;
-    left: 50%;
-    display: inline;
-    transform: translate(-50%, -50%);
-    writing-mode: vertical-rl;
-    color: #6600FF;
-    padding: 10px 0;
-    transition: 0.2s;
-  }
-  .menu-text2:hover {
-    font-size: 28px;
-  }
-
-  .menu-text3 {
-    position: absolute;
-    top: 55%;
-    left: 50%;
-    display: inline;
-    transform: translate(-50%, -50%);
-    writing-mode: vertical-rl;
-    color: #800000;
-    padding: 10px 0;
-    transition: 0.2s;
-  }
-  .menu-text3:hover {
-    font-size: 28px;
-  }
-
-  .menu-text4 {
-    position: absolute;
-    top: 45%;
-    left: 50%;
-    display: inline;
-    transform: translate(-50%, -50%);
-    writing-mode: vertical-rl;
-    color: #CC6600;
-    padding: 10px 0;
-    transition: 0.2s;
-  }
-  .menu-text4:hover {
-    font-size: 28px;
-  }
-
-  .menu-text5 {
-    position: absolute;
-    top: 65%;
-    left: 50%;
-    display: inline;
-    transform: translate(-50%, -50%);
-    writing-mode: vertical-rl;
-    color:#6633CC;
-    padding: 10px 0;
-    transition: 0.2s;
-  }
-  .menu-text5:hover {
-    font-size: 28px;
-  }
-  .menu-text6 {
-    position: absolute;
-    top: 85%;
-    left: 50%;
-    display: inline;
-    transform: translate(-50%, -50%);
-    writing-mode: vertical-rl;
-    color:#CC3366;
-    padding: 10px 0;
-    transition: 0.2s;
-  }
-  .menu-text6:hover {
-    font-size: 28px;
-  }
-
+.photo-center {
+  width: 100%;
+  height: 100%;
+  z-index: 0 !important;
+}
 
 .image1 {
   background-image: url(top1.jpg);
-  width: 90%;
-  height: auto;
-  background-size: cover;
+  background-size: contain;
   background-position: top;
 }
 .image2 {
   background-image: url(top5.jpg);
-  width: 100%;
-  height: 100%;
   background-size: cover;
   background-position: top;
 }
 .image3 {
   background-image: url(top2.jpg);
-  width: 100%;
-  height: 100%;
   background-size: cover;
   background-position: top;
 }
 .image4 {
   background-image: url(top7.jpg);
-  width: 100%;
-  height: 100%;
   background-size: cover;
   background-position: top;
 }
 
-section {
-  width :100%;
-  height: 600px;
-  position: relative;
-  margin-top: 50px;
-  text-align: center;
+.row-footer {
+  width: 100%;
+  height: 7%;
+  border: double 7px #AA0000;
+  display:table;
+  padding-right: 20px;
+}
+.footer-text {
+  font-family: 'Yuji Syuku', serif;
+  display:table-cell;
+  vertical-align:middle;
+  text-align: right;
+  font-size: 1.5em;
 }
 
-.title {
+.menu-text1 {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #006633;
+    transition: 0.2s;
+ }
+.menu-text1:hover {
+    font-size: 28px;
+ }
+
+.menu-text2 {
     position: absolute;
     top: 30%;
-    left: 80%;
-    display: inline;
-    transform: translate(-50%, -50%);
-    writing-mode: vertical-rl;
-}
-
-.introduction {
-    line-height: 40px;
-    position: absolute;
-    top: 35%;
     left: 50%;
-    display: inline;
     transform: translate(-50%, -50%);
-    writing-mode: vertical-rl;
+    color: #6600FF;
+    transition: 0.2s;
+ }
+ .menu-text2:hover {
+    font-size: 28px;
+ }
+
+.menu-text3 {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #800000;
+    transition: 0.2s;
+ }
+ .menu-text3:hover {
+    font-size: 28px;
+ }
+
+.menu-text4 {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #CC6600;
+    transition: 0.2s;
 }
-
-
+.menu-text4:hover {
+    font-size: 28px;
+ }
+.menu-text5 {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color:#6633CC;
+    transition: 0.2s;
+}
+.menu-text5:hover {
+    font-size: 28px;
+ }
+/* ---------------------------- */
+/* ---- ハンバーガーアイコン ---- */
+/* ---------------------------- */
+#hm-icon {
+  display:none;
+  position: fixed;
+  right: 20px;
+  top: 10px;
+  z-index: 10;
+  vertical-align:middle;
+  font-size: 30px;
+}
+.menu-trigger,
+.menu-trigger span {
+  display: inline-block;
+  transition: all .4s;
+  box-sizing: border-box;
+}
+.menu-trigger {
+  position: relative;
+  width: 30px;
+  height: 30px;
+}
+.menu-trigger span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #006633;
+}
+.menu-trigger span:nth-child(1) {
+  top: 5px;
+}
+.menu-trigger span:nth-child(2) {
+  top: 15px;
+}
+.menu-trigger span:nth-child(3) {
+  bottom: 0px;
+}
+.menu-trigger.active span:nth-child(1) {
+  -webkit-transform: translateY(10px) rotate(-40deg);
+  transform: translateY(10px) rotate(-40deg);
+  background-color: #fff;
+}
+.menu-trigger.active span:nth-child(2) {
+  opacity: 0;
+}
+.menu-trigger.active span:nth-child(3) {
+  -webkit-transform: translateY(-10px) rotate(40deg);
+  transform: translateY(-10px) rotate(40deg);
+  background-color: #fff;
+}
+/* ------ spメニュー ------ */
+#sp-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.6);
+  color: #fff;
+  width: 100%;
+  min-height: 100%;
+  display: none;
+  z-index: 9;
+}
+/*ハンバーガーメニュー一覧*/
+.menu-content {
+  margin-top: 50%;
+}
+#sp-menu li {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #fff;
+  font-weight: bold;
+}
+/*ハンバーガーここまで*/
 /*topここまで*/
-
 
 header h1{
     font-size:12pt;
@@ -280,13 +277,12 @@ header h1{
     padding: 20px;
 
 }
+
 article{
-    width: 80%;
     height: 400px;
     margin:auto;
     margin-top:10px;
  }
-
 
 .thumbnail{
     height: 100px;
@@ -304,133 +300,82 @@ article{
    color: red;
  }
 
+#result {
+  display: flex;
+  flex-wrap: wrap;
+}
 
-/*
-@media screen and (min-width: 1200px) {
+
+@media screen and (max-width: 800px) {
   .image1 {
-    background-image: url(image6.jpg);
-    background-position: bottom center;
-  }
-  .image2 {
-    background-image: url(image7.jpg);
-    background-position: top right;
-  }
-  .image3 {
-    background-image: url(image8.jpg);
-    background-position: top center;
-  }
-  .image4 {
-    background-image: url(image9.jpg);
+    background-image: url(top1_2.jpg);
+    background-size: cover;
     background-position: top;
   }
-  .image5 {
-    background-image: url(image10.jpg);
-    background-position: top center;
-  }
 
-*/
-
-
-@media screen and (max-height: 1058px) {
-  .menu-text4 {
-    top: 40%;
+  .image2 {
+    background-image: url(top5_3.jpg);
+    background-size: cover;
+    background-position: left;
   }
-  .menu-text5 {
-    top: 60%;
+  .image3 {
+    background-image: url(top2_3.jpg);
+    background-size: cover;
+    background-position: top right;
   }
-  .menu-text6 {
-    top: 80%;
+  .row-center {
+    font-size: 1.2em;
+  }
+}
+@media screen and (max-width: 576px) {
+  .m1-center {
+    display: none;
+  }
+/*スマホサイズ(ハンバーガーメニュー用)*/
+  #hm-icon {
+    display:block;
   }
 }
 
 
-
-@media screen and (max-width: 1187px) {
-
-  .menu1 {
-   font-size: 1em;
-  }
-
-  .menu2 {
-   font-size: 1em;
-  }
-}
-
-
-@media screen and (max-height: 1200px) {
-
-  #theTarget {
-   height: 86%;
- }
-
- .hanahiroba {
-   height: 7%;
- }
-
- .tsumami {
-   height: 7%;
- }
-
-}
-
-@media screen and (max-height: 883px) {
-
-  .hanahiroba-text {
-    font-size: 1.5em;
-  }
-
-  .tsumami-text {
-    font-size: 1.5em;
-  }
-
-  .menu1 {
-   font-size: 20px;
- }
-
- .menu2 {
-   font-size: 20px;
- }
-
-}
-
-@media screen and (max-height: 700px) {
-  .menu-text4 {
-    top: 35%;
-  }
-  .menu-text5 {
-    top: 55%;
-  }
-  .menu-text6 {
-    top: 75%;
-  }
-
-
-}
-@media screen and (max-width: 500px) {
-
-  .center-texxt {
-   width: 82%;
- }
-
- .menu1 {
-   width: 9%;
- }
-
- .menu2 {
-   width: 9%;
- }
-
- .tsumami-text {
-   text-align: center;
-   padding-right: 0;
- }
-
-  .hanahiroba-text {
+@media screen and (max-height: 900px) {
+  #hm-icon {
     font-size: 20px;
-  }
+ }
 
-  .tsumami-text {
-    font-size: 20px;
-  }
+ .header-text {
+   font-size: 1.4em;
+ }
+ .footer-text {
+   font-size: 1.2em;
+ }
 
+  .menu-trigger span:nth-child(1) {
+    top: 5px;
+ }
+  .menu-trigger span:nth-child(2) {
+    top: 12px;
+ }
+  .menu-trigger span:nth-child(3) {
+    top: 19px;
+ }
+  .menu-trigger {
+    position: relative;
+    width: 20px;
+    height: 20px;
+ }
+
+ .menu-trigger.active span:nth-child(1) {
+    -webkit-transform: translateY(7px) rotate(-40deg);
+    transform: translateY(7px) rotate(-40deg);
+    background-color: #fff;
+}
+ .menu-trigger.active span:nth-child(2) {
+    opacity: 0;
+}
+ .menu-trigger.active span:nth-child(3) {
+    -webkit-transform: translateY(-7px) rotate(40deg);
+    transform: translateY(-7px) rotate(40deg);
+    background-color: #fff;
+}
 }

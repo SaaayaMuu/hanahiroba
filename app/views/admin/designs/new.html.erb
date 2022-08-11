@@ -16,54 +16,53 @@
 
 -->
 
-
-
-
-
-<body>
-
   <%= form_with model: @design, url: admin_designs_path, local: true do |f| %>
   <div class="container">
 
-  <h2 class="mb-3">商品追加</h2>
 
-  <article>
+    <h3 class="mb-3 mt-3">デザイン</h3>
+    <article>
       <label for="files">画像追加</label>
-      <input id="files" type="file" multiple/>
+      <input id="files" type="file", accept="image/*", multiple/>
       <output id="result" />
-  </article>
+    </article>
 
-  <label for="design[name]">デザイン名</label>
-  <%= f.text_field :name, autofocus: true, required: true%><br>
+    <div class="row">
+      <div class="col-2"><label for="design[name]">デザイン名</label></div>
+      <div class="col-auto"><%= f.text_field :name, autofocus: true, required: true%></div>
+    </div>
 
-  <label for="design[introduction]">デザイン説明</label>
-  <%= f.text_area :introduction, required: true%><br>
+    <div class="row">
+      <div class="col-2"><label for="design[introduction]">デザイン説明</label></div>
+      <div class="col-auto"><%= f.text_area :introduction, required: true%></div>
+    </div>
+    <div class="row">
+      <div class="col-2"><label for="design[genre_id]">ジャンル</label></div>
+      <div class="col-auto"><%= f.collection_select :genre_id, Genre.all, :id, :name, {:include_blank => "ジャンルを選択"},{required: true} %></div>
+    </div>
+    <div class="row">
+      <div class="col-2"><label for="design[price]">税抜価格</label></div>
+      <div class="col-auto"><%= f.text_field :price, required: true%></div>
+    </div>
 
-  <label for="design[genre_id]">ジャンル</label>
-  <%= f.collection_select :genre_id, Genre.all, :id, :name, {:include_blank => "ジャンルを選択"},{required: true} %><br>
+    <%= f.fields_for @item, url: admin_items_path, local: true do |f| %>
 
-  <label for="design[price]">税抜価格</label>
-  <%= f.text_field :price, required: true%><br>
-
-
-  <h3 class="add_item">商品追加</h3>
-
-  <%= f.fields_for @item, url: admin_items_path, local: true do |f| %>
-
-  <article>
+    <h3 class="mb-3 mt-3">商品</h3>
+    <article>
       <label for="item_files">画像追加</label>
       <input id="item_files" type="file" multiple/>
       <output id="result" />
-  </article>
+  　</article>
 
-  <label for="item[is_active]">販売ステータス</label>
-  <label><input type="radio" name="item[is_active]" class="check" value="true" checked="checked">販売中</label>
-  <label><input type="radio" name="item[is_active]" class="check" value="false">販売停止中</label><br>
+  　<div class="row">
+      <div class="col-2"><label for="item[is_active]">税抜価格</label></div>
+      <div class="col-auto">
+        <label><input type="radio" name="item[is_active]" class="check" value="true" checked="checked">販売中</label>
+        <label><input type="radio" name="item[is_active]" class="check" value="false">販売停止中</label><br></div>
+    </div>
 
 
-  <%= f.submit '保存' %>
+    <%= f.submit '保存' %>
+  </div>
   <% end %>
   <% end %>
-
-</div>
-</body>
