@@ -5,7 +5,7 @@ class CreateDesigns < ActiveRecord::Migration[6.1]
      t.integer :genre_id, null: false
      t.string :design_name, null: false
      t.text :design_introduction , null: false
-     t.integer :price, null: false
+     t.integer :design_price, null: false
      
      
       t.timestamps

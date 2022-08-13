@@ -1,0 +1,32 @@
+
+
+  <div class="item-content col-4">
+    <label for="item[image]">画像追加</label>
+    <%= item.file_field :image, accept: "image/*" , required: true %>
+
+    <div class="row">
+      <label for="item[item_introduction]">商品説明</label>
+      <div class="col-auto"><%= item.text_area :item_introduction %></div>
+    </div>
+    <div class="row">
+      <label for="item[item_price]">税抜価格</label>
+        <div class="col-auto"><%= item.text_field :item_price %></div>
+    </div>
+    <div class="row">
+      <label for="item[stock]">在庫数</label>
+      <div class="col-auto ml-3"><%= item.number_field :stock ,min: 1, max:10 %></div>
+    </div>
+
+    <div class="row">
+    <!--  <label><input type="radio" name="item[is_active]" class="check" value="true" checked="checked">販売中</label>-->
+    <!--  <label><input type="radio" name="item[is_active]" class="check" value="false">販売停止中</label><br>-->
+      <%= item.radio_button :is_active, true, checked: true %>
+      <%= item.label :is_active, "販売中", {value: true, style: "display: inline-block;"} %>
+      <%= item.radio_button :is_active, false, checked: false %>
+      <%= item.label :is_active, "販売停止中", {value: false, style: "display: inline-block;"} %>
+    </div>
+    <div class="row">
+      <%= link_to_remove_association "削除", item, class: "btn btn-danger btn-block mb-3" %>
+    </div>
+  </div>
+

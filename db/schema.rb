@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(version: 2022_08_05_152542) do
     t.integer "genre_id", null: false
     t.string "design_name", null: false
     t.text "design_introduction", null: false
-    t.integer "price", null: false
+    t.integer "design_price", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -90,7 +90,7 @@ ActiveRecord::Schema.define(version: 2022_08_05_152542) do
   create_table "items", force: :cascade do |t|
     t.integer "design_id", null: false
     t.text "item_introduction", null: false
-    t.integer "price", null: false
+    t.integer "item_price", null: false
     t.integer "stock", null: false
     t.boolean "is_active", default: true, null: false
     t.datetime "created_at", precision: 6, null: false

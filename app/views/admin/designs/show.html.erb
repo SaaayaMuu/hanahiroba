@@ -1,2 +1,51 @@
-<h1>Admin::Designs#show</h1>
-<p>Find me in app/views/admin/designs/show.html.erb</p>
+<div class="container mt-5">
+
+  <h3 class="mb-3 mt-3">デザイン</h3>
+  <div class="row d-flex flex-wrap">
+    <% @design.images.each do |image| %>
+      <%= image_tag image.variant(resize: "200x200"), class:"border" %>
+    <% end %>
+  </div>
+
+
+  <div class="justify-content-center">
+    <div>
+      <label for="" class="col-2 p-0 font-weight-bold">デザイン名</label>
+      <%= @design.design_name %>
+    </div>
+    <div>
+      <label for="" class="col-2 p-0 font-weight-bold">デザイン説明</label>
+      <%= @design.design_introduction %>
+    </div>
+    <div>
+      <label for="" class="col-2 p-0 font-weight-bold">ジャンル</label>
+      <%= @design.genre.name %>
+    </div>
+    <div>
+      <label for="" class="col-2 p-0 font-weight-bold">デザイン価格</label>
+      <%= "￥" %><%= @design.design_price %>
+    </div>
+  </div>
+
+<h3 class="mb-3 mt-3">商品</h3>
+<div class="row d-flex justify-content-start">
+  <%= @design.items.each do |item|%>
+    <div class="col-3">
+      <%= image_tag item.image.variant(resize: "200x200"), class:"border" %><br>
+        <label for="" class="col-5 p-0 font-weight-bold">商品価格</label>
+          <%= "￥" %><%= item.item_price %><br>
+        <label for="" class="col-5 p-0 font-weight-bold">在庫数</label>
+          <%= item.stock %><br>
+        <label for="" class="col-5 p-0 font-weight-bold">販売status</label>
+          <%= item.is_active ? '販売中' : '販売停止中' %>
+        <label for="" class="col-5 p-0 font-weight-bold">商品説明</label>
+        <%= item.item_introduction %>
+    </div>
+  <% end %>
+</div>
+<div class="row justify-content-center">
+  <div class="col-4">
+    <%= link_to "編集する", edit_admin_design_path, class: "btn btn-primary btn-block" %>
+  </div>
+</div>
+</div>

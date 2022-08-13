@@ -1,8 +1,22 @@
-<h1>Admin::Designs#index</h1>
-<p>Find me in app/views/admin/designs/index.html.erb</p>
+<h3 class="mb-3 mt-3">デザイン</h3>
 
-<div class="photo-center col-xl-10 col-lg-10 col-md-10 p-0">
-  <div class="index-box">
-      <div class="index-image"></div>
-  </div>
-</div>
+<table class="table">
+  <thead>
+    <th>商品ID</th>
+    <th></th>
+    <th>デザイン名</th>
+    <th>ジャンル</th>
+    <th>税抜価格</th>
+  </thead>
+  <tbody>
+  <% @designs.each do |design| %>
+  <tr>
+    <td><%= link_to admin_design_path(design.id) do %><%= design.id %><% end %></td>
+    <td></td>
+    <td><%= design.design_name %></td>
+    <td><%= design.genre.name %></td>
+    <td><%= design.design_price %></td>
+  </tr>
+  <% end %>
+  </tbody>
+

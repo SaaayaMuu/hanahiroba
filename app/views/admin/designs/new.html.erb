@@ -1,40 +1,21 @@
-<!--
-<h1>商品追加</h1>
-
-<%= form_with model: @design, url: admin_designs_path, local: true do |f| %>
-
-
-  <%= f.file_field :images, direct_upload: true, multiple: true %>
-
-<% end %>
-
-<% if @design.images.attached? %>
-  <% @design.images.each do |image| %>
-    <%= image_tag image.variant(resize: '300x100').processed %>
-  <% end %>
-<% end %>
-
--->
 
   <%= form_with model: @design, url: admin_designs_path, local: true do |f| %>
   <div class="container">
-
-
     <h3 class="mb-3 mt-3">デザイン</h3>
     <article>
-      <label for="files">画像追加</label>
-      <input id="files" type="file", accept="image/*", multiple/>
+      <label for="images">画像追加</label>
+      <%= f.file_field :images, accept: "image/*" , required: true, multiple: true %>
       <output id="result" />
     </article>
 
     <div class="row">
       <div class="col-2"><label for="design[name]">デザイン名</label></div>
-      <div class="col-auto"><%= f.text_field :name, autofocus: true, required: true%></div>
+      <div class="col-auto"><%= f.text_field :design_name, autofocus: true, required: true%></div>
     </div>
 
     <div class="row">
       <div class="col-2"><label for="design[introduction]">デザイン説明</label></div>
-      <div class="col-auto"><%= f.text_area :introduction, required: true%></div>
+      <div class="col-auto"><%= f.text_area :design_introduction, required: true%></div>
     </div>
     <div class="row">
       <div class="col-2"><label for="design[genre_id]">ジャンル</label></div>
@@ -42,27 +23,51 @@
     </div>
     <div class="row">
       <div class="col-2"><label for="design[price]">税抜価格</label></div>
-      <div class="col-auto"><%= f.text_field :price, required: true%></div>
+      <div class="col-auto"><%= f.text_field :design_price, required: true%></div>
     </div>
 
-    <%= f.fields_for @item, url: admin_items_path, local: true do |f| %>
 
     <h3 class="mb-3 mt-3">商品</h3>
-    <article>
-      <label for="item_files">画像追加</label>
-      <input id="item_files" type="file" multiple/>
-      <output id="result" />
-  　</article>
 
-  　<div class="row">
-      <div class="col-2"><label for="item[is_active]">税抜価格</label></div>
-      <div class="col-auto">
-        <label><input type="radio" name="item[is_active]" class="check" value="true" checked="checked">販売中</label>
-        <label><input type="radio" name="item[is_active]" class="check" value="false">販売停止中</label><br></div>
+    <!--<button>追加する</button>-->
+    <!--<%#= f.fields_for :items do |item| %>-->
+    <!--<%# end %>-->
+
+    <%= link_to_add_association '商品の追加',
+                              # form_withのformタグ変数
+                              f,
+                              # フォームのデータを追加するモデル名
+                              :items,
+                              # 追加するフォームの部分テンプレート
+                              partial: "item-form",
+                              # オプション
+                              data: {
+                                # フォームを追加する場所の指定
+                                association_insertion_node: '#item-forms',
+                                # フォームを前後どの位置に追加するか。(初期値: before)
+                                association_insertion_method: 'before'
+                              },
+                              # フォームオブジェクトを指定する場合(初期値 : f)
+                              form_name: 'item',
+                              # 部分テンプレートに渡す変数があれば記述
+                              render_options: {
+                                locals: {
+                                  # 通常の部分テンプレートと同じ記述
+                                }
+                              }
+  %>
+
+    <%#= f.fields_for :items do |item| %>
+      <%#= render partial: 'item-form', locals: {item: item} %>
+    <%# end %>
+    <div id="item-forms">
+    <%= f.fields_for :items do |item| %>
+      <div class="d-flex flex-wrap">
+      <%= render partial: 'item-form', locals: {item: item} %>
+      </div>
+    <% end %>
     </div>
 
 
-    <%= f.submit '保存' %>
-  </div>
-  <% end %>
+    <div class="row mt-5 justify-content-center"><%= f.submit '保存', class: "btn btn-sm btn-primary px-4 py-1" %></div>
   <% end %>

@@ -1,15 +1,4 @@
 
-$(function () {
-  function end_loader() {
-    $('.loader').fadeOut(800);
-  }
-  $(window).on('load', function () {
-    setTimeout(function () {
-      end_loader();
-    }, 3000)
-  })
-})
-
 
 //スライドショー
 $(document).ready(function () {
@@ -37,6 +26,7 @@ $(document).ready(function () {
   });
 });
 
+/*ハンバーガーメニュー*/
 $(function() {
   $('.menu-trigger').on('click', function(event) {
     $(this).toggleClass('active');
@@ -47,12 +37,13 @@ $(function() {
 
 
 
+
 window.onload = function(){
 
     //Check File API support
     if(window.File && window.FileList && window.FileReader)
     {
-        var filesInput = document.getElementById("files");
+        var filesInput = document.getElementById("design_images");
 
         filesInput.addEventListener("change", function(event){
 
@@ -93,5 +84,6 @@ window.onload = function(){
         console.log("Your browser does not support File API");
     }
 }
+
 
 
