@@ -1,0 +1,23 @@
+<div class="design-body">
+<div class="design-header">
+  <div class="design-nav"></div>
+</div>
+
+<div class="design-header2">
+</div>
+<div class="design-header3">
+</div>
+
+
+<% if @genre_id == '0' %>
+  <% @design_id == '0'.design.each do |design| %>
+    <%= image_tag design.image.variant(resize: "200x200")%>
+  <% end %>
+<% elsif @genre_id == '2' %>
+　<p>なし</p>
+<% end %>
+
+<div class="design-footer">
+  <div class="icon"></div>
+</div>
+</div>

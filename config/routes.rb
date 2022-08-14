@@ -1,16 +1,8 @@
 Rails.application.routes.draw do
 
 
-
-  namespace :admin do
-    get 'customers/index'
-    get 'customers/edit'
-    get 'customers/show'
-  end
   root to: 'public/homes#top'
 
-  namespace :public do
-  end
 # 顧客用
 # URL /customers/sign_in ...
 devise_for :customers, controllers: {
@@ -28,7 +20,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 
   namespace :admin do
     resources :designs, only: [:new, :create, :show, :edit, :update, :index, :destroy]
-    resources :items, only: [:create]
+    resources :items, only: [:create, :destroy]
     resources :genres, only: [:index, :edit, :create, :update, :destroy]
     resources :customers, only: [:index, :show, :edit, :update]
   end
@@ -36,7 +28,8 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   scope module: :public do
     get '/customers/unsubscribe' => 'customers#unsubscribe'
     resources :customers, only: [:show, :edit, :unsubscribe]
-
+    resources :designs, only: [:index, :show]
+    resources :genres, only: [:index]
   end
 end
 
@@ -76,6 +69,11 @@ end
 #new_customer_session GET    /customers/sign_in(.:format)                   public/sessions#new
 #customer_session POST   /customers/sign_in(.:format)                       public/sessions#create
 #destroy_customer_session DELETE /customers/sign_out(.:format)              public/sessions#destroy
+
+#genres GET    /genres(.:format)                                            public/genres#index
+
+#designs GET    /designs(.:format)                                          public/designs#index
+#design GET    /designs/:id(.:format)                                       public/designs#show
 
 #customers_unsubscribe GET    /customers/unsubscribe(.:format)              public/customers#unsubscribe
 #edit_customer GET    /customers/:id/edit(.:format)                         public/customers#edit

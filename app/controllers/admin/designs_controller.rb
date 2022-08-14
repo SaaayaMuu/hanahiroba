@@ -28,6 +28,22 @@ class Admin::DesignsController < ApplicationController
     @items = @design.items.all
   end
 
+  def update
+    @design= Design.find(params[:id])
+    if @design.update(design_params)
+      redirect_to admin_design_path(@design.id)
+    else
+      redirect_to admin_genres_path
+    end
+  end
+
+  def destroy
+    @design = Design.find(params[:id])
+    @design.destroy
+    redirect_to admin_designs_path
+  end
+
+
   private
 
   def design_params

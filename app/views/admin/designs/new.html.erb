@@ -3,26 +3,26 @@
   <div class="container">
     <h3 class="mb-3 mt-3">デザイン</h3>
     <article>
-      <label for="images">画像追加</label>
+      <label for="images" class="font-weight-bold">画像追加</label>
       <%= f.file_field :images, accept: "image/*" , required: true, multiple: true %>
       <output id="result" />
     </article>
 
-    <div class="row">
-      <div class="col-2"><label for="design[name]">デザイン名</label></div>
+    <div class="row mt-2">
+      <div class="col-md-2 col-sm-3 font-weight-bold"><label for="design[name]">デザイン名</label></div>
       <div class="col-auto"><%= f.text_field :design_name, autofocus: true, required: true%></div>
     </div>
 
     <div class="row">
-      <div class="col-2"><label for="design[introduction]">デザイン説明</label></div>
+      <div class="col-md-2 col-sm-3 font-weight-bold"><label for="design[introduction]">デザイン説明</label></div>
       <div class="col-auto"><%= f.text_area :design_introduction, required: true%></div>
     </div>
     <div class="row">
-      <div class="col-2"><label for="design[genre_id]">ジャンル</label></div>
+      <div class="col-md-2 col-sm-3 font-weight-bold"><label for="design[genre_id]">ジャンル</label></div>
       <div class="col-auto"><%= f.collection_select :genre_id, Genre.all, :id, :name, {:include_blank => "ジャンルを選択"},{required: true} %></div>
     </div>
     <div class="row">
-      <div class="col-2"><label for="design[price]">税抜価格</label></div>
+      <div class="col-md-2 col-sm-3 font-weight-bold"><label for="design[price]">税抜価格</label></div>
       <div class="col-auto"><%= f.text_field :design_price, required: true%></div>
     </div>
 
@@ -33,11 +33,11 @@
     <!--<%#= f.fields_for :items do |item| %>-->
     <!--<%# end %>-->
 
-    <%= link_to_add_association '商品の追加',
+    <%= link_to_add_association '＋''商品を追加',
                               # form_withのformタグ変数
                               f,
                               # フォームのデータを追加するモデル名
-                              :items,
+                              :items, class: 'btn btn-success mb-3',
                               # 追加するフォームの部分テンプレート
                               partial: "item-form",
                               # オプション
@@ -60,12 +60,11 @@
     <%#= f.fields_for :items do |item| %>
       <%#= render partial: 'item-form', locals: {item: item} %>
     <%# end %>
-    <div id="item-forms">
+
     <%= f.fields_for :items do |item| %>
-      <div class="d-flex flex-wrap">
       <%= render partial: 'item-form', locals: {item: item} %>
-      </div>
     <% end %>
+    <div id="item-forms">
     </div>
 
 

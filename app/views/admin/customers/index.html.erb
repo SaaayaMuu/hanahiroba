@@ -15,7 +15,7 @@
       <td><%= link_to admin_customer_path(customer.id) do %><%= customer.id %><% end %></td>
       <td><%= customer.last_name %><%= customer.first_name %></td>
       <td><%= customer.created_at %></td>
-      <td><%= customer.is_deleted %></td>
+      <td><%= customer.is_deleted ? '退会' : '会員'%></td>
     </tr>
     <% end %>
   </table>

@@ -1,9 +1,11 @@
-<div class="container mt-5">
+<div class="container">
 
-  <h3 class="mb-3 mt-3">デザイン</h3>
+  <h3 class="mb-3 mt-3">デザイン詳細</h3>
+
+  <h4 class="mb-3 mt-3 font-weight-bold border-bottom">デザイン</h3>
   <div class="row d-flex flex-wrap">
     <% @design.images.each do |image| %>
-      <%= image_tag image.variant(resize: "200x200"), class:"border" %>
+      <%= image_tag image.variant(resize: "200x200"), class:"pl-3" %>
     <% end %>
   </div>
 
@@ -27,11 +29,13 @@
     </div>
   </div>
 
-<h3 class="mb-3 mt-3">商品</h3>
+<h4 class="mb-3 mt-3 font-weight-bold border-bottom">商品</h3>
 <div class="row d-flex justify-content-start">
   <%= @design.items.each do |item|%>
     <div class="col-3">
       <%= image_tag item.image.variant(resize: "200x200"), class:"border" %><br>
+        <label for="" class="col-5 p-0 font-weight-bold">商品ID</label>
+          <%= item.id %><br>
         <label for="" class="col-5 p-0 font-weight-bold">商品価格</label>
           <%= "￥" %><%= item.item_price %><br>
         <label for="" class="col-5 p-0 font-weight-bold">在庫数</label>

@@ -1,2 +1,82 @@
-<h1>Admin::Designs#edit</h1>
-<p>Find me in app/views/admin/designs/edit.html.erb</p>
+
+
+<%= form_with model: @design, url: admin_design_path, method: :patch do |f| %>
+<div class="container">
+
+  <h3 class="mb-3 mt-3">デザイン編集</h3>
+
+    <h4 class="mb-3 mt-3 font-weight-bold border-bottom">デザイン</h4>
+    <article>
+      <label for="images">画像追加</label>
+      <%= f.file_field :images, accept: "image/*", multiple: true, class: "mb-2" %>
+      <output id="result" />
+      <% @design.images.each do |image| %>
+        <%= image_tag image.variant(resize: "200x200"), class:"pr-3" %>
+      <% end %>
+    </article>
+
+
+    <div class="row mt-2">
+      <div class="col-2"><label for="design[name]">デザイン名</label></div>
+      <div class="col-auto"><%= f.text_field :design_name, autofocus: true, required: true%></div>
+    </div>
+
+    <div class="row">
+      <div class="col-2"><label for="design[introduction]">デザイン説明</label></div>
+      <div class="col-auto"><%= f.text_area :design_introduction, required: true%></div>
+    </div>
+    <div class="row">
+      <div class="col-2"><label for="design[genre_id]">ジャンル</label></div>
+      <div class="col-auto"><%= f.collection_select :genre_id, Genre.all, :id, :name, {:include_blank => "ジャンルを選択"},{required: true} %></div>
+    </div>
+    <div class="row">
+      <div class="col-2"><label for="design[price]">税抜価格</label></div>
+      <div class="col-auto"><%= f.text_field :design_price, required: true%></div>
+    </div>
+
+
+    <h4 class="mb-3 mt-3 font-weight-bold border-bottom">商品</h4>
+
+    <!--<button>追加する</button>-->
+    <!--<%#= f.fields_for :items do |item| %>-->
+    <!--<%# end %>-->
+
+    <%= link_to_add_association '＋''商品を追加',
+                              # form_withのformタグ変数
+                              f,
+                              # フォームのデータを追加するモデル名
+                              :items, class: 'btn btn-success mb-3',
+                              # 追加するフォームの部分テンプレート
+                              partial: "item-form",
+                              # オプション
+                              data: {
+                                # フォームを追加する場所の指定
+                                association_insertion_node: '#item-forms',
+                                # フォームを前後どの位置に追加するか。(初期値: before)
+                                association_insertion_method: 'before'
+                              },
+                              # フォームオブジェクトを指定する場合(初期値 : f)
+                              form_name: 'item',
+                              # 部分テンプレートに渡す変数があれば記述
+                              render_options: {
+                                locals: {
+                                  # 通常の部分テンプレートと同じ記述
+                                }
+                              }
+  %>
+
+    <%#= f.fields_for :items do |item| %>
+      <%#= render partial: 'item-form', locals: {item: item} %>
+    <%# end %>
+    <div id="item-forms">
+    <%= f.fields_for :items do |item| %>
+      <%= render partial: 'item-form', locals: {item: item} %>
+    <% end %>
+    </div>
+
+  <div class="d-flex justify-content-center">
+    <%= f.submit '保存', class: "btn btn-sm btn-primary px-4 py-1" %>
+    <%= link_to '戻る',admin_design_path(@design.id), class: "btn btn-sm btn-warning text-light px-4 py-1 mx-3" %>
+    <%= link_to '削除',admin_design_path, method: :delete, data: {confirm: "削除しますか？"}, class: "btn btn-sm btn-danger px-4 py-1" %>
+  </div>
+  <% end %>
