@@ -313,16 +313,143 @@ article{
 }
 /*プレビュー機能ここまで*/
 
-/*public/design#index*/
+/*public/genre#index*/
 
-.design-body {
+.genre-body {
   background-color: #F5F5DC;
 }
+.genre-header {
+  width: 100%;
+  height: 600px;
+  background: linear-gradient(0deg, #F5F5DC, #669966 20%, #336633 40%, #003300);
+  margin-bottom: 100px;
+}
+
+.genre-nav {
+  width: 400px;
+  height: 400px;
+  background-image: url(image.png);
+  background-size: cover;
+}
+
+.nav-text {
+  position: absolute;
+  top: 100px;
+  right: 236px;
+  z-index: 999;
+  width: 500px;
+  writing-mode: vertical-rl;
+  color: #fff;
+  font-family: 'Yuji Syuku', serif;
+  font-size: 1.5em;
+}
+
+.genre-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  width: 100%;
+  height: auto;
+  margin: 30px 0 30px 50px;
+  /*border-bottom-style: dashed;
+  border-bottom-color: #CC6633;
+  border-top-style: dotted;
+  border-top-color: #CC6633;
+  /*background-image: url(japanese-paper_00548.jpg);
+  /*background-color: rgba(153,153,102,0.85)*/
+}
+
+.genre-box2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: end;
+  width: 100%;
+  height: auto;
+  padding: 30px 50px 30px 0;
+  /*border-bottom-style: dashed;
+  border-bottom-color: #CC6633;
+  border-top-style: dotted;
+  border-top-color: #CC6633;
+  /*background-image: url(japanese-paper_00162_2.jpg);
+  /*background-color: rgba(85,107,47,0.85)*/
+}
+
+.genre-image {
+  width: 310px;
+  height: 310px;
+  margin: 30px 20px;
+}
+
+.genre-name {
+  font-size: 2em;
+  padding: 0 20px;
+  margin: 30px;
+  background-color: #fff;
+  font-family: 'Kaisei Tokumin', serif;
+  border: 3mm ridge rgba(102,153,51,1)
+}
+
+.genre-name2 {
+  font-size: 2em;
+  padding: 0 20px;
+  margin: 30px;
+  background-color: #fff;
+  font-family: 'Kaisei Tokumin', serif;
+  border: 3mm ridge rgba(102,153,51,1)
+}
+.genre-name-box {
+  text-align: right;
+}
+
+.design-link {
+  font-size: 1.7em;
+  font-family: 'Yuji Syuku', serif;
+  color: #000;
+}
+.design-link:hover {
+    color: #BB0000;
+    transition: 0.5s;
+    text-decoration: none;
+ }
+
+/*public/genre#indexここまで*/
+
+
+/*public/design#index*/
+
 .design-header {
   width: 100%;
-  height: 300px;
-  background: linear-gradient(0deg, #F5F5DC, #669966 20%, #336633 40%, #003300);
-  /*background-image: url(watercolor_00031.jpg);*/
+  height: 600px;
+  background-image: url(watercolor_00011.jpg);
+  background-position: bottom;
+}
+.design-nav {
+  width: 400px;
+  height: 400px;
+  background-image: url(image.png);
+  background-size: cover;
+}
+.nav-text ul {
+  font-size: 1.2em;
+  margin: 0 20px;
+}
+.nav-text ul:nth-child(2) {
+  margin-left: 5px;
+}
+.nav-text li {
+  list-style: none;
+}
+
+
+.design-box {
+  width: 100%;
+  height: auto;
+}
+
+.design-image {
+  display: flex;
+  width: 100%;
+  height: 100%;
 }
 
 .design-footer{
@@ -330,6 +457,7 @@ article{
   height: 500px;
   background-image: url(japanese-paper_00162_2.jpg);
   border-top: thin solid #999966;
+  margin-top: 60px;
 }
 .icon {
   width: 500px;

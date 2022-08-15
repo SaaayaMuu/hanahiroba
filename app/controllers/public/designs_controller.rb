@@ -1,6 +1,13 @@
 class Public::DesignsController < ApplicationController
   def index
-    @designs = Design.all
+
+    if params[:genre_id].present?
+      @genre = Genre.find(params[:genre_id])
+      @designs = @genre.designs
+    else
+      @designs = Design.all
+    end
+
   end
 
   def show

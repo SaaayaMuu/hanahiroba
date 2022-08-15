@@ -85,5 +85,3 @@ window.onload = function(){
     }
 }
 
-
-

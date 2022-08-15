@@ -1,29 +1,49 @@
+
 <div class="design-body">
-<div class="design-header">
-  <div class="design-nav"></div>
-</div>
+  <div class="design-header">
 
-<div class="design-header2">
-</div>
-<div class="design-header3">
-</div>
+    <div class="nav-text">
+      <ul>マイページ</ul>
+      <ul>ジャンル</ul>
+        <li>&emsp;--髪飾り</li>
+        <li>&emsp;--インテリア</li>
+        <li>&emsp;--アクセサリー</li>
+      <ul>すべての商品</ul>
+      <ul>カート</ul>
+      <ul>ログイン</ul>
+      <ul>会員登録</ul>
+    </div>
+    <div class="design-nav"></div>
+  </div>
+
+  <ul class="slide-items">
+    <li><img src="images/dummy.png" alt=""></li>
+    <li><img src="images/dummy2.jpg" alt=""></li>
+    <li><img src="images/dummy3.jpg" alt=""></li>
+  </ul>
 
 
-<% @designs.each do |design|%>
+  <div class="design-box">
 
-<div class="design_box">
-    <%= link_to design_path(design.id) do %><%= image_tag design.images[0].variant(resize: "200x200")%><% end %>
-    <%= design.design_name %>
-    <%= design.design_introduction %>
-    <%= design.design_price %>
-<%# design.images.each do |image| %>
-  <%#= image_tag images.variant(resize: "200x200"), class:"pl-3" %>
-<%# end %>
-</div>
-<% end %>
+    <% @designs.each do |design| %>
+      <div id="design-image">
+        <%= design.design_name %>
+          <% design.images.each do |image| %>
+            <%= image_tag image.variant(resize: "200x200"), class:"pl-3" %>
+          <% end %>
+      </div>
+      <!--<div>
+      <%= design.genre_id %>
+
+      <%= design.design_introduction %>
+      <%= design.design_price %>
+      </div>-->
+    <% end %>
+  </div>
 
 
-<div class="design-footer">
-  <div class="icon"></div>
-</div>
+  <div class="design-footer">
+    <div class="icon"></div>
+  </div>
+
 </div>
