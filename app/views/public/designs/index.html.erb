@@ -5,13 +5,13 @@
     <div class="nav-text">
       <ul>マイページ</ul>
       <ul>ジャンル</ul>
-        <li>&emsp;--髪飾り</li>
-        <li>&emsp;--インテリア</li>
-        <li>&emsp;--アクセサリー</li>
-      <ul>すべての商品</ul>
+        <%= link_to designs_path(genre_id: 1), class: "path" do %><li>&emsp;--髪飾り</li><% end %>
+        <%= link_to designs_path(genre_id: 2), class: "path" do %><li>&emsp;--インテリア</li><% end %>
+        <%= link_to designs_path(genre_id: 4), class: "path" do %><li>&emsp;--アクセサリー</li><% end %>
+      <%= link_to designs_path, class: "path" do %><ul>すべての商品</ul><% end %>
       <ul>カート</ul>
-      <ul>ログイン</ul>
-      <ul>会員登録</ul>
+      <%= link_to new_customer_session_path, class: "path" do %><ul>ログイン</ul><% end %>
+      <%= link_to new_customer_registration_path, class: "path" do %><ul>会員登録</ul><% end %>
     </div>
     <div class="design-nav"></div>
   </div>
@@ -24,20 +24,13 @@
 
 
   <div class="design-box">
-
     <% @designs.each do |design| %>
-      <div id="design-image">
-        <%= design.design_name %>
-          <% design.images.each do |image| %>
-            <%= image_tag image.variant(resize: "200x200"), class:"pl-3" %>
-          <% end %>
-      </div>
-      <!--<div>
-      <%= design.genre_id %>
-
-      <%= design.design_introduction %>
+      <%= design.design_name %>
       <%= design.design_price %>
-      </div>-->
+      <%= design.genre.name %>
+        <% design.images.each do |image| %>
+            <%= image_tag image.variant(resize: "200x200"), class:"pl-3" %>
+        <% end %>
     <% end %>
   </div>
 

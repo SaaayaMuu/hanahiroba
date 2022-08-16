@@ -59,6 +59,8 @@ h3 {
 .path_line:hover {
    text-decoration-color: white;
 }
+
+
 /*top画面*/
 .top-container {
   width: 100%;
@@ -432,22 +434,36 @@ article{
 .nav-text ul {
   font-size: 1.2em;
   margin: 0 20px;
+  color: #fff;
+}
+.nav-text ul:hover {
+  background-color: #000080;
+  padding: 30px 0 30px 0;
 }
 .nav-text ul:nth-child(2) {
   margin-left: 5px;
 }
 .nav-text li {
   list-style: none;
+  color: #fff;
+}
+.nav-text li:hover {
+  background-color:#800000;
+  padding: 20px 0 20px 0;
 }
 
-
 .design-box {
+  display: flex;
+  flex-wrap: wrap;
   width: 100%;
   height: auto;
 }
 
+.design-image-box {
+  width: 100%;
+  height: auto;
+}
 .design-image {
-  display: flex;
   width: 100%;
   height: 100%;
 }
