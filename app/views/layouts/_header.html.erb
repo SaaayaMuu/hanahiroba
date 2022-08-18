@@ -1,0 +1,43 @@
+ <% if admin_signed_in? %>
+    <div class="row justify-content-center bg-dark">
+      <h2 class="m-4 p-2 text-light">管理者画面</h2>
+    </div>
+    <div class="row justify-content-center bg-success">
+      <%= link_to "ジャンル一覧", admin_genres_path, class: "text-light ml-5 p-2" %>
+      <%= link_to "商品一覧", admin_designs_path, class: "text-light ml-5 p-2" %>
+      <%= link_to "商品追加", new_admin_design_path, class: "text-light ml-5 p-2" %>
+      <%= link_to "顧客一覧", admin_customers_path, class: "text-light ml-5 p-2" %>
+      <%= link_to destroy_admin_session_path, method: :delete, class: "text-light ml-5 p-2" do %>管理者ログアウト<% end %>
+    </div>
+  <% elsif customer_signed_in? %>
+    <div class="design-header">
+      <div class="nav-text">
+        <ul>マイページ</ul>
+        <ul>ジャンル</ul>
+          <%= link_to designs_path(genre_id: 1), class: "path" do %><li>&emsp;--髪飾り</li><% end %>
+          <%= link_to designs_path(genre_id: 2), class: "path" do %><li>&emsp;--インテリア</li><% end %>
+          <%= link_to designs_path(genre_id: 4), class: "path" do %><li>&emsp;--アクセサリー</li><% end %>
+          <%= link_to designs_path, class: "path" do %><ul>すべての商品</ul><% end %>
+          <%= link_to cart_items_path, class: "path" do %><ul>カート</ul><% end %>
+          <%= link_to new_customer_session_path, class: "path" do %><ul>マイページ</ul><% end %>
+          <%= link_to new_customer_registration_path, class: "path" do %><ul>ログアウト</ul><% end %>
+      </div>
+      <div class="design-nav"></div>
+      <%= current_customer.last_name %>
+    </div>
+  <% else %>
+    <div class="design-header">
+      <div class="nav-text">
+        <ul>マイページ</ul>
+        <ul>ジャンル</ul>
+          <%= link_to designs_path(genre_id: 1), class: "path" do %><li>&emsp;--髪飾り</li><% end %>
+          <%= link_to designs_path(genre_id: 2), class: "path" do %><li>&emsp;--インテリア</li><% end %>
+          <%= link_to designs_path(genre_id: 4), class: "path" do %><li>&emsp;--アクセサリー</li><% end %>
+          <%= link_to designs_path, class: "path" do %><ul>すべての商品</ul><% end %>
+          <%= link_to cart_items_path, class: "path" do %><ul>カート</ul><% end %>
+          <%= link_to new_customer_session_path, class: "path" do %><ul>ログイン</ul><% end %>
+          <%= link_to new_customer_registration_path, class: "path" do %><ul>会員登録</ul><% end %>
+      </div>
+      <div class="design-nav"></div>
+    </div>
+  <% end %>

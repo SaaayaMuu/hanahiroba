@@ -32,11 +32,145 @@ header {
 }
 */
 
+
+
+
+
+
+/*
+#slick {
+  width: 100%;
+}
+
+#slick-slide{
+	height:auto!important;
+}
+
+.slick1 {
+  background-image: url(watercolor_00011.jpg);
+  width:200px;
+  height: 200px;
+}
+.slick2 {
+  background-image: url(watercolor_00031.jpg);
+  background-position: bottom;
+  width:200px;
+  height: 200px;
+}
+.slick3 {
+  background-image: url(watercolor_00011.jpg);
+  width:200px;
+  height: 200px;
+}
+
+
+.gallery{
+	margin:0 0 5px 0;
+}
+
+.gallery li{
+list-style:none;
+}
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 body{
   width: 100%;
   /*background-image: url(japanese-paper_00162.jpg);*/
   /*background-color: #F5F5DC;*/
 }
+
+
+
+
+#splash {
+/*fixedで全面に固定*/
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  background-image: url(japanese-paper_00548.jpg);
+  text-align:center;
+  color:#fff;
+}
+
+/* Loading画像中央配置　*/
+#splash_logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #003300;
+}
+
+/* Loading アイコンの大きさ設定　*/
+  /*#splash_logo .fadeUp {
+  background-image: url(image2.png);
+  background-position: center;
+  background-size: cover;
+  width: 500px;
+  height: 700px;
+}*/
+
+
+/* fadeUpをするアイコンの動き */
+.fadeUp{
+font-size: 200px;
+font-family: 'Yuji Syuku', serif;
+transform: translate(-50%, -50%);
+animation-name: fadeUpAnime;
+animation-duration:0.5s;
+animation-fill-mode:forwards;
+opacity: 0;
+}
+.fadeUp2{
+font-family: 'Yuji Syuku', serif;
+font-size: 200px;
+animation-name: fadeUpAnime;
+animation-duration:1.0s;
+animation-fill-mode:forwards;
+opacity: 0;
+}
+.fadeUp3{
+font-size: 200px;
+font-family: 'Yuji Syuku', serif;
+animation-name: fadeUpAnime;
+animation-duration:1.5s;
+animation-fill-mode:forwards;
+opacity: 0;
+}
+
+
+@keyframes fadeUpAnime{
+  from {
+    opacity: 0;
+  transform: translateY(100px);
+  }
+
+  to {
+    opacity: 1;
+  transform: translateY(0);
+  }
+}
+
+
+
+
 
 
 
@@ -101,7 +235,7 @@ h3 {
 }
 
 .photo-center {
-  width: 100%;
+  width: 90%;
   height: 100%;
   z-index: 0 !important;
 }

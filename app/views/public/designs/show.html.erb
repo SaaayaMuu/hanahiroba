@@ -1,2 +1,28 @@
-<h1>Public::Designs#show</h1>
-<p>Find me in app/views/public/designs/show.html.erb</p>
+<%= render 'layouts/header' %>
+
+<div class="design-image">
+    <% @design.images.each do |image| %>
+        <%= image_tag image.variant(resize: "200x200"), class:"pl-3" %>
+    <% end %>
+</div>
+
+<div class="design-content">
+    <%= @design.design_name %><br>
+    <%= @design.design_introduction %><br>
+    <%= "￥" %><%= @design.with_tax_price %><%= "～" %>
+</div>
+
+<%= form_with model: @cart_item, url: cart_items_path, method: :post, local: true do |f| %>
+<%= f.hidden_field :amount, :value => "1" %>
+<% @items.each do |item| %>
+    <div class="item-content">
+        <%= image_tag item.image.variant(resize: "150x150") %>
+        <%= item.design.design_name %>
+        <%= item.item_introduction %>
+        <%= item.with_tax_price %>
+        <%= item.stock %>
+        <%= f.hidden_field :item_id, :value => item.id %>
+        <%= f.submit "カートに入れる", class: "btn btn-primary" %>
+    </div>
+<% end %>
+<% end %>

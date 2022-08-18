@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
 
 
-  root to: 'public/homes#top'
-
+  namespace :public do
+    get 'orders/new'
+    get 'orders/thanks'
+    get 'orders/index'
+    get 'orders/show'
+  end
 # 顧客用
 # URL /customers/sign_in ...
 devise_for :customers, controllers: {
@@ -18,6 +22,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 }
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
+  root to: "public/homes#top"
   namespace :admin do
     resources :designs, only: [:new, :create, :show, :edit, :update, :index, :destroy]
     resources :items, only: [:create, :destroy]
@@ -30,6 +35,12 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     resources :customers, only: [:show, :edit, :unsubscribe]
     resources :designs, only: [:index, :show]
     resources :genres, only: [:index]
+    resources :cart_items, only: [:index, :create, :update, :destroy, :destroy_all]
+    delete :cart_items, to: 'cart_items#destroy_all'
+    resources :orders, only: [:new, :index, :show, :create]
+    post '/orders/comfirm' => 'orders#comfirm'
+    get '/orders/thanks'=> 'orders#thanks'
+
   end
 end
 
@@ -78,6 +89,19 @@ end
 #customers_unsubscribe GET    /customers/unsubscribe(.:format)              public/customers#unsubscribe
 #edit_customer GET    /customers/:id/edit(.:format)                         public/customers#edit
 #customer GET    /customers/:id(.:format)                                   public/customers#show
+
+#cart_items GET    /cart_items(.:format)                                    public/cart_items#index
+#           POST   /cart_items(.:format)                                    public/cart_items#create
+#cart_item PATCH  /cart_items/:id(.:format)                                 public/cart_items#update
+#          DELETE /cart_items/:id(.:format)                                 public/cart_items#destroy
+#          DELETE /cart_items(.:format)                                     public/cart_items#destroy_all
+
+#orders GET    /orders(.:format)                                            public/orders#index
+#POST   /orders(.:format)                                                   public/orders#create
+#new_order GET    /orders/new(.:format)                                     public/orders#new
+#order GET    /orders/:id(.:format)                                         public/orders#show
+#orders_comfirm POST   /orders/comfirm(.:format)                            public/orders#comfirm
+#orders_thanks GET    /orders/thanks(.:format)                              public/orders#thanks
 
 #new_customer_password GET    /customers/password/new(.:format)             devise/passwords#new
 #edit_customer_password GET    /customers/password/edit(.:format)           devise/passwords#edit

@@ -1,68 +1,14 @@
+<div id="splash">
+<div id="splash_logo"><div class="fadeUp">花</div><div class="fadeUp2">広</div><div class="fadeUp3">場</div></div><!--画像部分は適宜差し換えてください-->
+<!--/splash--></div>
 
-  <div class="top-container">
-  <div class="row-header">
-    <%= link_to root_path, class: "path" do %>
-      <span class="header-text">花広場 ～つまみ細工～</span>
-    <% end %>
-    <!--ハンバーガーアイコン-->
-    <div id="hm-icon">
-      <a class="menu-trigger" href="#">
-        <span></span>
-        <span></span>
-        <span></span>
-      </a>
-    </div>
-  </div>
 
-  <div class="row-center">
-    <div class="m1-center col-1 p-0">
-      <div class="m1-text">
-        <%= link_to designs_path do %><span class="menu-text1">商品一覧</span><% end %>
-        <%= link_to do %><span class="menu-text2">カート</span><% end %>
-        <%= link_to do %><span class="menu-text3">お買い物ガイド</span><% end %>
-      </div>
-    </div>
-
-    <div class="photo-center col-xl-10 col-lg-10 col-md-10 p-0">
-    <div class="theTarget">
-        <div class="image1"></div>
-        <div class="image2"></div>
-        <div class="image3"></div>
-        <div class="image4"></div>
-    </div>
-    </div>
-
-    <div class="m1-center col-1 p-0">
-      <div class="m1-text">
-      <% if customer_signed_in?%>
-        <%= link_to do %><span class="menu-text4">マイページ</span><% end %>
-        <%= link_to destroy_customer_session_path, method: :delete do %><span class="menu-text5">ログアウト</span><% end %>
-      <% else %>
-        <%= link_to new_customer_session_path do %><p class="menu-text5">ログイン</p><% end %>
-        <%= link_to new_customer_registration_path do %><p class="menu-text4">新規登録</p><% end %>
-      <% end %>
-      </div>
-    </div>
-  </div>
-
-  <div class="row-footer">
-    <span class="footer-text">---身近にもっと和を---</span>
-  </div>
-
-  <div id="sp-menu">
-    <ul class="menu-content">
-      <%= link_to new_customer_registration_path, class: "path_line" do %><li>商品一覧</li><% end %>
-      <%= link_to new_customer_registration_path, class: "path_line" do %><li>カート</li><% end %>
-      <%= link_to new_customer_registration_path, class: "path_line" do %><li>お買い物ガイド</li><% end %>
-      <% if customer_signed_in?%>
-      <%= link_to new_customer_registration_path, class: "path_line" do %><li>マイページ</li><% end %>
-      <%= link_to new_customer_registration_path, class: "path_line" do %><li>ログアウト</li><% end %>
-      <% else %>
-      <%= link_to new_customer_session_path, class: "path_line" do %><li>ログイン</li><% end %>
-      <%= link_to new_customer_registration_path, class: "path_line" do %><li>会員登録</li><% end %>
-      <% end %>
-    </ul>
-<!--
+<div class="top-container">
+<div class="row-header">
+  <%= link_to root_path, class: "path" do %>
+    <span class="header-text">花広場 ～つまみ細工～</span>
+  <% end %>
+  <!--ハンバーガーアイコン-->
   <div id="hm-icon">
     <a class="menu-trigger" href="#">
       <span></span>
@@ -70,6 +16,64 @@
       <span></span>
     </a>
   </div>
+</div>
+
+<div class="row-center">
+  <div class="m1-center col-1 p-0">
+    <div class="m1-text">
+      <%= link_to designs_path do %><span class="menu-text1">商品一覧</span><% end %>
+      <%= link_to cart_items_path do %><span class="menu-text2">カート</span><% end %>
+      <%= link_to do %><span class="menu-text3">お買い物ガイド</span><% end %>
+    </div>
+  </div>
+
+  <div class="photo-center col-xl-10 col-lg-10 col-md-10 p-0">
+    <div class="theTarget">
+      <div class="image1"></div>
+      <div class="image2"></div>
+      <div class="image3"></div>
+      <div class="image4"></div>
+    </div>
+  </div>
+
+  <div class="m1-center col-1 p-0">
+    <div class="m1-text">
+    <% if customer_signed_in?%>
+      <%= link_to do %><span class="menu-text4">マイページ</span><% end %>
+      <%= link_to destroy_customer_session_path, method: :delete do %><span class="menu-text5">ログアウト</span><% end %>
+    <% else %>
+      <%= link_to new_customer_session_path do %><p class="menu-text5">ログイン</p><% end %>
+      <%= link_to new_customer_registration_path do %><p class="menu-text4">新規登録</p><% end %>
+    <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="row-footer">
+  <span class="footer-text">---身近にもっと和を---</span>
+</div>
+
+<div id="sp-menu">
+  <ul class="menu-content">
+    <%= link_to new_customer_registration_path, class: "path_line" do %><li>商品一覧</li><% end %>
+    <%= link_to new_customer_registration_path, class: "path_line" do %><li>カート</li><% end %>
+    <%= link_to new_customer_registration_path, class: "path_line" do %><li>お買い物ガイド</li><% end %>
+    <% if customer_signed_in?%>
+    <%= link_to new_customer_registration_path, class: "path_line" do %><li>マイページ</li><% end %>
+    <%= link_to new_customer_registration_path, class: "path_line" do %><li>ログアウト</li><% end %>
+    <% else %>
+    <%= link_to new_customer_session_path, class: "path_line" do %><li>ログイン</li><% end %>
+    <%= link_to new_customer_registration_path, class: "path_line" do %><li>会員登録</li><% end %>
+    <% end %>
+  </ul>
+<!--
+<div id="hm-icon">
+  <a class="menu-trigger" href="#">
+    <span></span>
+    <span></span>
+    <span></span>
+  </a>
+</div>
 
 </div>
 

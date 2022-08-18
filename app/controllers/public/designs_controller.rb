@@ -12,5 +12,7 @@ class Public::DesignsController < ApplicationController
 
   def show
     @design = Design.find(params[:id])
+    @items = @design.items.all
+    @cart_item = CartItem.new
   end
 end
