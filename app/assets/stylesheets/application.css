@@ -119,41 +119,45 @@ body{
 }
 
 /* Loading アイコンの大きさ設定　*/
-  /*#splash_logo .fadeUp {
-  background-image: url(image2.png);
+  #splash_logo .fadeUp {
+  background-image: url(image.png);
   background-position: center;
   background-size: cover;
   width: 500px;
   height: 700px;
-}*/
+  animation-name: fadeUpAnime;
+  animation-duration:1.0s;
+  animation-fill-mode:forwards;
+  opacity: 0;
+}
 
 
-/* fadeUpをするアイコンの動き */
-.fadeUp{
-font-size: 200px;
-font-family: 'Yuji Syuku', serif;
-transform: translate(-50%, -50%);
-animation-name: fadeUpAnime;
-animation-duration:0.5s;
-animation-fill-mode:forwards;
-opacity: 0;
-}
-.fadeUp2{
-font-family: 'Yuji Syuku', serif;
-font-size: 200px;
-animation-name: fadeUpAnime;
-animation-duration:1.0s;
-animation-fill-mode:forwards;
-opacity: 0;
-}
-.fadeUp3{
-font-size: 200px;
-font-family: 'Yuji Syuku', serif;
-animation-name: fadeUpAnime;
-animation-duration:1.5s;
-animation-fill-mode:forwards;
-opacity: 0;
-}
+/* fadeUpをするアイコンの動き（テキストver） */
+/*.fadeUp{*/
+/*font-size: 200px;*/
+/*font-family: 'Yuji Syuku', serif;*/
+/*transform: translate(-50%, -50%);*/
+/*animation-name: fadeUpAnime;*/
+/*animation-duration:0.5s;*/
+/*animation-fill-mode:forwards;*/
+/*opacity: 0;*/
+/*}*/
+/*.fadeUp2{*/
+/*font-family: 'Yuji Syuku', serif;*/
+/*font-size: 200px;*/
+/*animation-name: fadeUpAnime;*/
+/*animation-duration:1.0s;*/
+/*animation-fill-mode:forwards;*/
+/*opacity: 0;*/
+/*}*/
+/*.fadeUp3{*/
+/*font-size: 200px;*/
+/*font-family: 'Yuji Syuku', serif;*/
+/*animation-name: fadeUpAnime;*/
+/*animation-duration:1.5s;*/
+/*animation-fill-mode:forwards;*/
+/*opacity: 0;*/
+/*}*/
 
 
 @keyframes fadeUpAnime{
@@ -468,18 +472,6 @@ article{
   background-size: cover;
 }
 
-.nav-text {
-  position: absolute;
-  top: 100px;
-  right: 236px;
-  z-index: 999;
-  width: 500px;
-  writing-mode: vertical-rl;
-  color: #fff;
-  font-family: 'Yuji Syuku', serif;
-  font-size: 1.5em;
-}
-
 .genre-box {
   display: flex;
   flex-wrap: wrap;
@@ -553,35 +545,48 @@ article{
 
 /*public/design#index*/
 
-.design-header {
+.header {
   width: 100%;
   height: 600px;
   background-image: url(watercolor_00011.jpg);
   background-position: bottom;
 }
-.design-nav {
+.nav {
   width: 400px;
   height: 400px;
   background-image: url(image.png);
   background-size: cover;
 }
-.nav-text ul {
-  font-size: 1.2em;
+.nav-text .nav-name {
   margin: 0 20px;
-  color: #fff;
 }
-.nav-text ul:hover {
+.nav-text .nav-name:nth-child(1) {
+  margin-left: 5px;
+}
+
+.nav-text .nav-name:hover {
   background-color: #000080;
   padding: 30px 0 30px 0;
 }
-.nav-text ul:nth-child(2) {
-  margin-left: 5px;
+
+
+.nav-text {
+  position: absolute;
+  top: 100px;
+  right: 236px;
+  z-index: 999;
+  width: 500px;
+  writing-mode: vertical-rl;
+  color: #fff;
+  font-family: 'Yuji Syuku', serif;
+  font-size: 1.7em;
 }
+
 .nav-text li {
   list-style: none;
   color: #fff;
 }
-.nav-text li:hover {
+.nav-text .nav-genre:hover {
   background-color:#800000;
   padding: 20px 0 20px 0;
 }

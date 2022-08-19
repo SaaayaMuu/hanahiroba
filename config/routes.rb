@@ -1,12 +1,6 @@
 Rails.application.routes.draw do
 
 
-  namespace :public do
-    get 'orders/new'
-    get 'orders/thanks'
-    get 'orders/index'
-    get 'orders/show'
-  end
 # 顧客用
 # URL /customers/sign_in ...
 devise_for :customers, controllers: {
@@ -38,8 +32,9 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     resources :cart_items, only: [:index, :create, :update, :destroy, :destroy_all]
     delete :cart_items, to: 'cart_items#destroy_all'
     resources :orders, only: [:new, :index, :show, :create]
-    post '/orders/comfirm' => 'orders#comfirm'
+    post '/orders/confirm' => 'orders#confirm'
     get '/orders/thanks'=> 'orders#thanks'
+    resources :address, only: [:create]
 
   end
 end
@@ -100,8 +95,10 @@ end
 #POST   /orders(.:format)                                                   public/orders#create
 #new_order GET    /orders/new(.:format)                                     public/orders#new
 #order GET    /orders/:id(.:format)                                         public/orders#show
-#orders_comfirm POST   /orders/comfirm(.:format)                            public/orders#comfirm
+#orders_confirm POST   /orders/confirm(.:format)                            public/orders#confirm
 #orders_thanks GET    /orders/thanks(.:format)                              public/orders#thanks
+
+#address_index POST   /address(.:format)                                    public/address#create
 
 #new_customer_password GET    /customers/password/new(.:format)             devise/passwords#new
 #edit_customer_password GET    /customers/password/edit(.:format)           devise/passwords#edit

@@ -1,4 +1,5 @@
 class Public::CartItemsController < ApplicationController
+  before_action :authenticate_customer!
 
   def index
     @cart_items = current_customer.cart_items.all
@@ -30,7 +31,7 @@ class Public::CartItemsController < ApplicationController
   end
   def destroy_all
     CartItem.destroy_all
-    redirect_to designs_path
+    redirect_to cart_items_path
   end
 
 

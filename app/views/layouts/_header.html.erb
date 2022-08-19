@@ -10,34 +10,32 @@
       <%= link_to destroy_admin_session_path, method: :delete, class: "text-light ml-5 p-2" do %>管理者ログアウト<% end %>
     </div>
   <% elsif customer_signed_in? %>
-    <div class="design-header">
+    <div class="header">
       <div class="nav-text">
-        <ul>マイページ</ul>
-        <ul>ジャンル</ul>
-          <%= link_to designs_path(genre_id: 1), class: "path" do %><li>&emsp;--髪飾り</li><% end %>
-          <%= link_to designs_path(genre_id: 2), class: "path" do %><li>&emsp;--インテリア</li><% end %>
-          <%= link_to designs_path(genre_id: 4), class: "path" do %><li>&emsp;--アクセサリー</li><% end %>
-          <%= link_to designs_path, class: "path" do %><ul>すべての商品</ul><% end %>
-          <%= link_to cart_items_path, class: "path" do %><ul>カート</ul><% end %>
-          <%= link_to new_customer_session_path, class: "path" do %><ul>マイページ</ul><% end %>
-          <%= link_to new_customer_registration_path, class: "path" do %><ul>ログアウト</ul><% end %>
+        <li>ジャンルで選ぶ</li>
+          <%= link_to designs_path(genre_id: 1), class: "path" do %><li class="nav-genre">&emsp;--髪飾り</li><% end %>
+          <%= link_to designs_path(genre_id: 2), class: "path" do %><li class="nav-genre">&emsp;--インテリア</li><% end %>
+          <%= link_to designs_path(genre_id: 4), class: "path" do %><li class="nav-genre">&emsp;--アクセサリー</li><% end %>
+          <%= link_to designs_path, class: "path" do %><li class="nav-name">すべての商品</li><% end %>
+          <%= link_to cart_items_path, class: "path" do %><li class="nav-name">カート</li><% end %>
+          <%= link_to new_customer_session_path, class: "path" do %><li class="nav-name">マイページ</li><% end %>
+          <%= link_to new_customer_registration_path, class: "path" do %><li class="nav-name">ログアウト</li><% end %>
       </div>
       <div class="design-nav"></div>
       <%= current_customer.last_name %>
     </div>
   <% else %>
-    <div class="design-header">
+    <div class="header">
       <div class="nav-text">
-        <ul>マイページ</ul>
-        <ul>ジャンル</ul>
-          <%= link_to designs_path(genre_id: 1), class: "path" do %><li>&emsp;--髪飾り</li><% end %>
-          <%= link_to designs_path(genre_id: 2), class: "path" do %><li>&emsp;--インテリア</li><% end %>
-          <%= link_to designs_path(genre_id: 4), class: "path" do %><li>&emsp;--アクセサリー</li><% end %>
-          <%= link_to designs_path, class: "path" do %><ul>すべての商品</ul><% end %>
-          <%= link_to cart_items_path, class: "path" do %><ul>カート</ul><% end %>
-          <%= link_to new_customer_session_path, class: "path" do %><ul>ログイン</ul><% end %>
-          <%= link_to new_customer_registration_path, class: "path" do %><ul>会員登録</ul><% end %>
+        <li>ジャンルで選ぶ</li>
+          <%= link_to designs_path(genre_id: 1), class: "path" do %><li class="nav-genre">&emsp;--髪飾り</li><% end %>
+          <%= link_to designs_path(genre_id: 2), class: "path" do %><li class="nav-genre">&emsp;--インテリア</li><% end %>
+          <%= link_to designs_path(genre_id: 4), class: "path" do %>< class="nav-genre">&emsp;--アクセサリー</li><% end %>
+          <%= link_to designs_path, class: "path" do %><li class="nav-name">すべての商品</li><% end %>
+          <%= link_to cart_items_path, class: "path" do %><li class="nav-name">カート</li><% end %>
+          <%= link_to new_customer_session_path, class: "path" do %><li class="nav-name">ログイン</li><% end %>
+          <%= link_to new_customer_registration_path, class: "path" do %><li class="nav-name">会員登録</li><% end %>
       </div>
-      <div class="design-nav"></div>
+      <div class="nav"></div>
     </div>
   <% end %>
