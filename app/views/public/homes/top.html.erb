@@ -39,7 +39,7 @@
   <div class="m1-center col-1 p-0">
     <div class="m1-text">
     <% if customer_signed_in?%>
-      <%= link_to do %><span class="menu-text4">マイページ</span><% end %>
+      <%= link_to customer_path(current_customer.id) do %><span class="menu-text4">マイページ</span><% end %>
       <%= link_to destroy_customer_session_path, method: :delete do %><span class="menu-text5">ログアウト</span><% end %>
     <% else %>
       <%= link_to new_customer_session_path do %><p class="menu-text5">ログイン</p><% end %>

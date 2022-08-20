@@ -26,7 +26,6 @@ class Public::OrdersController < ApplicationController
       @order.postal_code = @order.postal_code
       @order.address = @order.address
       @order.name = @order.name
-      @address = Address.new
     else
       flash[:error] = '情報を正しく入力して下さい。'
       render :new
@@ -38,14 +37,15 @@ class Public::OrdersController < ApplicationController
 
     #@order.payment_method = params[:order][:payment_method]
     @order.save
-    @address = Address.new(address_params)
-    @address.postal_code = @order.postal_code
-    @address.address = @order.address
-    @address.name = @order.name
-    @address.save
-
-    @cart_items = current_customer.cart_items
-
+    if params[:order][:select_address] == "2"
+      #@address = Address.new
+      @address = current_customer.Address.new(address_params)
+      #@address = Address.new(address_params)
+      @address.postal_code = @order.postal_code
+      @address.address = @order.address
+      @address.name = @order.name
+      @address.save
+    end
 
     #@order = params[:order_id]
     @cart_items = current_customer.cart_items
@@ -61,7 +61,6 @@ class Public::OrdersController < ApplicationController
 
     end
     @cart_items.destroy_all
-
     redirect_to orders_thanks_path
   end
 
@@ -69,9 +68,14 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
+    @customer = current_customer
+    @orders = @customer.orders.all
   end
 
   def show
+    @order = Order.find(params[:id])
+    #@order_detail = OrderDetail.find(params[:id])
+    @order_details = OrderDetail.all
   end
 
   private

@@ -1,7 +1,6 @@
 class Address < ApplicationRecord
 
   belongs_to :customer
-  has_many :orders, dependent: :destroy
 
 
   #注文情報入力画面(orders#new)での登録済み住所のセレクトBOXで使用

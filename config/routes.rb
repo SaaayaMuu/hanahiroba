@@ -31,9 +31,9 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     resources :genres, only: [:index]
     resources :cart_items, only: [:index, :create, :update, :destroy, :destroy_all]
     delete :cart_items, to: 'cart_items#destroy_all'
-    resources :orders, only: [:new, :index, :show, :create]
     post '/orders/confirm' => 'orders#confirm'
     get '/orders/thanks'=> 'orders#thanks'
+    resources :orders, only: [:new, :index, :show, :create]
     resources :address, only: [:create]
 
   end
