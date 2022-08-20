@@ -1,5 +1,4 @@
-
-  <%= form_with model: @design, url: admin_designs_path, local: true do |f| %>
+<%= render 'layouts/admin-header' %>  <%= form_with model: @design, url: admin_designs_path, local: true do |f| %>
   <div class="container">
     <h3 class="mb-3 mt-3">デザイン</h3>
     <article>
@@ -68,5 +67,5 @@
     </div>
 
 
-    <div class="row mt-5 justify-content-center"><%= f.submit '保存', class: "btn btn-sm btn-primary px-4 py-1" %></div>
+    <div class="row mt-5 justify-content-center"><%= f.submit '保存', class: "btn btn-lg btn-primary px-5 py-1" %></div>
   <% end %>

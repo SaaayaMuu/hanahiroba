@@ -25,7 +25,7 @@
 
     <div class="ml-5 mt-3">
       <%= f.radio_button :select_address, "1" %>
-      <%= f.label :select_address_1, "登録済み住所から選択" %>
+      <%= f.label :select_address_1, "過去のお届け先履歴から選択" %>
       <div calss="ml-1">
         <%= f.select :address_id, options_from_collection_for_select(@customer.addresses.all, :id, :address_display) %>
       </div>

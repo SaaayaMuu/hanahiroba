@@ -9,7 +9,7 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
 import 'jquery'
-import "slick.min"
+import "../slick.min"
 import "skippr.min"
 import "script.js"
 import "popper.js";

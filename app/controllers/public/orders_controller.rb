@@ -5,7 +5,6 @@ class Public::OrdersController < ApplicationController
   def new
     @order = Order.new
     @customer = current_customer
-    #@address = Address.new
   end
 
   def confirm
@@ -13,19 +12,23 @@ class Public::OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.customer_id = current_customer.id
     @order.postage = 800
-    if params[:order][:select_address] == "0"
+    if params[:order][:select_address] == "0"#ご自身の住所を選んだ場合
       @order.postal_code = current_customer.postal_code
       @order.address = current_customer.address
       @order.name = current_customer.full_name
-    elsif params[:order][:select_address] == "1"
+    elsif params[:order][:select_address] == "1"#過去のお届け先履歴から選択を選んだ場合
       @address = Address.find(params[:order][:address_id])
       @order.postal_code = @address.postal_code
       @order.address = @address.address
       @order.name = @address.name
-    elsif
+    elsif params[:order][:select_address] == "2"#新しいお届け先を選んだ場合
       @order.postal_code = @order.postal_code
       @order.address = @order.address
       @order.name = @order.name
+      # @address = Address.new(address_params)
+      # @address.postal_code = @order.postal_code
+      # @address.address = @order.address
+      # @address.name = @order.name
     else
       flash[:error] = '情報を正しく入力して下さい。'
       render :new
@@ -37,14 +40,14 @@ class Public::OrdersController < ApplicationController
 
     #@order.payment_method = params[:order][:payment_method]
     @order.save
-    if params[:order][:select_address] == "2"
-      #@address = Address.new
-      @address = current_customer.Address.new(address_params)
-      #@address = Address.new(address_params)
-      @address.postal_code = @order.postal_code
-      @address.address = @order.address
-      @address.name = @order.name
-      @address.save
+     # ↓新しいお届け先をAddressテーブルに保存
+     if params[:order][:select_address] == "2"
+     @address = Address.new
+     @address.postal_code = @order.postal_code
+     @address.address = @order.address
+     @address.name = @order.name
+     @address.customer_id = current_customer.id
+     @address.save
     end
 
     #@order = params[:order_id]
@@ -52,7 +55,6 @@ class Public::OrdersController < ApplicationController
     @cart_items.each do |cart_item|
 
       @order_detail = OrderDetail.new
-     # binding.pry
       @order_detail.order_id = @order.id
       @order_detail.item_id = cart_item.item_id
       @order_detail.price = cart_item.item.with_tax_price
@@ -60,6 +62,7 @@ class Public::OrdersController < ApplicationController
       @order_detail.save
 
     end
+    @order_detail.item.stock = 
     @cart_items.destroy_all
     redirect_to orders_thanks_path
   end
@@ -81,7 +84,7 @@ class Public::OrdersController < ApplicationController
   private
 
   def order_params
-     params.require(:order).permit(:customer_id, :postal_code, :address, :name, :postage, :total_price, :payment_method)
+    params.require(:order).permit(:customer_id, :postal_code, :address, :name, :postage, :total_price, :payment_method)
   end
 
   def address_params

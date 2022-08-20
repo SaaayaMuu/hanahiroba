@@ -1,4 +1,6 @@
 class Admin::DesignsController < ApplicationController
+  
+  before_action :authenticate_admin!
 
   def index
     @designs = Design.all

@@ -91,3 +91,8 @@ $(window).on('load',function(){
   $("#splash_logo").delay(1500).fadeOut('slow');//ロゴを1.2秒（1200ms）待機してからフェードアウト
 });
 
+
+
+$(function () {
+  $('#js-slider-1').slick();
+});
