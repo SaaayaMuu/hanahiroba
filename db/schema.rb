@@ -119,7 +119,6 @@ ActiveRecord::Schema.define(version: 2022_08_20_070609) do
     t.integer "order_id", null: false
     t.integer "price", null: false
     t.integer "amount", null: false
-    t.integer "making_status", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -132,6 +131,7 @@ ActiveRecord::Schema.define(version: 2022_08_20_070609) do
     t.string "postal_code", null: false
     t.string "address", null: false
     t.string "name", null: false
+    t.integer "making_status", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

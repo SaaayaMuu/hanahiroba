@@ -60,6 +60,7 @@
 			<%= f.hidden_field :customer_id, :value => @order.customer_id %>
 			<%= f.hidden_field :payment_method, :value => @order.payment_method %>
 			<%= f.hidden_field :postage, :value => @order.postage %>
+			<%= f.hidden_field :select_address, :value => @select_address %>
 		</div>
 		<div class="actions text-center">
 			<%= f.submit "注文を確定する", class: "btn btn-primary submit_to_create_order" %>

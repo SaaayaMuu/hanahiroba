@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+
 # 顧客用
 # URL /customers/sign_in ...
 devise_for :customers, controllers: {
@@ -16,14 +17,16 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 }
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
-  root to: "public/homes#top"
   namespace :admin do
     resources :designs, only: [:new, :create, :show, :edit, :update, :index, :destroy]
     resources :items, only: [:create, :destroy]
     resources :genres, only: [:index, :edit, :create, :update, :destroy]
     resources :customers, only: [:index, :show, :edit, :update]
+    resources :orders, only: [:show, :update]
+    get '/' => 'homes#top'
   end
 
+  root to: "public/homes#top"
   scope module: :public do
     get '/customers/unsubscribe' => 'customers#unsubscribe'
     resources :customers, only: [:show, :edit, :unsubscribe]
@@ -43,6 +46,8 @@ end
 #new_admin_session GET    /admin/sign_in(.:format)                        admin/sessions#new
 #admin_session POST   /admin/sign_in(.:format)                            admin/sessions#create
 #destroy_admin_session DELETE /admin/sign_out(.:format)                   admin/sessions#destroy
+
+#admin GET    /admin(.:format)                                              admin/homes#top
 
 #admin_designs GET    /admin/designs(.:format)                             admin/designs#index
 #              POST   /admin/designs(.:format)                             admin/designs#create
@@ -64,6 +69,9 @@ end
 #edit_admin_customer GET    /admin/customers/:id/edit(.:format)             admin/customers#edit
 #admin_customer GET    /admin/customers/:id(.:format)                       admin/customers#show
 #               PATCH  /admin/customers/:id(.:format)                       admin/customers#update
+
+#admin_order GET    /admin/orders/:id(.:format)                             admin/orders#show
+#PATCH  /admin/orders/:id(.:format)                                         admin/orders#update
 
 
 #new_customer_password GET    /customers/password/new(.:format)             devise/passwords#new
