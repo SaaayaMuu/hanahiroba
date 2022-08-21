@@ -12,7 +12,7 @@
       </div>
       <div class="design-image">
         <% design.images.each do |image| %>
-            <%= image_tag image.variant(resize: "200x200"), class:"pl-3" %>
+          <div class="img"><%= image_tag image.variant(resize: "200x200"), class:"pl-3" %></div>
         <% end %>
       </div>
     </div>

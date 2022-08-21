@@ -52,6 +52,12 @@ class Public::OrdersController < ApplicationController
         @order_detail.item_id = cart_item.item_id
         @order_detail.price = cart_item.item.with_tax_price
         @order_detail.amount =  cart_item.amount
+
+        # cart_item.item.stock = cart_item.item.find(params[:item][:stock])
+        # #@item.stock = cart_item.item.find(params[:item][:stock])
+        # @item.new_stock = cart_item.item.stock - cart_item.amount
+        # @itemn.new.stock.update(item_params)
+
         @order_detail.save
       end
       #@order_detail.item.stock =
@@ -86,6 +92,8 @@ class Public::OrdersController < ApplicationController
   def address_params
     params.require(:address).permit(:customer_id, :postal_code, :address, :name)
   end
+
+
 
 
 end

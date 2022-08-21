@@ -30,6 +30,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   scope module: :public do
     get '/customers/unsubscribe' => 'customers#unsubscribe'
     resources :customers, only: [:show, :edit, :unsubscribe]
+    resources :items, only: [:update]
     resources :designs, only: [:index, :show]
     resources :genres, only: [:index]
     resources :cart_items, only: [:index, :create, :update, :destroy, :destroy_all]
@@ -38,7 +39,6 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     get '/orders/thanks'=> 'orders#thanks'
     resources :orders, only: [:new, :index, :show, :create]
     resources :address, only: [:create]
-
   end
 end
 

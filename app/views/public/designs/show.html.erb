@@ -1,10 +1,26 @@
 <%= render 'layouts/header' %>
 
-<div class="design-image">
+
+
+
+<div class="slider6-wrap">
+  <ul class="slider-6" id="js-slider-6">
     <% @design.images.each do |image| %>
-        <%= image_tag image.variant(resize: "200x200"), class:"pl-3" %>
+        <li><%= image_tag image.variant(resize: "200x200"), class:"pl-3" %></li>
     <% end %>
+  </ul>
+  <div class="thumbs_dots"></div>
 </div>
+
+
+
+
+<!--<div class="design-image">-->
+<!--    <% @design.images.each do |image| %>-->
+<!--        <div class="img"><%= image_tag image.variant(resize: "200x200"), class:"pl-3" %></div>-->
+<!--    <% end %>-->
+<!--</div>-->
+
 
 <div class="design-content">
     <%= @design.design_name %><br>
