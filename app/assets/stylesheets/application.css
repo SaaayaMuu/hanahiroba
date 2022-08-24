@@ -545,7 +545,9 @@ article{
 /*public/genre#indexここまで*/
 
 
-/*public/design#index*/
+/*/////////////////////
+//public/design#index//
+/////////////////////*/
 
 .header {
   width: 100%;
@@ -615,11 +617,37 @@ article{
 
 
 
+/*////////////////////
+/////designs#show/////
+////////////////////*/
 
+
+
+.design-box2 {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.design-content {
+  width: 40%;
+  height: 400px;
+  margin-left: 20px;
+  position: relative;
+}
+.design-content p {
+  font-size: 1.5em;
+}
+
+.design-content p:nth-child(3) {
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+}
 
 .slider6-wrap {
   width: 600px;
-  margin: 0 auto;
   position: relative;
 }
 .slider-6 .slick-slide {
@@ -637,8 +665,8 @@ article{
 }
 .thumbs_list li {
   display: inline-block;
-  width: 150px;
-  height: 80px;
+  width: 25%;
+  height: 100px;
   opacity: 0.4;
   cursor: pointer;
   transition: opacity 0.3s;
@@ -648,8 +676,19 @@ article{
 }
 
 
+.item-box {
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  margin: 0 auto;
+  margin-top: 50px;
 
+}
 
+.item-content {
+  margin: 50px 20px 20px 0;
+}
 
 
 

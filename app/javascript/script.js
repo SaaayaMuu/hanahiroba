@@ -99,6 +99,7 @@ $(function () {
 
 
 
+////*designs#show*///
 
 $(function () {
   var $slider6 = $('#js-slider-6');
