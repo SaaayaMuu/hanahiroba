@@ -47,16 +47,17 @@ class Public::OrdersController < ApplicationController
       @cart_items = current_customer.cart_items
       @cart_items.each do |cart_item|
 
+        # カートアイテム情報の取得＆注文詳細テーブルへ保存 #
         @order_detail = OrderDetail.new
         @order_detail.order_id = @order.id
         @order_detail.item_id = cart_item.item_id
         @order_detail.price = cart_item.item.with_tax_price
         @order_detail.amount =  cart_item.amount
 
-        # cart_item.item.stock = cart_item.item.find(params[:item][:stock])
-        # #@item.stock = cart_item.item.find(params[:item][:stock])
-        # @item.new_stock = cart_item.item.stock - cart_item.amount
-        # @itemn.new.stock.update(item_params)
+        #商品在庫カラムの変更#
+        @item.stock = cart_item.item.find(params[:item][:stock])
+        # @item.new_stock = @item.stock - cart_item.amount
+        @item.stock.update(@item.stock - cart_item.amount)
 
         @order_detail.save
       end
@@ -93,7 +94,9 @@ class Public::OrdersController < ApplicationController
     params.require(:address).permit(:customer_id, :postal_code, :address, :name)
   end
 
-
+  def item_params
+    params.require(:item).permit(:stock)
+  end
 
 
 end

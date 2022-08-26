@@ -621,8 +621,10 @@ article{
 /////designs#show/////
 ////////////////////*/
 
-
-
+.design-show-body {
+  font-family: 'Kaisei Tokumin', serif;
+  font-weight: bold;
+}
 .design-box2 {
   width: 80%;
   display: flex;
@@ -631,7 +633,7 @@ article{
 }
 
 .design-content {
-  width: 40%;
+  width: 600px;
   height: 400px;
   margin-left: 20px;
   position: relative;
@@ -723,8 +725,9 @@ article{
   width: 100%;
   height: 300px;
 }
-
 /*public/design#indexここまで*/
+
+
 @media screen and (max-width: 800px) {
   .image1 {
     background-image: url(top1_2.jpg);

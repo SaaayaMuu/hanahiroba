@@ -31,7 +31,11 @@
     <p><%= item.item_introduction %></p>
     <p>￥<%= item.with_tax_price %>(税込)</p>
     <p>残り<%= item.stock %>個</p>
-    <%= f.submit "カートに入れる", class: "btn btn-primary" %>
+    <% if item.is_active == true %>
+        <%= f.submit "カートに入れる", class: "btn btn-primary" %>
+    <% elsif item.is_active == false || item.stock == 0 %>
+        <p class="text-danger">販売停止中</p>
+    <% end %>
 </div>
 <% end %>
 <% end %>
