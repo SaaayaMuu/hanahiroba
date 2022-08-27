@@ -54,12 +54,17 @@ class Public::OrdersController < ApplicationController
         @order_detail.price = cart_item.item.with_tax_price
         @order_detail.amount =  cart_item.amount
 
-        #商品在庫カラムの変更#
-        @item.stock = cart_item.item.find(params[:item][:stock])
-        # @item.new_stock = @item.stock - cart_item.amount
-        @item.stock.update(@item.stock - cart_item.amount)
+        # #商品在庫カラムの変更#
+        # @item.stock = cart_item.item.find(params[:item][:stock])
+        # # @item.new_stock = @item.stock - cart_item.amount
+        # @item.stock.update(@item.stock - cart_item.amount)
 
-        @order_detail.save
+        # ↓　注文詳細が保存されたらthanksメールを送信
+        if @order_detail.save
+          CustomerMailer.with(customer: @customer).thanks_email.deliver_later#thanks_email(@customer).deliver_now
+        else
+          redirect_to cart_items_path
+        end
       end
       #@order_detail.item.stock =
       @cart_items.destroy_all

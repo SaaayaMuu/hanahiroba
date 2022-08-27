@@ -65,3 +65,5 @@ gem 'dotenv-rails'
 gem 'net-smtp'
 
 gem "cocoon"
+
+gem "enum_help"
