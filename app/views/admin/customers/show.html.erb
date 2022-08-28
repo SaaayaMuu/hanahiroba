@@ -1,3 +1,87 @@
 <%= render 'layouts/admin-header' %>
-<h1>Admin::Customers#show</h1>
-<p>Find me in app/views/admin/customers/show.html.erb</p>
+
+<div class="container">
+
+  <h3 class="mb-3 mt-3">顧客詳細</h3>
+
+  <div class="row">
+
+    <div class="col-12">
+
+      <label for="customer_id" class="col-4 col-sm-6 col-md-5 col-lg-5 col-xl-4 col-form-label">会員ID</label>
+      <%= @customer.id %></br>
+
+      <label for="customer_name" class="col-4 col-sm-6 col-md-5  col-lg-5 col-xl-4 col-form-label">氏名</label>
+      <%= @customer.last_name %><%= "　" %><%= @customer.first_name %></br>
+
+      <label for="customer_hurigana" class="col-4 col-sm-6 col-md-5  col-lg-5 col-xl-4 col-form-label">フリガナ</label>
+      <%= @customer.last_name_kana %><%= "　" %><%= @customer.first_name_kana %></br>
+
+      <label for="customer_postal_code" class="col-4 col-sm-6 col-md-5 col-lg-5 col-xl-4 col-form-label">郵便番号</label>
+      <%=@customer.postal_code %></br>
+
+      <label for="customer_address" class="col-4 col-sm-6 col-md-5 col-lg-5 col-xl-4 col-form-label">住所</label>
+      <%=@customer.address %></br>
+
+      <label for="customer_telephone_number" class="col-4 col-sm-6 col-md-5 col-xl-4 col-lg-5 col-form-label">電話番号</label>
+      <%=@customer.telephone_number %></br>
+
+      <label for="customer_email" class="col-4 col-sm-6 col-md-5 col-lg-5 col-xl-4 col-form-label">メールアドレス</label>
+      <%=@customer.email %></br>
+
+      <label for="customer_is_deleted" class="col-4 col-sm-6 col-md-5 col-lg-5 col-xl-4 col-form-label">会員ステータス</label>
+       <%= @customer.is_deleted ? '退会' : '有効' %></br>
+
+      <label class="col-1 col-sm-3 col-md-5 col-lg-5 col-xl-4 col-form-label"></label>
+      <span class="mr-1">
+        <%= link_to edit_admin_customer_path(@customer.id), class: "text-light btn btn-success px-4 py-2" do %>編集する<% end %>
+      </span>
+
+    </div>
+
+  </div>
+
+  <h4 class="mb-3 mt-3 font-weight-bold border-bottom"><%= @customer.full_name %>様 注文履歴一覧</h4>
+
+  <div class="row">
+    <div class="col-12">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>注文日</th>
+          <th>配送先</th>
+          <th>注文商品</th>
+          <th>支払金額</th>
+          <th>製作状況</th>
+          <th>注文詳細</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <% @orders.each do |order| %>
+
+        <tr>
+          <td class="align-middle"><%= order.created_at.strftime('%Y/%m/%d') %></td>
+          <td class="align-middle">
+            <%= order.postal_code %><br>
+            <%= order.address %><br>
+            <%= order.name %>
+          </td>
+
+          <td class="align-middle"><% order.order_details.each do |order_detail| %>
+            <%= image_tag order_detail.item.image.variant(resize: "100x100") %><%= order_detail.item.design.design_name %><br>
+            <% end %>
+          </td>
+
+          <td class="align-middle"><%= order.total_price %><%= "円" %></td>
+          <td class="align-middle"><%= order.making_status_i18n %></td>
+          <td class="align-middle"><%= link_to "表示する", admin_order_path(order.id), class: "btn btn-primary text-light" %></td>
+        </tr>
+
+        <% end %>
+      </tbody>
+    </table>
+    </div>
+    </div>
+
+</div>

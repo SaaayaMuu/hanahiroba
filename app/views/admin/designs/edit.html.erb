@@ -47,7 +47,7 @@
                               # フォームのデータを追加するモデル名
                               :items, class: 'btn btn-success mb-3',
                               # 追加するフォームの部分テンプレート
-                              partial: "item-form",
+                              partial: "item-form-edit",
                               # オプション
                               data: {
                                 # フォームを追加する場所の指定
@@ -70,7 +70,7 @@
     <%# end %>
     <div id="item-forms">
     <%= f.fields_for :items do |item| %>
-      <%= render partial: 'item-form', locals: {item: item} %>
+      <%= render partial: 'item-form-edit', locals: {item: item} %>
     <% end %>
     </div>
 

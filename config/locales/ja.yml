@@ -1,6 +1,6 @@
   ja: # 日本語の設定を行う
     enums: # enumの設定を行う
-      order_detail: # モデル名（Orderモデルに対して）
+      order: # モデル名（Orderモデルに対して）
         making_status:  # カラム名（payment_methodカラムに対して）
           waiting_for_deposit: "入金待ち"
           deposit_confirmation: "入金確認"

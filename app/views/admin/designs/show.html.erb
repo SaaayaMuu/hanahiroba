@@ -3,7 +3,7 @@
 
   <h3 class="mb-3 mt-3">デザイン詳細</h3>
 
-  <h4 class="mb-3 mt-3 font-weight-bold border-bottom">デザイン</h3>
+  <h4 class="mb-3 mt-3 font-weight-bold border-bottom">デザイン</h4>
   <div class="row d-flex flex-wrap">
     <% @design.images.each do |image| %>
       <%= image_tag image.variant(resize: "200x200"), class:"pl-3" %>
@@ -13,37 +13,37 @@
 
   <div class="justify-content-center">
     <div>
-      <label for="" class="col-2 p-0 font-weight-bold">デザイン名</label>
+      <label for="" class="col-lg-2 col-md-3 col-sm-4 col-4 p-0 font-weight-bold">デザイン名</label>
       <%= @design.design_name %>
     </div>
     <div>
-      <label for="" class="col-2 p-0 font-weight-bold">デザイン説明</label>
+      <label for="" class="col-lg-2 col-md-3 col-sm-4 col-4 p-0 font-weight-bold">デザイン説明</label>
       <%= @design.design_introduction %>
     </div>
     <div>
-      <label for="" class="col-2 p-0 font-weight-bold">ジャンル</label>
+      <label for="" class="col-lg-2 col-md-3 col-sm-4 col-4 p-0 font-weight-bold">ジャンル</label>
       <%= @design.genre.name %>
     </div>
     <div>
-      <label for="" class="col-2 p-0 font-weight-bold">デザイン価格</label>
-      <%= "￥" %><%= @design.design_price %>
+      <label for="" class="col-lg-2 col-md-3 col-sm-4 col-4 p-0 font-weight-bold">デザイン価格</label>
+      <%= "￥" %><%= @design.design_price %><%= "～" %>
     </div>
   </div>
 
-<h4 class="mb-3 mt-3 font-weight-bold border-bottom">商品</h3>
-<div class="row d-flex justify-content-start">
+<h4 class="mb-3 mt-3 font-weight-bold border-bottom">商品</h4>
+<div class="row d-flex flex-wrap">
   <%= @design.items.each do |item|%>
-    <div class="col-3">
+    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
       <%= image_tag item.image.variant(resize: "200x200"), class:"border" %><br>
-        <label for="" class="col-5 p-0 font-weight-bold">商品ID</label>
+        <label for="" class="col-6 p-0 font-weight-bold">商品ID</label>
           <%= item.id %><br>
-        <label for="" class="col-5 p-0 font-weight-bold">商品価格</label>
+        <label for="" class="col-6 p-0 font-weight-bold">商品価格(税抜)</label>
           <%= "￥" %><%= item.item_price %><br>
-        <label for="" class="col-5 p-0 font-weight-bold">在庫数</label>
+        <label for="" class="col-6 p-0 font-weight-bold">在庫数</label>
           <%= item.stock %><br>
-        <label for="" class="col-5 p-0 font-weight-bold">販売status</label>
+        <label for="" class="col-6 p-0 font-weight-bold">販売status</label>
           <%= item.is_active ? '販売中' : '販売停止中' %>
-        <label for="" class="col-5 p-0 font-weight-bold">商品説明</label>
+        <label for="" class="col-6 p-0 font-weight-bold">商品説明</label>
         <%= item.item_introduction %>
     </div>
   <% end %>

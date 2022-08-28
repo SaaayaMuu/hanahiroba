@@ -3,6 +3,8 @@
 
 <div class="container">
 
+  <h3 class="mb-3 mt-3">注文一覧</h3>
+
   <table class="table">
     <thead>
       <tr>
@@ -16,11 +18,11 @@
     <tbody>
       <% @orders.each do |order| %>
       <tr>
-        <td><%= order.created_at.strftime('%Y/%m/%d %H:%M:%S') %></td>
+        <td><%= link_to admin_order_path(order.id) do %><%= order.created_at.strftime('%Y/%m/%d %H:%M:%S') %><% end %></td>
         <td><%= order.customer_id %></td>
         <td><%= order.customer.full_name %></td>
         <td><%= order.order_details.sum(:amount) %></td>
-        <td><%#= order.making_status %></td>
+        <td><%= order.making_status_i18n %></td>
       </tr>
       <% end %>
     </tbody>
