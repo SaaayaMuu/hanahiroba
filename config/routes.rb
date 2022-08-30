@@ -5,27 +5,27 @@ Rails.application.routes.draw do
 # 顧客用
 # URL /customers/sign_in ...
 
-devise_for :customers, controllers: {
-  registrations: "public/registrations",
-  sessions: 'public/sessions',
-  passwords: 'public/passwords'
-}
+# devise_for :customers, controllers: {
+#   registrations: "public/registrations",
+#   sessions: 'public/sessions',
+#   passwords: 'public/passwords'
+# }
 
 # # 管理者用
 # # URL /admin/sign_in ...
-devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
-  sessions: "admin/sessions"
-}
-#   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+# devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
+#   sessions: "admin/sessions"
+# }
+# #   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
-  namespace :admin do
-    resources :designs, only: [:new, :create, :show, :edit, :update, :index, :destroy]
-    resources :items, only: [:create, :destroy]
-    resources :genres, only: [:index, :edit, :create, :update, :destroy]
-    resources :customers, only: [:index, :show, :edit, :update]
-    resources :orders, only: [:show, :update]
-    get '/' => 'homes#top'
-  end
+#   namespace :admin do
+#     resources :designs, only: [:new, :create, :show, :edit, :update, :index, :destroy]
+#     resources :items, only: [:create, :destroy]
+#     resources :genres, only: [:index, :edit, :create, :update, :destroy]
+#     resources :customers, only: [:index, :show, :edit, :update]
+#     resources :orders, only: [:show, :update]
+#     get '/' => 'homes#top'
+#   end
 
   root to: "public/homes#top"
   scope module: :public do
