@@ -105,7 +105,7 @@ body{
   width: 100%;
   height: 100%;
   z-index: 999;
-  background-image: url(japanese-paper_00548.jpg);
+  background-image: image-url("japanese-paper_00548.jpg");
   text-align:center;
   color:#fff;
 }
@@ -121,7 +121,7 @@ body{
 
 /* Loading アイコンの大きさ設定　*/
   #splash_logo .fadeUp {
-  background-image: url(image.png);
+  background-image: image-url("image.png");
   background-position: center;
   background-size: cover;
   width: 500px;
@@ -206,7 +206,7 @@ h3 {
   height: 100vh;
   font-family: 'Kaisei Tokumin', serif;
   /*background-color: #E6E6FA;*/
-  background-image: url(japanese-paper_00182.jpg);
+  background-image: image-url("japanese-paper_00182.jpg");
   background-size: cover;
 }
 
@@ -246,22 +246,22 @@ h3 {
 }
 
 .image1 {
-  background-image: url(top1.jpg);
+  background-image: image-url("top1.jpg");
   background-size: contain;
   background-position: top;
 }
 .image2 {
-  background-image: url(top5.jpg);
+  background-image: image-url("top5.jpg");
   background-size: cover;
   background-position: top;
 }
 .image3 {
-  background-image: url(top2.jpg);
+  background-image: image-url("top2.jpg");
   background-size: cover;
   background-position: top;
 }
 .image4 {
-  background-image: url(top7.jpg);
+  background-image: image-url("top7.jpg");
   background-size: cover;
   background-position: top;
 }
@@ -470,7 +470,7 @@ article{
 .genre-nav {
   width: 400px;
   height: 400px;
-  background-image: url(image.png);
+  background-image: image-url("image.png");
   background-size: cover;
 }
 
@@ -552,14 +552,14 @@ article{
 .header {
   width: 100%;
   height: 600px;
-  background-image: url("watercolor_00031_2.jpg");
+  background-image: image-url("watercolor_00031_2.jpg");
   background-position: bottom;
   background-size: cover;
 }
 .nav {
   width: 400px;
   height: 400px;
-  background-image: url(image.png);
+  background-image: image-url("image.png");
   background-size: cover;
 }
 .nav-text .nav-name {
@@ -707,7 +707,7 @@ article{
 .design-footer{
   width: 100%;
   height: 500px;
-  background-image: url(japanese-paper_00162_2.jpg);
+  background-image: image-url("japanese-paper_00162_2.jpg");
   border-top: thin solid #999966;
   margin-top: 60px;
 }
@@ -715,7 +715,7 @@ article{
   width: 500px;
   height: 500px;
   margin: 0 auto;
-  background-image: url(image.png);
+  background-image: image-url("image.png");
   background-size: cover;
   background-position: center;
 }
@@ -730,18 +730,18 @@ article{
 
 @media screen and (max-width: 800px) {
   .image1 {
-    background-image: url(top1_2.jpg);
+    background-image: image-url("top1_2.jpg");
     background-size: cover;
     background-position: top;
   }
 
   .image2 {
-    background-image: url(top5_3.jpg);
+    background-image: image-url("top5_3.jpg");
     background-size: cover;
     background-position: left;
   }
   .image3 {
-    background-image: url(top2_3.jpg);
+    background-image: image-url("top2_3.jpg");
     background-size: cover;
     background-position: top right;
   }
