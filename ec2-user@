@@ -1,0 +1,8 @@
+GMAIL_ADDRESS="hanahiroba.tsumami@gmail.com"
+GMAIL_PASSWORD="pwygcvmewwfhxrwz"
+
+DB_USERNAME="root"
+DB_PASSWORD="Saya322coco"
+DB_HOST="rds-mysql-server.cz3mvfgijixf.us-east-1.rds.amazonaws.com"
+DB_DATABASE="hanahiroba"
+
