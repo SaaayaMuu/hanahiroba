@@ -18,6 +18,7 @@
 
 @import "skippr";
 
+
  * {
   margin:0;
   padding:0;
@@ -214,14 +215,14 @@ h3 {
   width: 100%;
   height: 7%;
   border: double 7px #AA0000;
-  display:table;
+  display: table;
   padding-left: 20px;
 }
 .header-text {
   font-family: 'Yuji Syuku', serif;
   font-weight: bold;
-  display:table-cell;
-  vertical-align:middle;
+  display: table-cell;
+  vertical-align: middle;
   font-size: 2em;
   color: #880000;
 }
@@ -270,13 +271,13 @@ h3 {
   width: 100%;
   height: 7%;
   border: double 7px #AA0000;
-  display:table;
+  display: table;
   padding-right: 20px;
 }
 .footer-text {
   font-family: 'Yuji Syuku', serif;
-  display:table-cell;
-  vertical-align:middle;
+  display: table-cell;
+  vertical-align: fmiddle;
   text-align: right;
   font-size: 1.5em;
 }
@@ -416,8 +417,72 @@ h3 {
 /*ハンバーガーここまで*/
 /*topここまで*/
 
+
+
+////////////////////////
+//////public#header/////
+////////////////////////
+.header {
+  width: 100%;
+  height: 600px;
+  background-image: image-url("watercolor_00031_2.jpg");
+  background-position: bottom;
+  background-size: cover;
+}
+
+.nav-text .nav-name {
+  margin: 0 20px;
+}
+.nav-text .nav-name:nth-child(1) {
+  margin-left: 5px;
+}
+
+.nav-text .nav-name:hover {
+  background-color: #000080;
+  padding: 30px 0 30px 0;
+}
+.nav-text .nav-genre:hover {
+  background-color: #4169E1	;
+  padding: 20px 0 30px 0;
+}
+
+.nav-text {
+  position: absolute;
+  top: 60px;
+  right: 160px;
+  z-index: 999;
+  width: 500px;
+  writing-mode: vertical-rl;
+  font-family: 'Yuji Syuku', serif;
+  font-size: 1.7em;
+}
+
+.nav-text li {
+  list-style: none;
+  color: #fff;
+  font-weight: bold;
+}
+
+.login-content {
+  position: absolute;
+  top: 0;
+  left: 50px;
+  writing-mode: vertical-rl;
+  font-size: 1.5em;
+  font-family: 'Kaisei Tokumin', serif;
+  background-color: #990066;
+  color: #fff;
+  padding: 70px 0 20px 0;
+}
+/*public#headerここまで*/
+
+
+
+
+
+
 header h1{
-    font-size:12pt;
+    font-size: 12pt;
     color: #fff;
     background-color: #1BA1E2;
     padding: 20px;
@@ -549,52 +614,62 @@ article{
 //public/design#index//
 /////////////////////*/
 
-.header {
+// .section {
+//   display: flex;
+//   flex-wrap: wrap;
+//   justify-content: start;
+// }
+.sliderArea {
+  max-width: 20%;
+  margin: 0 50px;
+  padding: 0 25px;
+}
+
+.sliderArea.w300 {
+  max-width: 300px;
+}
+.slick-slide {
+  margin: 0 5px;
+}
+.slick-slide img {
   width: 100%;
-  height: 600px;
-  background-image: image-url("watercolor_00031_2.jpg");
-  background-position: bottom;
-  background-size: cover;
+  height: auto;
 }
-.nav {
-  width: 400px;
-  height: 400px;
-  background-image: image-url("image.png");
-  background-size: cover;
-}
-.nav-text .nav-name {
-  margin: 0 20px;
-}
-.nav-text .nav-name:nth-child(1) {
-  margin-left: 5px;
-}
-
-.nav-text .nav-name:hover {
-  background-color: #000080;
-  padding: 30px 0 30px 0;
-}
-.nav-text .nav-genre:hover {
-  background-color: #4169E1	;
-  padding: 20px 0 30px 0;
-}
-
-
-.nav-text {
-  position: absolute;
-  top: 60px;
-  right: 160px;
-  z-index: 999;
-  width: 500px;
-  writing-mode: vertical-rl;
-  font-family: 'Yuji Syuku', serif;
-  font-size: 1.7em;
-}
-
-.nav-text li {
-  list-style: none;
-  color: #fff;
+.slick-prev, .slick-next {
+  z-index: 1;
   font-weight: bold;
 }
+
+.slick-prev:before, .slick-next:before {
+  color: #000;
+}
+.slick-dots li button:before {
+    content: '◆';
+}
+
+
+.slick-slide {
+  transition: all ease-in-out .3s;
+  opacity: .2;
+}
+.slick-active {
+  opacity: 1;
+}
+.slick-current {
+  opacity: 1;
+}
+.thumb {
+  margin: 20px 0 0;
+}
+.thumb .slick-slide {
+  cursor: pointer;
+}
+.thumb .slick-slide:hover {
+  opacity: .7;
+}
+
+
+
 
 
 .design-box {

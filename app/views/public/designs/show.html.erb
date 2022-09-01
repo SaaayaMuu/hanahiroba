@@ -21,24 +21,24 @@
 
 
 <div class="item-box">
-<% @items.each do |item| %>
-<%= form_with model: @cart_item, url: cart_items_path, method: :post, local: true do |f| %>
-<%= f.hidden_field :amount, :value => "1" %>
-<div class="item-content">
-    <%= f.hidden_field :item_id, :value => item.id %>
-    <%= image_tag item.image.variant(resize: "200x200") %>
-    <p><%= item.design.design_name %></p>
-    <p><%= item.item_introduction %></p>
-    <p>￥<%= item.with_tax_price %>(税込)</p>
-    <p>残り<%= item.stock %>個</p>
-    <% if item.is_active == true %>
-        <%= f.submit "カートに入れる", class: "btn btn-primary" %>
-    <% elsif item.is_active == false || item.stock == 0 %>
-        <p class="text-danger">販売停止中</p>
+    <% @items.each do |item| %>
+        <%= form_with model: @cart_item, url: cart_items_path, method: :post, local: true do |f| %>
+            <%= f.hidden_field :amount, :value => "1" %>
+            <div class="item-content">
+                <%= f.hidden_field :item_id, :value => item.id %>
+                <%= image_tag item.image.variant(resize: "200x200") %>
+                <p><%= item.design.design_name %></p>
+                <p><%= item.item_introduction %></p>
+                <p>￥<%= item.with_tax_price %>(税込)</p>
+                <p>残り<%= item.stock %>個</p>
+                <% if item.is_active == true %>
+                    <%= f.submit "カートに入れる", class: "btn btn-primary" %>
+                <% elsif item.is_active == false || item.stock == 0 %>
+                    <p class="text-danger">販売停止中</p>
+                <% end %>
+            </div>
+        <% end %>
     <% end %>
-</div>
-<% end %>
-<% end %>
 </div>
 <!--<img src="images/tsumami2_3.png" alt="画像" width="200" height="150">-->
 

@@ -1,5 +1,19 @@
 
 
+$(document).ready(function () {
+
+  $(".regular").slick({
+    autoplay: false,
+    autoplaySpeed: 4000,
+    dots: true,
+  });
+});
+
+
+
+
+
+
 //スライドショー
 $(document).ready(function () {
   $(".theTarget").skippr({
@@ -85,17 +99,12 @@ window.onload = function(){
     }
 }
 
-
+// ローディング画面
 $(window).on('load',function(){
   $("#splash").delay(1500).fadeOut('slow');//ローディング画面を1.5秒（1500ms）待機してからフェードアウト
   $("#splash_logo").delay(1500).fadeOut('slow');//ロゴを1.2秒（1200ms）待機してからフェードアウト
 });
 
-
-
-$(function () {
-  $('#js-slider-1').slick();
-});
 
 
 
@@ -126,6 +135,7 @@ $(function () {
     }
   });
 
+
   $slider6.slick({
     arrows: false, // 前・次のボタンを表示しない
     dots: true, // ドットナビゲーションを表示する
@@ -138,5 +148,6 @@ $(function () {
     autoplay: false, //自動再生させない
     slidesToShow: 1, // 表示させるスライド数
   });
+
 
 });

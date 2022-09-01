@@ -8,7 +8,7 @@ class Public::SessionsController < Devise::SessionsController
 
   def after_sign_out_path_for(resource)
     flash[:notice] = 'ログアウトしました'
-    root_path
+    designs_path
   end
   # before_action :configure_sign_in_params, only: [:create]
 

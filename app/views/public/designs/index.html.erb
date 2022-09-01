@@ -1,23 +1,35 @@
 <div class="design-body">
 <%= render 'layouts/header' %>
 
-
+<div class="section">
   <% @designs.each do |design| %>
-    <%= link_to design_path(design.id) do %>
-    <div class="design-box">
-      <div class="design-detail">
-        <%= design.design_name %><br>
-        <%= design.design_price %><br>
-        <%= design.genre.name %><br>
-      </div>
-      <div class="design-image">
-        <% design.images.each do |image| %>
-          <div class="img"><%= image_tag image.variant(resize: "200x200"), class:"pl-3" %></div>
-        <% end %>
-      </div>
+  <div class="sliderArea">
+    <div class="regular slider">
+      <% design.images.each do |image| %>
+        <div class="img"><%= image_tag image %></div>
+      <% end %>
     </div>
-    <% end %>
+  </div>
   <% end %>
+</div>
+
+
+  <!--<% @designs.each do |design| %>-->
+  <!--  <%= link_to design_path(design.id) do %>-->
+  <!--  <div class="design-box">-->
+  <!--    <div class="design-detail">-->
+  <!--      <%= design.design_name %><br>-->
+  <!--      <%= design.design_price %><br>-->
+  <!--      <%= design.genre.name %><br>-->
+  <!--    </div>-->
+  <!--    <div class="design-image">-->
+  <!--      <% design.images.each do |image| %>-->
+  <!--        <div class="img"><%= image_tag image.variant(resize: "200x200"), class:"pl-3" %></div>-->
+  <!--      <% end %>-->
+  <!--    </div>-->
+  <!--  </div>-->
+  <!--  <% end %>-->
+  <!--<% end %>-->
 
 
 
