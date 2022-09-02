@@ -1,16 +1,4 @@
-
-
-$(document).ready(function () {
-
-  $(".regular").slick({
-    autoplay: false,
-    autoplaySpeed: 4000,
-    dots: true,
-  });
-});
-
-
-
+/* global $*/
 
 
 
@@ -22,8 +10,6 @@ $(document).ready(function () {
     // 変化に係る時間(ミリ秒)
     speed : 1000,
     // easingの種類
-    easing : 'easeOutQuart',
-    // ナビゲーションの形("block" or "bubble")
     navType : 'false',
     // 子要素の種類('div' or 'img')
     childrenElementType : 'div',
@@ -41,6 +27,7 @@ $(document).ready(function () {
 });
 
 /*ハンバーガーメニュー*/
+$(document).ready(function () {
 $(function() {
   $('.menu-trigger').on('click', function(event) {
     $(this).toggleClass('active');
@@ -48,7 +35,7 @@ $(function() {
     event.preventDefault();
   });
 });
-
+});
 
 /*プレビュー*/
 
@@ -117,7 +104,7 @@ $(function () {
   // スライダー初期化時
   $slider6.on('init', function (event, slick, currentSlide, nextSlide) {
     // スライドアイテム取得
-    slideItem = $('#js-slider-6 .slick-slide')
+    slideItem = $('#js-slider-6 .slick-slide');
     // スライドの数だけループ
     for (var i = 0; i < slick.slideCount; i++) {
       // ループ回数をキーにn番目のスライドを取得
@@ -134,8 +121,10 @@ $(function () {
       dot.css('background-size', 'cover');
     }
   });
+});
 
-
+// designs#showのslick
+$(document).ready(function () {
   $slider6.slick({
     arrows: false, // 前・次のボタンを表示しない
     dots: true, // ドットナビゲーションを表示する
@@ -148,6 +137,15 @@ $(function () {
     autoplay: false, //自動再生させない
     slidesToShow: 1, // 表示させるスライド数
   });
+});
 
 
+
+$(document).ready(function(){
+  $('.regular').slick({
+    fade: true,
+    autoplay: false, //自動再生
+    dots: false,
+    arrows: false,
+  });
 });
