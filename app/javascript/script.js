@@ -2,6 +2,8 @@
 
 
 
+
+
 //スライドショー
 $(document).ready(function () {
   $(".theTarget").skippr({
@@ -123,7 +125,7 @@ $(function () {
   });
 });
 
-// designs#showのslick
+// designs#showのslick 参考URL(https://and-ha.com/coding/slick/)
 $(document).ready(function () {
   $slider6.slick({
     arrows: false, // 前・次のボタンを表示しない
@@ -149,3 +151,4 @@ $(document).ready(function(){
     arrows: false,
   });
 });
+

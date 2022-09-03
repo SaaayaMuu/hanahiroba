@@ -560,24 +560,32 @@ article{
 .design-item {
   max-width: 300px;
   width: 25%;
-  margin: 0 30px;
+  // margin: 0 30px;
 }
 
 .regular {
   width: 90%;
-  margin: 0 30px;
+  // margin: 0 30px;
 }
 .slick-slide img {
   width: 100%;
   height: auto;
+  object-fit: cover;
 }
 
 .design-detail {
   width: 90%;
   // max-width: 300px;
-  margin: 0 30px;
-  max-height: 200px;
+  // margin: 0 30px;
+  // max-height: 200px;
   color: black;
+}
+.design-detail h5 {
+  margin-bottom: 0;
+}
+.design-index-genre {
+  font-size: 0.8em;
+  color: gray;
 }
 
 .slick-slide {
@@ -593,10 +601,10 @@ article{
   color: #000;
 }
 .slick-next:before {
-  content: '▷';
+  content: '';
 }
 .slick-prev:before {
-  content: '◁';
+  content: '';
 }
 
 .slick-dots li.slick-active button:before {
@@ -620,6 +628,10 @@ article{
     -moz-osx-font-smoothing: grayscale;
 }
 /*public/design#indexここまで*/
+
+
+
+
 
 
 
