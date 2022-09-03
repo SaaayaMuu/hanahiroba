@@ -3,9 +3,9 @@
   <div class="header">
     <div class="nav-text">
       <li>ジャンルで選ぶ</li>
-        <%= link_to designs_path(genre_name: 髪飾り), class: "path" do %><li class="nav-genre">&emsp;--髪飾り</li><% end %>
-        <%= link_to designs_path(genre_name: インテリア), class: "path" do %><li class="nav-genre">&emsp;--インテリア</li><% end %>
-        <%= link_to designs_path(genre_name: アクセサリー), class: "path" do %><li class="nav-genre">&emsp;--アクセサリー</li><% end %>
+        <%= link_to designs_path(genre_name: "髪飾り"), class: "path" do %><li class="nav-genre">&emsp;--髪飾り</li><% end %>
+        <%= link_to designs_path(genre_name: "インテリア"), class: "path" do %><li class="nav-genre">&emsp;--インテリア</li><% end %>
+        <%= link_to designs_path(genre_name: "アクセサリー"), class: "path" do %><li class="nav-genre">&emsp;--アクセサリー</li><% end %>
         <%= link_to designs_path, class: "path" do %><li class="nav-name">すべての商品</li><% end %>
         <%= link_to cart_items_path, class: "path" do %><li class="nav-name">カート</li><% end %>
         <%= link_to customer_path(current_customer.id), class: "path" do %><li class="nav-name">マイページ</li><% end %>
@@ -19,9 +19,9 @@
   <div class="header">
     <div class="nav-text">
       <li>ジャンルで選ぶ</li>
-        <%= link_to designs_path(genre_id: 1), class: "path" do %><li class="nav-genre">&emsp;--髪飾り</li><% end %>
-        <%= link_to designs_path(genre_id: 6), class: "path" do %><li class="nav-genre">&emsp;--インテリア</li><% end %>
-        <%= link_to designs_path(genre_id: 4), class: "path" do %><li class="nav-genre">&emsp;--アクセサリー</li><% end %>
+        <%= link_to designs_path(genre_name: "髪飾り"), class: "path" do %><li class="nav-genre">&emsp;--髪飾り</li><% end %>
+        <%= link_to designs_path(genre_name: "インテリア"), class: "path" do %><li class="nav-genre">&emsp;--インテリア</li><% end %>
+        <%= link_to designs_path(genre_name: "アクセサリー"), class: "path" do %><li class="nav-genre">&emsp;--アクセサリー</li><% end %>
         <%= link_to designs_path, class: "path" do %><li class="nav-name">すべての商品</li><% end %>
         <%= link_to cart_items_path, class: "path" do %><li class="nav-name">カート</li><% end %>
         <%= link_to new_customer_session_path, class: "path" do %><li class="nav-name">ログイン</li><% end %>
