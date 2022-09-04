@@ -1,6 +1,8 @@
-<%= render 'layouts/header' %>
+<%= render 'layouts/header', genre: @genre %>
+
 
 <div class="body">
+<p class="text-center text-danger lead"><%= flash[:notice] %></p><!--在庫数が足りません-->
 <div class="container">
 	<h2 class="section-ttl">ショッピングカート</h2>
 	<% if @cart_items.first %>

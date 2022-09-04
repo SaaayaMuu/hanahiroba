@@ -14,7 +14,7 @@
     </div>
     <div class="row">
       <div class="col-md-2 col-sm-3 font-weight-bold"><label for="item[stock]">在庫数</label></div>
-      <div class="col-auto"><%= item.number_field :stock ,min: 1, max:10, required: true %></div>
+      <div class="col-auto"><%= item.number_field :stock ,min: 0, max:10, required: true %></div>
     </div>
 
     <div class="row">

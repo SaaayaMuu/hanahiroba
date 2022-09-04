@@ -1,7 +1,7 @@
 <%= render 'layouts/admin-header' %>
 <div class="container">
 
-<h3 class="mb-3 mt-3">商品一覧</h3>
+<h3 class="mb-3 mt-3">デザイン一覧</h3>
 
 <table class="table">
   <thead>
@@ -10,6 +10,9 @@
     <th>デザイン名</th>
     <th>ジャンル</th>
     <th>税抜価格</th>
+    <th>商品数</th>
+    <th>販売停止中</th>
+    <th>在庫数０</th>
   </thead>
   <tbody>
   <% @designs.each do |design| %>
@@ -19,6 +22,9 @@
     <td><%= design.design_name %></td>
     <td><%= design.genre.name %></td>
     <td><%= design.design_price %></td>
+    <td><%= design.items.count %></td>
+    <td><%= design.items.where(is_active: false).count %></td>
+    <td><%= design.items.where(stock: "0").count %></td>
   </tr>
   <% end %>
   </tbody>

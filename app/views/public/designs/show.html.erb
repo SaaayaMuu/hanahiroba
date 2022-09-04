@@ -1,4 +1,4 @@
-<%= render 'layouts/header' %>
+<%= render 'layouts/header', genre: @genre %>
 
 <div class="body">
 
@@ -31,9 +31,9 @@
                     <p><%= item.item_introduction %></p>
                     <p>￥<%= item.with_tax_price %>(税込)</p>
                     <p>残り<%= item.stock %>個</p>
-                    <% if item.is_active == true %>
+                    <% if item.is_active == true && item.stock >= 1 %>
                         <%= f.submit "カートに入れる", class: "btn btn-primary" %>
-                    <% elsif item.is_active == false || item.stock == 0 %>
+                    <% else %>
                         <p class="text-danger">販売停止中</p>
                     <% end %>
                 </div>

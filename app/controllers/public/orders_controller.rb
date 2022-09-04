@@ -3,11 +3,13 @@ class Public::OrdersController < ApplicationController
   before_action :authenticate_customer!
 
   def new
+    @genre = Genre.all # headerの部分テンプレート用
     @order = Order.new
     @customer = current_customer
   end
 
   def confirm
+    @genre = Genre.all # headerの部分テンプレート用
     @cart_items = CartItem.all
     @order = Order.new(order_params)
     @order.customer_id = current_customer.id
@@ -45,6 +47,7 @@ class Public::OrdersController < ApplicationController
       end
 
       @cart_items = current_customer.cart_items
+      # @item.stock = current_customer.cart_items.item.stock
       @cart_items.each do |cart_item|
 
         # カートアイテム情報の取得＆注文詳細テーブルへ保存 #
@@ -54,10 +57,13 @@ class Public::OrdersController < ApplicationController
         @order_detail.price = cart_item.item.with_tax_price
         @order_detail.amount =  cart_item.amount
 
-        # #商品在庫カラムの変更#
-        # @item.stock = cart_item.item.find(params[:item][:stock])
-        # # @item.new_stock = @item.stock - cart_item.amount
-        # @item.stock.update(@item.stock - cart_item.amount)
+
+        # 商品在庫カラムの変更
+        @stock_number = cart_item.item.stock - cart_item.amount
+        # ↓ @item.updateのための@itemの中身を定義(Item.find(cart_item.item_id)でレコードを特定)
+        @item =  Item.find(cart_item.item_id)
+        @item.update(stock: @stock_number)
+
 
         # ↓　注文詳細が保存されたらthanksメールを送信
         if @order_detail.save
@@ -66,7 +72,6 @@ class Public::OrdersController < ApplicationController
           redirect_to cart_items_path
         end
       end
-      #@order_detail.item.stock =
       @cart_items.destroy_all
       redirect_to orders_thanks_path
     else
@@ -75,14 +80,17 @@ class Public::OrdersController < ApplicationController
   end
 
   def thanks
+    @genre = Genre.all # headerの部分テンプレート用
   end
 
   def index
+    @genre = Genre.all # headerの部分テンプレート用
     @customer = current_customer
     @orders = @customer.orders.all.order(created_at: :desc)
   end
 
   def show
+    @genre = Genre.all # headerの部分テンプレート用
     @order = Order.find(params[:id])
     #@order_detail = OrderDetail.find(params[:id])
     @order_details = OrderDetail.all
