@@ -3,13 +3,13 @@ class Customer < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-         validates :last_name, presence: true#{ message: '未入力です' }
-         validates :first_name, presence: true#{ message: '未入力です' }
-         validates :last_name_kana, presence: true#{ message: '未入力です' }
-         validates :first_name_kana, presence: true#{ message: '未入力です' }
-         validates :postal_code, presence: true#{ message: '未入力です' }
-         validates :address, presence: true#{ message: '未入力です' }
-         validates :telephone_number, presence: true#{ message: '未入力です' }
+         validates :last_name, presence: true
+         validates :first_name, presence: true
+         validates :last_name_kana, presence: true
+         validates :first_name_kana, presence: true
+         validates :postal_code, presence: true
+         validates :address, presence: true
+         validates :telephone_number, presence: true
 
 
   has_many :cart_items, dependent: :destroy
@@ -18,6 +18,10 @@ class Customer < ApplicationRecord
 
   def full_name
     last_name + ' ' + first_name
+  end
+
+  def full_name_kana
+    last_name_kana + ' ' + first_name_kana
   end
 
 end

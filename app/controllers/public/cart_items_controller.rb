@@ -13,7 +13,7 @@ class Public::CartItemsController < ApplicationController
 
       if @cart_item.amount > @cart_item.item.stock # 2. もしamountがstockより多くなってしまったら
         @cart_item.update(amount: @cart_item.item.stock) # 3. amountをstockと同じ数し、再度update
-        flash[:notice] = "※在庫数が足りません"
+        flash[:danger] = "※在庫数が足りません"
         redirect_to cart_items_path
       elsif @cart_item.amount <= @cart_item.item.stock # 2. もしamountがstockの数より少なければ問題ないので
         redirect_to cart_items_path # 3. そのままredirect
@@ -33,7 +33,7 @@ class Public::CartItemsController < ApplicationController
 
     if @cart_item.amount > @cart_item.item.stock # 2. もしamountがstockより多くなってしまったら
       @cart_item.update(amount: @cart_item.item.stock) # 3. amountをstockと同じ数し、再度update
-      flash[:notice] = "※在庫数が足りません"
+      flash[:danger] = "※在庫数が足りません"
       redirect_to cart_items_path
 
     elsif @cart_item.amount <= @cart_item.item.stock # 2. もしamountがstockの数より少なければ問題ないので

@@ -2,7 +2,8 @@
 
 
 <div class="body">
-<p class="text-center text-danger lead"><%= flash[:notice] %></p><!--在庫数が足りません-->
+<%= render 'public/shared/custom_error_messages' %>
+<!--<p class="text-center text-danger lead"><%= flash[:danger] %></p><!--在庫数が足りません-->
 <div class="container">
 	<h2 class="section-ttl">ショッピングカート</h2>
 	<% if @cart_items.first %>

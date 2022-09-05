@@ -26,8 +26,3 @@
       messages:
         not_saved: "＜未入力の項目があります＞"
 
-    devise:
-      settions:
-        customer:
-          signed_in: "ログインしました"
-
