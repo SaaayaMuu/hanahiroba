@@ -3,13 +3,15 @@
 
 <div class="body">
 <%= render 'public/shared/custom_error_messages' %>
-<!--<p class="text-center text-danger lead"><%= flash[:danger] %></p><!--在庫数が足りません-->
+
 <div class="container">
-	<h2 class="section-ttl">ショッピングカート</h2>
+	<h2 class="my-5 text-center">ショッピングカート</h2>
+
 	<% if @cart_items.first %>
-		<div class="mb2">
-			<%= link_to "カートを空にする", cart_items_path, method: :delete, "data-confirm" => "カートを空にします。よろしいでしょうか？", class: "btn btn-danger" %>
+		<div class="text-right">
+			<%= link_to "カートを空にする", cart_items_path, method: :delete, "data-confirm" => "カートを空にします。よろしいでしょうか？", class: "btn btn-danger mb-3 mr-2" %>
 		</div>
+
 		<table class="table">
 			<thead>
 				<tr>
@@ -55,6 +57,7 @@
 		<div class="text-center">
 			<%= link_to "注文情報入力に進む", new_order_path, class: "btn btn-success" %>
 		</div>
+
 	<% else %>
 		<div class="text-center">
 			<h4 class="my-5">カート内に商品がありません。</h4>

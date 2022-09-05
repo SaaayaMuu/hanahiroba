@@ -1,40 +1,53 @@
 <%= render 'layouts/header', genre: @genre %>
 <div class="body">
   <div class="container">
-    <p class="lead px-3 text-center">マイページ</p>
 
-    <div class="row">
-      <div class="col-md-6">
-        < for="firstName">氏名</label>
-        <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
-      </div>
+    <h2 class="my-5 text-center">マイページ</h2>
 
-      <div class="col-md-6 mb-3">
-        <label for="firstName">カナ</label>
-        <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
-      </div>
-      <div class="col-md-6 mb-3">
-        <label for="lastName">郵便番号</label>
-        <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
-      </div>
-      <div class="col-md-6 mb-3">
-        <label for="lastName">住所</label>
-        <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
-      </div>
-      <div class="col-md-6 mb-3">
-        <label for="lastName">電話番号</label>
-        <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
-      </div>
-      <div class="col-md-6 mb-3">
-        <label for="lastName">メールアドレス</label>
-        <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
-      </div>
+    <div class="row justify-content-center mb-3">
+      <h5>登録情報編集</h5>
     </div>
 
+    <%= form_with model: @customer, url: customer_path, method: :patch do |f| %>
+    <div class="row justify-content-center">
 
-    <p>
-      <%= link_to orders_path, class: "btn btn-primary ml-2" do %>注文履歴一覧を見る<% end %>
-    </p>
+        <div>
+
+          <div class="mb-3">
+            <h5>氏名</h5>
+            <%= f.text_field :last_name, autofocus: true, required: true, class: "text-secondary" %>
+            <%= f.text_field :first_name, required: true, class: "text-secondary" %>
+          </div>
+
+          <div class="mb-3">
+            <h5>カナ</h5>
+            <%= f.text_field :last_name_kana, required: true, class: "text-secondary" %>
+            <%= f.text_field :first_name_kana, required: true, class: "text-secondary" %>
+          </div>
+          <div class="mb-3">
+            <h5>郵便番号</h5>
+            <%= f.text_field :postal_code, size: "42x10", required: true, class: "text-secondary" %>
+          </div>
+          <div class="mb-3">
+            <h5>住所</h5>
+            <%= f.text_area :address, size: "42x3", required: true, class: "text-secondary" %>
+          </div>
+          <div class="mb-3">
+            <h5>電話番号</h5>
+            <%= f.text_field :telephone_number, size: "42x10", required: true, class: "text-secondary" %>
+          </div>
+          <div class="mb-3">
+            <h5>メールアドレス</h5>
+            <%= f.email_field :email, size: "42x10", required: true, class: "text-secondary" %>
+          </div>
+        </div>
+
+
+    </div>
+        <p class="text-center mt-3"><%= f.submit "保存", class: "btn btn-sm btn-success px-5 py-1" %></p>
+        <p class="text-center mt-3"><%= link_to customer_path(current_customer), class: "btn btn-primary" do %>戻る<% end %></p>
+    <% end %>
+
 
   </div>
 </div>
