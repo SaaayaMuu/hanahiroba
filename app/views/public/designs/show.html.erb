@@ -31,7 +31,7 @@
                     <p><%= item.item_introduction %></p>
                     <p>￥<%= item.with_tax_price %>(税込)</p>
                     <p>残り<%= item.stock %>個</p>
-                    <% if item.is_active == true && item.stock >= 1 %>
+                    <% if item.is_active == true && item.stock >= 1 %> <!--販売中の商品、または在庫が1つ以上ある商品の場合-->
                         <%= f.submit "カートに入れる", class: "btn btn-primary" %>
                     <% else %>
                         <p class="text-danger">販売停止中</p>

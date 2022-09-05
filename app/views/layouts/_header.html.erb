@@ -27,5 +27,8 @@
         <%= link_to new_customer_session_path, class: "path" do %><li class="nav-name">ログイン</li><% end %>
         <%= link_to new_customer_registration_path, class: "path" do %><li class="nav-name">会員登録</li><% end %>
     </div>
+      <div class="login-content">
+        <p class="text-center text-white lead"><%= flash[:notice] %></p>
+      </div>
   </div>
 <% end %>

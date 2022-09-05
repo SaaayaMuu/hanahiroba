@@ -20,6 +20,7 @@ module Hanahiroba
     # config.eager_load_paths << Rails.root.join("extras")
     config.active_storage.replace_on_assign_to_many = false
     config.i18n.default_locale = :ja#日本語に対応させる
+    # config.i18n.load_path += Dir[Rails.root.join('config/locales/**/*.yml').to_s]# I18nライブラリに訳文の探索場所を指示する
 
     config.time_zone = "Tokyo"
   end
