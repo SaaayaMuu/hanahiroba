@@ -14,7 +14,7 @@ class Admin::DesignsController < ApplicationController
   def create
     @design = Design.new(design_params)
     if @design.save
-      redirect_to admin_designs_path
+      redirect_to admin_design_path(@design.id)
     else
       redirect_to admin_genres_path
     end
