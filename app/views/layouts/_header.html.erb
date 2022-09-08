@@ -15,6 +15,7 @@
       <%= current_customer.last_name %>さんログイン中
     </div>
   </div>
+
   <% else %>
   <div class="header">
     <div class="nav-text">
@@ -32,3 +33,32 @@
       </div>
   </div>
 <% end %>
+
+
+  <!--ハンバーガーアイコン-->
+<div id="hm-icon-public">
+  <a class="menu-trigger-public" href="#">
+    <span></span>
+    <span>menu</span>
+    <span></span>
+  </a>
+</div>
+
+
+
+<div id="sp-menu-public">
+  <ul class="menu-content">
+    <%= link_to designs_path, class: "path_line" do %><li>商品一覧</li><% end %>
+    <% genre.each do |genre| %>
+      <%= link_to designs_path(genre_id: genre.id), class: "path" do %><li class="nav-genre">&emsp;--<%= genre.name %></li><% end %>
+      <% end %>
+    <%= link_to cart_items_path, class: "path_line" do %><li>カート</li><% end %>
+    <% if customer_signed_in?%>
+    <%= link_to customer_path(current_customer.id), class: "path_line" do %><li>マイページ</li><% end %>
+    <%= link_to destroy_customer_session_path, method: :delete, class: "path_line" do %><li>ログアウト</li><% end %>
+    <% else %>
+    <%= link_to new_customer_session_path, class: "path_line" do %><li>ログイン</li><% end %>
+    <%= link_to new_customer_registration_path, class: "path_line" do %><li>会員登録</li><% end %>
+    <% end %>
+  </ul>
+</div>

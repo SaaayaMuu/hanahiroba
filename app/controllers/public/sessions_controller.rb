@@ -3,7 +3,7 @@
 class Public::SessionsController < Devise::SessionsController
 
   def after_sign_in_path_for(resource)
-    # flash[:notice] = 'ログインしました' #(nav部分に常時顧客名表示)
+    flash[:notice] = '' #(nav部分に常時顧客名表示してるのでいらない)
     designs_path
   end
 

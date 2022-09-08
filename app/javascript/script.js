@@ -28,15 +28,24 @@ $(document).ready(function () {
   });
 });
 
-/*ハンバーガーメニュー*/
+
+/*ハンバーガーメニューpublic*/
+ $(document).ready(function () {
+  $('.menu-trigger-public').on('click', function(event) {
+    $(this).toggleClass('active');
+    $('#sp-menu-public').fadeToggle();
+    event.preventDefault();
+  });
+});
+
+
+/*ハンバーガーメニューtop*/
 $(document).ready(function () {
-$(function() {
   $('.menu-trigger').on('click', function(event) {
     $(this).toggleClass('active');
     $('#sp-menu').fadeToggle();
     event.preventDefault();
   });
-});
 });
 
 /*プレビュー*/
@@ -142,15 +151,15 @@ $(document).ready(function () {
 });
 
 
-
-$(document).ready(function(){
-  $('.regular').slick({
-    fade: true,
-    autoplay: false, //自動再生
-    dots: false,
-    arrows: false,
-  });
-});
+/*designs#index*/
+// $(document).ready(function(){
+//   $('.regular').slick({
+//     fade: true,
+//     autoplay: false, //自動再生
+//     dots: false,
+//     arrows: false,
+//   });
+// });
 
 
 

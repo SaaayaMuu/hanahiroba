@@ -57,13 +57,11 @@ class Public::OrdersController < ApplicationController
         @order_detail.price = cart_item.item.with_tax_price
         @order_detail.amount =  cart_item.amount
 
-
         # 商品在庫カラムの変更
         @stock_number = cart_item.item.stock - cart_item.amount
         # ↓ @item.updateのための@itemの中身を定義(Item.find(cart_item.item_id)でレコードを特定)
         @item =  Item.find(cart_item.item_id)
         @item.update(stock: @stock_number)
-
 
         # ↓　注文詳細が保存されたらthanksメールを送信
         if @order_detail.save

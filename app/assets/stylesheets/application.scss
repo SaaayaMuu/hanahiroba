@@ -27,31 +27,18 @@
 
 
 
-svg {
-  height: 150px;
-  width: 300px;
-}
-
-
-
-
-
-
-
-
-
-
-
 .body {
   width: 100%;
   // font-family: 'Yuji Syuku', serif;
   font-family: 'Zen Antique', serif;
+  // font-size: 0.8em;
   /*background-image: url(japanese-paper_00162.jpg);*/
   /*background-color: #F5F5DC;*/
 }
 
 .container {
   font-family: 'Zen Antique', serif;
+  // font-size: 0.6em;
   width: 100%;
   height: 100vh;
 }
@@ -302,16 +289,19 @@ font-family: 'Kaisei Tokumin', serif;
     font-size: 28px;
  }
 /* ---------------------------- */
-/* ---- ハンバーガーアイコン ---- */
+/* -- ハンバーガーアイコンtop-- */
 /* ---------------------------- */
+
 #hm-icon {
-  display:none;
+  display: none;
   position: fixed;
   right: 20px;
   top: 10px;
   z-index: 10;
   vertical-align:middle;
   font-size: 30px;
+  background-color: #880000;
+  padding: 0 5px;
 }
 .menu-trigger,
 .menu-trigger span {
@@ -324,35 +314,100 @@ font-family: 'Kaisei Tokumin', serif;
   width: 30px;
   height: 30px;
 }
-.menu-trigger span {
+
+.menu-trigger span:nth-child(1),span:nth-child(3) {
   position: absolute;
   left: 0;
   width: 100%;
-  height: 4px;
-  background-color: #006633;
+  height: 3px;
+  background-color: #fff;
 }
+
 .menu-trigger span:nth-child(1) {
   top: 5px;
 }
 .menu-trigger span:nth-child(2) {
-  top: 15px;
+  position: absolute;
+  top: 8px;
+  font-size: 0.7rem;
+  color: #fff;
 }
 .menu-trigger span:nth-child(3) {
   bottom: 0px;
 }
 .menu-trigger.active span:nth-child(1) {
-  -webkit-transform: translateY(10px) rotate(-40deg);
-  transform: translateY(10px) rotate(-40deg);
+  // -webkit-transform: translateY(10px) rotate(-45deg);
+  transform: translateY(10px) rotate(-45deg);
   background-color: #fff;
 }
 .menu-trigger.active span:nth-child(2) {
   opacity: 0;
 }
 .menu-trigger.active span:nth-child(3) {
-  -webkit-transform: translateY(-10px) rotate(40deg);
-  transform: translateY(-10px) rotate(40deg);
+  // -webkit-transform: translateY(-10px) rotate(45deg);
+  transform: translateY(-11px) rotate(45deg);
+}
+/* ---------------------------- */
+/* -ハンバーガーアイコンpublic- */
+/* ---------------------------- */
+.menu-trigger-public,
+.menu-trigger-public span {
+  display: inline-block;
+  transition: all .4s;
+  box-sizing: border-box;
+}
+.menu-trigger-public {
+  position: relative;
+  width: 30px;
+  height: 30px;
+}
+
+.menu-trigger-public span:nth-child(1),span:nth-child(3) {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 3px;
   background-color: #fff;
 }
+
+.menu-trigger-public span:nth-child(1) {
+  top: 5px;
+}
+.menu-trigger-public span:nth-child(2) {
+  position: absolute;
+  top: 8px;
+  font-size: 0.7rem;
+  color: #fff;
+}
+.menu-trigger-public span:nth-child(3) {
+  bottom: 0px;
+}
+.menu-trigger-public.active span:nth-child(1) {
+  // -webkit-transform: translateY(10px) rotate(-45deg);
+  transform: translateY(10px) rotate(-45deg);
+  background-color: #fff;
+}
+.menu-trigger-public.active span:nth-child(2) {
+  opacity: 0;
+}
+.menu-trigger-public.active span:nth-child(3) {
+  // -webkit-transform: translateY(-10px) rotate(45deg);
+  transform: translateY(-11px) rotate(45deg);
+}
+
+#hm-icon-public {
+  display: none;
+  position: fixed;
+  right: 20px;
+  top: 10px;
+  z-index: 10;
+  vertical-align: middle;
+  font-size: 30px;
+  background-color: #003399;
+  padding: 0 5px;
+}
+
+
 /* ------ spメニュー ------ */
 #sp-menu {
   position: fixed;
@@ -365,11 +420,30 @@ font-family: 'Kaisei Tokumin', serif;
   display: none;
   z-index: 9;
 }
+
+#sp-menu-public {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.6);
+  color: #fff;
+  width: 100%;
+  min-height: 100%;
+  display: none;
+  z-index: 9;
+}
+
 /*ハンバーガーメニュー一覧*/
 .menu-content {
   margin-top: 50%;
 }
 #sp-menu li {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #fff;
+  font-weight: bold;
+}
+#sp-menu-public li {
   text-align: center;
   margin-bottom: 30px;
   color: #fff;
@@ -389,6 +463,7 @@ font-family: 'Kaisei Tokumin', serif;
   background-image: image-url("watercolor_00031_2.jpg");
   background-position: bottom;
   background-size: cover;
+  margin-bottom: 100px;
 }
 
 .nav-text .nav-name {
@@ -814,19 +889,20 @@ article{
 
 
 
+//////////////////////
+///////footer////////
+//////////////////////
 
-
-
-.design-footer{
+.design-footer {
   width: 100%;
-  height: 500px;
+  height: 200px;
   background-image: image-url("japanese-paper_00162_2.jpg");
   border-top: thin solid #999966;
   margin-top: 60px;
 }
 .icon {
-  width: 500px;
-  height: 500px;
+  width: 200px;
+  height: 200px;
   margin: 0 auto;
   background-image: image-url("image.png");
   background-size: cover;
@@ -838,6 +914,7 @@ article{
   width: 100%;
   height: 300px;
 }
+
 
 
 @media screen and (max-width: 800px) {
@@ -861,21 +938,21 @@ article{
     font-size: 1.2em;
   }
 }
-@media screen and (max-width: 576px) {
-  .m1-center {
-    display: none;
-  }
-/*スマホサイズ(ハンバーガーメニュー用)*/
-  #hm-icon {
-    display:block;
-  }
-}
+
 
 
 @media screen and (max-height: 900px) {
+
   #hm-icon {
-    font-size: 20px;
- }
+    position: fixed;
+    right: 20px;
+    top: 10px;
+    z-index: 10;
+    vertical-align:middle;
+    font-size: 22px;
+    background-color: #880000;
+    padding: 0 7px;
+}
 
  .header-text {
    font-size: 1.4em;
@@ -885,13 +962,13 @@ article{
  }
 
   .menu-trigger span:nth-child(1) {
-    top: 5px;
+    top: 3px;
  }
   .menu-trigger span:nth-child(2) {
-    top: 12px;
+    display: none;
  }
   .menu-trigger span:nth-child(3) {
-    top: 19px;
+    top: 15px;
  }
   .menu-trigger {
     position: relative;
@@ -900,16 +977,75 @@ article{
  }
 
  .menu-trigger.active span:nth-child(1) {
-    -webkit-transform: translateY(7px) rotate(-40deg);
-    transform: translateY(7px) rotate(-40deg);
+    // -webkit-transform: translateY(7px) rotate(-40deg);
+    transform: translateY(6px) rotate(-45deg);
     background-color: #fff;
 }
  .menu-trigger.active span:nth-child(2) {
     opacity: 0;
 }
  .menu-trigger.active span:nth-child(3) {
-    -webkit-transform: translateY(-7px) rotate(40deg);
-    transform: translateY(-7px) rotate(40deg);
+    // -webkit-transform: translateY(-7px) rotate(40deg);
+    transform: translateY(-6px) rotate(45deg);
     background-color: #fff;
+}
+
+/*header画像*/
+  .header {
+    height: 250px;
+}
+
+  .nav-text {
+    position: absolute;
+    top: 10px;
+    right: 120px;
+    font-size: 1.2em;
+  }
+
+  .login-content {
+  position: absolute;
+  top: 0;
+  left: 50px;
+  font-size: 1.2em;
+  padding: 30px 0 5px 0;
+}
+}
+
+
+/*public header用*/
+@media screen and (max-width: 768px) {
+  .nav-text {
+    display: none;
+  }
+
+  #hm-icon-public {
+    display: block;
+}
+
+/*header画像*/
+  .header {
+    height: 200px;
+}
+  .login-content {
+  left: 30px;
+  font-size: 1em;
+  padding: 10px 0 5px 0;
+}
+}
+
+@media screen and (max-width: 576px) {
+  .m1-center {
+    display: none;
+  }
+/*スマホサイズ(ハンバーガーメニュー用)*/
+  #hm-icon {
+    display: block;
+  }
+  
+  .header {
+    height: 150px;
+  }
+  .login-content {
+    font-size: 0.8em;
 }
 }
