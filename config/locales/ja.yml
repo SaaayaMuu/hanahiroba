@@ -26,3 +26,6 @@
       messages:
         not_saved: "＜未入力の項目があります＞"
 
+    devise:
+      failure:
+        unauthenticated: '会員登録もしくはログインしてください。'

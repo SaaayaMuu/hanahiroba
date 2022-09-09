@@ -36,8 +36,8 @@
 
 
   <!--ハンバーガーアイコン-->
-<div id="hm-icon-public">
-  <a class="menu-trigger-public" href="#">
+<div id="public-hm-icon">
+  <a class="menu-trigger" href="#">
     <span></span>
     <span>menu</span>
     <span></span>
@@ -46,12 +46,13 @@
 
 
 
-<div id="sp-menu-public">
+<div id="sp-menu">
   <ul class="menu-content">
-    <%= link_to designs_path, class: "path_line" do %><li>商品一覧</li><% end %>
     <% genre.each do |genre| %>
-      <%= link_to designs_path(genre_id: genre.id), class: "path" do %><li class="nav-genre">&emsp;--<%= genre.name %></li><% end %>
-      <% end %>
+      <%= link_to designs_path(genre_id: genre.id), class: "path_line" do %><li class="nav-genre"><%= genre.name %></li><% end %>
+    <% end %>
+
+    <%= link_to designs_path, class: "path_line" do %><li>すべての商品</li><% end %>
     <%= link_to cart_items_path, class: "path_line" do %><li>カート</li><% end %>
     <% if customer_signed_in?%>
     <%= link_to customer_path(current_customer.id), class: "path_line" do %><li>マイページ</li><% end %>

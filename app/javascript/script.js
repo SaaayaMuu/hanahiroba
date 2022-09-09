@@ -30,13 +30,13 @@ $(document).ready(function () {
 
 
 /*ハンバーガーメニューpublic*/
- $(document).ready(function () {
-  $('.menu-trigger-public').on('click', function(event) {
-    $(this).toggleClass('active');
-    $('#sp-menu-public').fadeToggle();
-    event.preventDefault();
-  });
-});
+// $(document).ready(function () {
+//   $('.public-menu-trigger').on('click', function(event) {
+//     $(this).toggleClass('active');
+//     $('#public-sp-menu').fadeToggle();
+//     event.preventDefault();
+//   });
+// });
 
 
 /*ハンバーガーメニューtop*/
@@ -47,6 +47,9 @@ $(document).ready(function () {
     event.preventDefault();
   });
 });
+
+
+
 
 /*プレビュー*/
 
