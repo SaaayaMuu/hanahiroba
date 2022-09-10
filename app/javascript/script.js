@@ -1,32 +1,35 @@
 /* global $*/
 
 
+// ローディング画面
+// $(window).on('load',function(){
+//   $("#splash").delay(1500).fadeOut('slow');//ローディング画面を1.5秒（1500ms）待機してからフェードアウト
+//   $("#splash_logo").delay(1500).fadeOut('slow');//ロゴを1.2秒（1200ms）待機してからフェードアウト
+// });
 
-
-
-//スライドショー
-$(document).ready(function () {
-  $(".theTarget").skippr({
-    // スライドショーの変化 ("fade" or "slide")
-    transition : 'fade',
-    // 変化に係る時間(ミリ秒)
-    speed : 1000,
-    // easingの種類
-    navType : 'false',
-    // 子要素の種類('div' or 'img')
-    childrenElementType : 'div',
-    // ナビゲーション矢印の表示(trueで表示)
-    arrows : false,
-    // スライドショーの自動再生(falseで自動再生なし)
-    autoPlay : true,
-    // 自動再生時のスライド切替間隔(ミリ秒)
-    autoPlayDuration : 2000,
-    // キーボードの矢印キーによるスライド送りの設定(trueで有効)
-    keyboardOnAlways : true,
-    // 一枚目のスライド表示時に戻る矢印を表示するかどうか(falseで非表示)
-    hidePrevious : false
-  });
-});
+//top画面スライドショー
+// $(document).ready(function () {
+//   $(".theTarget").skippr({
+//     // スライドショーの変化 ("fade" or "slide")
+//     transition : 'fade',
+//     // 変化に係る時間(ミリ秒)
+//     speed : 1000,
+//     // easingの種類
+//     navType : 'false',
+//     // 子要素の種類('div' or 'img')
+//     childrenElementType : 'div',
+//     // ナビゲーション矢印の表示(trueで表示)
+//     arrows : false,
+//     // スライドショーの自動再生(falseで自動再生なし)
+//     autoPlay : true,
+//     // 自動再生時のスライド切替間隔(ミリ秒)
+//     autoPlayDuration : 2000,
+//     // キーボードの矢印キーによるスライド送りの設定(trueで有効)
+//     keyboardOnAlways : true,
+//     // 一枚目のスライド表示時に戻る矢印を表示するかどうか(falseで非表示)
+//     hidePrevious : false
+//   });
+// });
 
 
 /*ハンバーガーメニューpublic*/
@@ -100,11 +103,7 @@ window.onload = function(){
     }
 }
 
-// ローディング画面
-$(window).on('load',function(){
-  $("#splash").delay(1500).fadeOut('slow');//ローディング画面を1.5秒（1500ms）待機してからフェードアウト
-  $("#splash_logo").delay(1500).fadeOut('slow');//ロゴを1.2秒（1200ms）待機してからフェードアウト
-});
+
 
 
 
@@ -165,8 +164,59 @@ $(document).ready(function () {
 // });
 
 
+/*designs#show  カスタム用*/
+let toptop = document.getElementById('toptop');
+let colorPicker1 = document.getElementById('colorPicker1');
+colorPicker1.value = "#00F000";
+colorPicker1.addEventListener('change', function(){
+  toptop.style.fill = this.value;
+});
 
+let righttop = document.getElementById('righttop');
+let colorPicker2 = document.getElementById('colorPicker2');
+colorPicker2.value = "#00F000";
+colorPicker2.addEventListener('change', function(){
+  righttop.style.fill = this.value;
+});
 
+let right = document.getElementById('right');
+let colorPicker3 = document.getElementById('colorPicker3');
+colorPicker3.value = "#00F000";
+colorPicker3.addEventListener('change', function(){
+  right.style.fill = this.value;
+});
 
+let rightbottom = document.getElementById('rightbottom');
+let colorPicker4 = document.getElementById('colorPicker4');
+colorPicker4.value = "#00F000";
+colorPicker4.addEventListener('change', function(){
+  rightbottom.style.fill = this.value;
+});
 
+let bottom = document.getElementById('bottom');
+let colorPicker5 = document.getElementById('colorPicker5');
+colorPicker5.value = "#00F000";
+colorPicker5.addEventListener('change', function(){
+  bottom.style.fill = this.value;
+});
 
+let leftbottom = document.getElementById('leftbottom');
+let colorPicker6 = document.getElementById('colorPicker6');
+colorPicker6.value = "#00F000";
+colorPicker6.addEventListener('change', function(){
+  leftbottom.style.fill = this.value;
+});
+
+let left = document.getElementById('left');
+let colorPicker7 = document.getElementById('colorPicker7');
+colorPicker7.value = "#00F000";
+colorPicker7.addEventListener('change', function(){
+  left.style.fill = this.value;
+});
+
+let lefttop = document.getElementById('lefttop');
+let colorPicker8 = document.getElementById('colorPicker8');
+colorPicker8.value = "#00F000";
+colorPicker8.addEventListener('change', function(){
+  lefttop.style.fill = this.value;
+});

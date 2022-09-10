@@ -1,3 +1,4 @@
+
 <%= render 'layouts/header', genre: @genre %>
 
 
@@ -26,7 +27,11 @@
 			<tbody>
 				<% @cart_items.each do |cart_item| %>
 					<tr>
-						<td><%= image_tag cart_item.item.image.variant(resize: "100x100") %></td>
+						<% if cart_item.item.image.attached? %>
+							<td><%= image_tag cart_item.item.image.variant(resize: "100x100") %></td>
+						<% elsif cart_item.item.custom_images.attached? %>
+							<td><%= image_tag cart_item.item.custom_images[0].variant(resize: "100x100") %></td>
+						<% end %>
 						<td><%= cart_item.item.design.design_name %></td>
 						<td><%= cart_item.item.with_tax_price %>円</td>
 						<td>

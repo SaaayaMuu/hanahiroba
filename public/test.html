@@ -5,144 +5,182 @@
 <title>CSS 練習中！</title>
 
 <style>
+
 svg {
-  height: 400px;
-  width: 400px;
+  height: 260px;
+  width: 260px;
 }
 
-.colorbox1 {
-  width: 30px;
-  height: 30px;
-  background-color: #DD0000
-}
-.colorbox2 {
-  width: 30px;
-  height: 30px;
-  background-color: #FF88FF
-}
-.colorbox3 {
-  width: 30px;
-  height: 30px;
-  background-color: #FF570D
-}
-.colorbox4 {
-  width: 30px;
-  height: 30px;
-  background-color: #00FF3B
-}
-.colorbox5 {
-  width: 30px;
-  height: 30px;
-  background-color: #FFCC00
-}
-.colorbox6 {
-  width: 30px;
-  height: 30px;
-  background-color: #0033CC
-}
  </style>
 </head>
 
 <body>
 
 <svg>
+<!--左真横 上円＆下円-->
+
+<path d="M 130 130 C 120 110, 40 110, 30 130
+         M 130 130 C 120 150, 40 150, 30 130" stroke="black" stroke-width="2" fill="white" id="left"/>
+
+<!--右真横　上＆下-->
+<path d="M 130 130 C 140 110, 220 110, 230 130
+         M 130 130 C 140 150, 220 150, 230 130" stroke="black" stroke-width="2" fill="white" id="right"/>
+
+<!--上　左＆右-->
+<path d="M 130 130 C 110 120, 110 40, 130 30
+         M 130 130 C 150 120, 150 40, 130 30" stroke="black" stroke-width="2" fill="white" id="toptop"/>
+
+<!--下　左＆右-->
+<path d="M 130 130 C 110 140, 110 220, 130 230
+         M 130 130 C 150 140, 150 220, 130 230" stroke="black" stroke-width="2" fill="white" id="bottom"/>
+
+<!--左上　右&左-->
+<path d="M 130 130 C 120 90, 100 70, 60 60
+         M 130 130 C 90 120, 70 110, 60 60" stroke="black" stroke-width="2" fill="white" id="lefttop"/>
+
+<!--左下　左＆右-->
+<path d="M 130 130 C 90 140, 70 170, 60 210
+         M 130 130 C 120 170, 110 190, 60 210" stroke="black" stroke-width="2" fill="white" id="leftbottom"/>
+
+<!--右上　左＆右-->
+<path d="M 130 130 C 140 90, 160 70, 200 60
+         M 130 130 C 170 120, 190 110, 200 60" stroke="black" stroke-width="2" fill="white" id="righttop"/>
+
+<!--右下　左＆右-->
+<path d="M 130 130 C 140 170, 150 190, 200 210
+         M 130 130 C 170 140, 190 170, 200 210" stroke="black" stroke-width="2" fill="white" id="rightbottom"/>
 
 <!--左真横 上円＆下円-->
 
-<path d="M 220 220 C 210 200, 130 200, 120 220
-         M 220 220 C 210 240, 130 240, 120 220" stroke="black" stroke-width="2" fill="white" id="left"/>
+<!--<path d="M 220 220 C 210 200, 130 200, 120 220-->
+<!--         M 220 220 C 210 240, 130 240, 120 220" stroke="black" stroke-width="2" fill="white" id="left"/>-->
 
 <!--右真横　上＆下-->
-<path d="M 220 220 C 230 200, 310 200, 320 220
-         M 220 220 C 230 240, 310 240, 320 220" stroke="black" stroke-width="2" fill="white" id="right"/>
+<!--<path d="M 220 220 C 230 200, 310 200, 320 220-->
+<!--         M 220 220 C 230 240, 310 240, 320 220" stroke="black" stroke-width="2" fill="white" id="right"/>-->
 
 <!--上　左＆右-->
-<path d="M 220 220 C 200 210, 200 130, 220 120
-         M 220 220 C 240 210, 240 130, 220 120" stroke="black" stroke-width="2" fill="white" id="top"/>
+<!--<path d="M 220 220 C 200 210, 200 130, 220 120-->
+<!--         M 220 220 C 240 210, 240 130, 220 120" stroke="black" stroke-width="2" fill="white" id="toptop"/>-->
 
 <!--下　左＆右-->
-<path d="M 220 220 C 200 230, 200 310, 220 320
-         M 220 220 C 240 230, 240 310, 220 320" stroke="black" stroke-width="2" fill="white" id="bottom"/>
+<!--<path d="M 220 220 C 200 230, 200 310, 220 320-->
+<!--         M 220 220 C 240 230, 240 310, 220 320" stroke="black" stroke-width="2" fill="white" id="bottom"/>-->
 
 <!--左上　右&左-->
-<path d="M 220 220 C 205 190, 190 165, 150 150
-         M 220 220 C 200 230, 140 170, 150 150" stroke="black" stroke-width="2" fill="white" id="lefttop"/>
+<!--<path d="M 220 220 C 205 190, 190 165, 150 150-->
+<!--         M 220 220 C 200 230, 140 170, 150 150" stroke="black" stroke-width="2" fill="white" id="lefttop"/>-->
 
 <!--左下　左＆右-->
-<path d="M 220 220 C 180 230, 160 260, 150 300
-         M 220 220 C 210 260, 200 280, 150 300" stroke="black" stroke-width="2" fill="white" id="left-bottom"/>
+<!--<path d="M 220 220 C 180 230, 160 260, 150 300-->
+<!--         M 220 220 C 210 260, 200 280, 150 300" stroke="black" stroke-width="2" fill="white" id="leftbottom"/>-->
 
 <!--右上　左＆右-->
-<path d="M 220 220 C 230 180, 250 160, 290 150
-         M 220 220 C 260 210, 280 200, 290 150" stroke="black" stroke-width="2" fill="white" id="right-top"/>
+<!--<path d="M 220 220 C 230 180, 250 160, 290 150-->
+<!--         M 220 220 C 260 210, 280 200, 290 150" stroke="black" stroke-width="2" fill="white" id="righttop"/>-->
 
 <!--右下　左＆右-->
-<path d="M 220 220 C 230 260, 240 280, 290 300
-         M 220 220 C 260 230, 280 260, 290 300" stroke="black" stroke-width="2" fill="white" id="right-bottom"/>
+<!--<path d="M 220 220 C 230 260, 240 280, 290 300-->
+<!--         M 220 220 C 260 230, 280 260, 290 300" stroke="black" stroke-width="2" fill="white" id="rightbottom"/>-->
 
 </svg>
-<label>左の色を選択
-  <input id="colorPicker" type="color" name="favorite_color">
-  <span id="output"></span>
-</label>
 
-<label>左上の色を選択
+<div>
+<label>①の色選択
   <input id="colorPicker1" type="color" name="favorite_color">
-  <span id="output"></span>
+  <!--<span id="output"></span>-->
+</label><br>
+<label>②の色選択
+  <input id="colorPicker2" type="color" name="favorite_color">
+  <!--<span id="output"></span>-->
+</label><br>
+<label>③の色選択
+  <input id="colorPicker3" type="color" name="favorite_color">
+  <!--<span id="output"></span>-->
+</label><br>
+<label>④の色選択
+  <input id="colorPicker4" type="color" name="favorite_color">
+  <!--<span id="output"></span>-->
+</label><br>
+<label>⑤の色選択
+  <input id="colorPicker5" type="color" name="favorite_color">
+  <!--<span id="output"></span>-->
+</label><br>
+<label>⑥の色選択
+  <input id="colorPicker6" type="color" name="favorite_color">
+  <!--<span id="output"></span>-->
+</label><br>
+<label>⑦の色選択
+  <input id="colorPicker7" type="color" name="favorite_color">
+  <!--<span id="output"></span>-->
+</label><br>
+<label>⑧の色選択
+  <input id="colorPicker8" type="color" name="favorite_color">
+  <!--<span id="output"></span>-->
 </label>
+</div>
 
-<input type="color" value="#DD0000">
-<input type="color" value="#FF88FF">
-<input type="color" value="#FF570D">
-<input type="color" value="#00FF3B">
-<input type="color" value="#FFCC00">
-<input type="color" value="#0033CC">
+<script>
 
-<div class="colorbox1"></div>
-<div class="colorbox2"></div>
-<div class="colorbox3"></div>
-<div class="colorbox4"></div>
-<div class="colorbox5"></div>
-<div class="colorbox6"></div>
+    let toptop = document.getElementById('toptop');
+    let colorPicker1 = document.getElementById('colorPicker1');
+    colorPicker1.value = "#00F000";
+    colorPicker1.addEventListener('change', function(){
+      toptop.style.fill = this.value;
+    });
 
+    let righttop = document.getElementById('righttop');
+    let colorPicker2 = document.getElementById('colorPicker2');
+    colorPicker2.value = "#00F000";
+    colorPicker2.addEventListener('change', function(){
+      righttop.style.fill = this.value;
+    });
 
+    let right = document.getElementById('right');
+    let colorPicker3 = document.getElementById('colorPicker3');
+    colorPicker3.value = "#00F000";
+    colorPicker3.addEventListener('change', function(){
+      right.style.fill = this.value;
+    });
 
- <script type="text/javascript">
+    let rightbottom = document.getElementById('rightbottom');
+    let colorPicker4 = document.getElementById('colorPicker4');
+    colorPicker4.value = "#00F000";
+    colorPicker4.addEventListener('change', function(){
+      rightbottom.style.fill = this.value;
+    });
 
+    let bottom = document.getElementById('bottom');
+    let colorPicker5 = document.getElementById('colorPicker5');
+    colorPicker5.value = "#00F000";
+    colorPicker5.addEventListener('change', function(){
+      bottom.style.fill = this.value;
+    });
 
-// //カラーピッカーの要素を取得
-// const colorPicker = document.getElementById('colorPicker');
-// //色を出力するところの要素を取得
-// const output = document.getElementById('output');
-// //色を出力
-// output.innerHTML = colorPicker.value;
-// //カラーピッカーの色が変更されたとき、出力している色も変更する
-// colorPicker.addEventListener('input', () => {
-//     output.innerHTML = colorPicker.value;
-// });
+    let leftbottom = document.getElementById('leftbottom');
+    let colorPicker6 = document.getElementById('colorPicker6');
+    colorPicker6.value = "#00F000";
+    colorPicker6.addEventListener('change', function(){
+      leftbottom.style.fill = this.value;
+    });
 
+    let left = document.getElementById('left');
+    let colorPicker7 = document.getElementById('colorPicker7');
+    colorPicker7.value = "#00F000";
+    colorPicker7.addEventListener('change', function(){
+      left.style.fill = this.value;
+    });
 
-let left = document.getElementById('left');
+    let lefttop = document.getElementById('lefttop');
+    let colorPicker8 = document.getElementById('colorPicker8');
+    colorPicker8.value = "#00F000";
+    colorPicker8.addEventListener('change', function(){
+      lefttop.style.fill = this.value;
+    });
 
-let colorPicker = document.getElementById('colorPicker');
-colorPicker.value = "#00F000";
-colorPicker.addEventListener('change', function(){
-  left.style.fill = this.value;
-const output1 = document.getElementByClass('output1');
-output1.innerHTML = colorPicker.value;
-colorPicker.addEventListener('input', () => {
-  output1.innerHTML = colorPicker.value;
-});
-});
-
-let lefttop = document.getElementById('lefttop');
-
-let colorPicker1 = document.getElementById('colorPicker1');
-colorPicker1.value = "#00F000";
-colorPicker1.addEventListener('change', function(){
-  lefttop.style.fill = this.value;
-});
 </script>
+
+
 
 </body>
 </html>

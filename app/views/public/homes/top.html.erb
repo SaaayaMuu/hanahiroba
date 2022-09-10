@@ -13,7 +13,6 @@
     <div class="m1-center col-1 p-0">
       <%= link_to designs_path do %><span class="menu-text1">商品一覧</span><% end %>
       <%= link_to cart_items_path do %><span class="menu-text2">カート</span><% end %>
-      <%= link_to do %><span class="menu-text3">お買い物ガイド</span><% end %>
     </div>
 
     <div class="photo-center col-xl-10 col-lg-10 col-md-10 p-0">
@@ -27,10 +26,10 @@
 
     <div class="m1-center col-1 p-0">
       <% if customer_signed_in?%>
-        <%= link_to customer_path(current_customer.id) do %><span class="menu-text4">マイページ</span><% end %>
-        <%= link_to destroy_customer_session_path, method: :delete do %><span class="menu-text5">ログアウト</span><% end %>
+        <%= link_to customer_path(current_customer.id) do %><span class="menu-text3">マイページ</span><% end %>
+        <%= link_to destroy_customer_session_path, method: :delete do %><span class="menu-text4">ログアウト</span><% end %>
       <% else %>
-        <%= link_to new_customer_session_path do %><p class="menu-text5">ログイン</p><% end %>
+        <%= link_to new_customer_session_path do %><p class="menu-text3">ログイン</p><% end %>
         <%= link_to new_customer_registration_path do %><p class="menu-text4">新規登録</p><% end %>
       <% end %>
     </div>
@@ -58,7 +57,6 @@
     <ul class="menu-content">
       <%= link_to designs_path, class: "path_line" do %><li>商品一覧</li><% end %>
       <%= link_to cart_items_path, class: "path_line" do %><li>カート</li><% end %>
-      <%= link_to new_customer_registration_path, class: "path_line" do %><li>お買い物ガイド</li><% end %>
       <% if customer_signed_in?%>
       <%= link_to customer_path(current_customer.id), class: "path_line" do %><li>マイページ</li><% end %>
       <%= link_to destroy_customer_session_path, method: :delete, class: "path_line" do %><li>ログアウト</li><% end %>
@@ -70,4 +68,36 @@
   </div>
 
 </div>
+<script>
+$(function(){
+  $("#splash").delay(1500).fadeOut('slow');//ローディング画面を1.5秒（1500ms）待機してからフェードアウト
+  $("#splash_logo").delay(1500).fadeOut('slow');//ロゴを1.2秒（1200ms）待機してからフェードアウト
+});
 
+
+
+//スライドショー
+$(window).on('load',function () {
+  $(".theTarget").skippr({
+    // スライドショーの変化 ("fade" or "slide")
+    transition : 'fade',
+    // 変化に係る時間(ミリ秒)
+    speed : 1000,
+    // easingの種類
+    navType : 'false',
+    // 子要素の種類('div' or 'img')
+    childrenElementType : 'div',
+    // ナビゲーション矢印の表示(trueで表示)
+    arrows : false,
+    // スライドショーの自動再生(falseで自動再生なし)
+    autoPlay : true,
+    // 自動再生時のスライド切替間隔(ミリ秒)
+    autoPlayDuration : 2000,
+    // キーボードの矢印キーによるスライド送りの設定(trueで有効)
+    keyboardOnAlways : true,
+    // 一枚目のスライド表示時に戻る矢印を表示するかどうか(falseで非表示)
+    hidePrevious : false
+  });
+});
+
+</script>

@@ -1,8 +1,13 @@
 <div class="nested-fields"><!--nested-fieldsはフォーム削除に必要-->
   <div class="item-content">
 
-    <label for="item[image]" class="font-weight-bold">画像追加</label>
-    <%= item.file_field :image, accept: "image/*" , required: true %>
+
+  <label for="item[image]" class="font-weight-bold">通常商品画像追加</label>
+  <%= item.file_field :image, accept: "image/*" %><br>
+
+  <label for="custom_item[images]" class="font-weight-bold">カスタム商品画像追加</label>
+  <%= item.file_field :custom_images, accept: "image/*", multiple: true %>
+
 
     <div class="row">
       <div class="col-md-2 col-sm-3 font-weight-bold"><label for="item[item_introduction]">商品説明</label></div>
