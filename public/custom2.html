@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>dom to image</title>
+
+
+  <style>
+  .box {
+    display: inline-block;
+    vertical-align: top;
+
+  }
+  #src {
+    width: 260px;
+    height: 260px;
+    border: 1px solid black;
+  }
+    </style>
+</head>
+<body>
+
+<script src="https://cdn.jsdelivr.net/npm/dom-to-image@2.6.0/dist/dom-to-image.min.js"></script>
+
+<div class="box">
+<div id="src">
+  <svg width="260" height="260">
+    <path d="M 130 130 C 120 110, 40 110, 30 130
+         M 130 130 C 120 150, 40 150, 30 130" stroke="black" stroke-width="2" fill="white" id="left"/>
+
+    <!--右真横　上＆下-->
+    <path d="M 130 130 C 140 110, 220 110, 230 130
+             M 130 130 C 140 150, 220 150, 230 130" stroke="black" stroke-width="2" fill="white" id="right"/>
+
+    <!--上　左＆右-->
+    <path d="M 130 130 C 110 120, 110 40, 130 30
+             M 130 130 C 150 120, 150 40, 130 30" stroke="black" stroke-width="2" fill="white" id="toptop"/>
+
+    <!--下　左＆右-->
+    <path d="M 130 130 C 110 140, 110 220, 130 230
+             M 130 130 C 150 140, 150 220, 130 230" stroke="black" stroke-width="2" fill="white" id="bottom"/>
+
+    <!--左上　右&左-->
+    <path d="M 130 130 C 120 90, 100 70, 60 60
+             M 130 130 C 90 120, 70 110, 60 60" stroke="black" stroke-width="2" fill="white" id="lefttop"/>
+
+    <!--左下　左＆右-->
+    <path d="M 130 130 C 90 140, 70 170, 60 210
+             M 130 130 C 120 170, 110 190, 60 210" stroke="black" stroke-width="2" fill="white" id="leftbottom"/>
+
+    <!--右上　左＆右-->
+    <path d="M 130 130 C 140 90, 160 70, 200 60
+             M 130 130 C 170 120, 190 110, 200 60" stroke="black" stroke-width="2" fill="white" id="righttop"/>
+
+    <!--右下　左＆右-->
+    <path d="M 130 130 C 140 170, 150 190, 200 210
+             M 130 130 C 170 140, 190 170, 200 210" stroke="black" stroke-width="2" fill="white" id="rightbottom"/>
+  </svg>
+</div>
+</div>
+
+
+<div>
+<label>①の色選択
+  <input id="colorPicker1" type="color" name="favorite_color">
+  <span id="output"></span>
+</label><br>
+<label>②の色選択
+  <input id="colorPicker2" type="color" name="favorite_color">
+  <span id="output"></span>
+</label><br>
+<label>③の色選択
+  <input id="colorPicker3" type="color" name="favorite_color">
+  <span id="output"></span>
+</label><br>
+<label>④の色選択
+  <input id="colorPicker4" type="color" name="favorite_color">
+  <span id="output"></span>
+</label><br>
+<label>⑤の色選択
+  <input id="colorPicker5" type="color" name="favorite_color">
+  <span id="output"></span>
+</label><br>
+<label>⑥の色選択
+  <input id="colorPicker6" type="color" name="favorite_color">
+  <span id="output"></span>
+</label><br>
+
+<label>⑦の色選択
+  <input id="colorPicker7" type="color" name="favorite_color">
+  <span id="output"></span>
+</label><br>
+
+<label>⑧の色選択
+  <input id="colorPicker8" type="color" name="favorite_color">
+  <span id="output"></span>
+</label>
+</div>
+
+<input type="button" value="画像に変換" onclick="chgImg()"><br>
+
+
+
+
+<div class="box" id="dst">
+</div>
+
+<script>
+// (async () => {
+//   try {
+//     let img = new Image();
+//     img.src = await domtoimage.toPng(src);
+//     dst.appendChild(img);
+//   } catch (e) {
+//     console.error("oops, something went wrong!", error);
+//   }
+// })();
+
+
+  let toptop = document.getElementById('toptop');
+  let colorPicker1 = document.getElementById('colorPicker1');
+  colorPicker1.value = "#00F000";
+  colorPicker1.addEventListener('change', function(){
+    toptop.style.fill = this.value;
+});
+
+  let righttop = document.getElementById('righttop');
+  let colorPicker2 = document.getElementById('colorPicker2');
+  colorPicker2.value = "#00F000";
+  colorPicker2.addEventListener('change', function(){
+    righttop.style.fill = this.value;
+  });
+
+  let right = document.getElementById('right');
+  let colorPicker3 = document.getElementById('colorPicker3');
+  colorPicker3.value = "#00F000";
+  colorPicker3.addEventListener('change', function(){
+    right.style.fill = this.value;
+  });
+
+  let rightbottom = document.getElementById('rightbottom');
+  let colorPicker4 = document.getElementById('colorPicker4');
+  colorPicker4.value = "#00F000";
+  colorPicker4.addEventListener('change', function(){
+    rightbottom.style.fill = this.value;
+  });
+
+  let bottom = document.getElementById('bottom');
+  let colorPicker5 = document.getElementById('colorPicker5');
+  colorPicker5.value = "#00F000";
+  colorPicker5.addEventListener('change', function(){
+    bottom.style.fill = this.value;
+  });
+
+  let leftbottom = document.getElementById('leftbottom');
+  let colorPicker6 = document.getElementById('colorPicker6');
+  colorPicker6.value = "#00F000";
+  colorPicker6.addEventListener('change', function(){
+    leftbottom.style.fill = this.value;
+  });
+
+  let left = document.getElementById('left');
+  let colorPicker7 = document.getElementById('colorPicker7');
+  colorPicker7.value = "#00F000";
+  colorPicker7.addEventListener('change', function(){
+    left.style.fill = this.value;
+  });
+
+  let lefttop = document.getElementById('lefttop');
+  let colorPicker8 = document.getElementById('colorPicker8');
+  colorPicker8.value = "#00F000";
+  colorPicker8.addEventListener('change', function(){
+    lefttop.style.fill = this.value;
+  });
+
+function chgImg()
+{
+    (async () => {
+      try {
+        let img = new Image();
+        img.src = await domtoimage.toPng(src);
+        dst.appendChild(img);
+      } catch (e) {
+        console.error("oops, something went wrong!", error);
+      }
+    })();
+}
+
+
+  // $('#btn').on('click', function() {
+  //   (async () => {
+  //     try {
+  //       let img = new Image();
+  //       img.src = await domtoimage.toPng(src);
+  //       dst.appendChild(img);
+  //     } catch (e) {
+  //       console.error("oops, something went wrong!", error);
+  //     }
+  //   })();
+  // });
+  </script>
+
+</body>
+</html>
