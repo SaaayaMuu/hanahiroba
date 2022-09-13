@@ -56,52 +56,87 @@ $(document).ready(function () {
 
 /*プレビュー*/
 
-window.onload = function(){
+/*ctrl押しながら選択OK　ひとつづつwクリック×　ctrlとwクリック×*/
+function previewFile(file) {
+  // プレビュー画像を追加する要素
+  const preview = document.getElementById('result');
 
-    //Check File API support
-    if(window.File && window.FileList && window.FileReader)
-    {
-        var filesInput = document.getElementById("design_images");
+  // FileReaderオブジェクトを作成
+  const reader = new FileReader();
 
-        filesInput.addEventListener("change", function(event){
+  // ファイルが読み込まれたときに実行する
+  reader.onload = function (e) {
+    const imageUrl = e.target.result; // 画像のURLはevent.target.resultで呼び出せる
+    const img = document.createElement("img"); // img要素を作成
+    img.src = imageUrl; // 画像のURLをimg要素にセット
+    preview.appendChild(img); // #previewの中に追加
+  }
 
-            var files = event.target.files; //FileList object
-            var output = document.getElementById("result");
-
-            for(var i = 0; i< files.length; i++)
-            {
-                var file = files[i];
-
-                //Only pics
-                if(!file.type.match('image'))
-                  continue;
-
-                var picReader = new FileReader();
-
-                picReader.addEventListener("load",function(event){
-
-                    var picFile = event.target;
-
-                    var div = document.createElement("div");
-
-                    div.innerHTML = "<img class='thumbnail' src='" + picFile.result + "'" +
-                            "title='" + picFile.name + "'/>";
-
-                    output.insertBefore(div,null);
-
-                });
-
-                 //Read the image
-                picReader.readAsDataURL(file);
-            }
-
-        });
-    }
-    else
-    {
-        console.log("Your browser does not support File API");
-    }
+  // いざファイルを読み込む
+  reader.readAsDataURL(file);
 }
+
+
+// <input>でファイルが選択されたときの処理
+const fileInput = document.getElementById('design=images');
+const handleFileSelect = () => {
+  const files = fileInput.files;
+  for (let i = 0; i < files.length; i++) {
+    previewFile(files[i]);
+  }
+}
+fileInput.addEventListener('change', handleFileSelect);
+
+
+
+
+/*ctrl押しながら選択OK　ひとつづつwクリック×　ctrlとwクリック×*/
+// window.onload = function(){
+
+//     //Check File API support
+//     if(window.File && window.FileList && window.FileReader)
+//     {
+//         var filesInput = document.getElementById("design_images");
+
+//         filesInput.addEventListener("change", function(event){
+
+//             var files = event.target.files; //FileList object
+//             var output = document.getElementById("result");
+
+//             for(var i = 0; i< files.length; i++)
+//             {
+//                 var file = files[i];
+
+//                 //Only pics
+//                 if(!file.type.match('image'))
+//                   continue;
+
+//                 var picReader = new FileReader();
+
+//                 picReader.addEventListener("load",function(event){
+
+//                     var picFile = event.target;
+
+//                     var div = document.createElement("div");
+
+//                     div.innerHTML = "<img class='thumbnail' src='" + picFile.result + "'" +
+//                             "title='" + picFile.name + "'/>";
+
+//                     output.insertBefore(div,null);
+
+//                 });
+
+//                 //Read the image
+//                 picReader.readAsDataURL(file);
+//             }
+
+//         });
+//     }
+//     else
+//     {
+//         console.log("Your browser does not support File API");
+//     }
+// }
 
 
 

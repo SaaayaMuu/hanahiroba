@@ -76,7 +76,7 @@
   height: auto;
 }
 
-.item-box p {
+.item-box-p {
   font-size: 15px;
 }
 .item-box p:nth-child(7),p:nth-child(8) {
@@ -92,7 +92,10 @@
   justify-content: center;/*左右中央*/
   align-items: center;/*上下中央*/
 }
-
+.custom-p {
+  font-size: 15px;
+  margin-bottom: 0;
+}
 .custom-item-form {
   width: 100%;
 }
@@ -107,20 +110,42 @@ svg {
 }
 
 .custom-item-submit {
-  margin-top: 50px;
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
 }
 
 .btn-blue {
   color: white;
   background: #008080;
-
+}
+.btn-blue:hover {
+  color: white;
+  background: #6A5ACD;
 }
 
 .btn-item {
   margin: 0 auto;
   padding: 5px 2px;
 }
+.preview-box {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;/*左右中央*/
+  /*display:block;*/
+  /*display: inline-block;*/
+  /*vertical-align: top;*/
+}
+#src {
+  width: 260px;
+  height: 260px;
+  border: 1px solid black;
+}
 
+.custom-image-form {
+  margin-top: 90px;
+}
 
 @media screen and (max-width: 1200px) {/*1000px以上の時*/
 .slider6-wrap {
@@ -141,7 +166,7 @@ svg {
 .design-content {
   width: 45%;
 }
-.item-box p {
+.item-box-p {
   font-size: 12px;
   margin-bottom: 2px;
 }
@@ -161,10 +186,11 @@ svg {
   width: 30%;
   margin: 0 10px 10px 0;
 }
-.item-box p {
+.item-box-p {
   font-size: 8px;
   margin-bottom: 2px;
 }
+
 .btn-item {
   font-size: 8px;
 }
@@ -178,7 +204,7 @@ svg {
 .design-box2 {
   width: 95%;
 }
-.item-box p {
+.item-box-p {
   font-size: 6px;
   margin-bottom: 0;
 }
@@ -192,6 +218,7 @@ svg {
 <%= render 'layouts/header', genre: @genre %>
 
 <div class="body">
+  <script src="https://cdn.jsdelivr.net/npm/dom-to-image@2.6.0/dist/dom-to-image.min.js"></script>
 
     <div class="design-box2">
         <div class="slider6-wrap">
@@ -218,97 +245,116 @@ svg {
             <%= f.hidden_field :item_id, :value => item.id %>
             <div class="item-content">
                 <%= image_tag item.image %><!--.variant(resize: "200x00")-->
-                <p><%= item.design.design_name %></p>
-                <p><%= item.item_introduction %></p>
-                <p>￥<%= item.with_tax_price %>(税込)</p>
-                <p>残り<%= item.stock %>個</p>
+                <p class="item-box-p"><%= item.design.design_name %></p>
+                <p class="item-box-p"><%= item.item_introduction %></p>
+                <p class="item-box-p">￥<%= item.with_tax_price %>(税込)</p>
+                <p class="item-box-p">残り<%= item.stock %>個</p>
                 <% if item.is_active == true && item.stock >= 1 %> <!--販売中の商品、または在庫が1つ以上ある商品の場合-->
-                    <p><%= f.submit "カートに入れる", class: "btn btn-item btn-blue" %></p>
+                    <p class="item-box-p"><%= f.submit "カートに入れる", class: "btn btn-item btn-blue" %></p>
                 <% else %>
-                    <p class="text-danger">販売停止中</p>
+                    <p class="item-box-p text-danger">販売停止中</p>
                 <% end %>
             </div>
           <% end %>
+
         <% elsif item.custom_images.attached? %>
           <%= form_with model: @cart_item, url: cart_items_path, method: :post, local: true, class: "custom-item-form" do |f| %>
             <%= f.hidden_field :amount, :value => "1" %>
             <%= f.hidden_field :item_id, :value => item.id %>
             <div class="custom-item-content">
-              <svg id="svg" xmlns="http://www.w3.org/2000/svg">
-                <!--左真横 上円＆下円-->
-                <path d="M 130 130 C 120 110, 40 110, 30 130
-                         M 130 130 C 120 150, 40 150, 30 130" stroke="black" stroke-width="2" fill="white" id="left"/>
+              <div id="src">
+                <svg id="svg" xmlns="http://www.w3.org/2000/svg">
+                  <!--左真横 上円＆下円-->
+                  <path d="M 130 130 C 120 110, 40 110, 30 130
+                           M 130 130 C 120 150, 40 150, 30 130" stroke="black" stroke-width="2" fill="white" id="left"/>
 
-                <!--右真横　上＆下-->
-                <path d="M 130 130 C 140 110, 220 110, 230 130
-                         M 130 130 C 140 150, 220 150, 230 130" stroke="black" stroke-width="2" fill="white" id="right"/>
+                  <!--右真横　上＆下-->
+                  <path d="M 130 130 C 140 110, 220 110, 230 130
+                           M 130 130 C 140 150, 220 150, 230 130" stroke="black" stroke-width="2" fill="white" id="right"/>
 
-                <!--上　左＆右-->
-                <path d="M 130 130 C 110 120, 110 40, 130 30
-                         M 130 130 C 150 120, 150 40, 130 30" stroke="black" stroke-width="2" fill="white" id="toptop"/>
+                  <!--上　左＆右-->
+                  <path d="M 130 130 C 110 120, 110 40, 130 30
+                           M 130 130 C 150 120, 150 40, 130 30" stroke="black" stroke-width="2" fill="white" id="toptop"/>
 
-                <!--下　左＆右-->
-                <path d="M 130 130 C 110 140, 110 220, 130 230
-                         M 130 130 C 150 140, 150 220, 130 230" stroke="black" stroke-width="2" fill="white" id="bottom"/>
+                  <!--下　左＆右-->
+                  <path d="M 130 130 C 110 140, 110 220, 130 230
+                           M 130 130 C 150 140, 150 220, 130 230" stroke="black" stroke-width="2" fill="white" id="bottom"/>
 
-                <!--左上　右&左-->
-                <path d="M 130 130 C 120 90, 100 70, 60 60
-                         M 130 130 C 90 120, 70 110, 60 60" stroke="black" stroke-width="2" fill="white" id="lefttop"/>
+                  <!--左上　右&左-->
+                  <path d="M 130 130 C 120 90, 100 70, 60 60
+                           M 130 130 C 90 120, 70 110, 60 60" stroke="black" stroke-width="2" fill="white" id="lefttop"/>
 
 
-                <!--左下　左＆右-->
-                <path d="M 130 130 C 90 140, 70 170, 60 210
-                         M 130 130 C 120 170, 110 190, 60 210" stroke="black" stroke-width="2" fill="white" id="leftbottom"/>
+                  <!--左下　左＆右-->
+                  <path d="M 130 130 C 90 140, 70 170, 60 210
+                           M 130 130 C 120 170, 110 190, 60 210" stroke="black" stroke-width="2" fill="white" id="leftbottom"/>
 
-                <!--右上　左＆右-->
-                <path d="M 130 130 C 140 90, 160 70, 200 60
-                         M 130 130 C 170 120, 190 110, 200 60" stroke="black" stroke-width="2" fill="white" id="righttop"/>
+                  <!--右上　左＆右-->
+                  <path d="M 130 130 C 140 90, 160 70, 200 60
+                           M 130 130 C 170 120, 190 110, 200 60" stroke="black" stroke-width="2" fill="white" id="righttop"/>
 
-                <!--右下　左＆右-->
-                <path d="M 130 130 C 140 170, 150 190, 200 210
-                         M 130 130 C 170 140, 190 170, 200 210" stroke="black" stroke-width="2" fill="white" id="rightbottom"/>
+                  <!--右下　左＆右-->
+                  <path d="M 130 130 C 140 170, 150 190, 200 210
+                           M 130 130 C 170 140, 190 170, 200 210" stroke="black" stroke-width="2" fill="white" id="rightbottom"/>
+                </svg>
+              </div>
 
-              </svg>
-            <div class="colorpicker-box">
-                <p>カラーを選択してください。</p>
-                <label>①の色選択
+              <div class="colorpicker-box">
+                <p class="custom-p">カラーを選択してください。</p>
+                <p class="custom-p"><label>①の色選択
                   <input id="colorPicker1" type="color" name="favorite_color">
-                </label><br>
-                <label>②の色選択
+                </label></p>
+
+                <p class="custom-p"><label>②の色選択
                   <input id="colorPicker2" type="color" name="favorite_color">
-                </label><br>
-                <label>③の色選択
+                </label></p>
+                <p class="custom-p"><label>③の色選択
                   <input id="colorPicker3" type="color" name="favorite_color">
-                </label><br>
-                <label>④の色選択
+                </label></p>
+                <p class="custom-p"><label>④の色選択
                   <input id="colorPicker4" type="color" name="favorite_color">
-                </label><br>
-                <label>⑤の色選択
+                </label></p>
+                <p class="custom-p"><label>⑤の色選択
                   <input id="colorPicker5" type="color" name="favorite_color">
-                </label><br>
-                <label>⑥の色選択
+                </label></p>
+                <p class="custom-p"><label>⑥の色選択
                   <input id="colorPicker6" type="color" name="favorite_color">
-                </label><br>
-                <label>⑦の色選択
+                </label></p>
+                <p class="custom-p"><label>⑦の色選択
                   <input id="colorPicker7" type="color" name="favorite_color">
-                </label><br>
-                <label>⑧の色選択
+                </label></p>
+                <p class="custom-p"><label>⑧の色選択
                   <input id="colorPicker8" type="color" name="favorite_color">
                 </label>
+              </div>
+               <p class="custom-p"><input type="button" value="画像に変換" onclick="chgImg()"><br></p>
+
+              <div class="preview-box" id="dst"></div>
+
+              <div class="custom-image-form">
+                <!--<%= form_with model: @items, url: item_path, method: :patch do |f| %>-->
+                  <p class="custom-p">画像を一枚添付してください</p>
+                  <p class="custom-p"><%= f.file_field :custom_images, accept: "image/*", multiple: true, required: true %></p>
+                <!--<% end %>-->
+                <!--<%= f.fields_for :items do |item| %>-->
+                <!--  <p class="custom-p">画像を一枚添付してください</p>-->
+                <!--  <p class="custom-p"><%= item.file_field :custom_images, accept: "image/*", multiple: true, required: true %></p>-->
+                <!--<% end %>-->
+              </div>
+
+              <div class="custom-item-submit">
+                <% if item.is_active == true && item.stock >= 1 %> <!--販売中の商品、または在庫が1つ以上ある商品の場合-->
+                    <%= f.submit "色選択した商品をカートに入れる", class: "btn btn-custom btn-blue" %>
+                <% else %>
+                    <p class="text-danger">販売停止中</p>
+                <% end %>
+              </div>
             </div>
-            <div class="custom-item-submit">
-              <% if item.is_active == true && item.stock >= 1 %> <!--販売中の商品、または在庫が1つ以上ある商品の場合-->
-                  <%= f.submit "色選択した商品をカートに入れる", class: "btn btn-custom btn-blue" %>
-              <% else %>
-                  <p class="text-danger">販売停止中</p>
-              <% end %>
-            </div>
-          </div>
           <% end %>
         <% end %>
       <% end %>
     </div>
-  <canvas id="canvas" width="260" height="260">
+
 
 
 <!--<img src="images/tsumami2_3.png" alt="画像" width="200" height="150">-->
@@ -316,16 +362,7 @@ svg {
 
 </body>
 <script>
-  // var d = document;
 
-  // var 1 = d.getElementById("colorPicker1").value;
-  // var 2 = d.getElementById("colorPicker2").value;
-  // var 3 = d.getElementById("colorPicker3").value;
-  // var 4 = d.getElementById("colorPicker4").value;
-  // var 5 = d.getElementById("colorPicker5").value;
-  // var 6 = d.getElementById("colorPicker6").value;
-  // var 7 = d.getElementById("colorPicker7").value;
-  // var 8 = d.getElementById("colorPicker8").value;
 
   let toptop = document.getElementById('toptop');
   let colorPicker1 = document.getElementById('colorPicker1');
@@ -384,6 +421,18 @@ svg {
   });
 
 
+  function chgImg()
+{
+    (async () => {
+      try {
+        let img = new Image();
+        img.src = await domtoimage.toPng(src);
+        dst.appendChild(img);
+      } catch (e) {
+        console.error("oops, something went wrong!", error);
+      }
+    })();
+}
   // var svg = '<svg> +
   // '<path d="M 130 130 C 120 110, 40 110, 30 130
   //         M 130 130 C 120 150, 40 150, 30 130" stroke="black" stroke-width="2" fill="white" id="left"/>' +
@@ -408,20 +457,20 @@ svg {
   // '<path d="M 130 130 C 140 170, 150 190, 200 210
   //         M 130 130 C 170 140, 190 170, 200 210" stroke="black" stroke-width="2" fill="white" id="rightbottom"/>' + </svg>'
 
-  window.onload = function() {
-      paintSvgToCanvas(document.getElementById('svg'), document.getElementById('canvas'));
-  }
+  // window.onload = function() {
+  //     paintSvgToCanvas(document.getElementById('svg'), document.getElementById('canvas'));
+  // }
 
 
 
-  function paintSvgToCanvas(uSvg, uCanvas) {
-      var pbx = document.createElement('img');
-      pbx.style.width  = uSvg.style.width;
-      pbx.style.height = uSvg.style.height;
-      pbx.src = 'data:image/svg+xml;base64,' + window.btoa(uSvg.outerHTML);
-      uCanvas.getContext('2d').drawImage(pbx, 0, 0);
+  // function paintSvgToCanvas(uSvg, uCanvas) {
+  //     var pbx = document.createElement('img');
+  //     pbx.style.width  = uSvg.style.width;
+  //     pbx.style.height = uSvg.style.height;
+  //     pbx.src = 'data:image/svg+xml;base64,' + window.btoa(uSvg.outerHTML);
+  //     uCanvas.getContext('2d').drawImage(pbx, 0, 0);
 
-  }
+  // }
 
 
 

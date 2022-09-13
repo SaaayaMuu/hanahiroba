@@ -87,6 +87,8 @@ end
 
 #genres GET    /genres(.:format)                                            public/genres#index
 
+#item PATCH  /items/:id(.:format)                                           public/items#update
+
 #designs GET    /designs(.:format)                                          public/designs#index
 #design GET    /designs/:id(.:format)                                       public/designs#show
 
