@@ -55,7 +55,7 @@ class Admin::DesignsController < ApplicationController
       :design_introduction,
       :design_price,
       images: [],
-      items_attributes: [:id, :image, :design_id, :item_price, :stock, :is_active, :item_introduction, :_destroy, custom_images: []]
+      items_attributes: [:id, :image, :design_id, :item_price, :stock, :is_active, :item_introduction,:item_type, :clone, :_destroy]
       )
   end
 

@@ -1,6 +1,89 @@
 <%= render 'layouts/header', genre: @genre %>
 
+<head>
+  <style>
 
+  .designs-box {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+  }
+
+  .design-item {
+    max-width: 300px;
+    width: 25%;
+    /*// margin: 0 30px;*/
+  }
+
+  .regular {
+    width: 90%;
+    // margin: 0 30px;
+  }
+  .slick-slide img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .design-detail {
+    width: 90%;
+    /*// max-width: 300px;*/
+    /*// margin: 0 30px;*/
+    /*// max-height: 200px;*/
+    color: black;
+  }
+  .design-detail h5 {
+    margin-bottom: 0;
+  }
+  .design-index-genre {
+    font-size: 0.8em;
+    color: gray;
+  }
+
+  .slick-slide {
+    margin: 0 5px;
+  }
+
+  .slick-prev, .slick-next {
+    z-index: 1;
+    font-weight: bold;
+  }
+
+  /*.slick-prev:before, .slick-next:before {*/
+  /*  color: #000;*/
+  /*}*/
+  /*.slick-next:before {*/
+  /*  content: '';*/
+  /*}*/
+  /*.slick-prev:before {*/
+  /*  content: '';*/
+  /*}*/
+
+  /*.slick-dots li.slick-active button:before {*/
+  /*    opacity: .75;*/
+  /*    color: black;*/
+  /*}*/
+
+  /*.slick-dots li button:before {*/
+  /*    font-family: 'slick';*/
+  /*    font-size: 0;*/
+  /*    line-height: 0;*/
+  /*    position: absolute;*/
+  /*    top: 0;*/
+  /*    left: 0;*/
+  /*    width: 0;*/
+  /*    height: 0;*/
+  /*    content: '•';*/
+  /*    text-align: center;*/
+  /*    opacity: .25;*/
+  /*    color: black;*/
+  /*    -webkit-font-smoothing: antialiased;*/
+  /*    -moz-osx-font-smoothing: grayscale;*/
+  /*}*/
+  </style>
+</head>
 
 <div class="body">
     <div class="designs-box">
@@ -27,13 +110,13 @@
  </div>
 
 <script>
-/*designs#index*/
- $(document).ready(function(){
-   $('.regular').slick({
-     fade: true,
-     autoplay: false, //自動再生
-     dots: false,
-     arrows: false,
-   });
- });
+// /*designs#index*/
+// $(document).ready(function(){
+//   $('.regular').slick({
+//     fade: true,
+//     autoplay: false, //自動再生
+//     dots: false,
+//     arrows: false,
+//   });
+// });
 </script>

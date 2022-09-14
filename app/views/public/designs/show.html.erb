@@ -239,7 +239,7 @@ svg {
 
     <div class="item-box">
       <% @items.each do |item| %>
-        <% if item.image.attached? %>
+        <% if item.item_type == true %>
           <%= form_with model: @cart_item, url: cart_items_path, method: :post, local: true, class: "item-form" do |f| %>
             <%= f.hidden_field :amount, :value => "1" %>
             <%= f.hidden_field :item_id, :value => item.id %>
@@ -257,10 +257,10 @@ svg {
             </div>
           <% end %>
 
-        <% elsif item.custom_images.attached? %>
+        <% else %>
           <%= form_with model: @cart_item, url: cart_items_path, method: :post, local: true, class: "custom-item-form" do |f| %>
             <%= f.hidden_field :amount, :value => "1" %>
-            <%= f.hidden_field :item_id, :value => item.id %>
+            <!--<%= f.hidden_field :item_id, :value => item.id %>-->
             <div class="custom-item-content">
               <div id="src">
                 <svg id="svg" xmlns="http://www.w3.org/2000/svg">
@@ -334,11 +334,10 @@ svg {
               <div class="custom-image-form">
                 <!--<%= form_with model: @items, url: item_path, method: :patch do |f| %>-->
                   <p class="custom-p">画像を一枚添付してください</p>
-                  <p class="custom-p"><%= f.file_field :custom_images, accept: "image/*", multiple: true, required: true %></p>
+                  <p class="custom-p"><%= item.file_field :image, accept: "image/*", required: true %></p>
                 <!--<% end %>-->
                 <!--<%= f.fields_for :items do |item| %>-->
-                <!--  <p class="custom-p">画像を一枚添付してください</p>-->
-                <!--  <p class="custom-p"><%= item.file_field :custom_images, accept: "image/*", multiple: true, required: true %></p>-->
+  tom-p"><%= item.file_field :custom_images, accept: "image/*", multiple: true, required: true %></p>-->
                 <!--<% end %>-->
               </div>
 
@@ -433,121 +432,10 @@ svg {
       }
     })();
 }
-  // var svg = '<svg> +
-  // '<path d="M 130 130 C 120 110, 40 110, 30 130
-  //         M 130 130 C 120 150, 40 150, 30 130" stroke="black" stroke-width="2" fill="white" id="left"/>' +
-  // '<path d="M 130 130 C 140 110, 220 110, 230 130
-  //         M 130 130 C 140 150, 220 150, 230 130" stroke="black" stroke-width="2" fill="white" id="right"/>' +
-
-  // '<path d="M 130 130 C 110 120, 110 40, 130 30
-  //         M 130 130 C 150 120, 150 40, 130 30" stroke="black" stroke-width="2" fill="white" id="toptop"/>' +
-
-  // '<path d="M 130 130 C 110 140, 110 220, 130 230
-  //         M 130 130 C 150 140, 150 220, 130 230" stroke="black" stroke-width="2" fill="white" id="bottom"/>' +
-
-  // '<path d="M 130 130 C 120 90, 100 70, 60 60
-  //         M 130 130 C 90 120, 70 110, 60 60" stroke="black" stroke-width="2" fill="white" id="lefttop"/>' +
-
-  // '<path d="M 130 130 C 90 140, 70 170, 60 210
-  //         M 130 130 C 120 170, 110 190, 60 210" stroke="black" stroke-width="2" fill="white" id="leftbottom"/>' +
-
-  // '<path d="M 130 130 C 140 90, 160 70, 200 60
-  //         M 130 130 C 170 120, 190 110, 200 60" stroke="black" stroke-width="2" fill="white" id="righttop"/>' +
-
-  // '<path d="M 130 130 C 140 170, 150 190, 200 210
-  //         M 130 130 C 170 140, 190 170, 200 210" stroke="black" stroke-width="2" fill="white" id="rightbottom"/>' + </svg>'
-
-  // window.onload = function() {
-  //     paintSvgToCanvas(document.getElementById('svg'), document.getElementById('canvas'));
-  // }
 
 
 
-  // function paintSvgToCanvas(uSvg, uCanvas) {
-  //     var pbx = document.createElement('img');
-  //     pbx.style.width  = uSvg.style.width;
-  //     pbx.style.height = uSvg.style.height;
-  //     pbx.src = 'data:image/svg+xml;base64,' + window.btoa(uSvg.outerHTML);
-  //     uCanvas.getContext('2d').drawImage(pbx, 0, 0);
 
-  // }
-
-
-
-// function importSVG(sourceSVG, targetCanvas) {
-//     // https://developer.mozilla.org/en/XMLSerializer
-//     var svg_xml = (new XMLSerializer()).serializeToString(sourceSVG);
-//     var ctx = targetCanvas.getContext('2d');
-
-//     // this is just a JavaScript (HTML) image
-//     var img = new Image();
-//     // http://en.wikipedia.org/wiki/SVG#Native_support
-//     // https://developer.mozilla.org/en/DOM/window.btoa
-//     img.src = "data:image/svg+xml;base64," + btoa(svg_xml);
-
-//     img.onload = function() {
-//         // after this, Canvas’ origin-clean is DIRTY
-//         ctx.drawImage(img, 0, 0);
-//     };
-// }
-
-
-
-    // let toptop = document.getElementById('toptop');
-    // let colorPicker1 = document.getElementById('colorPicker1');
-    // colorPicker1.value = "#00F000";
-    // colorPicker1.addEventListener('change', function(){
-    //   toptop.style.fill = this.value;
-    // });
-
-    // let righttop = document.getElementById('righttop');
-    // let colorPicker2 = document.getElementById('colorPicker2');
-    // colorPicker2.value = "#00F000";
-    // colorPicker2.addEventListener('change', function(){
-    //   righttop.style.fill = this.value;
-    // });
-
-    // let right = document.getElementById('right');
-    // let colorPicker3 = document.getElementById('colorPicker3');
-    // colorPicker3.value = "#00F000";
-    // colorPicker3.addEventListener('change', function(){
-    //   right.style.fill = this.value;
-    // });
-
-    // let rightbottom = document.getElementById('rightbottom');
-    // let colorPicker4 = document.getElementById('colorPicker4');
-    // colorPicker4.value = "#00F000";
-    // colorPicker4.addEventListener('change', function(){
-    //   rightbottom.style.fill = this.value;
-    // });
-
-    // let bottom = document.getElementById('bottom');
-    // let colorPicker5 = document.getElementById('colorPicker5');
-    // colorPicker5.value = "#00F000";
-    // colorPicker5.addEventListener('change', function(){
-    //   bottom.style.fill = this.value;
-    // });
-
-    // let leftbottom = document.getElementById('leftbottom');
-    // let colorPicker6 = document.getElementById('colorPicker6');
-    // colorPicker6.value = "#00F000";
-    // colorPicker6.addEventListener('change', function(){
-    //   leftbottom.style.fill = this.value;
-    // });
-
-    // let left = document.getElementById('left');
-    // let colorPicker7 = document.getElementById('colorPicker7');
-    // colorPicker7.value = "#00F000";
-    // colorPicker7.addEventListener('change', function(){
-    //   left.style.fill = this.value;
-    // });
-
-    // let lefttop = document.getElementById('lefttop');
-    // let colorPicker8 = document.getElementById('colorPicker8');
-    // colorPicker8.value = "#00F000";
-    // colorPicker8.addEventListener('change', function(){
-    //   lefttop.style.fill = this.value;
-    // });
 
 </script>
 

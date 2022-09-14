@@ -10,12 +10,12 @@
   </div>
 
   <div class="row-center">
-    <div class="m1-center col-1 p-0">
+    <div class="m1-center">
       <%= link_to designs_path do %><span class="menu-text1">商品一覧</span><% end %>
       <%= link_to cart_items_path do %><span class="menu-text2">カート</span><% end %>
     </div>
 
-    <div class="photo-center col-xl-10 col-lg-10 col-md-10 p-0">
+    <div class="photo-center">
       <div class="theTarget">
         <div class="image1"></div>
         <div class="image2"></div>
@@ -24,7 +24,7 @@
       </div>
     </div>
 
-    <div class="m1-center col-1 p-0">
+    <div class="m1-center">
       <% if customer_signed_in?%>
         <%= link_to customer_path(current_customer.id) do %><span class="menu-text3">マイページ</span><% end %>
         <%= link_to destroy_customer_session_path, method: :delete do %><span class="menu-text4">ログアウト</span><% end %>
@@ -97,6 +97,15 @@ $(window).on('load',function () {
     keyboardOnAlways : true,
     // 一枚目のスライド表示時に戻る矢印を表示するかどうか(falseで非表示)
     hidePrevious : false
+  });
+});
+
+/*ハンバーガーメニューtop*/
+$(document).ready(function () {
+  $('.menu-trigger').on('click', function(event) {
+    $(this).toggleClass('active');
+    $('#sp-menu').fadeToggle();
+    event.preventDefault();
   });
 });
 

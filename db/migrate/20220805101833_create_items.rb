@@ -7,6 +7,10 @@ class CreateItems < ActiveRecord::Migration[6.1]
      t.integer :item_price, null: false
      t.integer :stock, null: false
      t.boolean :is_active, default: true, null: false
+    # ↓　true=already　,　false=order_made
+     t.boolean :item_type, default: true, null: false
+     t.boolean :clone, default: false
+     t.integer :original_item_id
 
       t.timestamps
     end

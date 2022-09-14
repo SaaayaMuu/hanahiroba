@@ -35,6 +35,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     resources :designs, only: [:index, :show]
     resources :genres, only: [:index]
     resources :cart_items, only: [:index, :create, :update, :destroy, :destroy_all]
+    post '/cart_items/original' => 'cart_items#original'
     delete :cart_items, to: 'cart_items#destroy_all'
     post '/orders/confirm' => 'orders#confirm'
     get '/orders/thanks'=> 'orders#thanks'
@@ -99,6 +100,8 @@ end
 
 #cart_items GET    /cart_items(.:format)                                    public/cart_items#index
 #           POST   /cart_items(.:format)                                    public/cart_items#create
+#cart_items_original POST   /cart_items/original(.:format)                   public/cart_items#original
+
 #cart_item PATCH  /cart_items/:id(.:format)                                 public/cart_items#update
 #          DELETE /cart_items/:id(.:format)                                 public/cart_items#destroy
 #          DELETE /cart_items(.:format)                                     public/cart_items#destroy_all
