@@ -27,6 +27,29 @@ class Public::CartItemsController < ApplicationController
 		end
   end
 
+  def order_made_create
+    # original_item = params[:item][:original_item_id]
+    # original_item = @item.id
+    # original_item = @item.original_item_id
+    # original_item = Item.find(params[:original_item_id])
+    @item = Item.new(item_params)
+    original_item = Item.find(params[:item][:original_item_id])
+    @item.item_price = original_item.item_price
+    @item.item_introduction = original_item.item_introduction
+    @item.design_id = original_item.design_id
+    @item.clone = true
+    @item.is_active = true
+    @item.stock = 10
+    @item.save
+    @cart_item = CartItem.new
+    @cart_item.amount = 1
+    @cart_item.item_id = @item.id
+    @cart_item.customer_id = current_customer.id
+    @cart_item.save
+    redirect_to cart_items_path
+  end
+
+
   def update
     @cart_item = CartItem.find(params[:id])
     @cart_item.update(cart_item_params)# 1. 一度amountを更新
@@ -55,6 +78,10 @@ class Public::CartItemsController < ApplicationController
 
 
   private
+
+  def item_params
+    params.require(:item).permit(:design_id, :item_introduction, :item_price ,:stock ,:is_active , :clone, :original_item_id, :image)
+  end
 
   def cart_item_params
     params.require(:cart_item).permit(:item_id, :amount, :item_image)

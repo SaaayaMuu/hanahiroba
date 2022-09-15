@@ -238,8 +238,8 @@ svg {
 
 
     <div class="item-box">
-      <% @items.each do |item| %>
-        <% if item.item_type == true %>
+      <% if @design.design_type == true %>
+        <% @items.each do |item| %>
           <%= form_with model: @cart_item, url: cart_items_path, method: :post, local: true, class: "item-form" do |f| %>
             <%= f.hidden_field :amount, :value => "1" %>
             <%= f.hidden_field :item_id, :value => item.id %>
@@ -256,11 +256,9 @@ svg {
                 <% end %>
             </div>
           <% end %>
+        <% end %>
 
-        <% else %>
-          <%= form_with model: @cart_item, url: cart_items_path, method: :post, local: true, class: "custom-item-form" do |f| %>
-            <%= f.hidden_field :amount, :value => "1" %>
-            <!--<%= f.hidden_field :item_id, :value => item.id %>-->
+      <% else %>
             <div class="custom-item-content">
               <div id="src">
                 <svg id="svg" xmlns="http://www.w3.org/2000/svg">
@@ -332,26 +330,22 @@ svg {
               <div class="preview-box" id="dst"></div>
 
               <div class="custom-image-form">
-                <!--<%= form_with model: @items, url: item_path, method: :patch do |f| %>-->
+                <%= form_with model: @item, url: cart_items_order_made_create_path, method: :post do |f| %>
+                  <%= f.hidden_field :original_item_id, :value => @item.id %>
                   <p class="custom-p">画像を一枚添付してください</p>
-                  <p class="custom-p"><%= item.file_field :image, accept: "image/*", required: true %></p>
-                <!--<% end %>-->
-                <!--<%= f.fields_for :items do |item| %>-->
-  tom-p"><%= item.file_field :custom_images, accept: "image/*", multiple: true, required: true %></p>-->
-                <!--<% end %>-->
+                  <p class="custom-p"><%= f.file_field :image, accept: "image/*", required: true %></p>
               </div>
 
               <div class="custom-item-submit">
-                <% if item.is_active == true && item.stock >= 1 %> <!--販売中の商品、または在庫が1つ以上ある商品の場合-->
+                <% if @item.is_active == true && @item.stock >= 1 %> <!--販売中の商品、または在庫が1つ以上ある商品の場合-->
                     <%= f.submit "色選択した商品をカートに入れる", class: "btn btn-custom btn-blue" %>
                 <% else %>
                     <p class="text-danger">販売停止中</p>
                 <% end %>
               </div>
+              <% end %>
             </div>
-          <% end %>
         <% end %>
-      <% end %>
     </div>
 
 

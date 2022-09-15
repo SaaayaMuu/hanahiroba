@@ -94,6 +94,7 @@ ActiveRecord::Schema.define(version: 2022_08_20_070609) do
     t.string "design_name", null: false
     t.text "design_introduction", null: false
     t.integer "design_price", null: false
+    t.boolean "design_type", default: true, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -110,7 +111,6 @@ ActiveRecord::Schema.define(version: 2022_08_20_070609) do
     t.integer "item_price", null: false
     t.integer "stock", null: false
     t.boolean "is_active", default: true, null: false
-    t.boolean "item_type", default: true, null: false
     t.boolean "clone", default: false
     t.integer "original_item_id"
     t.datetime "created_at", precision: 6, null: false
