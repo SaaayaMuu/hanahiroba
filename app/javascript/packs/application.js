@@ -8,10 +8,10 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
 import 'jquery'
-import "../slick.min"
+import "slick.min";
 import "skippr.min"
-import "script.js"
 import "popper.js";
+import "script.js"
 import "bootstrap";
 import "../stylesheets/application"
 
@@ -19,3 +19,6 @@ require("@nathanvda/cocoon")
 
 Rails.start()
 ActiveStorage.start()
+
+window.$ = window.jQuery = require('jquery');
+require('packs/raty')

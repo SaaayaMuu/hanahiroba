@@ -1,10 +1,11 @@
 <head>
 <style>
 
-.design-show-body {
-  font-family: 'Kaisei Tokumin', serif;
-  font-weight: bold;
+.body {
 }
+
+
+
 .design-box2 {
   width: 80%;
   display: flex;
@@ -18,8 +19,12 @@
   height: auto;
   margin-left: 20px;
 }
+.design-content h4 {
+  font-size: 20px;
+}
 .design-content p {
-  font-size: 1rem;
+  font-size: 15px;
+  color: #444444;
 }
 
 .design-content p:nth-child(3) {
@@ -35,6 +40,7 @@
   overflow: hidden;
   display: flex;
   flex-wrap: wrap;
+  border: thin solid black;
 }
 .slider-6 .slick-slide img {
   display: block;
@@ -52,6 +58,7 @@
   opacity: 0.4;
   cursor: pointer;
   transition: opacity 0.3s;
+  border: thin solid black;
 }
 .thumbs_list li.slick-active {
   opacity: 1;
@@ -74,6 +81,7 @@
 .item-content img {
   width: 100%;
   height: auto;
+  border: thin solid black;
 }
 
 .item-box-p {
@@ -173,6 +181,7 @@ svg {
 .btn-item {
   font-size: 12px;
 }
+
 @media screen and (max-width: 576px) {/*576px以下の時*/
 .slider6-wrap {
   width: 90%;//sliderメイン画像横幅
@@ -220,6 +229,10 @@ svg {
 <div class="body">
   <script src="https://cdn.jsdelivr.net/npm/dom-to-image@2.6.0/dist/dom-to-image.min.js"></script>
 
+
+
+    <p class="text-right mr-4"><%= link_to "レビューを見る", reviews_path(design_id: @design.id) %></p>
+
     <div class="design-box2">
         <div class="slider6-wrap">
             <ul class="slider-6" id="js-slider-6">
@@ -232,9 +245,14 @@ svg {
         <div class="design-content">
             <h4><%= @design.design_name %></h4>
             <p><%= @design.design_introduction %></p>
-            <p><%= "￥" %><%= @design.with_tax_price %><%= "～" %></p>
+            <% if @design.design_type == true %>
+              <p><%= "￥" %><%= @design.with_tax_price.to_s(:delimited) %><%= "～" %></p>
+            <% else %>
+              <p><%= "￥" %><%= @design.with_tax_price.to_s(:delimited) %></p>
+            <% end %>
         </div>
     </div>
+
 
 
     <div class="item-box">
@@ -247,8 +265,7 @@ svg {
                 <%= image_tag item.image %><!--.variant(resize: "200x00")-->
                 <p class="item-box-p"><%= item.design.design_name %></p>
                 <p class="item-box-p"><%= item.item_introduction %></p>
-                <p class="item-box-p">￥<%= item.with_tax_price %>(税込)</p>
-                <p class="item-box-p">残り<%= item.stock %>個</p>
+                <p class="item-box-p">￥<%= item.with_tax_price.to_s(:delimited) %>(税込)</p>
                 <% if item.is_active == true && item.stock >= 1 %> <!--販売中の商品、または在庫が1つ以上ある商品の場合-->
                     <p class="item-box-p"><%= f.submit "カートに入れる", class: "btn btn-item btn-blue" %></p>
                 <% else %>
@@ -299,6 +316,7 @@ svg {
 
               <div class="colorpicker-box">
                 <p class="custom-p">カラーを選択してください。</p>
+
                 <p class="custom-p"><label>①の色選択
                   <input id="colorPicker1" type="color" name="favorite_color">
                 </label></p>
@@ -333,7 +351,8 @@ svg {
                 <%= form_with model: @item, url: cart_items_order_made_create_path, method: :post do |f| %>
                   <%= f.hidden_field :original_item_id, :value => @item.id %>
                   <p class="custom-p">画像を一枚添付してください</p>
-                  <p class="custom-p"><%= f.file_field :image, accept: "image/*", required: true %></p>
+                  <p class="custom-p"><%= f.file_field :image, accept: "image/png", required: true %></p>
+                                      　　                          　<!--　↑　変換後の画像はpngになるからファイル指定-->
               </div>
 
               <div class="custom-item-submit">
@@ -357,65 +376,8 @@ svg {
 <script>
 
 
-  let toptop = document.getElementById('toptop');
-  let colorPicker1 = document.getElementById('colorPicker1');
-  colorPicker1.value = "#00F000";
-  colorPicker1.addEventListener('change', function(){
-    toptop.style.fill = this.value;
-  });
 
-  let righttop = document.getElementById('righttop');
-  let colorPicker2 = document.getElementById('colorPicker2');
-  colorPicker2.value = "#00F000";
-  colorPicker2.addEventListener('change', function(){
-    righttop.style.fill = this.value;
-  });
-
-  let right = document.getElementById('right');
-  let colorPicker3 = document.getElementById('colorPicker3');
-  colorPicker3.value = "#00F000";
-  colorPicker3.addEventListener('change', function(){
-    right.style.fill = this.value;
-  });
-
-  let rightbottom = document.getElementById('rightbottom');
-  let colorPicker4 = document.getElementById('colorPicker4');
-  colorPicker4.value = "#00F000";
-  colorPicker4.addEventListener('change', function(){
-    rightbottom.style.fill = this.value;
-  });
-
-  let bottom = document.getElementById('bottom');
-  let colorPicker5 = document.getElementById('colorPicker5');
-  colorPicker5.value = "#00F000";
-  colorPicker5.addEventListener('change', function(){
-    bottom.style.fill = this.value;
-  });
-
-  let leftbottom = document.getElementById('leftbottom');
-  let colorPicker6 = document.getElementById('colorPicker6');
-  colorPicker6.value = "#00F000";
-  colorPicker6.addEventListener('change', function(){
-    leftbottom.style.fill = this.value;
-  });
-
-  let left = document.getElementById('left');
-  let colorPicker7 = document.getElementById('colorPicker7');
-  colorPicker7.value = "#00F000";
-  colorPicker7.addEventListener('change', function(){
-    left.style.fill = this.value;
-  });
-
-  let lefttop = document.getElementById('lefttop');
-  let colorPicker8 = document.getElementById('colorPicker8');
-  colorPicker8.value = "#00F000";
-  colorPicker8.addEventListener('change', function(){
-    lefttop.style.fill = this.value;
-  });
-
-
-  function chgImg()
-{
+  function chgImg() {
     (async () => {
       try {
         let img = new Image();
@@ -425,11 +387,81 @@ svg {
         console.error("oops, something went wrong!", error);
       }
     })();
-}
+};
+
+  let toptop = document.getElementById('toptop');
+  let colorPicker1 = document.getElementById('colorPicker1');
+  if (colorPicker1) {
+      colorPicker1.value = "#00F000";
+      colorPicker1.addEventListener('change', function(){
+        toptop.style.fill = this.value;
+      });
+  }
 
 
+  let righttop = document.getElementById('righttop');
+  let colorPicker2 = document.getElementById('colorPicker2');
+  if (colorPicker2) {
+      colorPicker2.value = "#00F000";
+      colorPicker2.addEventListener('change', function(){
+        righttop.style.fill = this.value;
+      });
+  }
 
 
+  let right = document.getElementById('right');
+  let colorPicker3 = document.getElementById('colorPicker3');
+  if (colorPicker3) {
+      colorPicker3.value = "#00F000";
+      colorPicker3.addEventListener('change', function(){
+        right.style.fill = this.value;
+      });
+  }
+
+  let rightbottom = document.getElementById('rightbottom');
+  let colorPicker4 = document.getElementById('colorPicker4');
+  if (colorPicker4) {
+      colorPicker4.value = "#00F000";
+      colorPicker4.addEventListener('change', function(){
+        rightbottom.style.fill = this.value;
+      });
+  }
+
+  let bottom = document.getElementById('bottom');
+  let colorPicker5 = document.getElementById('colorPicker5');
+  if (colorPicker5) {
+  colorPicker5.value = "#00F000";
+  colorPicker5.addEventListener('change', function(){
+    bottom.style.fill = this.value;
+  });
+  }
+
+  let leftbottom = document.getElementById('leftbottom');
+  let colorPicker6 = document.getElementById('colorPicker6');
+  if (colorPicker6) {
+  colorPicker6.value = "#00F000";
+  colorPicker6.addEventListener('change', function(){
+    leftbottom.style.fill = this.value;
+  });
+  }
+
+  let left = document.getElementById('left');
+  let colorPicker7 = document.getElementById('colorPicker7');
+  if (colorPicker7) {
+  colorPicker7.value = "#00F000";
+  colorPicker7.addEventListener('change', function(){
+    left.style.fill = this.value;
+  });
+  }
+
+  let lefttop = document.getElementById('lefttop');
+  let colorPicker8 = document.getElementById('colorPicker8');
+  if (colorPicker8) {
+  colorPicker8.value = "#00F000";
+  colorPicker8.addEventListener('change', function(){
+    lefttop.style.fill = this.value;
+  });
+　}
 
 </script>
 

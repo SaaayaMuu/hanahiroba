@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
 
-
 # 顧客用
 # URL /customers/sign_in ...
 
@@ -24,6 +23,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     resources :genres, only: [:index, :edit, :create, :update, :destroy]
     resources :customers, only: [:index, :show, :edit, :update]
     resources :orders, only: [:show, :update]
+    resources :reviews, only: [:index, :destroy]
     get '/' => 'homes#top'
   end
 
@@ -41,6 +41,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     get '/orders/thanks'=> 'orders#thanks'
     resources :orders, only: [:new, :index, :show, :create]
     resources :address, only: [:create]
+    resources :reviews, only: [:index, :new, :create]
   end
 end
 
@@ -74,6 +75,9 @@ end
 
 #admin_order GET    /admin/orders/:id(.:format)                             admin/orders#show
 #PATCH  /admin/orders/:id(.:format)                                         admin/orders#update
+
+#admin_reviews GET    /admin/reviews(.:format)                              admin/reviews#index
+#admin_review DELETE /admin/reviews/:id(.:format)                           admin/reviews#destroy
 
 
 #new_customer_password GET    /customers/password/new(.:format)             devise/passwords#new
@@ -114,6 +118,10 @@ end
 #orders_thanks GET    /orders/thanks(.:format)                              public/orders#thanks
 
 #address_index POST   /address(.:format)                                    public/address#create
+
+#reviews GET    /reviews(.:format)                                          public/reviews#index
+#        POST   /reviews(.:format)                                          public/reviews#create
+#new_review GET    /reviews/new(.:format)                                   public/reviews#new
 
 #new_customer_password GET    /customers/password/new(.:format)             devise/passwords#new
 #edit_customer_password GET    /customers/password/edit(.:format)           devise/passwords#edit

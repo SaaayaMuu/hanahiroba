@@ -29,4 +29,7 @@
     devise:
       failure:
         not_found_in_database: "%{authentication_keys} もしくはパスワードが違います。"
-        unauthenticated: '会員登録もしくはログインしてください。'
+        unauthenticated: '会員登録もしくはログインをする必要があります。'
+        invalid: "%{authentication_keys} もしくはパスワードが違います。"
+      passwords:
+        send_instructions: 'パスワードの再設定について数分以内にメールでご連絡いたします。'

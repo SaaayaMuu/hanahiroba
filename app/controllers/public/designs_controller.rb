@@ -11,13 +11,10 @@ class Public::DesignsController < ApplicationController
   def show
     @genre = Genre.all # headerの部分テンプレート用
     @design = Design.find(params[:id])
-    # @item = @design.items.find(params[:id])
-    # @items.update(item_params)
     if @design.design_type == true #もしデザインタイプが”既製品だったら”
       @items = @design.items.all
       @cart_item = CartItem.new#(既製品)
     else
-      # @item = @design.items.first
       @item = Item.new#(オーダー－メイド商品用)
       @item = @design.items.first
     end

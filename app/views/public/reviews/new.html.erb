@@ -1,0 +1,97 @@
+<style>
+
+  .review-box {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 50px;
+  }
+
+  .review-image img {
+    width: 150px;
+    height: auto;
+  }
+  .review-star {
+    width: 100%;
+    display: flex;
+    margin-top: 20px;
+  }
+  #star {
+    margin: 0 auto;
+  }
+  .review-body {
+    width: 50%;
+    margin: 20px 25% 50px 25%;
+  }
+  .review-image-file {
+    margin: 30px 0 0 0;
+  }
+
+  .btn-blue {
+  color: white;
+  background: #CC6600;
+}
+  .btn-blue:hover {
+    color: white;
+    background: #669933;
+  }
+  @media screen and (max-width: 576px) {/*425px以下の時*/
+
+  .review-image img{
+    width: 100px;
+  }
+  .review-body {
+    width: 90%;
+    margin: 20px 5% 50px 5%;
+  }
+}
+</style>
+
+
+
+<%= form_with model: @review, url: reviews_path, local: true do |f| %>
+<div class="review-box">
+
+
+  <div class="review-image">
+    <%= image_tag @design.images[0] %><!--.variant(resize: "200x200")-->
+  </div>
+  <div class="review-star">
+    <div class="star-form-group" id="star">
+      <%= f.hidden_field :rate, :value => 'score' %>
+    </div>
+  </div>
+
+
+  <p class="review-image-file">写真を追加する</p>
+  <%= f.file_field :image, accept: "image/*" %>
+  <%= f.text_area :body, class: "review-body form-control", rows: "5", placeholder:'感想をお書きください'%>
+
+
+
+
+ <%= f.submit "レビューを送信する", class: "btn btn-custom btn-blue" %>
+
+
+</div>
+<% end %>
+
+
+
+
+
+
+
+
+  <!-- 評価javascript -->
+<script>
+// var e = document.getElementById('star')
+$('#star').raty({
+  size     : 36,
+  starOff:  '<%= asset_path('star-off.png') %>',
+  starOn : '<%= asset_path('star-on.png') %>',
+  starHalf: '<%= asset_path('star-half.png') %>',
+  scoreName: 'review[rate]',
+  half: true,
+});
+</script>

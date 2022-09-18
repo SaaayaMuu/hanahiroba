@@ -16,7 +16,7 @@
 
 
 
-@import "skippr";
+// @import ”skippr”；
 
 
  * {
@@ -38,7 +38,7 @@ font-family: 'Kaisei Tokumin', serif;
   // font-family: 'Yuji Syuku', serif;
   font-family: 'Zen Antique', serif;
   // font-size: 0.8em;
-  /*background-image: url(japanese-paper_00162.jpg);*/
+  // background-image: url(japanese-paper_00294.jpg);
   /*background-color: #F5F5DC;*/
 }
 
@@ -345,7 +345,7 @@ h4 {
 /* ---------------------------- */
 #public-hm-icon {
   display: none;
-  position: fixed;
+  position: absolute;
   right: 10px;
   top: 0;
   z-index: 10;
@@ -399,7 +399,7 @@ h4 {
 ////////////////////////
 //////public#header/////
 ////////////////////////
-.header {
+header {
   width: 100%;
   height: 400px;
   background-image: image-url("watercolor_00031_2.jpg");
@@ -407,6 +407,8 @@ h4 {
   background-size: cover;
   margin-bottom: 100px;
 }
+
+
 
 .nav-text .nav-name {
   margin: 0 20px;
@@ -892,7 +894,7 @@ article{
   width: 88%;
 }
 /*header画像*/
-.header {
+header {
   height: 250px;
 }
 
@@ -967,7 +969,7 @@ article{
 //////////////////////////////////////
 
 /*header画像*/
-  .header {
+  header {
     height: 200px;
 }
 
@@ -990,7 +992,7 @@ article{
     display: block;
   }
 
-  .header {
+  header {
     height: 150px;
     margin-bottom: 50px;
   }

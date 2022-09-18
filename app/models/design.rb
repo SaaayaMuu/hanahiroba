@@ -2,6 +2,7 @@ class Design < ApplicationRecord
 
   belongs_to :genre
   has_many :items, dependent: :destroy
+  has_many :reviews, dependent: :destroy
   has_many_attached :images
 
   # reject_ifは、入力フォームを追加しているもののすべてが空白の場合にリジェクトする

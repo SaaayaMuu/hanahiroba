@@ -6,7 +6,7 @@ class Public::CartItemsController < ApplicationController
     @cart_items = current_customer.cart_items.all
   end
 
-  def create
+  def create#既製品購入した場合のcreate
     if current_customer.cart_items.find_by(item_id: params[:cart_item][:item_id]).present?
       @cart_item = current_customer.cart_items.find_by(item_id: params[:cart_item][:item_id])
       @cart_item.update(amount: @cart_item.amount + params[:cart_item][:amount].to_i)# 1. 一度amountを更新
@@ -27,11 +27,7 @@ class Public::CartItemsController < ApplicationController
 		end
   end
 
-  def order_made_create
-    # original_item = params[:item][:original_item_id]
-    # original_item = @item.id
-    # original_item = @item.original_item_id
-    # original_item = Item.find(params[:original_item_id])
+  def order_made_create#オーダーメイド商品購入した場合のcreate
     @item = Item.new(item_params)
     original_item = Item.find(params[:item][:original_item_id])
     @item.item_price = original_item.item_price
@@ -39,7 +35,7 @@ class Public::CartItemsController < ApplicationController
     @item.design_id = original_item.design_id
     @item.clone = true
     @item.is_active = true
-    @item.stock = 10
+    @item.stock = 10#同じ配色の商品を同時にいくつか購入可にするため
     @item.save
     @cart_item = CartItem.new
     @cart_item.amount = 1

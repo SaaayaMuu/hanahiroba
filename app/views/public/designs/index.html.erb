@@ -98,7 +98,12 @@
                 </div>
 
                 <div class="design-detail">
-                  <h5>￥<%= design.design_price %>～</h5>
+                  
+                  <% if design.design_type == true %>
+                    <h5>￥<%= design.with_tax_price.to_s(:delimited) %>～</h5>
+                  <% else %>
+                    <h5>￥<%= design.with_tax_price.to_s(:delimited) %></h5>
+                  <% end %>
                   <span class="design-index-genre"><%= design.genre.name %></span>
                 </div>
                 <% end %>
@@ -108,15 +113,3 @@
         <% end %>
     </div>
  </div>
-
-<script>
-// /*designs#index*/
-// $(document).ready(function(){
-//   $('.regular').slick({
-//     fade: true,
-//     autoplay: false, //自動再生
-//     dots: false,
-//     arrows: false,
-//   });
-// });
-</script>

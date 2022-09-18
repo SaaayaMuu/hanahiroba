@@ -1,6 +1,6 @@
 
 <% if customer_signed_in? %>
-  <div class="header">
+  <header>
     <div class="nav-text">
       <li>ジャンルで選ぶ</li>
       <% genre.each do |genre| %>
@@ -14,10 +14,10 @@
     <div class="login-content">
       <%= current_customer.last_name %>さんログイン中
     </div>
-  </div>
+  </header>
 
   <% else %>
-  <div class="header">
+  <header>
     <div class="nav-text">
       <li>ジャンルで選ぶ</li>
       <% genre.each do |genre| %>
@@ -31,7 +31,7 @@
       <div class="login-content">
         <p class="text-center text-white lead"><%= flash[:notice] %></p>
       </div>
-  </div>
+  </header>
 <% end %>
 
 
