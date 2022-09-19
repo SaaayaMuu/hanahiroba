@@ -1,4 +1,5 @@
 <div class="body">
+ <%= render 'public/shared/custom_error_messages' %>
  <div class="container mt-4">
     <%= form_with model: @customer, url: customer_registration_path, id: 'new_customer', class: 'new_customer' do |f| %>
     <%= render "public/shared/error_messages", resource: resource %>

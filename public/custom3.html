@@ -1,23 +1,36 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8" />
-<title>JavaScriptでSVGを制御(色変更)</title>
-</head>
 <body>
-<h1>JavaScriptでSVGを制御(色変更)</h1>
-<form>
-<input type="button" id="change" value="変更">
-</form>
-<svg>
-<polygon id="myPoly" fill="#FFF000" stroke="#FF0000" points="72.278,58.394 78.338,91.04 48.74,75.993 19.565,91.844 24.729,59.045 0.639,36.196 33.428,30.972 47.715,1 62.814,30.57 95.734,34.895 "/>
-</svg>
-<script type="text/javascript">
-document.getElementById("change").addEventListener("click", function(){
-var poly = document.getElementById("myPoly"); // 多角形（ポリゴン）
-poly.setAttribute("fill", "#00ff00"); // 緑色で塗りつぶす
-poly.setAttribute("stroke", "blue");    // 青色の線にする
-}, true);
-</script>
+
+ <div class="form-group">
+    <div class="field">
+       <%= f.label :images, "写真" %><span class="must">*</span>
+    </div>
+    <p>[5MBまで、最大アップロード枚数5枚]</p>
+    <%= f.file_field :images, class: "push", multiple: true, onchange: "loadImage(this);" %>
+  </div>
+
+  <div id="post_images" style="display: none;">
+    <p id="preview"></p>
+  </div>
+
+
 </body>
-</html>
+<script>
+  function loadImage(obj)
+  {
+    var allPreview = document.getElementById('post_images');
+    var newPreview = document.createElement("p");
+    allPreview.querySelector("p").remove();
+    newPreview.setAttribute("id","preview");
+    allPreview.insertBefore(newPreview, allPreview.firstChild);
+    document.getElementById("post_images").style.display = "";
+    for (i = 0; i < obj.files.length; i++) {
+        var fileReader = new FileReader();
+        fileReader.onload = (function (e) {
+            var img = new Image();
+            img.src = e.target.result;
+            document.getElementById('preview').appendChild(img);
+        });
+      fileReader.readAsDataURL(obj.files[i]);
+    }
+  }
+</script>

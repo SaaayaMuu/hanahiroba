@@ -4,10 +4,10 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1><%= @customer.full_name %>様</h1>
+    <h3><%= @customer.full_name %>様</h3>
 
-    <p><<お支払いをお願いいたします>></p>
-
+    <p>これはhtmlです</p>
+    <p>＜＜お支払いをお願いいたします＞＞</p>
 
     <p>以下の商品のご購入手続きが完了いたしました。</p>
 
@@ -18,18 +18,19 @@
     <% @order.order_details.each do |order_detail| %>
       <p>---------------------------</p>
       <p>商品名：<%= order_detail.item.design.design_name %></p>
-      <p>価格 &emsp;：￥<%=order_detail.item.item_price %></p>
-      <p>数量 &emsp;：1個</p>
+      <p>価格 ：￥<%=order_detail.price.to_s(:delimited) %></p>
+      <p>数量 ：<%= order_detail.amount %>個</p>
       <p>---------------------------</p>
     <% end %>
 
-    <p>===============</p>
-    <p>購入日時：<%= @order.created_at.strftime('%Y/%m/%d %H:%M') %></p>
-    <p>取引状況：お支払い待ち</p>
-    <p>送料：<%= @order.postage %></p>
-    <p>合計：<%= @order. total_price%></p>
-    <p>===============</p>
+    <p>■お届け先住所</p>
+    <p>---------------------------</p>
+    <p>郵便番号：<%= @order.postal_code %></p>
+    <p>住所 ：<%= @order.address %></p>
+    <p>宛名 ：<%= @order.name %></p>
+    <p>---------------------------</p>
     <br>
+
     <p>■お支払い（振込）</p>
     <p>---------------------------</p>
     <p>銀行名：〇〇〇銀行</p>

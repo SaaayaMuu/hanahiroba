@@ -30,7 +30,8 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   root to: "public/homes#top"
   scope module: :public do
     get '/customers/unsubscribe' => 'customers#unsubscribe'
-    resources :customers, only: [:show, :edit, :unsubscribe, :update]
+    patch '/customers/withdraw' => 'customers#withdraw'
+    resources :customers, only: [:show, :edit, :update]
     resources :items, only: [:update]
     resources :designs, only: [:index, :show]
     resources :genres, only: [:index]
@@ -85,6 +86,9 @@ end
 
 #new_customer_registration GET    /customers/sign_up(.:format)              public/registrations#new
 #edit_customer_registration GET    /customers/edit(.:format)                public/registrations#edit
+
+#customers_unsubscribe GET    /customers/unsubscribe(.:format)              public/customers#unsubscribe
+#customers_withdraw PATCH  /customers/withdraw(.:format)                    public/customers#withdraw
 
 #new_customer_session GET    /customers/sign_in(.:format)                   public/sessions#new
 #customer_session POST   /customers/sign_in(.:format)                       public/sessions#create

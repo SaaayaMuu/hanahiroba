@@ -32,6 +32,14 @@ class Admin::DesignsController < ApplicationController
 
   def update
     @design= Design.find(params[:id])
+
+    if params[:design][:image_ids].present?
+      params[:design][:image_ids].each do |image_id|
+        image = @design.images.find(image_id)
+        image.purge
+      end
+    end
+
     if @design.update(design_params)
       redirect_to admin_design_path(@design.id)
     else

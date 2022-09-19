@@ -26,35 +26,34 @@
     </div>
     <div>
       <label for="" class="col-lg-2 col-md-3 col-sm-4 col-4 p-0 font-weight-bold">デザイン価格</label>
-      <%= "￥" %><%= @design.design_price %><%= "～" %>
+      <%= "￥" %><%= @design.design_price.to_s(:delimited) %><%= "～" %>
     </div>
   </div>
 
-<h4 class="mb-3 mt-3 font-weight-bold border-bottom">商品一覧</h4>
-<div class="row d-flex flex-wrap">
-  <%= @design.items.each do |item|%>
-    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
-      <% if @design.design_type == true %>
-        <%= image_tag item.image.variant(resize: "200x200"), class: "border" %><br>
-      <% else %>
-        <p class="width=200 height=200">画像なし</p>
-      <% end %>
-        <label for="" class="col-6 p-0 font-weight-bold">商品ID</label>
-          <%= item.id %><br>
-        <label for="" class="col-6 p-0 font-weight-bold">商品価格(税抜)</label>
-          <%= "￥" %><%= item.item_price %><br>
-        <label for="" class="col-6 p-0 font-weight-bold">在庫数</label>
-          <%= item.stock %><br>
-        <label for="" class="col-6 p-0 font-weight-bold">販売status</label>
-          <%= item.is_active ? '販売中' : '販売停止中' %>
-        <label for="" class="col-6 p-0 font-weight-bold">商品説明</label>
-        <%= item.item_introduction %>
-    </div>
-  <% end %>
-</div>
-<div class="row justify-content-center">
-  <div class="col-4">
-    <%= link_to "編集する", edit_admin_design_path, class: "btn btn-primary btn-block" %>
+  <h4 class="mb-3 mt-3 font-weight-bold border-bottom">商品一覧</h4>
+  <div class="row d-flex flex-wrap">
+    <%= @design.items.each do |item|%>
+      <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+        <% if @design.design_type == true %>
+          <%= image_tag item.image.variant(resize: "200x200"), class: "border" %><br>
+          <label for="" class="col-lg-6 col-md-6 col-sm-6 col-4 p-0 font-weight-bold">商品ID</label>
+            <%= item.id %><br>
+          <label for="" class="col-lg-6 col-md-6 col-sm-6 col-4 p-0 font-weight-bold">商品価格(税抜)</label>
+            <%= "￥" %><%= item.item_price.to_s(:delimited) %><br>
+          <label for="" class="col-lg-6 col-md-6 col-sm-6 col-4 p-0 font-weight-bold">在庫数</label>
+            <%= item.stock %><br>
+          <label for="" class="col-lg-6 col-md-6 col-sm-6 col-4 p-0 font-weight-bold">販売status</label>
+            <%= item.is_active ? '販売中' : '販売停止中' %><br>
+          <label for="" class="col-lg-6 col-md-6 col-sm-6 col-4 p-0 font-weight-bold">商品説明</label>
+          <%= item.item_introduction %>
+        <% end %>
+      </div>
+    <% end %>
   </div>
-</div>
+
+  <div class="row justify-content-center">
+    <div class="col-4">
+      <%= link_to "編集する", edit_admin_design_path, class: "btn btn-primary btn-block" %>
+    </div>
+  </div>
 </div>

@@ -1,2 +1,93 @@
+<style>
+.container {
+  width: 40%;
+  margin-top: 50px;
+}
 
-<%= link_to "レビューを書く", new_review_path(design_id: @design.id) %>
+.review-box {
+  border: thin solid black;
+  margin: 10px 0;
+}
+.review-box div {
+  display: flex;
+  align-items: center;
+}
+
+.review-img {
+  width: 100px;
+  height: auto;
+}
+
+.btn-review {
+  color: white;
+  background: #CC6600;
+}
+
+.review-new {/*レビューを書くボタン*/
+  text-align: right;
+}
+.btn-blue {
+  color: white;
+  background: #CC6600;
+  margin: 0 auto;
+}
+.btn-blue:hover {
+  color: white;
+  background: #669933;
+}
+@media screen and (max-width: 1024px) {
+  .container {
+    width: 60%;
+  }
+}
+@media screen and (max-width: 576px) {
+  .container {
+    width: 90%;
+  }
+  .review-img {
+    width: 80px;
+    height: auto;
+  }
+}
+</style>
+
+<%= render 'layouts/header', genre: @genre %>
+
+  <div class="container">
+
+    <div class="row justify-content-center mb-3">
+      <h5>レビュー一覧</h5>
+    </div>
+
+    <% if customer_signed_in? %>
+        <p class="review-new"><%= link_to "この商品のレビューを書く", new_review_path(design_id: @design.id), class: "btn btn-item btn-blue" %></p>
+    <% end %>
+
+    <% @reviews.each do |review| %>
+
+    <div class="review-box">
+      <div>
+
+        <%= image_tag review.image, class: "review-img" %>
+
+        <div id="star-rate-<%= review.id %>" class="ml-4"></div>
+      </div>
+      <p><%= review.body %></p>
+
+    </div>
+
+
+    <script>
+        $('#star-rate-<%= review.id %>').raty({
+          size: 36,
+          starOff: "<%= asset_path('star-off.png') %>",
+          starOn: "<%= asset_path('star-on.png') %>",
+          starHalf: "<%= asset_path('star-half.png') %>",
+          half: true,   /*星半分表示*/
+          readOnly: true,   /*読み取り専用*/
+          score: <%= review.rate %>,   /*星評価の表示*/
+        });
+    </script>
+
+    <% end %>
+  </div>

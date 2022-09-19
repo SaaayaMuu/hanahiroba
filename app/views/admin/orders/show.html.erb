@@ -46,9 +46,9 @@
             <tr>
               <td><%= image_tag order_detail.item.image.variant(resize: "100x100") %></td>
               <td><%= order_detail.item.design.design_name %></td>
-              <td><%= order_detail.item.with_tax_price %></td>
+              <td><%= order_detail.item.with_tax_price.to_s(:delimited) %></td>
               <td><%= order_detail.amount %></td>
-              <td><%= order_detail.price*order_detail.amount %></td>
+              <td><%= (order_detail.price*order_detail.amount).to_s(:delimited) %></td>
             </tr>
             <% end %>
           </tbody>
@@ -56,9 +56,9 @@
       </div>
       <div class="col-xl-4 col-lg-4 col-md-12 d-flex align-items-end">
         <table>
-          <tr><th class="pr-2">商品合計</th><td><%= @order.total_price - @order.postage %>円</td></tr>
+          <tr><th class="pr-2">商品合計</th><td><%= (@order.total_price - @order.postage).to_s(:delimited) %>円</td></tr>
           <tr><th class="pr-2">送料</th><td><%= @order.postage %>円</td></tr>
-          <tr><th class="pr-2">請求金額</th><td><%= @order.total_price %>円</td></tr>
+          <tr><th class="pr-2">請求金額</th><td><%= @order.total_price.to_s(:delimited) %>円</td></tr>
         </table>
       </div>
     </div>

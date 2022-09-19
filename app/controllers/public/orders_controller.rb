@@ -64,11 +64,8 @@ class Public::OrdersController < ApplicationController
         @item.update(stock: @stock_number)
 
         # ↓　注文詳細が保存されたらthanksメールを送信
-        if @order_detail.save
-          CustomerMailer.thanks_email(current_customer).deliver_later#thanks_email(@customer).deliver_now
-        else
-          redirect_to cart_items_path
-        end
+        @order_detail.save
+        CustomerMailer.thanks_email(current_customer).deliver_later
       end
       @cart_items.destroy_all
       redirect_to orders_thanks_path
@@ -76,6 +73,7 @@ class Public::OrdersController < ApplicationController
       redirect_to cart_items_path
     end
   end
+
 
   def thanks
     @genre = Genre.all # headerの部分テンプレート用
