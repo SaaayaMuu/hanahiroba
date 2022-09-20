@@ -759,19 +759,26 @@ article{
 
 footer {
   width: 100%;
-  height: 200px;
-  background-image: image-url("japanese-paper_00162_2.jpg");
-  border-top: thin solid #999966;
+  height: 400px;
+  // background-image: image-url("japanese-paper_00162_2.jpg");
+  background-image: image-url("watercolor_00011.jpg");
+  background-position: top;
   margin-top: 60px;
+  position: relative;
 }
+
 .icon {
   width: 200px;
   height: 200px;
-  margin: 0 auto;
   background-image: image-url("image.png");
   background-size: cover;
   background-position: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
 }
+
+
 
 .design_box {
   width: 100%;

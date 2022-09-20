@@ -65,8 +65,8 @@ class Public::OrdersController < ApplicationController
 
         # ↓　注文詳細が保存されたらthanksメールを送信
         @order_detail.save
-        CustomerMailer.thanks_email(current_customer).deliver_later
       end
+      CustomerMailer.thanks_email(current_customer).deliver_later
       @cart_items.destroy_all
       redirect_to orders_thanks_path
     else

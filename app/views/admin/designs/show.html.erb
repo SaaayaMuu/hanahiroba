@@ -32,7 +32,7 @@
 
   <h4 class="mb-3 mt-3 font-weight-bold border-bottom">商品一覧</h4>
   <div class="row d-flex flex-wrap">
-    <%= @design.items.each do |item|%>
+    <% @design.items.each do |item|%>
       <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
         <% if @design.design_type == true %>
           <%= image_tag item.image.variant(resize: "200x200"), class: "border" %><br>
