@@ -13,6 +13,8 @@
     <th>商品数</th>
     <th>販売停止中</th>
     <th>在庫数０</th>
+    <th>レビュー</th>
+    <th></th>
   </thead>
   <tbody>
   <% @designs.each do |design| %>
@@ -25,8 +27,24 @@
     <td><%= design.items.count %></td>
     <td><%= design.items.where(is_active: false).count %></td>
     <td><%= design.items.where(stock: "0").count %></td>
+    <td class="d-flex"><%= link_to reviews_path(design_id: design.id) do %><p><%= design.reviews.count %>件</p><% end %>
+        <p>(<%= design.reviews.average(:rate).to_f.round(1) %>/5)</p></td>
   </tr>
+
+  <script>
+      $('#star-rate-<%= design.id %>').raty({
+      size: 36,
+      starOff: "<%= asset_path('star-off.png') %>",
+      starOn: "<%= asset_path('star-on.png') %>",
+      starHalf: "<%= asset_path('star-half.png') %>",
+      half: true,   /*星半分表示*/
+      readOnly: true,   /*読み取り専用*/
+      score: <%= design.reviews.average(:rate).to_f.round(1) %>,   /*星評価の表示*/
+    });
+  </script>
+
   <% end %>
   </tbody>
 
 </div>
+

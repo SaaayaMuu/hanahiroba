@@ -23,6 +23,11 @@ class Admin::DesignsController < ApplicationController
   def show
     @design = Design.find(params[:id])
     @items = @design.items.all
+    if @design.reviews.blank?
+      @design_review = 0
+    else
+      @design_review = @design.reviews.average(:rate).round(2)
+    end
   end
 
   def edit

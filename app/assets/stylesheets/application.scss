@@ -35,13 +35,13 @@ font-family: 'Kaisei Tokumin', serif;
 
 .body {
   width: 100%;
-  // font-family: 'Yuji Syuku', serif;
   font-family: 'Zen Antique', serif;
-  // font-size: 0.8em;
-  // background-image: url(japanese-paper_00294.jpg);
-  /*background-color: #F5F5DC;*/
 }
 
+// body {
+//   width: 100%;
+//   font-family: 'Zen Antique', serif;
+// }
 .container {
   font-family: 'Zen Antique', serif;
   // font-size: 0.6em;
@@ -397,7 +397,7 @@ h4 {
 
 
 ////////////////////////
-//////public#header/////
+//////public#header/////viewぺ―ジに移行
 ////////////////////////
 header {
   width: 100%;
@@ -458,15 +458,6 @@ header {
 
 
 
-
-//使い道？
-// header h1{
-//     font-size: 12pt;
-//     color: #fff;
-//     background-color: #1BA1E2;
-//     padding: 20px;
-// }
-
 /*プレビュー機能*/
 article{
     height: auto;
@@ -497,95 +488,6 @@ article{
 }
 /*プレビュー機能ここまで*/
 
-
-
-/*public/genre#index*/
-.genre-body {
-  background-color: #F5F5DC;
-}
-.genre-header {
-  width: 100%;
-  height: 600px;
-  background: linear-gradient(0deg, #F5F5DC, #669966 20%, #336633 40%, #003300);
-  margin-bottom: 100px;
-}
-
-.genre-nav {
-  width: 400px;
-  height: 400px;
-  background-image: image-url("image.png");
-  background-size: cover;
-}
-
-.genre-box {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: start;
-  width: 100%;
-  height: auto;
-  margin: 30px 0 30px 50px;
-  /*border-bottom-style: dashed;
-  border-bottom-color: #CC6633;
-  border-top-style: dotted;
-  border-top-color: #CC6633;
-  /*background-image: url(japanese-paper_00548.jpg);
-  /*background-color: rgba(153,153,102,0.85)*/
-}
-
-.genre-box2 {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: end;
-  width: 100%;
-  height: auto;
-  padding: 30px 50px 30px 0;
-  /*border-bottom-style: dashed;
-  border-bottom-color: #CC6633;
-  border-top-style: dotted;
-  border-top-color: #CC6633;
-  /*background-image: url(japanese-paper_00162_2.jpg);
-  /*background-color: rgba(85,107,47,0.85)*/
-}
-
-.genre-image {
-  width: 310px;
-  height: 310px;
-  margin: 30px 20px;
-}
-
-.genre-name {
-  font-size: 2em;
-  padding: 0 20px;
-  margin: 30px;
-  background-color: #fff;
-  font-family: 'Kaisei Tokumin', serif;
-  border: 3mm ridge rgba(102,153,51,1)
-}
-
-.genre-name2 {
-  font-size: 2em;
-  padding: 0 20px;
-  margin: 30px;
-  background-color: #fff;
-  font-family: 'Kaisei Tokumin', serif;
-  border: 3mm ridge rgba(102,153,51,1)
-}
-.genre-name-box {
-  text-align: right;
-}
-
-.design-link {
-  font-size: 1.7em;
-  font-family: 'Yuji Syuku', serif;
-  color: #000;
-}
-.design-link:hover {
-    color: #BB0000;
-    transition: 0.5s;
-    text-decoration: none;
- }
-
-/*public/genre#indexここまで*/
 
 
 /*/////////////////////
@@ -855,7 +757,7 @@ article{
 ///////footer////////
 //////////////////////
 
-.design-footer {
+footer {
   width: 100%;
   height: 200px;
   background-image: image-url("japanese-paper_00162_2.jpg");
@@ -870,7 +772,6 @@ article{
   background-size: cover;
   background-position: center;
 }
-
 
 .design_box {
   width: 100%;
@@ -924,9 +825,11 @@ header {
 .row-footer {
   border: double 5px #AA0000;
 }
+ /*top画面の枠線ここまで*/
 }
 
 @media screen and (max-width: 800px) {
+  /*top画面スライド画像*/
   .image1 {
     background-image: image-url("top1_2.jpg");
     background-size: cover;
@@ -943,7 +846,7 @@ header {
     background-size: cover;
     background-position: top right;
   }
-
+ /*top画面スライド画像ここまで*/
 }
 
 /*public header用*/
@@ -966,32 +869,37 @@ header {
   #public-hm-icon {
     display: block;
 }
-//////////////////////////////////////
+/*headerナビがハンバーガーに切り替わるここまで*/
 
-/*header画像*/
+/*public header*/
   header {
     height: 200px;
 }
-
   .login-content {
   left: 30px;
   font-size: 1em;
   padding: 10px 0 5px 0;
 }
+/*public headerここまで*/
 }
 
 @media screen and (max-width: 576px) {
+/*top画面*/
   .m1-center {
     display: none;
   }
   .photo-center {
     width: 100%;
   }
+/*top画面ここまで*/
+
 /*スマホサイズ(top画面ハンバーガーメニュー用)*/
   #hm-icon {
     display: block;
   }
+/*スマホサイズ(top画面ハンバーガーメニュー用)ここまで*/
 
+/*public header*/
   header {
     height: 150px;
     margin-bottom: 50px;
@@ -1000,4 +908,5 @@ header {
   .login-content {
     font-size: 0.8em;
 }
+/*public headerここまで*/
 }

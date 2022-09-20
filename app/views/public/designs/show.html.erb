@@ -1,10 +1,11 @@
 <head>
 <style>
 
-.body {
+
+body {
+  width: 100%;
+  font-family: 'Zen Antique', serif;
 }
-
-
 
 .design-box2 {
   width: 80%;
@@ -151,6 +152,12 @@ svg {
   border: 1px solid black;
 }
 
+.review-link {
+  display: flex;
+  justify-content: end;
+  padding: 0;
+}
+
 .custom-image-form {
   margin-top: 90px;
 }
@@ -230,8 +237,10 @@ svg {
   <script src="https://cdn.jsdelivr.net/npm/dom-to-image@2.6.0/dist/dom-to-image.min.js"></script>
 
 
-
-    <p class="text-right mr-4"><%= link_to "レビューを見る", reviews_path(design_id: @design.id) %></p>
+  <div class="review-link">
+    <%= link_to reviews_path(design_id: @design.id) do %><p>レビュー<%= @design.reviews.count %>件</p><% end %>
+    <p id="star-rate-<%= @design.id %>" class="p-0 ml-4"></p>
+  </div>
 
     <div class="design-box2">
         <div class="slider6-wrap">
@@ -366,7 +375,7 @@ svg {
             </div>
         <% end %>
     </div>
-
+    <%= render 'layouts/footer' %>
 
 
 <!--<img src="images/tsumami2_3.png" alt="画像" width="200" height="150">-->
@@ -462,6 +471,17 @@ svg {
     lefttop.style.fill = this.value;
   });
 　}
+
+
+  $('#star-rate-<%= @design.id %>').raty({
+    size: 36,
+    starOff: "<%= asset_path('star-off.png') %>",
+    starOn: "<%= asset_path('star-on.png') %>",
+    starHalf: "<%= asset_path('star-half.png') %>",
+    half: true,   /*星半分表示*/
+    readOnly: true,   /*読み取り専用*/
+    score: <%= @design.reviews.average(:rate).to_f.round(1) %>,   /*星評価の表示*/
+  });
 
 </script>
 

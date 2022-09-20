@@ -18,20 +18,26 @@
   height: auto;
 }
 
-.btn-review {
+.review-click {
+  text-align: center;
+}
+
+.btn-green {
+  color: white;
+  background: #669933;
+  margin: 0 auto;
+}
+.btn-green:hover {
   color: white;
   background: #CC6600;
 }
 
-.review-new {/*レビューを書くボタン*/
-  text-align: right;
-}
-.btn-blue {
+.btn-orange {
   color: white;
   background: #CC6600;
   margin: 0 auto;
 }
-.btn-blue:hover {
+.btn-orange:hover {
   color: white;
   background: #669933;
 }
@@ -59,16 +65,20 @@
       <h5>レビュー一覧</h5>
     </div>
 
+  <p class="review-click">
+    <span class="review-back"><%= link_to "商品ページに戻る", design_path(@design.id), class: "btn btn-green" %></spna>
     <% if customer_signed_in? %>
-        <p class="review-new"><%= link_to "この商品のレビューを書く", new_review_path(design_id: @design.id), class: "btn btn-item btn-blue" %></p>
+        <span class="review-new"><%= link_to "この商品のレビューを書く", new_review_path(design_id: @design.id), class: "btn btn-orange" %></span>
     <% end %>
-
+  </p>
     <% @reviews.each do |review| %>
 
     <div class="review-box">
       <div>
 
+      <% if review.image.attached? %>
         <%= image_tag review.image, class: "review-img" %>
+      <% end %>
 
         <div id="star-rate-<%= review.id %>" class="ml-4"></div>
       </div>

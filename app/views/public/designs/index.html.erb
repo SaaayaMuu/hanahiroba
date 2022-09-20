@@ -1,7 +1,12 @@
-<%= render 'layouts/header', genre: @genre %>
+
 
 <head>
   <style>
+
+  .body {
+    width: 100%;
+    font-family: 'Zen Antique', serif;
+  }
 
   .designs-box {
     width: 100%;
@@ -51,41 +56,12 @@
     font-weight: bold;
   }
 
-  /*.slick-prev:before, .slick-next:before {*/
-  /*  color: #000;*/
-  /*}*/
-  /*.slick-next:before {*/
-  /*  content: '';*/
-  /*}*/
-  /*.slick-prev:before {*/
-  /*  content: '';*/
-  /*}*/
-
-  /*.slick-dots li.slick-active button:before {*/
-  /*    opacity: .75;*/
-  /*    color: black;*/
-  /*}*/
-
-  /*.slick-dots li button:before {*/
-  /*    font-family: 'slick';*/
-  /*    font-size: 0;*/
-  /*    line-height: 0;*/
-  /*    position: absolute;*/
-  /*    top: 0;*/
-  /*    left: 0;*/
-  /*    width: 0;*/
-  /*    height: 0;*/
-  /*    content: '•';*/
-  /*    text-align: center;*/
-  /*    opacity: .25;*/
-  /*    color: black;*/
-  /*    -webkit-font-smoothing: antialiased;*/
-  /*    -moz-osx-font-smoothing: grayscale;*/
-  /*}*/
   </style>
 </head>
 
+
 <div class="body">
+  <%= render 'layouts/header', genre: @genre %>
     <div class="designs-box">
         <% @designs.each do |design| %>
 
@@ -98,7 +74,7 @@
                 </div>
 
                 <div class="design-detail">
-                  
+
                   <% if design.design_type == true %>
                     <h5>￥<%= design.with_tax_price.to_s(:delimited) %>～</h5>
                   <% else %>
@@ -112,4 +88,5 @@
 
         <% end %>
     </div>
- </div>
+  <%= render 'layouts/footer' %>
+</div>

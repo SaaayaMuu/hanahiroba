@@ -4,13 +4,11 @@
     <%= form_with model: @customer, url: customer_registration_path, id: 'new_customer', class: 'new_customer' do |f| %>
     <%= render "public/shared/error_messages", resource: resource %>
 
-    <div class="row mb-3">
-      <div class="col-xl-1"></div><p class="col-5 col-sm-5 col-xl-2 text-center"><span class="lead">新規会員登録</span></p>
-    </div>
+    <h2 class="my-5 text-center">新規会員登録</h2>
 
         <div class="row mb-2">
         <label for="customer_name" class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-3 col-form-label">名前</label>
-        <div class="col-1"><%= f.label :"(姓)" %></div><%= f.text_field :last_name, placeholder: "令和" %>
+        <div class="col-1"><%= f.label :"(姓)" %></div><%= f.text_field :last_name, autofocus: true, placeholder: "令和" %>
         <div class="col-1"><%= f.label :"(名)" %></div><%= f.text_field :first_name, placeholder: "道子" %>
         </div>
 
@@ -22,7 +20,7 @@
 
         <div class="row mb-2">
         <label for="customer_email" class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-3 col-form-label">メールアドレス</label>
-        <div class="col-1"></div><%= f.text_field :email, autofocus: true, id:"customer_Email", placeholder: "email" %>
+        <div class="col-1"></div><%= f.text_field :email, id:"customer_Email", placeholder: "email" %>
         </div>
 
         <div class="row mb-2">
@@ -57,7 +55,7 @@
      <% end %>
 
     <div class="row">
-      <div class="col-xl-1"></div><p class="col-5 col-sm-5 col-xl-2 text-center"><span class="lead">既に登録済みの方</span></p>
+      <div class="col-xl-1"></div><p class="col-5 col-sm-5 col-xl-2 text-center lead">既に登録済みの方</p>
     </div>
 
     <div class="row">
