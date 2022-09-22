@@ -6,10 +6,11 @@
   .body {
     width: 100%;
     font-family: 'Zen Antique', serif;
+    margin-top :100px;
   }
 
   .designs-box {
-    width: 100%;
+    width: 60%;
     height: auto;
     display: flex;
     flex-wrap: wrap;
@@ -24,7 +25,7 @@
 
   .regular {
     width: 90%;
-    // margin: 0 30px;
+    /*// margin: 0 30px;*/
   }
   .slick-slide img {
     width: 100%;
@@ -59,34 +60,32 @@
   </style>
 </head>
 
+<%= render 'layouts/header', genre: @genre %>
 
 <div class="body">
-  <%= render 'layouts/header', genre: @genre %>
-    <div class="designs-box">
-        <% @designs.each do |design| %>
 
-            <div class="design-item">
-                <%= link_to design_path(design.id), class: "path" do %>
-                <div class="regular slider">
-                  <% design.images.each do |image| %>
-                    <div class="img"><%= image_tag image %></div>
-                  <% end %>
-                </div>
-
-                <div class="design-detail">
-
-                  <% if design.design_type == true %>
-                    <h5>￥<%= design.with_tax_price.to_s(:delimited) %>～</h5>
-                  <% else %>
-                    <h5>￥<%= design.with_tax_price.to_s(:delimited) %></h5>
-                  <% end %>
-                  <span class="design-index-genre"><%= design.genre.name %></span>
-                </div>
-                <% end %>
-
-            </div>
-
+  <div class="designs-box">
+    <% @designs.each do |design| %>
+      <div class="design-item">
+        <%= link_to design_path(design.id), class: "path" do %>
+          <div class="regular slider">
+            <% design.images.each do |image| %>
+              <div class="img"><%= image_tag image %></div>
+            <% end %>
+          </div>
         <% end %>
-    </div>
-  <%= render 'layouts/footer' %>
+
+        <div class="design-detail">
+          <% if design.design_type == true %>
+            <h5>￥<%= design.with_tax_price.to_s(:delimited) %>～</h5>
+          <% else %>
+            <h5>￥<%= design.with_tax_price.to_s(:delimited) %></h5>
+          <% end %>
+          <span class="design-index-genre"><%= design.genre.name %></span>
+        </div>
+
+      </div>
+    <% end %>
+  </div>
 </div>
+<%= render 'layouts/footer' %>

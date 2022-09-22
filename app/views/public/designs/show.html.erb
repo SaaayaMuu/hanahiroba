@@ -2,12 +2,13 @@
 <style>
 
 
-body {
+.body {
   width: 100%;
   font-family: 'Zen Antique', serif;
 }
 
 .design-box2 {
+  padding-top: 100px;
   width: 80%;
   display: flex;
   flex-wrap: wrap;
@@ -149,13 +150,23 @@ svg {
 #src {
   width: 260px;
   height: 260px;
-  border: 1px solid black;
+
 }
 
 .review-link {
   display: flex;
-  justify-content: end;
   padding: 0;
+}
+
+.review-link a {
+  text-decoration: underline;
+  color: black;
+}
+.review-link a:hover {
+  text-decoration: none;
+}
+.review-link img {
+  width: 15px;
 }
 
 .custom-image-form {
@@ -230,17 +241,13 @@ svg {
 </style>
 </head>
 
-<body>
+
 <%= render 'layouts/header', genre: @genre %>
 
 <div class="body">
   <script src="https://cdn.jsdelivr.net/npm/dom-to-image@2.6.0/dist/dom-to-image.min.js"></script>
 
 
-  <div class="review-link">
-    <%= link_to reviews_path(design_id: @design.id) do %><p>レビュー<%= @design.reviews.count %>件</p><% end %>
-    <p id="star-rate-<%= @design.id %>" class="p-0 ml-4"></p>
-  </div>
 
     <div class="design-box2">
         <div class="slider6-wrap">
@@ -252,6 +259,10 @@ svg {
             <div class="thumbs_dots"></div>
         </div>
         <div class="design-content">
+            <div class="review-link">
+              <%= link_to reviews_path(design_id: @design.id) do %><p class="">レビュー<%= @design.reviews.count %>件</p><% end %>
+              <p id="star-rate-<%= @design.id %>" class="p-0 ml-4"></p>
+            </div>
             <h4><%= @design.design_name %></h4>
             <p><%= @design.design_introduction %></p>
             <% if @design.design_type == true %>
@@ -381,7 +392,6 @@ svg {
 <!--<img src="images/tsumami2_3.png" alt="画像" width="200" height="150">-->
 
 
-</body>
 <script>
 
 

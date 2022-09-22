@@ -1,62 +1,30 @@
-
-
-<!--<div id="splash">-->
-<!--  <div id="splash_logo">-->
-<!--    <div class="fadeUp">花</div><div class="fadeUp2">広</div><div class="fadeUp3">場</div>-->
-<!--    <div class="fadeUp"></div>-->
-<!--  </div>-->
-<!--</div>-->
-
-
 <div class="top-container">
-  <div class="row-header">
-    <%= link_to root_path, class: "path" do %>
-      <span class="header-text">花広場 ～つまみ細工～</span>
-    <% end %>
+
+
+  <div class="photo-center">
+    <div class="theTarget">
+      <div class="image1"></div>
+      <div class="image2"></div>
+      <div class="image3"></div>
+      <div class="image4"></div>
+    </div>
   </div>
 
-  <div class="row-center">
-    <div class="m1-center">
-      <%= link_to designs_path do %><span class="menu-text1">商品一覧</span><% end %>
-      <%= link_to cart_items_path do %><span class="menu-text2">カート</span><% end %>
-    </div>
 
-    <div class="photo-center">
-      <div class="theTarget">
-        <div class="image1"></div>
-        <div class="image2"></div>
-        <div class="image3"></div>
-        <div class="image4"></div>
+
+  <div class="sidebar">
+    <div class="hanahiroba-icon"></div>
+      <div id="hm-icon">
+          <a class="menu-trigger" href="#">
+            <span></span>
+            <span>menu</span>
+            <span></span>
+          </a>
       </div>
     </div>
-
-    <div class="m1-center">
-      <% if customer_signed_in?%>
-        <%= link_to customer_path(current_customer.id) do %><span class="menu-text3">マイページ</span><% end %>
-        <%= link_to destroy_customer_session_path, method: :delete do %><span class="menu-text4">ログアウト</span><% end %>
-      <% else %>
-        <%= link_to new_customer_session_path do %><p class="menu-text3">ログイン</p><% end %>
-        <%= link_to new_customer_registration_path do %><p class="menu-text4">新規登録</p><% end %>
-      <% end %>
-    </div>
-  </div>
-
-  <div class="row-footer">
-    <span class="footer-text">---身近にもっと和を---</span>
   </div>
 
 
-
-
-
-  <!--ハンバーガーアイコン-->
-  <div id="hm-icon">
-      <a class="menu-trigger" href="#">
-        <span></span>
-        <span>menu</span>
-        <span></span>
-      </a>
-  </div>
 
   <!--ハンバーガーメニュー中身-->
   <div id="sp-menu">

@@ -11,6 +11,8 @@ $(window).on('load',function(){
 });
 
 
+
+
 //top画面スライドショー viewページに記述
 $(document).ready(function () {
   $(".theTarget").skippr({
@@ -34,7 +36,6 @@ $(document).ready(function () {
     hidePrevious : false
   });
 });
-
 
 /*ハンバーガーメニューpublic*/
 $(document).ready(function () {
@@ -147,12 +148,12 @@ window.onload = function(){
 /*designs#index*/
  $(document).ready(function(){
     if ($('.regular')) {
-       $('.regular').slick({
+      $('.regular').slick({
          fade: true,
          autoplay: true, //自動再生
          dots: false,
          arrows: false,
-       });
+      });
     }
  });
 
