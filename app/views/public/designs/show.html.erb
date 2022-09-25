@@ -1,4 +1,5 @@
 <head>
+  <link rel=”stylesheet” href=”show.css”>
 <style>
 
 
@@ -9,17 +10,19 @@
 
 .design-box2 {
   padding-top: 100px;
-  width: 80%;
+  width: 50%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   margin: 0 auto;
+  font-size: 1.5vw;
 }
 
 .design-content {
-  width: 450px;
+  width: 50%;
+  max-width: 450px;
   height: auto;
-  margin-left: 20px;
+  padding-left: 20px;
 }
 .design-content h4 {
   font-size: 20px;
@@ -34,7 +37,9 @@
 }
 
 .slider6-wrap {
-  width: 450px;/*sliderメイン画像横幅*/
+  width: 50%;
+  max-width: 450px;
+  /*width: 450px;/*sliderメイン画像横幅*/
   position: relative;
 }
 .slider-6 .slick-slide {
@@ -68,7 +73,8 @@
 
 
 .item-box {
-  width: 70%;
+  width: 50%;
+  max-width: 900px;
   display: flex;
   flex-wrap: wrap;
   justify-content: start;
@@ -76,7 +82,7 @@
   margin-top: 50px;
 }
 .item-form {
-  width: 185px;
+  width: 17%;
   margin: 0 20px 20px 0;
 }
 
@@ -113,6 +119,9 @@
 svg {
   height: 260px;
   width: 260px;
+  border: thin solid black;
+  background-color: white;
+
 }
 .colorpicker-box {
   width: 250px;
@@ -127,11 +136,13 @@ svg {
 
 .btn-blue {
   color: white;
-  background: #008080;
+  background: #006699;
+  transition: 0.5s;
 }
 .btn-blue:hover {
   color: white;
-  background: #6A5ACD;
+  background: #000099;
+  transition: 0.5s;
 }
 
 .btn-item {
@@ -146,11 +157,6 @@ svg {
   /*display:block;*/
   /*display: inline-block;*/
   /*vertical-align: top;*/
-}
-#src {
-  width: 260px;
-  height: 260px;
-
 }
 
 .review-link {
@@ -173,24 +179,75 @@ svg {
   margin-top: 90px;
 }
 
+#src {
+  width: 300px;
+  height: 300px;
+  padding-top: 20px;
+  position: relative;
+}
+#src span:nth-child(1) {
+  position: absolute;
+  top: 20px;
+  left: 122px;
+}
+#src span:nth-child(2) {
+  position: absolute;
+  top: 55px;
+  right: 80px;
+}
+#src span:nth-child(3) {
+  position: absolute;
+  top: 135px;
+  left: 240px;
+  background-color: transparent;
+}
+#src span:nth-child(4) {
+  position: absolute;
+  bottom: 40px;
+  right: 80px;
+}
+#src span:nth-child(5) {
+  position: absolute;
+  bottom: 20px;
+  right: 160px;
+}
+#src span:nth-child(6) {
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+}
+#src span:nth-child(7) {
+  position: absolute;
+  top: 140px;
+  left: 7px;
+}
+#src span:nth-child(8) {
+  position: absolute;
+  top: 55px;
+  left: 35px;
+}
+
+
+
+
+
+
+
+
+
 @media screen and (max-width: 1200px) {/*1000px以上の時*/
-.slider6-wrap {
-  width: 40%;/*sliderメイン画像横幅*/
+.design-box2 {
+  width: 70%;
 }
-.design-content {
-  width: 40%;
-}
-.item-form {
-  width: 25%;
-  margin: 0 20px 20px 0;
-}
+.item-box {
+  width: 70%;
 }
 @media screen and (max-width: 768px) {
-.slider6-wrap {
-  width: 45%;/*sliderメイン画像横幅*/
+.design-box2 {
+  width: 70%;
 }
-.design-content {
-  width: 45%;
+.item-box {
+  width: 70%;
 }
 .item-box-p {
   font-size: 12px;
@@ -199,15 +256,34 @@ svg {
 .btn-item {
   font-size: 12px;
 }
+.design-content h4 {
+  font-size: 15px;
+}
+.design-content p {
+  font-size: 10px;
+}
 
 @media screen and (max-width: 576px) {/*576px以下の時*/
+.design-box2 {
+  width: 90%;
+}
 .slider6-wrap {
-  width: 90%;//sliderメイン画像横幅
+  width: 100%;/*sliderメイン画像横幅*/
   position: relative;
 }
 .design-content {
-  width: 90%;
+  width: 100%;
   margin-left: 0;
+}
+.design-content h4 {
+  font-size: 20px;
+}
+.design-content p {
+  font-size: 15px;
+}
+
+.item-box {
+  width: 90%;
 }
 .item-form {
   width: 30%;
@@ -217,7 +293,6 @@ svg {
   font-size: 8px;
   margin-bottom: 2px;
 }
-
 .btn-item {
   font-size: 8px;
 }
@@ -231,6 +306,13 @@ svg {
 .design-box2 {
   width: 95%;
 }
+.design-content h4 {
+  font-size: 15px;
+}
+.design-content p {
+  font-size: 15px;
+}
+
 .item-box-p {
   font-size: 6px;
   margin-bottom: 0;
@@ -250,27 +332,27 @@ svg {
 
 
     <div class="design-box2">
-        <div class="slider6-wrap">
-            <ul class="slider-6" id="js-slider-6">
-            <% @design.images.each do |image| %>
-                <li><%= image_tag image %></li><!--.variant(resize: "200x200")-->
-            <% end %>
-            </ul>
-            <div class="thumbs_dots"></div>
-        </div>
-        <div class="design-content">
-            <div class="review-link">
-              <%= link_to reviews_path(design_id: @design.id) do %><p class="">レビュー<%= @design.reviews.count %>件</p><% end %>
-              <p id="star-rate-<%= @design.id %>" class="p-0 ml-4"></p>
-            </div>
-            <h4><%= @design.design_name %></h4>
-            <p><%= @design.design_introduction %></p>
-            <% if @design.design_type == true %>
-              <p><%= "￥" %><%= @design.with_tax_price.to_s(:delimited) %><%= "～" %></p>
-            <% else %>
-              <p><%= "￥" %><%= @design.with_tax_price.to_s(:delimited) %></p>
-            <% end %>
-        </div>
+      <div class="slider6-wrap">
+          <ul class="slider-6" id="js-slider-6">
+          <% @design.images.each do |image| %>
+              <li><%= image_tag image %></li><!--.variant(resize: "200x200")-->
+          <% end %>
+          </ul>
+          <div class="thumbs_dots"></div>
+      </div>
+      <div class="design-content">
+          <div class="review-link">
+            <%= link_to reviews_path(design_id: @design.id) do %><p>レビュー<%= @design.reviews.count %>件</p><% end %>
+            <p id="star-rate-<%= @design.id %>" class="p-0 ml-4"></p>
+          </div>
+          <h4><%= @design.design_name %></h4>
+          <p><%= @design.design_introduction %></p>
+          <% if @design.design_type == true %>
+            <p><%= "￥" %><%= @design.with_tax_price.to_s(:delimited) %><%= "～" %></p>
+          <% else %>
+            <p><%= "￥" %><%= @design.with_tax_price.to_s(:delimited) %></p>
+          <% end %>
+      </div>
     </div>
 
 
@@ -298,6 +380,14 @@ svg {
       <% else %>
             <div class="custom-item-content">
               <div id="src">
+                  <span>①</span>
+                  <span>②</span>
+                  <span>③</span>
+                  <span>④</span>
+                  <span>⑤</span>
+                  <span>⑥</span>
+                  <span>⑦</span>
+                  <span>⑧</span>
                 <svg id="svg" xmlns="http://www.w3.org/2000/svg">
                   <!--左真横 上円＆下円-->
                   <path d="M 130 130 C 120 110, 40 110, 30 130
@@ -370,7 +460,7 @@ svg {
               <div class="custom-image-form">
                 <%= form_with model: @item, url: cart_items_order_made_create_path, method: :post do |f| %>
                   <%= f.hidden_field :original_item_id, :value => @item.id %>
-                  <p class="custom-p">画像を一枚添付してください</p>
+                  <p class="custom-p">好きな画像を右クリックで保存し、画像を一枚添付してください</p>
                   <p class="custom-p"><%= f.file_field :image, accept: "image/png", required: true %></p>
                                       　　                          　<!--　↑　変換後の画像はpngになるからファイル指定-->
               </div>
@@ -400,7 +490,7 @@ svg {
     (async () => {
       try {
         let img = new Image();
-        img.src = await domtoimage.toPng(src);
+        img.src = await domtoimage.toPng(svg);
         dst.appendChild(img);
       } catch (e) {
         console.error("oops, something went wrong!", error);

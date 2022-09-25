@@ -7,10 +7,12 @@
 .review-box {
   border: thin solid black;
   margin: 10px 0;
+  background-color: white;
 }
 .review-box div {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .review-img {
@@ -22,24 +24,27 @@
   text-align: center;
 }
 
-.btn-green {
+.btn-back {
   color: white;
-  background: #669933;
+  background: #666666;
   margin: 0 auto;
+  transition: 0.5s;
 }
-.btn-green:hover {
+.btn-back:hover {
   color: white;
-  background: #CC6600;
+  opacity: 0.7;
+  transition: 0.5s;
 }
 
-.btn-orange {
+.btn-purple {
   color: white;
-  background: #CC6600;
+  background: #483D8B;
   margin: 0 auto;
 }
-.btn-orange:hover {
+.btn-purple:hover {
   color: white;
-  background: #669933;
+  opacity: 0.7;
+  transition: 0.5s;
 }
 @media screen and (max-width: 1024px) {
   .container {
@@ -61,14 +66,12 @@
 
   <div class="container">
 
-    <div class="row justify-content-center mb-3">
-      <h5>レビュー一覧</h5>
-    </div>
+  <h2 class="my-5 text-center">レビュー</h2>
 
   <p class="review-click">
-    <span class="review-back"><%= link_to "商品ページに戻る", design_path(@design.id), class: "btn btn-green" %></spna>
+    <span class="review-back"><%= link_to "商品ページに戻る", design_path(@design.id), class: "btn btn-back" %></span>
     <% if customer_signed_in? %>
-        <span class="review-new"><%= link_to "この商品のレビューを書く", new_review_path(design_id: @design.id), class: "btn btn-orange" %></span>
+        <span class="review-new"><%= link_to "この商品のレビューを書く", new_review_path(design_id: @design.id), class: "btn btn-purple" %></span>
     <% end %>
   </p>
     <% @reviews.each do |review| %>
@@ -76,9 +79,9 @@
     <div class="review-box">
       <div>
 
-      <% if review.image.attached? %>
-        <%= image_tag review.image, class: "review-img" %>
-      <% end %>
+        <% if review.image.attached? %>
+          <%= image_tag review.image, class: "review-img" %>
+        <% end %>
 
         <div id="star-rate-<%= review.id %>" class="ml-4"></div>
       </div>

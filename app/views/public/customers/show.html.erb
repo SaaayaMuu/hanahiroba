@@ -1,12 +1,35 @@
+<style>
+.btn-back {
+  color: white;
+  background: #666666;
+  margin: 0 auto;
+  transition: 0.5s;
+}
+.btn-back:hover {
+  color: white;
+  opacity: 0.7;
+  transition: 0.5s;
+}
+
+.btn-purple {
+  color: white;
+  background: #800080;
+  margin: 0 auto;
+}
+.btn-purple:hover {
+  color: white;
+  opacity: 0.7;
+  transition: 0.5s;
+}
+</style>
+
 <%= render 'layouts/header', genre: @genre %>
 <div class="body">
   <div class="container">
 
     <h2 class="my-5 text-center">マイページ</h2>
 
-    <div class="row justify-content-center mb-3">
-      <h5>登録情報<%= link_to edit_customer_path, class: "btn btn-secondary ml-2" do %>編集する<% end %></h5>
-    </div>
+    <h5 class="text-center">登録情報<%= link_to edit_customer_path, class: "btn btn-back ml-2" do %>編集する<% end %></h5>
 
     <div class="row justify-content-center">
       <div class="col-8 col-sm-10 col-md-8 col-lg-6 col-xl-6">
@@ -36,7 +59,7 @@
         </div>
       </div>
     </div>
-    <p class="text-center mt-4"><%= link_to orders_path, class: "btn btn-success ml-2" do %>注文履歴一覧を見る<% end %></p>
+    <p class="text-center mt-4"><%= link_to orders_path, class: "btn btn-blue ml-2" do %>注文履歴一覧を見る<% end %></p>
 
   </div>
 </div>

@@ -1,18 +1,28 @@
+<style>
+  .btn-blue {
+	color: white;
+  background: #006699;
+  margin: 0 auto;
+  transition: 0.5s;
+  margin-bottom: 10px;
+}
+.btn-blue:hover {
+	background: #000099;
+	color: white;
+  transition: 0.5s;
+}
+</style>
+
+
 <%= render 'layouts/header', genre: @genre %>
 <div class="body">
   <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-10">
-        <p class="my-4">
-          <span class="lead px-3">注文情報入力</span>
-        </p>
-      </div>
-    </div>
+
+  <h5 class="text-center mb-5">注文情報入力(お届け先)</h5>
+
 
     <%= form_with model: @order, url: orders_confirm_path, method: :post do |f| %>
 
-
-    <span class="font-weight-bold">お届け先</span>
 
     <div class="ml-5">
       <%= f.radio_button :select_address, "0" , {required: true}%>
@@ -56,7 +66,7 @@
     </div>
 
     <div class="row justify-content-center">
-      <%= f.submit "確認画面へすすむ", class: "btn btn-success px-4 py-2" %>
+      <%= f.submit "確認画面へすすむ", class: "btn btn-blue px-4 py-2" %>
     </div>
     <% end %>
     <%# end %>

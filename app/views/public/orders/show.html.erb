@@ -1,4 +1,15 @@
 <style>
+.btn-back {
+  color: white;
+  background: #666666;
+  margin: 0 auto;
+  transition: 0.5s;
+}
+.btn-back:hover {
+  color: white;
+  opacity: 0.7;
+  transition: 0.5s;
+}
 </style>
 
 
@@ -6,28 +17,16 @@
 <div class="body">
   <div class="container">
 
-    <div class="row justify-content-center mb-3">
-      <h5>注文内容</h5>
-    </div>
+    <h5 class="text-center">注文内容</h5>
 
-    <div class="row justify-content-center">
-      <div class="col-xl-7 col-lg-8 col-md-10 col-sm-12">
-        <span class="font-weight-bold">注文情報</span>
-        <table class="table table-bordered">
-          <tr><th class="title col-5">注文日</th><td><%= @order.created_at.strftime('%Y/%m/%d') %></td></tr>
-          <tr><th class="title">配送先</th><td><%= @order.postal_code %><br><%= @order.address %><br><%= @order.name %></td></tr>
-          <tr><th class="title">支払い方法</th><td><%= "ふりこみ" %><%#= @order.payment_method_i18n %></td></tr>
-        </table>
-      </div>
-    </div>
 
     <div class="row justify-content-center">
       <div class="col-xl-7 col-lg-8 col-md-10 col-sm-12">
         <span class="font-weight-bold">注文内容</span>
-        <table class="table table-bordered">
+        <table class="table table-bordered bg-white">
           <thead>
             <tr>
-              <th>商品</th>
+              <th class="col-5">商品</th>
               <th>単価(税込)</th>
               <th>個数</th>
               <th>小計</th>
@@ -36,10 +35,10 @@
           <tbody>
           <% @order.order_details.each do |order_detail| %>
             <tr>
-              <td><%= image_tag order_detail.item.image.variant(resize: "100x100") %><%= order_detail.item.design.design_name %></td>
-              <td><%= order_detail.price.to_s(:delimited) %></td>
-              <td><%= order_detail.amount %></td>
-              <td><%= (order_detail.price*order_detail.amount).to_s(:delimited) %></td>
+              <td class="text-center"><%= image_tag order_detail.item.image.variant(resize: "100x100") %><br><%= order_detail.item.design.design_name %></td>
+              <td class="align-middle"><%= order_detail.price.to_s(:delimited) %></td>
+              <td class="align-middle"><%= order_detail.amount %></td>
+              <td class="align-middle"><%= (order_detail.price*order_detail.amount).to_s(:delimited) %></td>
             </tr>
           <% end %>
           </tbody>
@@ -49,8 +48,20 @@
 
     <div class="row justify-content-center">
       <div class="col-xl-7 col-lg-8 col-md-10 col-sm-12">
+        <span class="font-weight-bold">注文情報</span>
+
+        <table class="table table-bordered bg-white">
+          <tr><th class="title col-5">注文日</th><td><%= @order.created_at.strftime('%Y/%m/%d') %></td></tr>
+          <tr><th class="title">配送先</th><td><%= @order.postal_code %><br><%= @order.address %><br><%= @order.name %></td></tr>
+          <tr><th class="title">支払い方法</th><td><%= "ふりこみ" %><%#= @order.payment_method_i18n %></td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-xl-7 col-lg-8 col-md-10 col-sm-12">
         <span class="font-weight-bold">請求情報</span>
-          <table class="table table-bordered">
+          <table class="table table-bordered bg-white">
             <tr><th class="title col-5">商品合計</th><td><%= (@order.total_price - @order.postage).to_s(:delimited) %></td></tr>
             <tr><th class="title">配送料</th><td><%= @order.postage %></td></tr>
             <tr><th class="title">ご請求金額</th><td><%= @order.total_price.to_s(:delimited) %><%#= @order.payment_method_i18n %></td></tr>
@@ -59,11 +70,11 @@
     </div>
     <div class="row justify-content-center">
       <div class="col-xl-7 col-lg-8 col-md-10 col-sm-12">
-        <table class="table table-bordered">
+        <table class="table table-bordered bg-white">
             <tr><th class="title col-5">製作状況</th><td><%= @order.making_status_i18n %></td></tr>
         </table>
       </div>
     </div>
-
+    <p class="text-center mt-5"><%= link_to "戻る", orders_path, class: "btn btn-back" %></p>
   </div>
 </div>

@@ -6,85 +6,89 @@
   .body {
     width: 100%;
     font-family: 'Zen Antique', serif;
-    margin-top :100px;
   }
 
   .designs-box {
-    width: 60%;
-    height: auto;
+    width: 80%;
     display: flex;
     flex-wrap: wrap;
+    margin: 0 auto;
     justify-content: start;
   }
 
   .design-item {
     max-width: 300px;
     width: 25%;
-    /*// margin: 0 30px;*/
+    padding: 0 10px;
   }
 
   .regular {
-    width: 90%;
-    /*// margin: 0 30px;*/
-  }
-  .slick-slide img {
     width: 100%;
-    height: auto;
-    object-fit: cover;
   }
 
-  .design-detail {
-    width: 90%;
-    /*// max-width: 300px;*/
-    /*// margin: 0 30px;*/
-    /*// max-height: 200px;*/
-    color: black;
+  .regular img {
+    transition-duration: 0.5s;
   }
-  .design-detail h5 {
+  .regular img:hover {
+    transform: scale(1.2) rotate(9deg);
+    transition-duration: 0.5s;
+  }
+  .design-detail p:nth-child(1) {
+    color: gray;
+    font-size: min(0.8vw, 13px);
     margin-bottom: 0;
   }
-  .design-index-genre {
-    font-size: 0.8em;
-    color: gray;
+  .design-detail p {
+    color: black;
+    font-size: min(1vw,15px);
   }
 
-  .slick-slide {
-    margin: 0 5px;
-  }
 
-  .slick-prev, .slick-next {
-    z-index: 1;
-    font-weight: bold;
+@media screen and (max-width: 576px) {
+  .designs-box {
+    width: 100%;
   }
+  .design-item {
+     width: 50%;
+   }
+}
 
   </style>
 </head>
 
 <%= render 'layouts/header', genre: @genre %>
 
+
 <div class="body">
+
+  <% if params[:genre_id].present? %>
+    <h2 class="my-5 text-center"><%= @genre1.name %></h2>
+  <% else %>
+    <h2 class="my-5 text-center">すべての商品</h2>
+  <% end %>
 
   <div class="designs-box">
     <% @designs.each do |design| %>
       <div class="design-item">
         <%= link_to design_path(design.id), class: "path" do %>
-          <div class="regular slider">
+          <div class="regular">
             <% design.images.each do |image| %>
-              <div class="img"><%= image_tag image %></div>
+              <%= image_tag image %>
             <% end %>
           </div>
-        <% end %>
 
-        <div class="design-detail">
-          <% if design.design_type == true %>
-            <h5>￥<%= design.with_tax_price.to_s(:delimited) %>～</h5>
-          <% else %>
-            <h5>￥<%= design.with_tax_price.to_s(:delimited) %></h5>
-          <% end %>
-          <span class="design-index-genre"><%= design.genre.name %></span>
+          <div class="design-detail">
+            <p><%= design.genre.name %></p>
+            <p><%= design.design_name %></p>
+            <% if design.design_type == true %>
+              <p>￥<%= design.with_tax_price.to_s(:delimited) %>～</p>
+            <% else %>
+              <p>￥<%= design.with_tax_price.to_s(:delimited) %></p>
+            <% end %>
+          </div>
+
         </div>
-
-      </div>
+      <% end %>
     <% end %>
   </div>
 </div>

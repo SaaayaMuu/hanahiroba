@@ -43,13 +43,23 @@ font-family: 'Zen Antique', serif;
 
 body {
   width: 100%;
+  min-height: 100vh;
   font-family: 'Zen Antique', serif;
   background-image: linear-gradient(180deg, rgba(240, 238, 242, 0.68), rgba(75, 79, 155, 0.32));
 }
 
+.body {
+  margin-top: 100px;
+}
 
 
 .container {
+  font-family: 'Zen Antique', serif;
+  // font-size: 0.6em;
+  width: 100%;
+  min-height: 100vh;
+}
+.container-lg {/*public/orders#show*/
   font-family: 'Zen Antique', serif;
   // font-size: 0.6em;
   width: 100%;
@@ -67,6 +77,8 @@ h3 {
 h4 {
   font-family: 'Kaisei Tokumin', serif;
 }
+
+
 
 
 
