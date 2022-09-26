@@ -18,10 +18,17 @@
     <% @order.order_details.each do |order_detail| %>
       <p>---------------------------</p>
       <p>商品名：<%= order_detail.item.design.design_name %></p>
-      <p>価格 ：￥<%=order_detail.price.to_s(:delimited) %></p>
+      <p>価格 ：<%=order_detail.price.to_s(:delimited) %>円</p>
       <p>数量 ：<%= order_detail.amount %>個</p>
       <p>---------------------------</p>
     <% end %>
+
+    <p>====================</p>
+    <p>購入日時：<%= @order.created_at.strftime('%Y/%m/%d %H:%M') %></p>
+    <p>取引状況：お支払い待ち</p>
+    <p>送料　　：<%= @order.postage %>円</p>
+    <p>合計　　：<%= @order.total_price.to_s(:delimited) %>円</p>
+    <p>====================</p>
 
     <p>■お届け先住所</p>
     <p>---------------------------</p>

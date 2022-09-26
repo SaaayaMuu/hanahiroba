@@ -15,7 +15,7 @@
 <% @order.order_details.each do |order_detail| %>
 ---------------------------
 商品名：<%= order_detail.item.design.design_name %>
-価格　：<%= order_detail.price.to_s(:delimited) %>
+価格　：<%= order_detail.price.to_s(:delimited) %>円
 数量　：<%= order_detail.amount %>個
 ---------------------------
 <% end %>

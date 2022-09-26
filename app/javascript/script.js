@@ -13,7 +13,7 @@ $(window).on('load',function(){
 
 
 
-//top画面スライドショー viewページに記述
+/*top画面スライドショー viewページに記述*/
 $(document).ready(function () {
   $(".theTarget").skippr({
     // スライドショーの変化 ("fade" or "slide")
@@ -47,7 +47,7 @@ $(document).ready(function () {
 });
 
 
-// /*ハンバーガーメニューtop　viewページに記述*/
+/*ハンバーガーメニューtop　viewページに記述*/
 $(document).ready(function () {
   $('.menu-trigger').on('click', function(event) {
     $(this).toggleClass('active');
