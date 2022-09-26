@@ -16,7 +16,7 @@ class Public::DesignsController < ApplicationController
       @cart_item = CartItem.new#(既製品)
     else
       @item = Item.new#(オーダー－メイド商品用)
-      @item = @design.items.first
+      @item1 = @design.items.first
     end
   end
 

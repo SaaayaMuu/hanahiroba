@@ -458,14 +458,14 @@ svg {
 
               <div class="custom-image-form">
                 <%= form_with model: @item, url: cart_items_order_made_create_path, method: :post do |f| %>
-                  <%= f.hidden_field :original_item_id, :value => @item.id %>
+                  <%= f.hidden_field :original_item_id, :value => @item1.id %>
                   <p class="custom-p">好きな画像を右クリックで保存し、画像を一枚添付してください</p>
                   <p class="custom-p"><%= f.file_field :image, accept: "image/png", required: true %></p>
                                       　　                          　<!--　↑　変換後の画像はpngになるからファイル指定-->
               </div>
 
               <div class="custom-item-submit">
-                <% if @item.is_active == true && @item.stock >= 1 %> <!--販売中の商品、または在庫が1つ以上ある商品の場合-->
+                <% if @item1.is_active == true && @item1.stock >= 1 %> <!--販売中の商品、または在庫が1つ以上ある商品の場合-->
                     <%= f.submit "色選択した商品をカートに入れる", class: "btn btn-custom btn-blue" %>
                 <% else %>
                     <p class="text-danger">販売停止中</p>
