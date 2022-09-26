@@ -93,7 +93,7 @@
 }
 
 .item-box-p {
-  font-size: 15px;
+  font-size: min(15px,1vw);
 }
 .item-box p:nth-child(7),p:nth-child(8) {
   text-align: center;
@@ -365,7 +365,6 @@ svg {
             <%= f.hidden_field :item_id, :value => item.id %>
             <div class="item-content">
                 <%= image_tag item.image %><!--.variant(resize: "200x00")-->
-                <p class="item-box-p"><%= item.design.design_name %></p>
                 <p class="item-box-p"><%= item.item_introduction %></p>
                 <p class="item-box-p">￥<%= item.with_tax_price.to_s(:delimited) %>(税込)</p>
                 <% if item.is_active == true && item.stock >= 1 %> <!--販売中の商品、または在庫が1つ以上ある商品の場合-->

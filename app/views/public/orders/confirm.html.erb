@@ -1,8 +1,36 @@
+<style>
+table {
+  font-size: min(1.5vw,16px);
+}
+.field{
+  font-size: min(1.5vw,16px);
+}
+table img {
+  width: 80px;
+}
+.btn-purple {
+  color: white;
+  background: #6A5ACD;
+  transition: 0.5s;
+}
+.btn-purple:hover {
+  color: white;
+  background: #4B0082;
+  transition: 0.5s;
+}
+@media screen and (max-width: 576px) {
+  table img {
+    width: 50px;
+  }
+}
+</style>
+
+
 <%= render 'layouts/header', genre: @genre %>
 
 <div class="body">
 <div class="container">
-	<h2>注文情報確認</h2>
+	<h5 class="text-center mb-5">注文情報確認</h5>
 	<div class="flex">
 		<table class="table">
 			<thead>
@@ -47,12 +75,10 @@
 	</div>
 	<%= form_with model: @order, url: orders_path, method: :post do |f| %>
 		<div class="field">
-			<%= f.label :payment_method, "支払い方法" %>
+			<label>〇支払い方法</label>
 			<p>振込</p>
 			<%= f.hidden_field :payment_method, value: @order.payment_method %>
-		</div>
-		<div class="field">
-			<label>お届け先</label>
+			<label>〇お届け先</label>
 			<p>〒<%= @order.postal_code %> <%= @order.address %><br><%= @order.name %></p>
 			<%= f.hidden_field :postal_code, value: @order.postal_code %>
 			<%= f.hidden_field :address, value: @order.address %>
@@ -64,7 +90,7 @@
 			<%= f.hidden_field :select_address, :value => @select_address %>
 		</div>
 		<div class="actions text-center">
-			<%= f.submit "注文を確定する", class: "btn btn-primary submit_to_create_order" %>
+			<%= f.submit "注文を確定する", class: "btn btn-purple submit_to_create_order" %>
 		</div>
 	<% end %>
 </div>

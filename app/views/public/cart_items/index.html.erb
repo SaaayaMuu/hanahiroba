@@ -7,25 +7,25 @@ table img {
 }
 .btn-back {
   color: white;
-  background: #666666;
+  background: #777777;
   margin: 0 auto;
   transition: 0.5s;
   margin-bottom: 10px;
 }
 .btn-back:hover {
   color: white;
-  opacity: 0.7;
+  background: #444444;
   transition: 0.5s;
 }
 
 .btn-red  {
   color: white;
-  background: #990000;
+  background: #A52A2A;
   transition: 0.5s;
 }
 .btn-red:hover {
   color: white;
-  opacity: 0.7;
+  background: #770000;
   transition: 0.5s;
 }
 .btn-blue {
@@ -50,6 +50,7 @@ table img {
   background: #4B0082;
   transition: 0.5s;
 }
+
 @media screen and (max-width: 576px) {
   table img {
     width: 50px;
@@ -120,7 +121,7 @@ table img {
 	<% else %>
 		<div class="text-center">
 			<h5 class="my-5">カート内に商品がありません。</h5>
-			<%= link_to "商品一覧を見る", designs_path, class: "btn btn-primary" %>
+			<%= link_to "商品一覧を見る", designs_path, class: "btn btn-blue" %>
 		</div>
 	<% end %>
 </section>

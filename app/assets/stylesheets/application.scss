@@ -194,7 +194,7 @@ h4 {
 .image2 {
   background-image: image-url("IMG_9641.JPG");
   background-size: cover;
-  background-position: top;
+  background-position: top 10px;
 }
 .image3 {
   background-image: image-url("IMG_9654.JPG");
@@ -362,7 +362,7 @@ header {
   color: #fff;
 }
 .nav-text .nav-genre:hover {
-  background-color: #4169E1	;
+  background-color: #008BBB;
   padding: 20px 0 30px 0;
   color: #fff;
 }
@@ -403,7 +403,7 @@ header {
   writing-mode: vertical-rl;
   font-size: 15px;
   font-family: 'Kaisei Tokumin', serif;
-  background-color: #008BBB;
+  background-color: #6A5ACD;
   color: #fff;
   padding: 60px 0 5px 0;
 }

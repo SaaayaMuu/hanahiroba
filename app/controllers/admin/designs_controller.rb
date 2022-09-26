@@ -23,11 +23,6 @@ class Admin::DesignsController < ApplicationController
   def show
     @design = Design.find(params[:id])
     @items = @design.items.all
-    if @design.reviews.blank?
-      @design_review = 0
-    else
-      @design_review = @design.reviews.average(:rate).round(2)
-    end
   end
 
   def edit
@@ -46,7 +41,8 @@ class Admin::DesignsController < ApplicationController
     end
 
     if @design.update(design_params)
-      redirect_to admin_design_path(@design.id)
+      # redirect_to admin_design_path(@design.id)
+      redirect_to admin_designs_path
     else
       redirect_to admin_genres_path
     end

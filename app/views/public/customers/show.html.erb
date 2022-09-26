@@ -1,24 +1,25 @@
 <style>
 .btn-back {
   color: white;
-  background: #666666;
+  background: #777777;
   margin: 0 auto;
   transition: 0.5s;
+  margin-bottom: 10px;
 }
 .btn-back:hover {
   color: white;
-  opacity: 0.7;
+  background: #444444;
   transition: 0.5s;
 }
 
 .btn-purple {
   color: white;
-  background: #800080;
-  margin: 0 auto;
+  background: #6A5ACD;
+  transition: 0.5s;
 }
 .btn-purple:hover {
   color: white;
-  opacity: 0.7;
+  background: #4B0082;
   transition: 0.5s;
 }
 </style>
@@ -59,7 +60,7 @@
         </div>
       </div>
     </div>
-    <p class="text-center mt-4"><%= link_to orders_path, class: "btn btn-blue ml-2" do %>注文履歴一覧を見る<% end %></p>
+    <p class="text-center mt-4"><%= link_to orders_path, class: "btn btn-purple ml-2" do %>注文履歴一覧を見る<% end %></p>
 
   </div>
 </div>

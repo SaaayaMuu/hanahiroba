@@ -27,7 +27,7 @@
     <td><%= design.items.count %></td>
     <td><%= design.items.where(is_active: false).count %></td>
     <td><%= design.items.where(stock: "0").count %></td>
-    <td class="d-flex"><%= link_to reviews_path(design_id: design.id) do %><p><%= design.reviews.count %>件</p><% end %>
+    <td class="d-flex"><%= link_to admin_reviews_path(design_id: design.id) do %><p><%= design.reviews.count %>件</p><% end %>
         <p>(<%= design.reviews.average(:rate).to_f.round(1) %>/5)</p></td>
   </tr>
 
