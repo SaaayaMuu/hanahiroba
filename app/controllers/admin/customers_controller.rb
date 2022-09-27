@@ -2,7 +2,7 @@ class Admin::CustomersController < ApplicationController
   before_action :authenticate_admin!
 
   def index
-    @customers = Customer.all
+    @customers = Customer.all.order("created_at DESC")
   end
 
   def edit

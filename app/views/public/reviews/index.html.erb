@@ -15,9 +15,17 @@
   justify-content: center;
 }
 
+.review-box p {
+  text-align: center;
+}
+
 .review-img {
   width: 100px;
   height: auto;
+}
+.nothing-review-img {
+  width: 100px;
+  height: 100px;
 }
 
 .review-click {
@@ -59,6 +67,10 @@
     width: 80px;
     height: auto;
   }
+  .nothing-review-img {
+    width: 80px;
+    height: 80px;
+  }
 }
 </style>
 
@@ -81,6 +93,8 @@
 
         <% if review.image.attached? %>
           <%= image_tag review.image, class: "review-img" %>
+        <% else %>
+          <div class="nothing-review-img">画像なし</div>
         <% end %>
 
         <div id="star-rate-<%= review.id %>" class="ml-4"></div>
