@@ -82,6 +82,7 @@ h4 {
 
 
 
+
 .path:hover {
     text-decoration: none;
   }
@@ -406,7 +407,7 @@ header {
   writing-mode: vertical-rl;
   font-size: 15px;
   font-family: 'Kaisei Tokumin', serif;
-  background-color: #6A5ACD;
+  background-color: #4B0082;
   color: #fff;
   padding: 60px 0 5px 0;
 }
@@ -740,36 +741,62 @@ article{
 ///////footer////////
 //////////////////////
 
-footer {
-  width: 100%;
-  height: 400px;
-  // background-image: image-url("japanese-paper_00162_2.jpg");
-  // background-image: image-url("watercolor_00011.jpg");
-  // background-position: top;
-  background-color: #999966;
-  margin-top: 60px;
-  position: relative;
-  background: linear-gradient(#000033, #003366, #4682B4, #B0C4DE);
+  footer {
+    width: 100%;
+    height: 400px;
+    background-image: image-url("top4.jpg");
+    // background-repeat: no-repeat;
+    background-size: cover;
+    /*background-image: image-url("watercolor_00011.jpg");*/
+     background-position: center;
+    /*background-color: #999966;*/
+    margin-top: 200px;
 
-}
+    /*background: linear-gradient(#000033, #003366, #4682B4, #B0C4DE);*/
+  }
 
-.icon {
-  width: 300px;
-  height: 300px;
-  background-image: image-url("IMG_6041.PNG");
-  background-size: cover;
-  background-position: center;
-  margin: 0 auto;
-  margin-top: 50px;
-}
+  .background {
+    width: 100%;
+    height: 400px;
+    // background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(255, 255, 255, 0.7);
+    position: relative;
+  }
 
+  .center-footer {
+    height: 400px;
+    margin: 0 auto;
+    writing-mode: vertical-rl;
+  }
 
-
-.design_box {
-  width: 100%;
-  height: 300px;
-}
-
+  .center-footer h1 {
+    font-size: 60px;
+    margin: 0 20px;
+    position: absolute;
+    top: 30%;
+    right: 47%;
+  }
+  .mizikani {/*身近に*/
+    position: absolute;
+    right: 45%;
+    top: 15px;
+  }
+  .tsumami {/*つまみ*/
+    position: absolute;
+    right: 55%;
+    bottom: 5px;
+  }
+  // .icon {
+  //   width: 200px;
+  //   height: 200px;
+  //   background-image: image-url("IMG_6055.PNG");
+  //   background-size: contain;
+  //   background-repeat: no-repeat;
+  //   background-position: center;
+  //   position: absolute;
+  //   bottom: 0;
+  //   left: -30px;
+  // }
 
 
 

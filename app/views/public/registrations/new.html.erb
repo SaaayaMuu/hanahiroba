@@ -4,114 +4,159 @@
     font-family: 'Zen Antique', serif;
   }
   .registration-box {
-    width: 360px;
+    width: 425px;
     margin: 0 auto;
   }
-  .registration-box div {
-    margin-bottom: 10px;
-  }
+
   .registration-box p {
     margin: 3px 0 3px 0;
-
   }
   .registration-box span {
     display: inline-block;
     width: 50px;
     text-align: center;
   }
-  .long {
-    width: 360px;
+
+  .long-label {
+    width: 100%;
+  }
+
+  .short-label {
+    width: 49%;
+  }
+  .long-input {
+    width: 100%;
     box-sizing:border-box;
   }
-  .short {
-    width: 177px;
+  .short-input {
+    width: 100%;
   }
   .btn-purple {
     color: white;
     background: #6A5ACD;
     transition: 0.5s;
+    margin-top: 20px;
   }
   .btn-purple:hover {
     color: white;
     background: #4B0082;
     transition: 0.5s;
   }
+  .btn-back {
+    color: white;
+    background: #777777;
+    margin: 0 auto;
+    transition: 0.5s;
+    margin: 20px 0;
+  }
+  .btn-back:hover {
+    color: white;
+    background: #444444;
+    transition: 0.5s;
+  }
+@media screen and (max-width: 425px) {
+  h2 {
+    font-size: 20px;
+  }
+  h4 {/*エラーメッセージ「未入力の項目があります」*/
+    font-size: 15px;
+  }
+  .registration-box {
+    width: 100%;
+    font-size: 10px;
+  }
+  .btn-purple {
+    font-size: 10px;
+  }
+  .btn-back {
+    font-size: 10px;
+  }
 </style>
 
 <div class="body">
-  <%= render 'public/shared/custom_error_messages' %>
 
-    <%= form_with model: @customer, url: customer_registration_path, id: 'new_customer', class: 'new_customer' do |f| %>
+  <%= form_with model: @customer, url: customer_registration_path, id: 'new_customer', class: 'new_customer' do |f| %>
+
+
+    <h2 class="my-5 text-center">新規会員登録</h2>
+
+    <div class="registration-box">
+      <%= render 'public/shared/custom_error_messages' %>
       <%= render "public/shared/error_messages", resource: resource %>
 
-      <h2 class="my-5 text-center">マイページ</h2>
+      <div>
+        <p>名前</p>
+        <label class="short-label">
+          <p>(姓)</p><%= f.text_field :last_name, autofocus: true, placeholder: "例)令和", class: "short-input" %>
+        </label>
+        <label class="short-label">
+          <p>(名)</p><%= f.text_field :first_name, placeholder: "例)道子", class: "short-input" %>
+        </label>
+      </div>
 
-      <div class="registration-box">
+      <div>
+        <p>フリガナ</p>
+        <label class="short-label">
+          <p>(セイ)</p><%= f.text_field :last_name_kana, placeholder: "例)レイワ", class: "short-input" %>
+        </label>
+        <label class="short-label">
+          <p>(メイ)</p><%= f.text_field :first_name_kana, placeholder: "例)ミチコ", class: "short-input" %>
+        </label>
+      </div>
 
-        <div>
-          <p>名前</p>
-          <label>
-            <p>(姓)</p><%= f.text_field :last_name, autofocus: true, placeholder: "例)令和", class: "short" %>
-          </label>
-          <label>
-            <p>(名)</p><%= f.text_field :first_name, placeholder: "例)道子", class: "short" %>
-          </label>
-        </div>
-
-        <div>
-          <p>フリガナ</p>
-          <label>
-            <p>(セイ)</p><%= f.text_field :last_name_kana, placeholder: "例)レイワ" %>
-          </label>
-          <label>
-            <p>(メイ)</p><%= f.text_field :first_name_kana, placeholder: "例)ミチコ" %>
-          </label>
-        </div>
-
-        <div>
-          <label>
-          <p>メールアドレス</p>
-            <%= f.text_field :email, id:"customer_Email", placeholder: "例)〇〇〇@example.com", class: "long" %>
-          </label>
-        </div>
+      <div>
+        <label class="long-label">
+        <p>メールアドレス</p>
+          <%= f.text_field :email, id:"customer_Email", placeholder: "例)〇〇〇@example.com", class: "long-input" %>
+        </label>
+      </div>
 
 
-        <div>
-          <label>
-            <p>郵便番号</p>
-            <%= f.text_field :postal_code, autofocus: true, id:"customer_Postal_code", placeholder: "例)0000000", class: "short" %>
-          </label>
-        </div>
+      <div>
+        <label class="short-label">
+          <p>郵便番号</p>
+          <%= f.text_field :postal_code, autofocus: true, id:"customer_Postal_code", placeholder: "例)0000000", class: "short-input" %>
+        </label>
+      </div>
 
-        <div>
-          <label>
-            <p>住所</p>
-            <%= f.text_area :address, autofocus: true, id:"customer_address", placeholder: "東京都渋谷区代々木神園町0-0", class: "long" %>
-          </label>
-
-        </div>
-
-        <div>
-          <label>
-            <p>電話番号(ハイフンなし)</p>
-            <%= f.text_field :telephone_number, autofocus: true, id:"customer_Telephone_number", placeholder: "0000000000", class: "short" %>
-          </label>
-        </div>
-
-        <div>
-          <label>
-            <p>パスワード(6文字以上)</p>
-            <%= f.password_field :password, autocomplete: "new-password", class: "short" %>
-        </div>
-                <div>
-          <label>
-            <p>パスワード(確認用)</p>
-            <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "short" %>
-        </div>
-
-        <%= f.submit "新規登録", class: "long btn btn-purple" %>
-
+      <div>
+        <label class="long-label">
+          <p>住所</p>
+          <%= f.text_area :address, autofocus: true, id:"customer_address", placeholder: "東京都渋谷区代々木神園町0-0", class: "long-input" %>
+        </label>
 
       </div>
-    <% end %>
+
+      <div>
+        <label class="short-label">
+          <p>電話番号(ハイフンなし)</p>
+          <%= f.text_field :telephone_number, autofocus: true, id:"customer_Telephone_number", placeholder: "0000000000", class: "short-input" %>
+        </label>
+      </div>
+
+      <div>
+        <label class="short-label">
+          <p>パスワード(6文字以上)</p>
+          <%= f.password_field :password, autocomplete: "new-password", class: "short-input" %>
+      </div>
+      <div>
+        <label class="short-label">
+          <p>パスワード(確認用)</p>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "short-input" %>
+      </div>
+
+      <%= f.submit "新規登録", class: "long-input btn btn-purple" %>
+      <%= link_to "会員登録をやめる", designs_path, class: "long-input btn btn-back" %>
+
+
+
+    <p class="text-center">
+      既に登録済みの方
+      <%= link_to "こちら", new_customer_session_path %>からログインしてください。
+    </p>
+
+
+
+    </div>
+  <% end %>
 </div>
