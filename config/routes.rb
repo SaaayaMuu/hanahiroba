@@ -31,8 +31,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   scope module: :public do
     get '/customers/unsubscribe' => 'customers#unsubscribe'
     patch '/customers/withdraw' => 'customers#withdraw'
-    resources :customers, only: [:show, :edit, :update]
-    resources :items, only: [:update]
+    resources :customers, only: [:update, :show, :edit]
     resources :designs, only: [:index, :show]
     resources :genres, only: [:index]
     resources :cart_items, only: [:index, :create, :update, :destroy, :destroy_all]
@@ -87,16 +86,13 @@ end
 #new_customer_registration GET    /customers/sign_up(.:format)              public/registrations#new
 #edit_customer_registration GET    /customers/edit(.:format)                public/registrations#edit
 
-#customers_unsubscribe GET    /customers/unsubscribe(.:format)              public/customers#unsubscribe
-#customers_withdraw PATCH  /customers/withdraw(.:format)                    public/customers#withdraw
+
 
 #new_customer_session GET    /customers/sign_in(.:format)                   public/sessions#new
 #customer_session POST   /customers/sign_in(.:format)                       public/sessions#create
 #destroy_customer_session DELETE /customers/sign_out(.:format)              public/sessions#destroy
 
 #genres GET    /genres(.:format)                                            public/genres#index
-
-#item PATCH  /items/:id(.:format)                                           public/items#update
 
 #designs GET    /designs(.:format)                                          public/designs#index
 #design GET    /designs/:id(.:format)                                       public/designs#show
@@ -105,6 +101,7 @@ end
 #edit_customer GET    /customers/:id/edit(.:format)                         public/customers#edit
 #customer GET    /customers/:id(.:format)                                   public/customers#show
 #         PATCH  /customers/:id(.:format)                                   public/customers#update
+#customers_withdraw PATCH  /customers/withdraw(.:format)                    public/customers#withdraw
 
 #cart_items GET    /cart_items(.:format)                                    public/cart_items#index
 #           POST   /cart_items(.:format)                                    public/cart_items#create

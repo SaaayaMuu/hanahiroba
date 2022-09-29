@@ -41,7 +41,7 @@
       <%= link_to designs_path, class: "path_line" do %><li>商品一覧</li><% end %>
       <%= link_to cart_items_path, class: "path_line" do %><li>カート</li><% end %>
       <% if customer_signed_in?%>
-      <%= link_to customer_path(current_customer.id), class: "path_line" do %><li>マイページ</li><% end %>
+      <%= link_to customer_path(current_customer), class: "path_line" do %><li>マイページ</li><% end %>
       <%= link_to destroy_customer_session_path, method: :delete, class: "path_line" do %><li>ログアウト</li><% end %>
       <% else %>
       <%= link_to new_customer_session_path, class: "path_line" do %><li>ログイン</li><% end %>

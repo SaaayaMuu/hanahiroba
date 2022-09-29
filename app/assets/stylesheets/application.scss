@@ -19,12 +19,13 @@
 // @import ”skippr”；
 
 
+
+
  * {
   margin:0;
   padding:0;
   box-sizing: border-box;
 }
-
 
 /* フォント一覧
 font-family: 'Yuji Syuku', serif;
@@ -192,13 +193,13 @@ h4 {
 
 .image1 {
   background-image: image-url("IMG_9554.JPG");
-  background-size: contain;
-  background-position: top;
+  background-size: cover;
+  background-position: bottom;
 }
 .image2 {
   background-image: image-url("IMG_9641.JPG");
   background-size: cover;
-  background-position: top 10px;
+  background-position: bottom;
 }
 .image3 {
   background-image: image-url("IMG_9654.JPG");
@@ -742,62 +743,64 @@ article{
 //////////////////////
 
   footer {
+    margin-top: 400px;
+    font-family: 'Zen Antique', serif;
     width: 100%;
-    height: 400px;
+    height: 120px;
     background-image: image-url("top4.jpg");
-    // background-repeat: no-repeat;
     background-size: cover;
-    /*background-image: image-url("watercolor_00011.jpg");*/
-     background-position: center;
-    /*background-color: #999966;*/
-    margin-top: 200px;
-
-    /*background: linear-gradient(#000033, #003366, #4682B4, #B0C4DE);*/
+    background-position: center;
+    border-top: thin solid #000099;
+    color: #000099;
   }
 
   .background {
     width: 100%;
-    height: 400px;
-    // background-color: rgba(0, 0, 0, 0.5);
-    background-color: rgba(255, 255, 255, 0.7);
-    position: relative;
+    height: 120px;
+    background-image: linear-gradient(180deg, rgba(240, 238, 242, 0.68), rgba(75, 79, 155, 0.32));
   }
 
-  .center-footer {
-    height: 400px;
-    margin: 0 auto;
-    writing-mode: vertical-rl;
+  .footer-text {
+    font-family: 'Yuji Syuku', serif;
+    font-size: 35px;
+    text-align: center;
+    margin: 0;
+  }
+  .footer-text-kana {
+    font-family: 'Yuji Syuku', serif;
+    font-size: 15px;
+    text-align: center;
+    margin-top: 0;
+    padding-top: 10px;
+    line-height: 0;
   }
 
-  .center-footer h1 {
-    font-size: 60px;
-    margin: 0 20px;
-    position: absolute;
-    top: 30%;
-    right: 47%;
+  .footer-center {
+    height: 40px;
+    border-bottom: thin solid #000099;
+    border-top: thin solid #000099;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.5);
   }
-  .mizikani {/*身近に*/
-    position: absolute;
-    right: 45%;
-    top: 15px;
-  }
-  .tsumami {/*つまみ*/
-    position: absolute;
-    right: 55%;
-    bottom: 5px;
-  }
-  // .icon {
-  //   width: 200px;
-  //   height: 200px;
-  //   background-image: image-url("IMG_6055.PNG");
-  //   background-size: contain;
-  //   background-repeat: no-repeat;
-  //   background-position: center;
-  //   position: absolute;
-  //   bottom: 0;
-  //   left: -30px;
-  // }
 
+  .footer-center a {
+    color: #000099;
+    text-decoration: none;
+  }
+  .footer-center a:hover {
+    color: #000099;
+  }
+
+  .background i {
+    vertical-align: middle;
+    font-size: 20px;
+  }
+  .copyright {
+    font-size: 10px;
+    text-align: center;
+  }
 
 
 
@@ -972,11 +975,7 @@ header {
   header {
     height: 200px;
 }
-  .login-content {
-  left: 30px;
-  font-size: 1em;
-  padding: 10px 0 5px 0;
-}
+
 /*public headerここまで*/
 }
 
@@ -994,9 +993,8 @@ header {
     height: 150px;
     margin-bottom: 50px;
   }
-
-  .login-content {
-    font-size: 0.8em;
-}
 /*public headerここまで*/
 }
+
+
+

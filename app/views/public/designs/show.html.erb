@@ -330,152 +330,153 @@
 
 
 
-    <div class="design-box2">
-      <div class="slider6-wrap">
-          <ul class="slider-6" id="js-slider-6">
-          <% @design.images.each do |image| %>
-              <li><%= image_tag image %></li><!--.variant(resize: "200x200")-->
-          <% end %>
-          </ul>
-          <div class="thumbs_dots"></div>
-      </div>
-      <div class="design-content">
-          <div class="review-link">
-            <%= link_to reviews_path(design_id: @design.id) do %><p>レビュー<%= @design.reviews.count %>件</p><% end %>
-            <p id="star-rate-<%= @design.id %>" class="p-0 ml-4"></p>
+  <div class="design-box2">
+    <div class="slider6-wrap">
+        <ul class="slider-6" id="js-slider-6">
+        <% @design.images.each do |image| %>
+            <li><%= image_tag image %></li><!--.variant(resize: "200x200")-->
+        <% end %>
+        </ul>
+        <div class="thumbs_dots"></div>
+    </div>
+    <div class="design-content">
+        <div class="review-link">
+          <%= link_to reviews_path(design_id: @design.id) do %><p>レビュー<%= @design.reviews.count %>件</p><% end %>
+          <p id="star-rate-<%= @design.id %>" class="p-0 ml-4"></p>
+        </div>
+        <h4><%= @design.design_name %></h4>
+        <p><%= @design.design_introduction %></p>
+        <% if @design.design_type == true %>
+          <p><%= "￥" %><%= @design.with_tax_price.to_s(:delimited) %><%= "～" %></p>
+        <% else %>
+          <p><%= "￥" %><%= @design.with_tax_price.to_s(:delimited) %></p>
+        <% end %>
+    </div>
+  </div>
+
+
+
+  <div class="item-box">
+    <% if @design.design_type == true %>
+      <% @items.each do |item| %>
+        <%= form_with model: @cart_item, url: cart_items_path, method: :post, local: true, class: "item-form" do |f| %>
+          <%= f.hidden_field :amount, :value => "1" %>
+          <%= f.hidden_field :item_id, :value => item.id %>
+          <div class="item-content">
+            <%= image_tag item.image %><!--.variant(resize: "200x00")-->
+            <p class="item-box-p"><%= item.item_introduction %></p>
+            <p class="item-box-p">￥<%= item.with_tax_price.to_s(:delimited) %>(税込)</p>
+            <% if item.is_active == true && item.stock >= 1 %> <!--販売中の商品、または在庫が1つ以上ある商品の場合-->
+                <p class="item-box-p">残り<%= item.stock %>個</p>
+                <p class="item-box-p"><%= f.submit "カートに入れる", class: "btn btn-item btn-blue" %></p>
+            <% else %>
+                <p class="item-box-p text-danger">販売停止中</p>
+            <% end %>
           </div>
-          <h4><%= @design.design_name %></h4>
-          <p><%= @design.design_introduction %></p>
-          <% if @design.design_type == true %>
-            <p><%= "￥" %><%= @design.with_tax_price.to_s(:delimited) %><%= "～" %></p>
-          <% else %>
-            <p><%= "￥" %><%= @design.with_tax_price.to_s(:delimited) %></p>
-          <% end %>
+        <% end %>
+      <% end %>
+
+    <% else %>
+      <div class="custom-item-content">
+        <div id="src">
+            <span>①</span>
+            <span>②</span>
+            <span>③</span>
+            <span>④</span>
+            <span>⑤</span>
+            <span>⑥</span>
+            <span>⑦</span>
+            <span>⑧</span>
+          <svg id="svg" xmlns="http://www.w3.org/2000/svg">
+            <!--左真横 上円＆下円-->
+            <path d="M 130 130 C 120 110, 40 110, 30 130
+                     M 130 130 C 120 150, 40 150, 30 130" stroke="black" stroke-width="2" fill="white" id="left"/>
+
+            <!--右真横　上＆下-->
+            <path d="M 130 130 C 140 110, 220 110, 230 130
+                     M 130 130 C 140 150, 220 150, 230 130" stroke="black" stroke-width="2" fill="white" id="right"/>
+
+            <!--上　左＆右-->
+            <path d="M 130 130 C 110 120, 110 40, 130 30
+                     M 130 130 C 150 120, 150 40, 130 30" stroke="black" stroke-width="2" fill="white" id="toptop"/>
+
+            <!--下　左＆右-->
+            <path d="M 130 130 C 110 140, 110 220, 130 230
+                     M 130 130 C 150 140, 150 220, 130 230" stroke="black" stroke-width="2" fill="white" id="bottom"/>
+
+            <!--左上　右&左-->
+            <path d="M 130 130 C 120 90, 100 70, 60 60
+                     M 130 130 C 90 120, 70 110, 60 60" stroke="black" stroke-width="2" fill="white" id="lefttop"/>
+
+
+            <!--左下　左＆右-->
+            <path d="M 130 130 C 90 140, 70 170, 60 210
+                     M 130 130 C 120 170, 110 190, 60 210" stroke="black" stroke-width="2" fill="white" id="leftbottom"/>
+
+            <!--右上　左＆右-->
+            <path d="M 130 130 C 140 90, 160 70, 200 60
+                     M 130 130 C 170 120, 190 110, 200 60" stroke="black" stroke-width="2" fill="white" id="righttop"/>
+
+            <!--右下　左＆右-->
+            <path d="M 130 130 C 140 170, 150 190, 200 210
+                     M 130 130 C 170 140, 190 170, 200 210" stroke="black" stroke-width="2" fill="white" id="rightbottom"/>
+          </svg>
+        </div>
+
+        <div class="colorpicker-box">
+          <p class="custom-p">カラーを選択してください。</p>
+
+          <p class="custom-p"><label>①の色選択
+            <input id="colorPicker1" type="color" name="favorite_color">
+          </label></p>
+
+          <p class="custom-p"><label>②の色選択
+            <input id="colorPicker2" type="color" name="favorite_color">
+          </label></p>
+          <p class="custom-p"><label>③の色選択
+            <input id="colorPicker3" type="color" name="favorite_color">
+          </label></p>
+          <p class="custom-p"><label>④の色選択
+            <input id="colorPicker4" type="color" name="favorite_color">
+          </label></p>
+          <p class="custom-p"><label>⑤の色選択
+            <input id="colorPicker5" type="color" name="favorite_color">
+          </label></p>
+          <p class="custom-p"><label>⑥の色選択
+            <input id="colorPicker6" type="color" name="favorite_color">
+          </label></p>
+          <p class="custom-p"><label>⑦の色選択
+            <input id="colorPicker7" type="color" name="favorite_color">
+          </label></p>
+          <p class="custom-p"><label>⑧の色選択
+            <input id="colorPicker8" type="color" name="favorite_color">
+          </label>
+        </div>
+        <p class="custom-p"><input type="button" value="画像に変換" onclick="chgImg()"><br></p>
+
+        <div class="preview-box" id="dst"></div>
+        <%= form_with model: @item, url: cart_items_order_made_create_path, method: :post do |f| %>
+          <div class="custom-image-form">
+            <%= f.hidden_field :original_item_id, :value => @item1.id %>
+            <p class="custom-p">好きな画像を右クリックで保存し、画像を一枚添付してください</p>
+            <p class="custom-p"><%= f.file_field :image, accept: "image/png", required: true %></p>
+                                　　                          　<!--　↑　変換後の画像はpngになるからファイル指定-->
+          </div>
+
+          <div class="custom-item-submit">
+            <% if @item1.is_active == true && @item1.stock >= 1 %> <!--販売中の商品、または在庫が1つ以上ある商品の場合-->
+                <%= f.submit "色選択した商品をカートに入れる", class: "btn btn-custom btn-blue" %>
+            <% else %>
+                <p class="text-danger">販売停止中</p>
+            <% end %>
+          </div>
+        <% end %>
       </div>
-    </div>
+    <% end %>
+  </div>
+</div>
+<%= render 'layouts/footer' %>
 
-
-
-    <div class="item-box">
-      <% if @design.design_type == true %>
-        <% @items.each do |item| %>
-          <%= form_with model: @cart_item, url: cart_items_path, method: :post, local: true, class: "item-form" do |f| %>
-            <%= f.hidden_field :amount, :value => "1" %>
-            <%= f.hidden_field :item_id, :value => item.id %>
-            <div class="item-content">
-                <%= image_tag item.image %><!--.variant(resize: "200x00")-->
-                <p class="item-box-p"><%= item.item_introduction %></p>
-                <p class="item-box-p">￥<%= item.with_tax_price.to_s(:delimited) %>(税込)</p>
-                <% if item.is_active == true && item.stock >= 1 %> <!--販売中の商品、または在庫が1つ以上ある商品の場合-->
-                    <p class="item-box-p">残り<%= item.stock %>個</p>
-                    <p class="item-box-p"><%= f.submit "カートに入れる", class: "btn btn-item btn-blue" %></p>
-                <% else %>
-                    <p class="item-box-p text-danger">販売停止中</p>
-                <% end %>
-            </div>
-          <% end %>
-        <% end %>
-
-      <% else %>
-            <div class="custom-item-content">
-              <div id="src">
-                  <span>①</span>
-                  <span>②</span>
-                  <span>③</span>
-                  <span>④</span>
-                  <span>⑤</span>
-                  <span>⑥</span>
-                  <span>⑦</span>
-                  <span>⑧</span>
-                <svg id="svg" xmlns="http://www.w3.org/2000/svg">
-                  <!--左真横 上円＆下円-->
-                  <path d="M 130 130 C 120 110, 40 110, 30 130
-                           M 130 130 C 120 150, 40 150, 30 130" stroke="black" stroke-width="2" fill="white" id="left"/>
-
-                  <!--右真横　上＆下-->
-                  <path d="M 130 130 C 140 110, 220 110, 230 130
-                           M 130 130 C 140 150, 220 150, 230 130" stroke="black" stroke-width="2" fill="white" id="right"/>
-
-                  <!--上　左＆右-->
-                  <path d="M 130 130 C 110 120, 110 40, 130 30
-                           M 130 130 C 150 120, 150 40, 130 30" stroke="black" stroke-width="2" fill="white" id="toptop"/>
-
-                  <!--下　左＆右-->
-                  <path d="M 130 130 C 110 140, 110 220, 130 230
-                           M 130 130 C 150 140, 150 220, 130 230" stroke="black" stroke-width="2" fill="white" id="bottom"/>
-
-                  <!--左上　右&左-->
-                  <path d="M 130 130 C 120 90, 100 70, 60 60
-                           M 130 130 C 90 120, 70 110, 60 60" stroke="black" stroke-width="2" fill="white" id="lefttop"/>
-
-
-                  <!--左下　左＆右-->
-                  <path d="M 130 130 C 90 140, 70 170, 60 210
-                           M 130 130 C 120 170, 110 190, 60 210" stroke="black" stroke-width="2" fill="white" id="leftbottom"/>
-
-                  <!--右上　左＆右-->
-                  <path d="M 130 130 C 140 90, 160 70, 200 60
-                           M 130 130 C 170 120, 190 110, 200 60" stroke="black" stroke-width="2" fill="white" id="righttop"/>
-
-                  <!--右下　左＆右-->
-                  <path d="M 130 130 C 140 170, 150 190, 200 210
-                           M 130 130 C 170 140, 190 170, 200 210" stroke="black" stroke-width="2" fill="white" id="rightbottom"/>
-                </svg>
-              </div>
-
-              <div class="colorpicker-box">
-                <p class="custom-p">カラーを選択してください。</p>
-
-                <p class="custom-p"><label>①の色選択
-                  <input id="colorPicker1" type="color" name="favorite_color">
-                </label></p>
-
-                <p class="custom-p"><label>②の色選択
-                  <input id="colorPicker2" type="color" name="favorite_color">
-                </label></p>
-                <p class="custom-p"><label>③の色選択
-                  <input id="colorPicker3" type="color" name="favorite_color">
-                </label></p>
-                <p class="custom-p"><label>④の色選択
-                  <input id="colorPicker4" type="color" name="favorite_color">
-                </label></p>
-                <p class="custom-p"><label>⑤の色選択
-                  <input id="colorPicker5" type="color" name="favorite_color">
-                </label></p>
-                <p class="custom-p"><label>⑥の色選択
-                  <input id="colorPicker6" type="color" name="favorite_color">
-                </label></p>
-                <p class="custom-p"><label>⑦の色選択
-                  <input id="colorPicker7" type="color" name="favorite_color">
-                </label></p>
-                <p class="custom-p"><label>⑧の色選択
-                  <input id="colorPicker8" type="color" name="favorite_color">
-                </label>
-              </div>
-               <p class="custom-p"><input type="button" value="画像に変換" onclick="chgImg()"><br></p>
-
-              <div class="preview-box" id="dst"></div>
-
-              <div class="custom-image-form">
-                <%= form_with model: @item, url: cart_items_order_made_create_path, method: :post do |f| %>
-                  <%= f.hidden_field :original_item_id, :value => @item1.id %>
-                  <p class="custom-p">好きな画像を右クリックで保存し、画像を一枚添付してください</p>
-                  <p class="custom-p"><%= f.file_field :image, accept: "image/png", required: true %></p>
-                                      　　                          　<!--　↑　変換後の画像はpngになるからファイル指定-->
-              </div>
-
-              <div class="custom-item-submit">
-                <% if @item1.is_active == true && @item1.stock >= 1 %> <!--販売中の商品、または在庫が1つ以上ある商品の場合-->
-                    <%= f.submit "色選択した商品をカートに入れる", class: "btn btn-custom btn-blue" %>
-                <% else %>
-                    <p class="text-danger">販売停止中</p>
-                <% end %>
-              </div>
-              <% end %>
-            </div>
-        <% end %>
-    </div>
-    <%= render 'layouts/footer' %>
 
 
 <!--<img src="images/tsumami2_3.png" alt="画像" width="200" height="150">-->
