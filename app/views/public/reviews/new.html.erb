@@ -1,59 +1,15 @@
-<style>
+<head>
+  <%= stylesheet_link_tag 'public/reviews_new' %>
+</head>
 
-  .review-box {
-    width: 100%;
-    margin: 0 auto;
-    text-align: center;
-    margin-top: 50px;
-  }
 
-  .review-image img {
-    width: 150px;
-    height: auto;
-  }
-  .review-star {
-    width: 100%;
-    display: flex;
-    margin-top: 20px;
-  }
-  #star {
-    margin: 0 auto;
-  }
-  .review-body {
-    width: 50%;
-    margin: 20px 25% 50px 25%;
-  }
-  .review-image-file {
-    margin: 30px 0 0 0;
-  }
-
-  .btn-purple {
-  color: white;
-  background: #800080;
-}
-  .btn-purple:hover {
-    color: white;
-    opacity: 0.7;
-    transition: 0.5s;
-  }
-  @media screen and (max-width: 576px) {/*425px以下の時*/
-
-  .review-image img{
-    width: 100px;
-  }
-  .review-body {
-    width: 90%;
-    margin: 20px 5% 50px 5%;
-  }
-}
-</style>
 <%= render 'layouts/header', genre: @genre %>
 <div class="container">
 
 <%= form_with model: @review, url: reviews_path, local: true do |f| %>
 <%= f.hidden_field :design_id, :value => @design.id %>
 <%= f.hidden_field :customer_id, :value => current_customer.id %>
-<div class="review-box">
+<div class="review-box_new">
 
 
   <div class="review-image">
@@ -73,7 +29,7 @@
 
 
 
- <%= f.submit "レビューを送信する", class: "btn btn-purple" %>
+ <%= f.submit "レビューを送信する", class: "btn btn-purple-reviews-new" %>
 
 
 </div>

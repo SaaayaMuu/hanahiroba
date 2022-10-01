@@ -1,33 +1,6 @@
-<style>
-.btn-back {
-  color: white;
-  background: #777777;
-  margin: 0 auto;
-  transition: 0.5s;
-  margin-bottom: 10px;
-}
-.btn-back:hover {
-  color: white;
-  background: #444444;
-  transition: 0.5s;
-}
-
-.btn-purple {
-  color: white;
-  background: #6A5ACD;
-  transition: 0.5s;
-}
-.btn-purple:hover {
-  color: white;
-  background: #4B0082;
-  transition: 0.5s;
-}
-@media screen and (max-width: 425px) {
-  h2 {
-    font-size: 20px;
-  }
-}
-</style>
+<head>
+  <%= stylesheet_link_tag 'public/customers' %>
+</head>
 
 <%= render 'layouts/header', genre: @genre %>
 <div class="body">
@@ -35,7 +8,7 @@
 
     <h2 class="my-5 text-center">マイページ</h2>
 
-    <h5 class="text-center">登録情報<%= link_to edit_customer_path(@customer), class: "btn btn-back ml-2" do %>編集する<% end %></h5>
+    <h5 class="text-center">登録情報<%= link_to customers_my_page_edit_path, class: "btn btn-back-customers ml-2" do %>編集する<% end %></h5>
 
     <div class="row justify-content-center">
       <div class="col-8 col-sm-10 col-md-8 col-lg-6 col-xl-6">
@@ -65,7 +38,7 @@
         </div>
       </div>
     </div>
-    <p class="text-center mt-4"><%= link_to orders_path, class: "btn btn-purple ml-2" do %>注文履歴一覧を見る<% end %></p>
+    <p class="text-center mt-4"><%= link_to orders_path, class: "btn btn-purple-customers ml-2" do %>注文履歴一覧を見る<% end %></p>
 
   </div>
 </div>

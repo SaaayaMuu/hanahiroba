@@ -1,0 +1,24 @@
+.table-confirm {
+  font-size: unquote("min(1.5vw,16px)");
+}
+.field{
+  font-size: unquote("min(1.5vw,16px)");
+}
+table img {
+  width: 80px;
+}
+.btn-purple-orders-confirm {
+  color: white;
+  background: #6A5ACD;
+  transition: 0.5s;
+}
+.btn-purple-orders-confirm:hover {
+  color: white;
+  background: #4B0082;
+  transition: 0.5s;
+}
+@media screen and (max-width: 576px) {
+  table img {
+    width: 50px;
+  }
+}

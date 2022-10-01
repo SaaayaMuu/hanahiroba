@@ -19,7 +19,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 
   namespace :admin do
     resources :designs, only: [:new, :create, :show, :edit, :update, :index, :destroy]
-    resources :items, only: [:create, :destroy]
+    resources :items, only: [:create]
     resources :genres, only: [:index, :edit, :create, :update, :destroy]
     resources :customers, only: [:index, :show, :edit, :update]
     resources :orders, only: [:show, :update]
@@ -31,16 +31,16 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   scope module: :public do
     get '/customers/unsubscribe' => 'customers#unsubscribe'
     patch '/customers/withdraw' => 'customers#withdraw'
-    resources :customers, only: [:update, :show, :edit]
+    get '/customers/my_page', to: 'customers#show'
+    get '/customers/my_page/edit', to: 'customers#edit'
+    patch '/customers/my_page', to: 'customers#update'
     resources :designs, only: [:index, :show]
-    resources :genres, only: [:index]
     resources :cart_items, only: [:index, :create, :update, :destroy, :destroy_all]
     post '/cart_items/order_made_create' => 'cart_items#order_made_create'
     delete :cart_items, to: 'cart_items#destroy_all'
     post '/orders/confirm' => 'orders#confirm'
     get '/orders/thanks'=> 'orders#thanks'
     resources :orders, only: [:new, :index, :show, :create]
-    resources :address, only: [:create]
     resources :reviews, only: [:index, :new, :create]
   end
 end
@@ -98,9 +98,9 @@ end
 #design GET    /designs/:id(.:format)                                       public/designs#show
 
 #customers_unsubscribe GET    /customers/unsubscribe(.:format)              public/customers#unsubscribe
-#edit_customer GET    /customers/:id/edit(.:format)                         public/customers#edit
-#customer GET    /customers/:id(.:format)                                   public/customers#show
-#         PATCH  /customers/:id(.:format)                                   public/customers#update
+#customers_my_page GET    /customers/my_page(.:format)                      public/customers#show
+#customers_my_page_edit GET    /customers/my_page/edit(.:format)            public/customers#edit
+#                       PATCH  /customers/my_page(.:format)                 public/customers#update
 #customers_withdraw PATCH  /customers/withdraw(.:format)                    public/customers#withdraw
 
 #cart_items GET    /cart_items(.:format)                                    public/cart_items#index

@@ -1,0 +1,65 @@
+// Place all the styles related to the public/cartItems controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.table-cartitems {
+  font-size: unquote("min(1.5vw,16px)");
+}
+table img {
+  width: 80px;
+}
+.btn-back-cartitem {
+  color: white;
+  background: #777777;
+  margin: 0 auto;
+  transition: 0.5s;
+  margin-bottom: 10px;
+}
+.btn-back-cartitem:hover {
+  color: white;
+  background: #444444;
+  transition: 0.5s;
+}
+
+.btn-red-cartitems {
+  color: white;
+  background: #A52A2A;
+  transition: 0.5s;
+}
+.btn-red-cartitems:hover {
+  color: white;
+  background: #770000;
+  transition: 0.5s;
+}
+.btn-blue-cartitems {
+	color: white;
+  background: #006699;
+  margin: 0 auto;
+  transition: 0.5s;
+  margin-bottom: 10px;
+}
+.btn-blue-cartitems:hover {
+	background: #000099;
+	color: white;
+  transition: 0.5s;
+}
+.btn-purple-cartitems {
+  color: white;
+  background: #6A5ACD;
+  transition: 0.5s;
+}
+.btn-purple-cartitems:hover {
+  color: white;
+  background: #4B0082;
+  transition: 0.5s;
+}
+
+@media screen and (max-width: 576px) {
+  table img {
+    width: 50px;
+  }
+}
+@media screen and (max-width: 425px) {
+  h2 {
+    font-size: 20px;
+  }
+}

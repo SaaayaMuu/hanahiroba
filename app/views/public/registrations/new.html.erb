@@ -1,77 +1,6 @@
-<style>
-
-  .body {
-    font-family: 'Zen Antique', serif;
-  }
-  .registration-box {
-    width: 425px;
-    margin: 0 auto;
-  }
-
-  .registration-box p {
-    margin: 3px 0 3px 0;
-  }
-  .registration-box span {
-    display: inline-block;
-    width: 50px;
-    text-align: center;
-  }
-
-  .long-label {
-    width: 100%;
-  }
-
-  .short-label {
-    width: 49%;
-  }
-  .long-input {
-    width: 100%;
-    box-sizing:border-box;
-  }
-  .short-input {
-    width: 100%;
-  }
-  .btn-purple {
-    color: white;
-    background: #6A5ACD;
-    transition: 0.5s;
-    margin-top: 20px;
-  }
-  .btn-purple:hover {
-    color: white;
-    background: #4B0082;
-    transition: 0.5s;
-  }
-  .btn-back {
-    color: white;
-    background: #777777;
-    margin: 0 auto;
-    transition: 0.5s;
-    margin: 20px 0;
-  }
-  .btn-back:hover {
-    color: white;
-    background: #444444;
-    transition: 0.5s;
-  }
-@media screen and (max-width: 425px) {
-  h2 {
-    font-size: 20px;
-  }
-  h4 {/*エラーメッセージ「未入力の項目があります」*/
-    font-size: 15px;
-  }
-  .registration-box {
-    width: 100%;
-    font-size: 10px;
-  }
-  .btn-purple {
-    font-size: 10px;
-  }
-  .btn-back {
-    font-size: 10px;
-  }
-</style>
+<head>
+  <%= stylesheet_link_tag 'public/registrations_new' %>
+</head>
 
 <div class="body">
 
@@ -122,7 +51,7 @@
       <div>
         <label class="long-label">
           <p>住所</p>
-          <%= f.text_area :address, autofocus: true, id:"customer_address", placeholder: "東京都渋谷区代々木神園町0-0", class: "long-input" %>
+          <%= f.text_area :address, autofocus: true, id:"customer_address", placeholder: "例)東京都渋谷区代々木神園町0-0", class: "long-input" %>
         </label>
 
       </div>
@@ -130,7 +59,7 @@
       <div>
         <label class="short-label">
           <p>電話番号(ハイフンなし)</p>
-          <%= f.text_field :telephone_number, autofocus: true, id:"customer_Telephone_number", placeholder: "0000000000", class: "short-input" %>
+          <%= f.text_field :telephone_number, autofocus: true, id:"customer_Telephone_number", placeholder: "例)0000000000", class: "short-input" %>
         </label>
       </div>
 
@@ -145,8 +74,8 @@
           <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "short-input" %>
       </div>
 
-      <%= f.submit "新規登録", class: "long-input btn btn-purple" %>
-      <%= link_to "会員登録をやめる", designs_path, class: "long-input btn btn-back" %>
+      <%= f.submit "新規登録", class: "long-input btn btn-purple-registration" %>
+      <%= link_to "会員登録をやめる", designs_path, class: "long-input btn btn-back-registration" %>
 
 
 

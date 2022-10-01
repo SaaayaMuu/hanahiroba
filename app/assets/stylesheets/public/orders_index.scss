@@ -1,0 +1,36 @@
+table img {
+  width: 80px;
+}
+.table-orders {
+  width: 100%;
+  border: 2px solid #000055;
+  margin: 0 auto;
+  background-color: white;
+}
+.order-index-box {
+  font-size: unquote("min(1.5vw,16px)");
+  width: 60%;
+  margin: 0 auto;
+  margin-bottom: 10px;
+
+}
+.order-index-box p {
+  color: black;
+}
+
+.order-index-box a {
+  text-align: right;
+  text-decoration: underline;
+  color: black;
+}
+.order-index-box a:hover {
+  text-decoration: none;
+}
+@media screen and (max-width: 576px) {
+  .order-index-box {
+    width: 100%;
+  }
+  table img {
+    width: 50px;
+  }
+}

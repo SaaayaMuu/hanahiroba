@@ -9,7 +9,7 @@
       <% end %>
         <%= link_to designs_path, class: "path" do %><li class="nav-name">すべての商品</li><% end %>
         <%= link_to cart_items_path, class: "path" do %><li class="nav-name">カート</li><% end %>
-        <%= link_to customer_path(current_customer), class: "path" do %><li class="nav-name">マイページ</li><% end %>
+        <%= link_to customers_my_page_path, class: "path" do %><li class="nav-name">マイページ</li><% end %>
         <%= link_to destroy_customer_session_path, method: :delete, class: "path" do %><li class="nav-name">ログアウト</li><% end %>
     </div>
     <div class="login-content">
@@ -61,7 +61,7 @@
     <%= link_to designs_path, class: "path_line" do %><li>すべての商品</li><% end %>
     <%= link_to cart_items_path, class: "path_line" do %><li>カート</li><% end %>
     <% if customer_signed_in?%>
-    <%= link_to customer_path(current_customer), class: "path_line" do %><li>マイページ</li><% end %>
+    <%= link_to customers_my_page_path, class: "path_line" do %><li>マイページ</li><% end %>
     <%= link_to destroy_customer_session_path, method: :delete, class: "path_line" do %><li>ログアウト</li><% end %>
     <% else %>
     <%= link_to new_customer_session_path, class: "path_line" do %><li>ログイン</li><% end %>

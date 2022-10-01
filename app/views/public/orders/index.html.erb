@@ -1,43 +1,7 @@
-<style>
-table img {
-  width: 80px;
-}
-table {
-  width: 100%;
-  border: 2px solid #000055;
-  margin: 0 auto;
-  background-color: white;
-}
-.order-index-box {
-  font-size: min(1.5vw,16px);
-  width: 60%;
-  margin: 0 auto;
-  margin-bottom: 10px;
+<head>
+  <%= stylesheet_link_tag 'public/orders_index' %>
+</head>
 
-}
-.order-index-box p {
-  color: black;
-}
-
-.order-index-box a {
-  text-align: right;
-  text-decoration: underline;
-  color: black;
-}
-.order-index-box a:hover {
-  text-decoration: none;
-}
-@media screen and (max-width: 576px) {
-  .order-index-box {
-    width: 100%;
-  }
-  table img {
-    width: 50px;
-  }
-}
-
-
-</style>
 
 <%= render 'layouts/header', genre: @genre %>
 <div class="body">
@@ -49,7 +13,7 @@ table {
 
       <div class="order-index-box">
         <span><%= order.created_at.strftime('%Y/%m/%d') %></span>
-        <table>
+        <table class="table-orders">
           <tr><th class="col-xl-1 col-lg-3 col-md-3 col-sm-3 col-3">配送先</th><td>〒<%= order.postal_code %>  <%= order.address %></td></tr>
           <tr><th class="col-2">宛名</th><td><%= order.name %></td></tr>
           <tr><th class="col-2">注文商品</th>

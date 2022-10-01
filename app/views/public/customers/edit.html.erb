@@ -1,42 +1,6 @@
-<style>
-.btn-purple {
-  color: white;
-  background: #6A5ACD;
-  transition: 0.5s;
-}
-.btn-purple:hover {
-  color: white;
-  background: #4B0082;
-  transition: 0.5s;
-}
-.btn-red  {
-  color: white;
-  background: #A52A2A;
-  transition: 0.5s;
-}
-.btn-red:hover {
-  color: white;
-  background: #770000;
-  transition: 0.5s;
-}
-.btn-back {
-  color: white;
-  background: #777777;
-  margin: 0 auto;
-  transition: 0.5s;
-  margin-bottom: 10px;
-}
-.btn-back:hover {
-  color: white;
-  background: #444444;
-  transition: 0.5s;
-}
-@media screen and (max-width: 425px) {
-  h2 {
-    font-size: 20px;
-  }
-}
-</style>
+<head>
+  <%= stylesheet_link_tag 'public/customers' %>
+</head>
 
 <%= render 'layouts/header', genre: @genre %>
 <div class="body">
@@ -48,7 +12,7 @@
       <h5>登録情報編集</h5>
     </div>
 
-    <%= form_with model: @customer, url: customer_path, method: :patch do |f| %>
+    <%= form_with model: @customer, url: customers_my_page_path, method: :patch do |f| %>
       <div class="row justify-content-center">
 
         <div>
@@ -82,10 +46,10 @@
         </div>
       </div>
 
-      <p class="text-center mt-3"><%= f.submit "保存", class: "btn btn-sm btn-purple px-4 py-1" %></p>
+      <p class="text-center mt-3"><%= f.submit "保存", class: "btn btn-sm btn-purple-customers px-4 py-1" %></p>
     <% end %>
-    <p class="text-center mt-3"><%= link_to customer_path(current_customer), class: "btn btn-sm btn-back px-4 py-1" do %>戻る<% end %></p>
-    <p class="text-center mt-5"><%= link_to customers_unsubscribe_path, class: "btn btn-sm btn-red px-2 py-1" do %>退会する<% end %></p>
+    <p class="text-center mt-3"><%= link_to customers_my_page_path, class: "btn btn-sm btn-back-customers px-4 py-1" do %>戻る<% end %></p>
+    <p class="text-center mt-5"><%= link_to customers_unsubscribe_path, class: "btn btn-sm btn-red-customers px-2 py-1" do %>退会する<% end %></p>
 
 </div>
 </body>

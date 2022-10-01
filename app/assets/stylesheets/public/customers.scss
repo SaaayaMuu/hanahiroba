@@ -1,3 +1,50 @@
 // Place all the styles related to the public/customers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+/*editのみ*/
+.btn-red-customers  {
+  color: white;
+  background: #A52A2A;
+  transition: 0.5s;
+}
+.btn-red-customers:hover {
+  color: white;
+  background: #770000;
+  transition: 0.5s;
+}
+/*editのみここまで*/
+
+
+
+/*show&edit*/
+.btn-back-customers {
+  color: white;
+  background: #777777;
+  margin: 0 auto;
+  transition: 0.5s;
+  margin-bottom: 10px;
+}
+.btn-back-customers:hover {
+  color: white;
+  background: #444444;
+  transition: 0.5s;
+}
+.btn-purple-customers {
+  color: white;
+  background: #6A5ACD;
+  transition: 0.5s;
+}
+.btn-purple-customers:hover {
+  color: white;
+  background: #4B0082;
+  transition: 0.5s;
+}
+
+@media screen and (max-width: 425px) {
+  h2 {
+    font-size: 20px;
+  }
+}
+/*show&editここまで*/

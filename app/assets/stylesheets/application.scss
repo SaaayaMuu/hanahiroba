@@ -10,18 +10,12 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
- */
+*= require_tree .
+*= require_self
+*/
 
 
-
-// @import ”skippr”；
-
-
-
-
- * {
+* {
   margin:0;
   padding:0;
   box-sizing: border-box;
@@ -78,9 +72,6 @@ h3 {
 h4 {
   font-family: 'Kaisei Tokumin', serif;
 }
-
-
-
 
 
 
@@ -286,14 +277,12 @@ h4 {
   bottom: 30px;
 }
 .menu-trigger.active span:nth-child(1) {
-  // -webkit-transform: translateY(10px) rotate(-45deg);
   transform: translateY(40px) rotate(-45deg);
 }
 .menu-trigger.active span:nth-child(2) {
   opacity: 0;
 }
 .menu-trigger.active span:nth-child(3) {
-  // -webkit-transform: translateY(-10px) rotate(45deg);
   transform: translateY(-40px) rotate(45deg);
 }
 
@@ -438,6 +427,7 @@ header {
   position: absolute;
   vertical-align:middle;
 }
+/*header ハンバーガーここまで*/
 
 /*public#headerここまで*/
 
@@ -456,16 +446,6 @@ article{
     margin: 10px 10px 0 0;
     float: left;
  }
-/*使い道？
-.item_thumbnail{
-    height: 100px;
-    margin: 10px;
-    float: left;
- }
-*/
- .add_item {
-   color: red;
- }
 
 #result {
   display: flex;
@@ -473,266 +453,6 @@ article{
 }
 /*プレビュー機能ここまで*/
 
-
-
-/*/////////////////////
-//public/design#index//
-/////////////////////*/
-
-// .designs-box {
-//   width: 100%;
-//   height: auto;
-//   display: flex;
-//   flex-wrap: wrap;
-//   justify-content: start;
-// }
-
-// .design-item {
-//   max-width: 300px;
-//   width: 25%;
-//   // margin: 0 30px;
-// }
-
-// .regular {
-//   width: 90%;
-//   // margin: 0 30px;
-// }
-// .slick-slide img {
-//   width: 100%;
-//   height: auto;
-//   object-fit: cover;
-// }
-
-// .design-detail {
-//   width: 90%;
-//   // max-width: 300px;
-//   // margin: 0 30px;
-//   // max-height: 200px;
-//   color: black;
-// }
-// .design-detail h5 {
-//   margin-bottom: 0;
-// }
-// .design-index-genre {
-//   font-size: 0.8em;
-//   color: gray;
-// }
-
-// .slick-slide {
-//   margin: 0 5px;
-// }
-
-// .slick-prev, .slick-next {
-//   z-index: 1;
-//   font-weight: bold;
-// }
-
-// .slick-prev:before, .slick-next:before {
-//   color: #000;
-// }
-// .slick-next:before {
-//   content: '';
-// }
-// .slick-prev:before {
-//   content: '';
-// }
-
-// .slick-dots li.slick-active button:before {
-//     opacity: .75;
-//     color: black;
-// }
-// .slick-dots li button:before {
-//     font-family: 'slick';
-//     font-size: 0;
-//     line-height: 0;
-//     position: absolute;
-//     top: 0;
-//     left: 0;
-//     width: 0;
-//     height: 0;
-//     content: '•';
-//     text-align: center;
-//     opacity: .25;
-//     color: black;
-//     -webkit-font-smoothing: antialiased;
-//     -moz-osx-font-smoothing: grayscale;
-// }
-/*public/design#indexここまで*/
-
-
-
-
-
-
-
-/*////////////////////
-/////designs#show/////
-////////////////////*/
-
-
-// .design-show-body {
-//   font-family: 'Kaisei Tokumin', serif;
-//   font-weight: bold;
-// }
-// .design-box2 {
-//   width: 80%;
-//   display: flex;
-//   flex-wrap: wrap;
-//   justify-content: center;
-//   margin: 0 auto;
-// }
-
-// .design-content {
-//   width: 40%;
-//   height: auto;
-//   margin-left: 20px;
-// }
-// .design-content p {
-//   font-size: 1rem;
-// }
-
-// .design-content p:nth-child(3) {
-//   margin-top: 20px;
-
-// }
-
-// .slider6-wrap {
-//   width: 40%;//sliderメイン画像横幅
-//   position: relative;
-// }
-// .slider-6 .slick-slide {
-//   height: auto;//sliderメイン画像高さ
-//   overflow: hidden;
-//   display: flex;
-//   flex-wrap: wrap;
-// }
-// .slider-6 .slick-slide img {
-//   display: block;
-//   width: 100%;
-//   height: auto;
-//   object-fit: contain;/*アスペクト比を維持したまま、枠に収まるように拡大縮小される。*/
-// }
-// .thumbs_dots {
-//   margin: 10px 0 0;
-// }
-// .thumbs_list li {
-//   display: inline-block;
-//   width: 25%;
-//   height: 80px;
-//   opacity: 0.4;
-//   cursor: pointer;
-//   transition: opacity 0.3s;
-// }
-// .thumbs_list li.slick-active {
-//   opacity: 1;
-// }
-
-
-// .item-box {
-//   width: 80%;
-//   display: flex;
-//   flex-wrap: wrap;
-//   justify-content: start;
-//   margin: 0 auto;
-//   margin-top: 50px;
-// }
-// .item-content img {
-//   width: 100%;
-//   height: auto;
-// }
-// .item-content {
-//   width: 200px;
-//   // margin: 50px 20px 20px 0;
-// }
-
-// .custom-item-content {
-//   width: 100%;
-//   display: flex;
-//   flex-wrap: wrap;
-//   justify-content: center;
-//   align-items: end;
-// }
-
-// svg {
-//   height: 260px;
-//   width: 260px;
-// }
-
-// .custom-item-submit {
-//   text-align: center;
-//   margin-top: 50px;
-// }
-// .design-box2 {
-//   width: 80%;
-//   display: flex;
-//   justify-content: center;
-//   margin: 0 auto;
-// }
-
-// .design-content {
-//   // width: 600px;
-//   width: 50%;
-//   height: 400px;
-//   margin-left: 20px;
-//   position: relative;
-// }
-// .design-content p {
-//   font-size: 1.5em;
-// }
-
-// .design-content p:nth-child(3) {
-//   position: absolute;
-//   bottom: 0;
-//   margin: 0;
-// }
-
-// .slider6-wrap {
-//   // width: 600px;
-//   width: 50%;
-//   height: auto;
-//   position: relative;
-// }
-// .slider-6 .slick-slide {
-//   height: 400px;
-//   overflow: hidden;
-// }
-// .slider-6 .slick-slide img {
-//   display: block;
-//   width: 100%;
-//   height: 100%;
-//   object-fit: contain;/*アスペクト比を維持したまま、枠に収まるように拡大縮小される。*/
-// }
-
-// .thumbs_list li {
-//   display: inline-block;
-//   width: 25%;
-//   height: 100px;
-//   opacity: 0.4;
-//   cursor: pointer;
-//   transition: opacity 0.3s;
-// }
-// .thumbs_list li.slick-active {
-//   opacity: 1;
-// }
-
-
-// .item-box {
-//   width: 80%;
-//   display: flex;
-//   flex-wrap: wrap;
-//   justify-content: start;
-//   margin: 0 auto;
-//   margin-top: 50px;
-
-// }
-
-// .item-content {
-//   // width: 200px;
-//   margin: 50px 20px 20px 0;
-// }
-
-
-/*designs#showここまで*/
 
 
 
@@ -793,7 +513,7 @@ article{
     color: #000099;
   }
 
-  .background i {
+  .background i {/*font awesome*/
     vertical-align: middle;
     font-size: 20px;
   }
@@ -801,9 +521,6 @@ article{
     font-size: 10px;
     text-align: center;
   }
-
-
-
 
 
 
@@ -850,8 +567,6 @@ article{
   transform: translateY(-26px) rotate(45deg);
 }
 
-
-
 /*header画像*/
 header {
   height: 250px;
@@ -881,11 +596,7 @@ header {
   z-index: 999;
 }
 }
-@media screen and (max-width: 1024px) {
-  /*top画面の枠線*/
 
- /*top画面の枠線ここまで*/
-}
 
 @media screen and (max-width: 800px) {
   /*top画面スライド画像*/
@@ -913,80 +624,74 @@ header {
  /*top画面スライド画像ここまで*/
 }
 
+
 /*public header用*/
 @media screen and (max-width: 768px) {
 
-/*top画面*/
-.sidebar {
-  width: 50px;
-  height: 100px;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-}
-.hanahiroba-icon {
-  width: 50px;
-  height: 50px;
-}
-/*top画面 & public header*/
-.menu-trigger {
-  width: 50px;
-  height: 50px;
-}
-.menu-trigger span:nth-child(1),span:nth-child(3) {
-  position: absolute;
-  left: 8px;
-  width: 70%;
-  height: 4px;
-}
-.menu-trigger span:nth-child(1) {
-  top: 10px;
-}
-.menu-trigger span:nth-child(2) {
-  position: absolute;
-  top: 15px;
-  left: 7px;
-  font-size: 13px;
-}
-.menu-trigger span:nth-child(3) {
-  bottom: 10px;
-}
-.menu-trigger.active span:nth-child(1) {
-  transform: translateY(13px) rotate(-45deg);
-}
-.menu-trigger.active span:nth-child(3) {
-  transform: translateY(-13px) rotate(45deg);
-}
+  /*top画面*/
+  .sidebar {
+    width: 50px;
+    height: 100px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+  .hanahiroba-icon {
+    width: 50px;
+    height: 50px;
+  }
+  /*top画面 & public header*/
+  .menu-trigger {
+    width: 50px;
+    height: 50px;
+  }
+  .menu-trigger span:nth-child(1),span:nth-child(3) {
+    position: absolute;
+    left: 8px;
+    width: 70%;
+    height: 4px;
+  }
+  .menu-trigger span:nth-child(1) {
+    top: 10px;
+  }
+  .menu-trigger span:nth-child(2) {
+    position: absolute;
+    top: 15px;
+    left: 7px;
+    font-size: 13px;
+  }
+  .menu-trigger span:nth-child(3) {
+    bottom: 10px;
+  }
+  .menu-trigger.active span:nth-child(1) {
+    transform: translateY(13px) rotate(-45deg);
+  }
+  .menu-trigger.active span:nth-child(3) {
+    transform: translateY(-13px) rotate(45deg);
+  }
 
-/*headerナビがハンバーガーに切り替わる*/
-.nav-hanahiroba-icon {
-  display: none;
-}
+  /*headerナビがハンバーガーに切り替わる*/
+  .nav-hanahiroba-icon {
+    display: none;
+  }
   .public-sidebar {
     display: block;
   }
   .nav-text {
     display: none;
   }
+  /*headerナビがハンバーガーに切り替わるここまで*/
 
-/*headerナビがハンバーガーに切り替わるここまで*/
 
-/*public header*/
+  /*public header*/
   header {
     height: 200px;
+  }
+  /*public headerここまで*/
 }
 
-/*public headerここまで*/
-}
 
 @media screen and (max-width: 576px) {
-/*top画面*/
-
-
-/*top画面ここまで*/
-
-
-/*スマホサイズ(top画面ハンバーガーメニュー用)ここまで*/
 
 /*public header*/
   header {

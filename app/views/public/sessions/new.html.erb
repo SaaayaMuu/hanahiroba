@@ -1,64 +1,7 @@
-<style>
+<head>
+  <%= stylesheet_link_tag 'public/sessions_new' %>
+</head>
 
-  .body {
-    font-family: 'Zen Antique', serif;
-  }
-  .registration-box {
-    width: 425px;
-    margin: 0 auto;
-  }
-  .registration-box p {
-    margin: 3px 0 3px 0;
-  }
-
-  .long-label {
-    width: 100%;
-  }
-  .long-input {
-    width: 100%;
-    box-sizing:border-box;
-  }
-  .btn-purple {
-    color: white;
-    background: #6A5ACD;
-    transition: 0.5s;
-    margin-top: 20px;
-  }
-  .btn-purple:hover {
-    color: white;
-    background: #4B0082;
-    transition: 0.5s;
-  }
-  .btn-back {
-    color: white;
-    background: #777777;
-    margin: 0 auto;
-    transition: 0.5s;
-    margin: 20px 0;
-  }
-  .btn-back:hover {
-    color: white;
-    background: #444444;
-    transition: 0.5s;
-  }
-@media screen and (max-width: 425px) {
-  h2 {
-    font-size: 20px;
-  }
-  h4 {/*エラーメッセージ「未入力の項目があります」*/
-    font-size: 15px;
-  }
-  .registration-box {
-    width: 100%;
-    font-size: 10px;
-  }
-  .btn-purple {
-    font-size: 10px;
-  }
-  .btn-back {
-    font-size: 10px;
-  }
-</style>
 
 <div class="body">
 
@@ -87,8 +30,8 @@
       </div>
 
 
-      <%= f.submit "ログイン", class: "long-input btn btn-purple" %>
-      <%= link_to "ログインをやめる", designs_path, class: "long-input btn btn-back" %>
+      <%= f.submit "ログイン", class: "long-input btn btn-purple-session" %>
+      <%= link_to "ログインをやめる", designs_path, class: "long-input btn btn-back-session" %>
 
       <p>
         会員登録がお済みでない方<br>

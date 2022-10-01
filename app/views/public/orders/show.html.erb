@@ -1,18 +1,6 @@
-<style>
-.btn-back {
-  color: white;
-  background: #777777;
-  margin: 0 auto;
-  transition: 0.5s;
-  margin-bottom: 10px;
-}
-.btn-back:hover {
-  color: white;
-  background: #444444;
-  transition: 0.5s;
-}
-}
-</style>
+<head>
+  <%= stylesheet_link_tag 'public/orders_show' %>
+</head>
 
 
 <%= render 'layouts/header', genre: @genre %>
@@ -77,6 +65,6 @@
         </table>
       </div>
     </div>
-    <p class="text-center mt-5"><%= link_to "戻る", orders_path, class: "btn btn-back" %></p>
+    <p class="text-center mt-5"><%= link_to "戻る", orders_path, class: "btn btn-back-orders-show" %></p>
   </div>
 </div>
