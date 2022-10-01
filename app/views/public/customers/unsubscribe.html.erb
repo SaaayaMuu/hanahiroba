@@ -1,6 +1,8 @@
-
+<head>
+  <%= stylesheet_link_tag 'public/customers' %>
+</head>
 <div class="container">
-  <h4 class="text-center mt-5">本当に退会しますか？</h4>
+  <h2 class="text-center mt-5">本当に退会しますか？</h4>
 
   <p class="text-center mt-5">
     退会すると、会員登録情報や<br>
@@ -9,7 +11,7 @@
   </p>
 
   <div class="row justify-content-center">
-    <%= link_to "退会しない", edit_customer_path(current_customer), class: "btn btn-primary" %>
-    <%= link_to "退会する", customers_withdraw_path(current_customer), method: :patch, class: "btn btn-danger ml-3" %>
+    <%= link_to "退会しない", customers_my_page_edit_path, class: "btn btn-purple-customers" %>
+    <%= link_to "退会する", customers_withdraw_path(current_customer), method: :patch, class: "btn btn-red-customers ml-3" %>
   </div>
 </div>

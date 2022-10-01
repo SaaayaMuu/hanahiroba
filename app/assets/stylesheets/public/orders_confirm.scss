@@ -1,9 +1,3 @@
-// .table-confirm {
-//   font-size: calc(min(1.5vw,16px));
-// }
-// .field{
-//   font-size: calc(min(1.5vw,16px));
-// }
 table img {
   width: 80px;
 }
@@ -20,5 +14,13 @@ table img {
 @media screen and (max-width: 576px) {
   table img {
     width: 50px;
+  }
+}
+@media screen and (max-width: 425px) {
+  .container {
+    padding: 0;
+  }
+  .field {
+    padding-left: 12px;
   }
 }

@@ -2,20 +2,18 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-// .table-cartitems {
-//   font-size: calc(min(1.5vw,16px));
-// }
+
 table img {
   width: 80px;
 }
-.btn-back-cartitem {
+.btn-back-cartitems {
   color: white;
   background: #777777;
   margin: 0 auto;
   transition: 0.5s;
   margin-bottom: 10px;
 }
-.btn-back-cartitem:hover {
+.btn-back-cartitems:hover {
   color: white;
   background: #444444;
   transition: 0.5s;
@@ -53,10 +51,27 @@ table img {
   background: #4B0082;
   transition: 0.5s;
 }
+ @media screen and (max-width: 768px) {
+  .btn-back-cartitems {
+    font-size: 10px;
+  }
+  .btn-red-cartitems {
+    font-size: 10px;
+  }
+  .btn-purple-cartitems {
+    font-size: 10px;
+  }
+  .btn-blue-cartitems {
+    font-size: 10px;
+  }
+ }
 
 @media screen and (max-width: 576px) {
   table img {
     width: 50px;
+  }
+  .table-cartitems td {
+    padding: 2px;
   }
 }
 @media screen and (max-width: 425px) {

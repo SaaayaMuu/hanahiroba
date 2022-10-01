@@ -10,3 +10,8 @@
   background: #444444;
   transition: 0.5s;
 }
+@media screen and (max-width: 768px) {
+  .btn-back-orders-show {
+    font-size: 10px;
+  }
+}

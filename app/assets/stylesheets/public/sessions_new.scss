@@ -39,21 +39,23 @@
   background: #444444;
   transition: 0.5s;
 }
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 768px) {
   h2 {
     font-size: 20px;
   }
   h4 {/*エラーメッセージ「未入力の項目があります」*/
     font-size: 15px;
   }
-  .registration-box {
-    width: 100%;
-    font-size: 10px;
-  }
   .btn-purple-session {
     font-size: 10px;
   }
   .btn-back-session {
+    font-size: 10px;
+  }
+}
+@media screen and (max-width: 425px) {
+  .registration-box {
+    width: 100%;
     font-size: 10px;
   }
 }
