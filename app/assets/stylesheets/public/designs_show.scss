@@ -87,9 +87,9 @@
     border: thin solid black;
   }
 
-  .item-box-p {
-    font-size: unquote("min(15px,1vw)");
-  }
+  // .item-box-p {
+  //   font-size: calc(min(15px,1vw));
+  // }
   .item-box p:nth-child(7),p:nth-child(8) {
     text-align: center;
     margin: 0;
