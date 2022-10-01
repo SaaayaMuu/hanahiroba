@@ -34,12 +34,11 @@
   }
   .design-detail p:nth-child(1) {
     color: gray;
-    font-size: calc(min(0.8vw, 13px));
+    font-size: 0.8em;
     margin-bottom: 0;
   }
   .design-detail p {
     color: black;
-    font-size: calc(min(1vw,15px));
   }
 
   @media screen and (max-width: 768px) {
