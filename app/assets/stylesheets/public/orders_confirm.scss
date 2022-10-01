@@ -1,8 +1,8 @@
 .table-confirm {
-  font-size: unquote("min(1.5vw,16px)");
+  font-size: calc(min(1.5vw,16px));
 }
 .field{
-  font-size: unquote("min(1.5vw,16px)");
+  font-size: calc(min(1.5vw,16px));
 }
 table img {
   width: 80px;

@@ -1,6 +1,6 @@
 .body {
   font-family: 'Zen Antique', serif;
-  font-size: unquote("min(1.5vw,16px)");
+  font-size: calc(min(1.5vw,16px));
 }
 .orders-new-box {
   max-width: 700px;

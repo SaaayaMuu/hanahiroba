@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 .table-cartitems {
-  font-size: unquote("min(1.5vw,16px)");
+  font-size: calc(min(1.5vw,16px));
 }
 table img {
   width: 80px;
