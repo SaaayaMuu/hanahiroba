@@ -2,7 +2,7 @@
 
 ## サイト概要
 伝統工芸「つまみ細工」のECサイト
-!(images/005539.png)
+![005539](https://user-images.githubusercontent.com/104898012/193464092-40bd5e65-d750-4400-887b-89b494dba17e.png)
 
 ### サイトテーマ
 __～身近にもっと和を。～__<br>
