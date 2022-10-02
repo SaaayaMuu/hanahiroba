@@ -1,13 +1,11 @@
-.body {
-  font-family: 'Zen Antique', serif;
-}
+
 .orders-new-box {
-  max-width: 700px;
   width: 60%;
+  max-width: 500px;
   margin: 0 auto;
 }
 .orders-new-box div {
-  margin-bottom: 20px;
+  margin: 20px auto;
 }
 .orders-new-box p {
   margin: 0;
@@ -23,11 +21,11 @@
 }
 
 .long-label {
-  width: 70%;
+  width: 100%;
 }
 
 .short-label {
-  width: 35%;
+  width: 50%;
 }
 .long-input {
   width: 100%;
@@ -47,25 +45,19 @@
   transition: 0.5s;
   width: 35%;
   font-size: 0.8em;/*btn*/
+  margin-top: 50px;
 }
 .btn-purple-orders-new:hover {
   color: white;
   background: #4B0082;
   transition: 0.5s;
 }
-@media screen and (max-width: 768px) {
+
+@media screen and (max-width: 576px) {
   .orders-new-box {
     width: 80%;
   }
-}
-@media screen and (max-width: 576px) {
-  .orders-new-box {
+  .btn-purple-orders-new {
     width: 90%;
   }
-}
-@media screen and (max-width: 425px) {
-  .orders-new-box {
-    width: 100%;
-  }
-
 }

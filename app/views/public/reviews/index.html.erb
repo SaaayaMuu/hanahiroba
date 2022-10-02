@@ -5,7 +5,7 @@
 
 
 <%= render 'layouts/header', genre: @genre %>
-
+<div class="body">
   <div class="container">
 
     <h2 class="my-5 text-center">レビュー</h2>
@@ -18,7 +18,7 @@
     </p>
     <% @reviews.each do |review| %>
 
-      <div class="review-box_index">
+      <div class="review-box-index">
         <div>
           <% if review.image.attached? %>
             <%= image_tag review.image, class: "review-img" %>
@@ -45,3 +45,4 @@
 
     <% end %>
   </div>
+</div>

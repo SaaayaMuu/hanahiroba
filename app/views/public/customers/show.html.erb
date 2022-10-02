@@ -13,33 +13,32 @@
     <div class="row justify-content-center">
       <div class="col-8 col-sm-10 col-md-8 col-lg-6 col-xl-6">
         <div class="mb-3 border-bottom border-secondary">
-          <h6>氏名</h6>
+          <p>氏名</p>
           <p class="text-center"><%= @customer.full_name %></p>
         </div>
         <div class="mb-3 border-bottom border-secondary">
-          <h6>カナ</h6>
+          <p>カナ</p>
           <p class="text-center"><%= @customer.full_name_kana %></p>
         </div>
         <div class="mb-3 border-bottom border-secondary">
-          <h6>郵便番号</h6>
+          <p>郵便番号</p>
           <p class="text-center"><%= @customer.postal_code %></p>
         </div>
         <div class="mb-3 border-bottom border-secondary">
-          <h6>住所</h6>
+          <p>住所</p>
           <p class="text-center"><%= @customer.address %></p>
         </div>
         <div class="mb-3 border-bottom border-secondary">
-          <h6>電話番号</h6>
+          <p>電話番号</p>
           <p class="text-center"><%= @customer.telephone_number %></p>
         </div>
         <div class="mb-3 border-bottom border-secondary">
-          <h6>メールアドレス</h6>
+          <p>メールアドレス</p>
           <p class="text-center"><%= @customer.email %></p>
         </div>
       </div>
     </div>
     <p class="text-center mt-4"><%= link_to orders_path, class: "btn btn-purple-customers ml-2" do %>注文履歴一覧を見る<% end %></p>
-
   </div>
 </div>
 <%= render 'layouts/footer' %>

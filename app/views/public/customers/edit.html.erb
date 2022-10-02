@@ -14,29 +14,29 @@
       <div class="row justify-content-center">
         <div>
           <div class="mb-3">
-            <h5>氏名</h5>
+            <p>氏名</p>
             <%= f.text_field :last_name, autofocus: true, required: true, class: "text-secondary" %>
             <%= f.text_field :first_name, required: true, class: "text-secondary" %>
           </div>
           <div class="mb-3">
-            <h5>カナ</h5>
+            <p>カナ</p>
             <%= f.text_field :last_name_kana, required: true, class: "text-secondary" %>
             <%= f.text_field :first_name_kana, required: true, class: "text-secondary" %>
           </div>
           <div class="mb-3">
-            <h5>郵便番号</h5>
+            <p>郵便番号</p>
             <%= f.text_field :postal_code, size: "42x10", required: true, class: "text-secondary" %>
           </div>
           <div class="mb-3">
-            <h5>住所</h5>
+            <p>住所</p>
             <%= f.text_area :address, size: "42x3", required: true, class: "text-secondary" %>
           </div>
           <div class="mb-3">
-            <h5>電話番号</h5>
+            <p>電話番号</p>
             <%= f.text_field :telephone_number, size: "42x10", required: true, class: "text-secondary" %>
           </div>
           <div class="mb-3">
-            <h5>メールアドレス</h5>
+            <p>メールアドレス</p>
             <%= f.email_field :email, size: "42x10", required: true, class: "text-secondary" %>
           </div>
         </div>

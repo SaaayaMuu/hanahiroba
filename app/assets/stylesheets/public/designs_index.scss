@@ -1,9 +1,4 @@
 
-  .body {
-    width: 100%;
-    height: 100%;
-    font-family: 'Zen Antique', serif;
-  }
 
   .designs-box {
     width: 80%;
@@ -48,9 +43,6 @@
   @media screen and (max-width: 768px) {
   .designs-box {
     width: 100%;
-  }
-  .design-item {
-    width: 33.3%;
   }
   }
   @media screen and (max-width: 576px) {

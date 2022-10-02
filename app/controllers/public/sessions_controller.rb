@@ -3,6 +3,7 @@
 class Public::SessionsController < Devise::SessionsController
 
   before_action :customer_state, only: [:create]
+  before_action :cartitems_destroy, only: [:destroy]
 
   def after_sign_in_path_for(resource)
     flash[:notice] = '' #(nav部分に常時顧客名表示してるのでいらない)
@@ -10,7 +11,7 @@ class Public::SessionsController < Devise::SessionsController
   end
 
   def after_sign_out_path_for(resource)
-     flash[:notice] = 'ログアウトしました'
+    flash[:notice] = 'ログアウトしました'
     designs_path
   end
   # before_action :configure_sign_in_params, only: [:create]
@@ -49,6 +50,13 @@ class Public::SessionsController < Devise::SessionsController
       flash[:notice] = 'すでに退会しています。再度会員登録をしてください。'
       redirect_to new_customer_registration_path
     end
+  end
+
+  #ログアウト時にcart_itemの中身をすべて空にする
+  def cartitems_destroy
+    @customer = current_customer
+    @cart_items = @customer.cart_items.all
+    @cart_items.destroy_all
   end
 
 end
