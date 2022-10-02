@@ -8,11 +8,8 @@
 
   <%= form_with model: @order, url: orders_confirm_path, method: :post do |f| %>
 
-
     <h5 class="text-center mb-5">注文情報入力(お届け先)</h5>
-
     <div class="orders-new-box">
-
       <div>
         <p>
           <%= f.radio_button :select_address, "0" , {required: true}%>
@@ -52,8 +49,6 @@
       </div>
 
       <p class="input-orders-new"><%= f.submit "確認画面へすすむ", class: "btn btn-purple-orders-new" %></p>
-
-
     </div>
   <% end %>
 </div>

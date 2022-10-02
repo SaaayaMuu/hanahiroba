@@ -3,12 +3,9 @@
 
   <h3 class="mb-3 mt-3">ジャンル編集</h3>
 
-<%= form_with model: @genre, url: admin_genre_path, method: :patch do |f| %>
-
-  <%= f.text_field :name, autofocus: true %>
-
-  <%= f.submit '保存' %>
-
-<% end %>
+  <%= form_with model: @genre, url: admin_genre_path, method: :patch do |f| %>
+    <%= f.text_field :name, autofocus: true %>
+    <%= f.submit '保存' %>
+  <% end %>
 
 </div>

@@ -1,9 +1,9 @@
 <%= render 'layouts/admin-header' %>
 
 <%= form_with model: @design, url: admin_design_path, method: :patch do |f| %>
-<div class="container">
+  <div class="container">
 
-  <h3 class="mb-3 mt-3">デザイン編集</h3>
+    <h3 class="mb-3 mt-3">デザイン編集</h3>
 
     <h4 class="mb-3 mt-3 font-weight-bold border-bottom">デザイン</h4>
     <article>
@@ -12,7 +12,7 @@
       <output id="result" />
       <% @design.images.each do |image| %>
         <%= f.check_box :image_ids, {:multiple => true}, image.id, false %>
-        <%= image_tag image.variant(resize: "200x200"), class:"pr-3" %>
+        <%= image_tag image.variant(resize: "200x200"), class: "pr-3" %>
       <% end %>
     </article>
 
@@ -26,10 +26,12 @@
       <div class="col-2"><label for="design[introduction]">デザイン説明</label></div>
       <div class="col-auto"><%= f.text_area :design_introduction, required: true%></div>
     </div>
+
     <div class="row">
       <div class="col-2"><label for="design[genre_id]">ジャンル</label></div>
       <div class="col-auto"><%= f.collection_select :genre_id, Genre.all, :id, :name, {:include_blank => "ジャンルを選択"},{required: true} %></div>
     </div>
+
     <div class="row">
       <div class="col-2"><label for="design[price]">税抜価格</label></div>
       <div class="col-auto"><%= f.text_field :design_price, required: true%></div>
@@ -38,9 +40,6 @@
 
     <h4 class="mb-3 mt-3 font-weight-bold border-bottom">商品</h4>
 
-    <!--<button>追加する</button>-->
-    <!--<%#= f.fields_for :items do |item| %>-->
-    <!--<%# end %>-->
 
     <%= link_to_add_association '＋''商品を追加',
                               # form_withのformタグ変数
@@ -66,18 +65,17 @@
                               }
   %>
 
-    <%#= f.fields_for :items do |item| %>
-      <%#= render partial: 'item-form', locals: {item: item} %>
-    <%# end %>
     <div id="item-forms">
-    <%= f.fields_for :items do |item| %>
-      <%= render partial: 'item-form-edit', locals: {item: item} %>
-    <% end %>
+      <%= f.fields_for :items do |item| %>
+        <%= render partial: 'item-form-edit', locals: {item: item} %>
+      <% end %>
     </div>
 
-  <div class="d-flex justify-content-center">
-    <%= f.submit '保存', class: "btn btn-sm btn-primary px-4 py-1" %>
-    <%= link_to '戻る',admin_design_path(@design.id), class: "btn btn-sm btn-warning text-light px-4 py-1 mx-3" %>
-    <%= link_to '削除',admin_design_path, method: :delete, data: {confirm: "削除しますか？"}, class: "btn btn-sm btn-danger px-4 py-1" %>
+    <div class="d-flex justify-content-center">
+      <%= f.submit '保存', class: "btn btn-sm btn-primary px-4 py-1" %>
+      <%= link_to '戻る',admin_design_path(@design.id), class: "btn btn-sm btn-warning text-light px-4 py-1 mx-3" %>
+      <%= link_to '削除',admin_design_path, method: :delete, data: {confirm: "削除しますか？"}, class: "btn btn-sm btn-danger px-4 py-1" %>
+    </div>
+
   </div>
-  <% end %>
+<% end %>

@@ -4,41 +4,34 @@
 
 
 <%= render 'layouts/header', genre: @genre %>
+
 <div class="container">
 
-<%= form_with model: @review, url: reviews_path, local: true do |f| %>
-<%= f.hidden_field :design_id, :value => @design.id %>
-<%= f.hidden_field :customer_id, :value => current_customer.id %>
-<div class="review-box_new">
+  <%= form_with model: @review, url: reviews_path, local: true do |f| %>
+    <%= f.hidden_field :design_id, :value => @design.id %>
+    <%= f.hidden_field :customer_id, :value => current_customer.id %>
+    <div class="review-box_new">
 
+      <div class="review-image">
+        <%= image_tag @design.images[0] %><!--.variant(resize: "200x200")-->
+      </div>
 
-  <div class="review-image">
-    <%= image_tag @design.images[0] %><!--.variant(resize: "200x200")-->
-  </div>
-  <div class="review-star">
-    <div class="star-form-group" id="star">
-      <%= f.hidden_field :rate, :value => 'score' %>
+      <div class="review-star">
+        <div class="star-form-group" id="star">
+          <%= f.hidden_field :rate, :value => 'score' %>
+        </div>
+      </div>
+
+      <p class="review-image-file">写真を追加する</p>
+      <%= f.file_field :image, accept: "image/*" %>
+      <%= f.text_area :body, class: "review-body form-control", rows: "5", placeholder:'感想をお書きください', required: true %>
+
+      <%= f.submit "レビューを送信する", class: "btn btn-purple-reviews-new" %>
+
     </div>
-  </div>
-
-
-  <p class="review-image-file">写真を追加する</p>
-  <%= f.file_field :image, accept: "image/*" %>
-  <%= f.text_area :body, class: "review-body form-control", rows: "5", placeholder:'感想をお書きください', required: true %>
-
-
-
-
- <%= f.submit "レビューを送信する", class: "btn btn-purple-reviews-new" %>
-
+  <% end %>
 
 </div>
-<% end %>
-
-</div>
-
-
-
 
 
 

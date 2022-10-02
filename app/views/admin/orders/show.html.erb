@@ -8,41 +8,45 @@
   <div class="row">
       <label for="customer_name" class="col-3 col-sm-3 col-md-2 col-lg-2 col-xl-2 col-form-label font-weight-bold">購入者</label>
       <%= @order.customer.full_name %>
-    </div>
-    <div class="row">
-      <label for="customer_name" class="col-3 col-sm-3 col-md-2 col-lg-2 col-xl-2 col-form-label font-weight-bold">注文日</label>
-      <%= @order.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
-    </div>
-    <div class="row">
-      <label for="customer_name" class="col-3 col-sm-3 col-md-2 col-lg-2 col-xl-2 col-form-label font-weight-bold">配送先</label>
-      <%= @order.postal_code %><%= @order.address %><br><%= @order.name %>
-    </div>
-    <div class="row">
-      <label for="customer_name" class="col-3 col-sm-3 col-md-2 col-lg-2 col-xl-2 col-form-label font-weight-bold">支払方法</label>
-      <%= "ふりこみ" %>
-    </div>
-    <div class="row">
-      <label for="customer_name" class="col-3 col-sm-3 col-md-2 col-lg-2 col-xl-2 col-form-label font-weight-bold">製作状況</label>
-      <%= form_with model: @order, url: admin_order_path, method: :patch do |f| %>
-        <%= f.select :making_status, Order.making_statuses_i18n.invert %>
-        <%= f.submit "更新" , class: "btn btn-success" %>
-      <% end %>
-    </div>
+  </div>
 
-    <div class="row mt-5">
-      <div class="col-xl-8 col-lg-8 col-md-12">
-        <table class="table table-bordered bg-white">
-          <thead>
-            <tr>
-              <th></th>
-              <th>商品名</th>
-              <th>単価(税込)</th>
-              <th>数量</th>
-              <th>小計</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @order_details.each do |order_detail| %>
+  <div class="row">
+    <label for="customer_name" class="col-3 col-sm-3 col-md-2 col-lg-2 col-xl-2 col-form-label font-weight-bold">注文日</label>
+    <%= @order.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
+  </div>
+
+  <div class="row">
+    <label for="customer_name" class="col-3 col-sm-3 col-md-2 col-lg-2 col-xl-2 col-form-label font-weight-bold">配送先</label>
+    <%= @order.postal_code %><%= @order.address %><br><%= @order.name %>
+  </div>
+
+  <div class="row">
+    <label for="customer_name" class="col-3 col-sm-3 col-md-2 col-lg-2 col-xl-2 col-form-label font-weight-bold">支払方法</label>
+    <%= "ふりこみ" %>
+  </div>
+
+  <div class="row">
+    <label for="customer_name" class="col-3 col-sm-3 col-md-2 col-lg-2 col-xl-2 col-form-label font-weight-bold">製作状況</label>
+    <%= form_with model: @order, url: admin_order_path, method: :patch do |f| %>
+      <%= f.select :making_status, Order.making_statuses_i18n.invert %>
+      <%= f.submit "更新" , class: "btn btn-success" %>
+    <% end %>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col-xl-8 col-lg-8 col-md-12">
+      <table class="table table-bordered bg-white">
+        <thead>
+          <tr>
+            <th></th>
+            <th>商品名</th>
+            <th>単価(税込)</th>
+            <th>数量</th>
+            <th>小計</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @order_details.each do |order_detail| %>
             <tr>
               <td class="align-middle"><%= image_tag order_detail.item.image.variant(resize: "100x100") %></td>
               <td class="align-middle"><%= order_detail.item.design.design_name %></td>
@@ -50,17 +54,17 @@
               <td class="align-middle"><%= order_detail.amount %></td>
               <td class="align-middle"><%= (order_detail.price*order_detail.amount).to_s(:delimited) %></td>
             </tr>
-            <% end %>
-          </tbody>
-        </table>
-      </div>
-      <div class="col-xl-4 col-lg-4 col-md-12 d-flex align-items-end pb-3">
-        <table>
-          <tr><th class="pr-2">商品合計</th><td><%= (@order.total_price - @order.postage).to_s(:delimited) %>円</td></tr>
-          <tr><th class="pr-2">送料</th><td><%= @order.postage %>円</td></tr>
-          <tr><th class="pr-2">請求金額</th><td><%= @order.total_price.to_s(:delimited) %>円</td></tr>
-        </table>
-      </div>
+          <% end %>
+        </tbody>
+      </table>
     </div>
+    <div class="col-xl-4 col-lg-4 col-md-12 d-flex align-items-end pb-3">
+      <table>
+        <tr><th class="pr-2">商品合計</th><td><%= (@order.total_price - @order.postage).to_s(:delimited) %>円</td></tr>
+        <tr><th class="pr-2">送料</th><td><%= @order.postage %>円</td></tr>
+        <tr><th class="pr-2">請求金額</th><td><%= @order.total_price.to_s(:delimited) %>円</td></tr>
+      </table>
+    </div>
+  </div>
 
 </div>

@@ -21,7 +21,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     resources :designs, only: [:new, :create, :show, :edit, :update, :index, :destroy]
     resources :items, only: [:create]
     resources :genres, only: [:index, :edit, :create, :update, :destroy]
-    resources :customers, only: [:index, :show, :edit, :update]
+    resources :customers, only: [:index, :show, :update]
     resources :orders, only: [:show, :update]
     resources :reviews, only: [:index, :destroy]
     get '/' => 'homes#top'

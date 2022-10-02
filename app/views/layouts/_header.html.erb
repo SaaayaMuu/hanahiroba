@@ -7,17 +7,17 @@
       <% genre.each do |genre| %>
         <%= link_to designs_path(genre_id: genre.id), class: "path" do %><li class="nav-genre">&emsp;--<%= genre.name %></li><% end %>
       <% end %>
-        <%= link_to designs_path, class: "path" do %><li class="nav-name">すべての商品</li><% end %>
-        <%= link_to cart_items_path, class: "path" do %><li class="nav-name">カート</li><% end %>
-        <%= link_to customers_my_page_path, class: "path" do %><li class="nav-name">マイページ</li><% end %>
-        <%= link_to destroy_customer_session_path, method: :delete, class: "path" do %><li class="nav-name">ログアウト</li><% end %>
+      <%= link_to designs_path, class: "path" do %><li class="nav-name">すべての商品</li><% end %>
+      <%= link_to cart_items_path, class: "path" do %><li class="nav-name">カート</li><% end %>
+      <%= link_to customers_my_page_path, class: "path" do %><li class="nav-name">マイページ</li><% end %>
+      <%= link_to destroy_customer_session_path, method: :delete, class: "path" do %><li class="nav-name">ログアウト</li><% end %>
     </div>
     <div class="login-content">
       <%= current_customer.last_name %>さんログイン中
     </div>
   </header>
 
-  <% else %>
+<% else %>
   <header>
     <div class="nav-hanahiroba-icon"></div>
     <div class="nav-text">
@@ -25,10 +25,10 @@
       <% genre.each do |genre| %>
         <%= link_to designs_path(genre_id: genre.id), class: "path" do%><li class="nav-genre">&emsp;--<%= genre.name %></li><% end %>
       <% end %>
-        <%= link_to designs_path, class: "path" do %><li class="nav-name">すべての商品</li><% end %>
-        <%= link_to cart_items_path, class: "path" do %><li class="nav-name">カート</li><% end %>
-        <%= link_to new_customer_session_path, class: "path" do %><li class="nav-name">ログイン</li><% end %>
-        <%= link_to new_customer_registration_path, class: "path" do %><li class="nav-name">会員登録</li><% end %>
+      <%= link_to designs_path, class: "path" do %><li class="nav-name">すべての商品</li><% end %>
+      <%= link_to cart_items_path, class: "path" do %><li class="nav-name">カート</li><% end %>
+      <%= link_to new_customer_session_path, class: "path" do %><li class="nav-name">ログイン</li><% end %>
+      <%= link_to new_customer_registration_path, class: "path" do %><li class="nav-name">会員登録</li><% end %>
     </div>
       <div class="login-content">
         <p class="text-center text-white lead"><%= flash[:notice] %></p>
@@ -37,18 +37,18 @@
 <% end %>
 
 
-  <!--ハンバーガーアイコン-->
-  <div class="public-sidebar">
-    <div class="public-hanahiroba-icon"></div>
-      <div id="public-hm-icon">
-          <a class="menu-trigger" href="#">
-            <span></span>
-            <span>menu</span>
-            <span></span>
-          </a>
-      </div>
-    </div>
+<!--ハンバーガーアイコン-->
+<div class="public-sidebar">
+  <div class="public-hanahiroba-icon"></div>
+  <div id="public-hm-icon">
+    <a class="menu-trigger" href="#">
+      <span></span>
+      <span>menu</span>
+      <span></span>
+    </a>
   </div>
+</div>
+
 
 
 
@@ -61,11 +61,11 @@
     <%= link_to designs_path, class: "path_line" do %><li>すべての商品</li><% end %>
     <%= link_to cart_items_path, class: "path_line" do %><li>カート</li><% end %>
     <% if customer_signed_in?%>
-    <%= link_to customers_my_page_path, class: "path_line" do %><li>マイページ</li><% end %>
-    <%= link_to destroy_customer_session_path, method: :delete, class: "path_line" do %><li>ログアウト</li><% end %>
+      <%= link_to customers_my_page_path, class: "path_line" do %><li>マイページ</li><% end %>
+      <%= link_to destroy_customer_session_path, method: :delete, class: "path_line" do %><li>ログアウト</li><% end %>
     <% else %>
-    <%= link_to new_customer_session_path, class: "path_line" do %><li>ログイン</li><% end %>
-    <%= link_to new_customer_registration_path, class: "path_line" do %><li>会員登録</li><% end %>
+      <%= link_to new_customer_session_path, class: "path_line" do %><li>ログイン</li><% end %>
+      <%= link_to new_customer_registration_path, class: "path_line" do %><li>会員登録</li><% end %>
     <% end %>
   </ul>
 </div>

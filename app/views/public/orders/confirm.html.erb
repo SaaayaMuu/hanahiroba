@@ -20,16 +20,16 @@
 				</thead>
 				<tbody>
 					<% @cart_items.each do |cart_item| %>
-					<% item = cart_item.item %>
-					<tr>
-						<td>
-							<%= image_tag cart_item.item.image.variant(resize: "100x100") %>
-						</td>
-						<td><%= cart_item.item.design.design_name %></td>
-						<td><%= cart_item.item.with_tax_price.to_s(:delimited) %>円</td>
-						<td><%= cart_item.amount %></td>
-						<td><%= cart_item.subtotal.to_s(:delimited) %>円</td>
-					</tr>
+						<% item = cart_item.item %>
+						<tr>
+							<td>
+								<%= image_tag cart_item.item.image.variant(resize: "100x100") %>
+							</td>
+							<td><%= cart_item.item.design.design_name %></td>
+							<td><%= cart_item.item.with_tax_price.to_s(:delimited) %>円</td>
+							<td><%= cart_item.amount %></td>
+							<td><%= cart_item.subtotal.to_s(:delimited) %>円</td>
+						</tr>
 					<% end %>
 					<tr class="">
 					  <td colspan="3"></td>

@@ -23,13 +23,12 @@
 
   <div class="sidebar">
     <div class="hanahiroba-icon"></div>
-      <div id="hm-icon">
-          <a class="menu-trigger" href="#">
-            <span></span>
-            <span>menu</span>
-            <span></span>
-          </a>
-      </div>
+    <div id="hm-icon">
+      <a class="menu-trigger" href="#">
+        <span></span>
+        <span>menu</span>
+        <span></span>
+      </a>
     </div>
   </div>
 
@@ -41,12 +40,11 @@
       <%= link_to designs_path, class: "path_line" do %><li>商品一覧</li><% end %>
       <%= link_to cart_items_path, class: "path_line" do %><li>カート</li><% end %>
       <% if customer_signed_in?%>
-
-      <%= link_to customers_my_page_path, class: "path_line" do %><li>マイページ</li><% end %>
-      <%= link_to destroy_customer_session_path, method: :delete, class: "path_line" do %><li>ログアウト</li><% end %>
+        <%= link_to customers_my_page_path, class: "path_line" do %><li>マイページ</li><% end %>
+        <%= link_to destroy_customer_session_path, method: :delete, class: "path_line" do %><li>ログアウト</li><% end %>
       <% else %>
-      <%= link_to new_customer_session_path, class: "path_line" do %><li>ログイン</li><% end %>
-      <%= link_to new_customer_registration_path, class: "path_line" do %><li>会員登録</li><% end %>
+        <%= link_to new_customer_session_path, class: "path_line" do %><li>ログイン</li><% end %>
+        <%= link_to new_customer_registration_path, class: "path_line" do %><li>会員登録</li><% end %>
       <% end %>
     </ul>
   </div>

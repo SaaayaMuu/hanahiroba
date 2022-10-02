@@ -1,6 +1,6 @@
 <div class="nested-fields"><!--nested-fieldsはフォーム削除に必要-->
-  <div class="item-content">
 
+  <div class="item-content">
 
     <div class="row">
       <div class="col-md-2 col-sm-3 font-weight-bold"><label for="item[image]">通常商品画像</label></div>
@@ -22,8 +22,6 @@
 
     <div class="row">
       <div class="col-md-2 col-sm-3 font-weight-bold"></div>
-    <!--  <label><input type="radio" name="item[is_active]" class="check" value="true" checked="checked">販売中</label>-->
-    <!--  <label><input type="radio" name="item[is_active]" class="check" value="false">販売停止中</label><br>-->
       <%= item.radio_button :is_active, true %>
       <%= item.label :is_active, "販売中", {value: true, style: "display: inline-block;"} %>
       <%= item.radio_button :is_active, false %>
@@ -33,5 +31,7 @@
       <div class="col-md-2 col-sm-3 font-weight-bold"></div>
       <%= link_to_remove_association "削除", item, class: "btn btn-danger px-4 mb-3" %>
     </div>
+
   </div>
+
 </div>

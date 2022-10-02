@@ -8,43 +8,40 @@
 
   <div class="container">
 
-  <h2 class="my-5 text-center">レビュー</h2>
+    <h2 class="my-5 text-center">レビュー</h2>
 
-  <p class="review-click">
-    <span class="review-back"><%= link_to "商品ページに戻る", design_path(@design.id), class: "btn btn-back-reviews-index" %></span>
-    <% if customer_signed_in? %>
-        <span class="review-new"><%= link_to "この商品のレビューを書く", new_review_path(design_id: @design.id), class: "btn btn-purple-reviews-index" %></span>
-    <% end %>
-  </p>
+    <p class="review-click">
+      <span class="review-back"><%= link_to "商品ページに戻る", design_path(@design.id), class: "btn btn-back-reviews-index" %></span>
+      <% if customer_signed_in? %>
+          <span class="review-new"><%= link_to "この商品のレビューを書く", new_review_path(design_id: @design.id), class: "btn btn-purple-reviews-index" %></span>
+      <% end %>
+    </p>
     <% @reviews.each do |review| %>
 
-    <div class="review-box_index">
-      <div>
+      <div class="review-box_index">
+        <div>
+          <% if review.image.attached? %>
+            <%= image_tag review.image, class: "review-img" %>
+          <% else %>
+            <div class="nothing-review-img">画像なし</div>
+          <% end %>
 
-        <% if review.image.attached? %>
-          <%= image_tag review.image, class: "review-img" %>
-        <% else %>
-          <div class="nothing-review-img">画像なし</div>
-        <% end %>
-
-        <div id="star-rate-<%= review.id %>" class="review-index-rate ml-4"></div>
+          <div id="star-rate-<%= review.id %>" class="review-index-rate ml-4"></div>
+        </div>
+        <p><%= review.body %></p>
       </div>
-      <p><%= review.body %></p>
 
-    </div>
-
-
-    <script>
-        $('#star-rate-<%= review.id %>').raty({
-          size: 36,
-          starOff: "<%= asset_path('star-off.png') %>",
-          starOn: "<%= asset_path('star-on.png') %>",
-          starHalf: "<%= asset_path('star-half.png') %>",
-          half: true,   /*星半分表示*/
-          readOnly: true,   /*読み取り専用*/
-          score: <%= review.rate %>,   /*星評価の表示*/
-        });
-    </script>
+      <script>
+          $('#star-rate-<%= review.id %>').raty({
+            size: 36,
+            starOff: "<%= asset_path('star-off.png') %>",
+            starOn: "<%= asset_path('star-on.png') %>",
+            starHalf: "<%= asset_path('star-half.png') %>",
+            half: true,   /*星半分表示*/
+            readOnly: true,   /*読み取り専用*/
+            score: <%= review.rate %>,   /*星評価の表示*/
+          });
+      </script>
 
     <% end %>
   </div>

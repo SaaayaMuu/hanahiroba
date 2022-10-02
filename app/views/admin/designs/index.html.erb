@@ -1,56 +1,56 @@
-<style>
-  table {
-    font-size: min(1.5vw,16px);
-  }
-</style>
-
 <%= render 'layouts/admin-header' %>
 <div class="container">
 
-<h3 class="mb-3 mt-3">デザイン一覧</h3>
+  <h3 class="mb-3 mt-3">デザイン一覧</h3>
 
-<table class="table">
-  <thead>
-    <th>デザインID</th>
-    <th></th>
-    <th>デザイン名</th>
-    <th>ジャンル</th>
-    <th>税抜価格</th>
-    <th>商品数</th>
-    <th>販売停止中</th>
-    <th>在庫数０</th>
-    <th>レビュー</th>
-    <th></th>
-  </thead>
-  <tbody>
-  <% @designs.each do |design| %>
-  <tr>
-    <td><%= link_to admin_design_path(design.id) do %><%= design.id %><% end %></td>
-    <td></td>
-    <td><%= design.design_name %></td>
-    <td><%= design.genre.name %></td>
-    <td><%= design.design_price %></td>
-    <td><%= design.items.count %></td>
-    <td><%= design.items.where(is_active: false).count %></td>
-    <td><%= design.items.where(stock: "0").count %></td>
-    <td class="d-flex"><%= link_to admin_reviews_path(design_id: design.id) do %><p><%= design.reviews.count %>件</p><% end %>
-        <p>(<%= design.reviews.average(:rate).to_f.round(1) %>/5)</p></td>
-  </tr>
+  <table class="table">
+    <thead>
+      <th>デザインID</th>
+      <th></th>
+      <th>デザイン名</th>
+      <th>ジャンル</th>
+      <th>税抜価格</th>
+      <th>商品数</th>
+      <th>販売停止中</th>
+      <th>在庫数０</th>
+      <th>レビュー</th>
+      <th></th>
+    </thead>
+    <tbody>
+      <% @designs.each do |design| %>
+        <tr>
+          <td><%= link_to admin_design_path(design.id) do %><%= design.id %><% end %></td>
+          <td></td>
+          <td><%= design.design_name %></td>
+          <td><%= design.genre.name %></td>
+          <td><%= design.design_price %></td>
+          <td><%= design.items.count %></td>
+          <td><%= design.items.where(is_active: false).count %></td>
+          <td><%= design.items.where(stock: "0").count %></td>
 
-  <script>
-      $('#star-rate-<%= design.id %>').raty({
-      size: 36,
-      starOff: "<%= asset_path('star-off.png') %>",
-      starOn: "<%= asset_path('star-on.png') %>",
-      starHalf: "<%= asset_path('star-half.png') %>",
-      half: true,   /*星半分表示*/
-      readOnly: true,   /*読み取り専用*/
-      score: <%= design.reviews.average(:rate).to_f.round(1) %>,   /*星評価の表示*/
-    });
-  </script>
+          <td class="d-flex">
+            <%= link_to admin_reviews_path(design_id: design.id) do %>
+              <p><%= design.reviews.count %>件</p>
+            <% end %>
+            <p>(<%= design.reviews.average(:rate).to_f.round(1) %>/5)</p>
 
-  <% end %>
-  </tbody>
+              <script>
+                  $('#star-rate-<%= design.id %>').raty({
+                  size: 36,
+                  starOff: "<%= asset_path('star-off.png') %>",
+                  starOn: "<%= asset_path('star-on.png') %>",
+                  starHalf: "<%= asset_path('star-half.png') %>",
+                  half: true,   /*星半分表示*/
+                  readOnly: true,   /*読み取り専用*/
+                  score: <%= design.reviews.average(:rate).to_f.round(1) %>,   /*星評価の表示*/
+                });
+              </script>
+          </td>
+
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
 </div>
 
