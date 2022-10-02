@@ -31,13 +31,13 @@ __～身近にもっと和を。～__<br>
 
 ## 設計書
 - [ER図][ER]
-  [ER]: https://drive.google.com/file/d/1jYqG3HterzZaVjWMK6rskB_B85H854yx/view?usp=sharing
-
 - [テーブル定義書][TABLE]
-  [TABLE]: https://docs.google.com/spreadsheets/d/1BVkkXFKba4IftJlI3ldJV2jrAv3rqDuxAcLn2eWkKFg/edit?usp=sharing
-
 - [詳細設計書][DETAIL]
-  [DETAIL]: https://docs.google.com/spreadsheets/d/1EqV05KIyEu1zQyXfyP1HJpzPbSQOAsNPygbAHMND76E/edit?usp=sharing
+
+[ER]: https://drive.google.com/file/d/1jYqG3HterzZaVjWMK6rskB_B85H854yx/view?usp=sharing
+[TABLE]: https://docs.google.com/spreadsheets/d/1BVkkXFKba4IftJlI3ldJV2jrAv3rqDuxAcLn2eWkKFg/edit?usp=sharing
+[DETAIL]: https://docs.google.com/spreadsheets/d/1EqV05KIyEu1zQyXfyP1HJpzPbSQOAsNPygbAHMND76E/edit?usp=sharing
+
 
 ## 開発環境
 - OS：Linux(CentOS)
