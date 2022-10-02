@@ -253,13 +253,21 @@ h4 {/*パスワード再設定　admin/designs#show*/
   height: 150px;
 }
 
-.menu-trigger span:nth-child(1),span:nth-child(3) {
+.menu-trigger span:nth-child(1) {
   position: absolute;
   left: 23px;
   width: 70%;
   height: 7px;
   background-color: #000066;
 }
+.menu-trigger span:nth-child(3) {
+  position: absolute;
+  left: 23px;
+  width: 70%;
+  height: 7px;
+  background-color: #000066;
+}
+
 
 .menu-trigger span:nth-child(1) {
   top: 30px;
@@ -540,7 +548,13 @@ article{
   width: 100px;
   height: 100px;
 }
-.menu-trigger span:nth-child(1),span:nth-child(3) {
+.menu-trigger span:nth-child(1) {
+  position: absolute;
+  left: 15px;
+  width: 70%;
+  height: 7px;
+}
+.menu-trigger span:nth-child(3) {
   position: absolute;
   left: 15px;
   width: 70%;
@@ -558,6 +572,9 @@ article{
 .menu-trigger span:nth-child(3) {
   bottom: 20px;
 }
+
+
+
 .menu-trigger.active span:nth-child(1) {
   transform: translateY(26px) rotate(-45deg);
 }
@@ -642,12 +659,20 @@ header {
     width: 50px;
     height: 50px;
   }
-  .menu-trigger span:nth-child(1),span:nth-child(3) {
+  .menu-trigger span:nth-child(1) {
     position: absolute;
     left: 8px;
     width: 70%;
     height: 4px;
   }
+
+  .menu-trigger span:nth-child(3) {
+    position: absolute;
+    left: 8px;
+    width: 70%;
+    height: 4px;
+  }
+
   .menu-trigger span:nth-child(1) {
     top: 10px;
   }

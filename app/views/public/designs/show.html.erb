@@ -35,9 +35,8 @@
   </div>
 
 
-
-  <div class="item-box">
-    <% if @design.design_type == true %>
+  <% if @design.design_type == true %>
+    <div class="item-box">
       <% @items.each do |item| %>
         <%= form_with model: @cart_item, url: cart_items_path, method: :post, local: true, class: "item-form" do |f| %>
           <%= f.hidden_field :amount, :value => "1" %>
@@ -55,13 +54,17 @@
           </div>
         <% end %>
       <% end %>
+    </div>
+  <% end %>
 
-    <% else %>
+  <% if @design.design_type == false %>
+   <% if true %>
+    <div class="custom-item-box">
       <div class="custom-item-content">
         <div id="src">
             <span>①</span>
             <span>②</span>
-            <span>③</span>
+            <span id="svg-span3">③</span>
             <span>④</span>
             <span>⑤</span>
             <span>⑥</span>
@@ -132,6 +135,7 @@
             <input id="colorPicker8" type="color" name="favorite_color">
           </label>
         </div>
+
         <p class="custom-p"><input type="button" value="画像に変換" onclick="chgImg()"><br></p>
 
         <div class="preview-box" id="dst"></div>
@@ -152,8 +156,10 @@
           </div>
         <% end %>
       </div>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
+  <% end %>
+
 </div>
 <%= render 'layouts/footer' %>
 
