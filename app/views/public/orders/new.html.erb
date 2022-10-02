@@ -2,6 +2,8 @@
   <%= stylesheet_link_tag 'public/orders_new' %>
 </head>
 
+<%= render 'layouts/header', genre: @genre %>
+
 <div class="body">
 
   <%= form_with model: @order, url: orders_confirm_path, method: :post do |f| %>
@@ -55,3 +57,5 @@
     </div>
   <% end %>
 </div>
+
+<%= render 'layouts/footer' %>

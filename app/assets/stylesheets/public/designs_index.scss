@@ -1,11 +1,13 @@
 
   .body {
     width: 100%;
+    height: 100%;
     font-family: 'Zen Antique', serif;
   }
 
   .designs-box {
     width: 80%;
+    max-width: 1200px;
     display: flex;
     flex-wrap: wrap;
     margin: 0 auto;
@@ -13,7 +15,6 @@
   }
 
   .design-item {
-    max-width: 300px;
     width: 25%;
     padding: 0 10px;
   }
@@ -37,6 +38,9 @@
     font-size: 0.8em;
     margin-bottom: 0;
   }
+  .design-detail p:nth-child(3) {
+    margin-bottom: 0;
+  }
   .design-detail p {
     color: black;
   }
@@ -45,19 +49,18 @@
   .designs-box {
     width: 100%;
   }
+  .design-item {
+    width: 33.3%;
+  }
   }
   @media screen and (max-width: 576px) {
   .designs-box {
     width: 100%;
   }
   .design-item {
-     width: 50%;
-   }
-  .design-detail p:nth-child(1) {
+    width: 50%;
   }
-  .design-detail p {
-    // font-size: 10px;
-  }
+
   }
   @media screen and (max-width: 425px) {
     h2 {

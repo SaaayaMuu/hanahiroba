@@ -5,23 +5,19 @@
 <%= render 'layouts/header', genre: @genre %>
 <div class="body">
   <div class="container">
-
     <h2 class="my-5 text-center">マイページ</h2>
-
     <div class="row justify-content-center mb-3">
       <h5>登録情報編集</h5>
     </div>
 
     <%= form_with model: @customer, url: customers_my_page_path, method: :patch do |f| %>
       <div class="row justify-content-center">
-
         <div>
           <div class="mb-3">
             <h5>氏名</h5>
             <%= f.text_field :last_name, autofocus: true, required: true, class: "text-secondary" %>
             <%= f.text_field :first_name, required: true, class: "text-secondary" %>
           </div>
-
           <div class="mb-3">
             <h5>カナ</h5>
             <%= f.text_field :last_name_kana, required: true, class: "text-secondary" %>
@@ -45,11 +41,10 @@
           </div>
         </div>
       </div>
-
       <p class="text-center mt-3"><%= f.submit "保存", class: "btn btn-sm btn-purple-customers px-4 py-1" %></p>
     <% end %>
     <p class="text-center mt-3"><%= link_to customers_my_page_path, class: "btn btn-sm btn-back-customers px-4 py-1" do %>戻る<% end %></p>
     <p class="text-center mt-5"><%= link_to customers_unsubscribe_path, class: "btn btn-sm btn-red-customers px-2 py-1" do %>退会する<% end %></p>
-
+  </div>
 </div>
-</body>
+<%= render 'layouts/footer' %>

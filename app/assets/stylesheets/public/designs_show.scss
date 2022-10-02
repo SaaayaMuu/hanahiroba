@@ -95,18 +95,9 @@
     margin: 0;
   }
 
-  // .custom-item-box {
-  //   width: 100%;
-  //   max-width: 900px;
-  //   display: flex;
-  //   flex-wrap: wrap;
-  //   justify-content: start;
-  //   margin: 0 auto;
-  //   margin-top: 50px;
-  // }
   .custom-item-box {
-    width: 50%;
-    max-width: 900px;
+    width: 100%;
+    max-width: 1040px;/*svgのimg4つ分*/
     display: flex;
     flex-wrap: wrap;
     justify-content: start;
@@ -163,7 +154,7 @@
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: start;/*左右中央*/
+    justify-content: center;/*左右中央*/
   }
 
   .review-link {

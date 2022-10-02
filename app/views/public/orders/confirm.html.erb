@@ -6,70 +6,69 @@
 <%= render 'layouts/header', genre: @genre %>
 
 <div class="body">
-<div class="container">
-	<h5 class="text-center mb-5">注文情報確認</h5>
-	<div class="flex">
-		<table class="table table-confirm">
-			<thead>
-				<tr>
-					<th colspan="2">商品名</th>
-					<th>単価(税込)</th>
-					<th>数量</th>
-					<th>小計</th>
-				</tr>
-			</thead>
-			<tbody>
-				<% @cart_items.each do |cart_item| %>
-				<% item = cart_item.item %>
-				<tr>
-					<td>
-						<%= image_tag cart_item.item.image.variant(resize: "100x100") %>
-					</td>
-					<td><%= cart_item.item.design.design_name %></td>
-					<td><%= cart_item.item.with_tax_price.to_s(:delimited) %>円</td>
-					<td><%= cart_item.amount %></td>
-					<td><%= cart_item.subtotal.to_s(:delimited) %>円</td>
-				</tr>
-				<% end %>
-				<tr class="">
-				  <td colspan="3"></td>
-					<th>商品合計</th>
-					<td><%= @cart_items.sum(&:subtotal).to_s(:delimited) %>円</td>
-				</tr>
-				<tr>
-				  <td colspan="3"></td>
-					<th>送料</th>
-					<td><%= @order.postage %>円</td>
-				</tr>
-				<tr>
-				  <td colspan="3"></td>
-					<th>総計</th>
-					<td class="bold"><%= (@order.postage + @cart_items.sum(&:subtotal)).to_s(:delimited) %>円</td>
-				</tr>
-			</tbody>
-		</table>
-
+	<div class="container">
+		<h5 class="text-center mb-5">注文情報確認</h5>
+		<div class="flex">
+			<table class="table table-confirm">
+				<thead>
+					<tr>
+						<th colspan="2">商品名</th>
+						<th>単価(税込)</th>
+						<th>数量</th>
+						<th>小計</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @cart_items.each do |cart_item| %>
+					<% item = cart_item.item %>
+					<tr>
+						<td>
+							<%= image_tag cart_item.item.image.variant(resize: "100x100") %>
+						</td>
+						<td><%= cart_item.item.design.design_name %></td>
+						<td><%= cart_item.item.with_tax_price.to_s(:delimited) %>円</td>
+						<td><%= cart_item.amount %></td>
+						<td><%= cart_item.subtotal.to_s(:delimited) %>円</td>
+					</tr>
+					<% end %>
+					<tr class="">
+					  <td colspan="3"></td>
+						<th>商品合計</th>
+						<td><%= @cart_items.sum(&:subtotal).to_s(:delimited) %>円</td>
+					</tr>
+					<tr>
+					  <td colspan="3"></td>
+						<th>送料</th>
+						<td><%= @order.postage %>円</td>
+					</tr>
+					<tr>
+					  <td colspan="3"></td>
+						<th>総計</th>
+						<td class="bold"><%= (@order.postage + @cart_items.sum(&:subtotal)).to_s(:delimited) %>円</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<%= form_with model: @order, url: orders_path, method: :post do |f| %>
+			<div class="field">
+				<label>〇支払い方法</label>
+				<p>振込</p>
+				<%= f.hidden_field :payment_method, value: @order.payment_method %>
+				<label>〇お届け先</label>
+				<p>〒<%= @order.postal_code %> <%= @order.address %><br><%= @order.name %></p>
+				<%= f.hidden_field :postal_code, value: @order.postal_code %>
+				<%= f.hidden_field :address, value: @order.address %>
+				<%= f.hidden_field :name, value: @order.name %>
+				<%= f.hidden_field :total_price, :value => @order.postage + @cart_items.sum(&:subtotal) %>
+				<%= f.hidden_field :customer_id, :value => @order.customer_id %>
+				<%= f.hidden_field :payment_method, :value => @order.payment_method %>
+				<%= f.hidden_field :postage, :value => @order.postage %>
+				<%= f.hidden_field :select_address, :value => @select_address %>
+			</div>
+			<div class="actions text-center">
+				<%= f.submit "注文を確定する", class: "btn btn-purple-orders-confirm submit_to_create_order" %>
+			</div>
+		<% end %>
 	</div>
-	<%= form_with model: @order, url: orders_path, method: :post do |f| %>
-		<div class="field">
-			<label>〇支払い方法</label>
-			<p>振込</p>
-			<%= f.hidden_field :payment_method, value: @order.payment_method %>
-			<label>〇お届け先</label>
-			<p>〒<%= @order.postal_code %> <%= @order.address %><br><%= @order.name %></p>
-			<%= f.hidden_field :postal_code, value: @order.postal_code %>
-			<%= f.hidden_field :address, value: @order.address %>
-			<%= f.hidden_field :name, value: @order.name %>
-			<%= f.hidden_field :total_price, :value => @order.postage + @cart_items.sum(&:subtotal) %>
-			<%= f.hidden_field :customer_id, :value => @order.customer_id %>
-			<%= f.hidden_field :payment_method, :value => @order.payment_method %>
-			<%= f.hidden_field :postage, :value => @order.postage %>
-			<%= f.hidden_field :select_address, :value => @select_address %>
-		</div>
-		<div class="actions text-center">
-			<%= f.submit "注文を確定する", class: "btn btn-purple-orders-confirm submit_to_create_order" %>
-		</div>
-	<% end %>
 </div>
-
-</div>
+<%= render 'layouts/footer' %>

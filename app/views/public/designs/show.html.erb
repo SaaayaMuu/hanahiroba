@@ -5,7 +5,9 @@
 
 <%= render 'layouts/header', genre: @genre %>
 
+
 <div class="body">
+
   <script src="https://cdn.jsdelivr.net/npm/dom-to-image@2.6.0/dist/dom-to-image.min.js"></script>
 
 
@@ -58,7 +60,6 @@
   <% end %>
 
   <% if @design.design_type == false %>
-   <% if true %>
     <div class="custom-item-box">
       <div class="custom-item-content">
         <div id="src">
@@ -158,10 +159,11 @@
       </div>
     </div>
   <% end %>
-  <% end %>
-
 </div>
+
 <%= render 'layouts/footer' %>
+
+
 
 
 
