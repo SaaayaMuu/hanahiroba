@@ -2,18 +2,18 @@
   .design-box2 {
     padding-top: 100px;
     width: 50%;
+    max-width: 900px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     margin: 0 auto;
-    // font-size: 1.5vw;
   }
 
   .design-content {
     width: 50%;
-    // max-width: 450px;
     height: auto;
     padding-left: 20px;
+    filter: drop-shadow(3px 3px 10px #333366);
   }
   .design-content h4 {
     font-size: 20px;
@@ -29,8 +29,6 @@
 
   .slider6-wrap {
     width: 50%;
-    // max-width: 450px;
-    /*width: 450px;/*sliderメイン画像横幅*/
     position: relative;
   }
   .slider-6 .slick-slide {

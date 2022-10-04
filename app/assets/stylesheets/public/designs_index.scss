@@ -12,6 +12,7 @@
   .design-item {
     width: 25%;
     padding: 0 10px;
+    // filter: drop-shadow(3px 3px 10px #333366);
   }
 
   .regular {
@@ -38,6 +39,7 @@
   }
   .design-detail p {
     color: black;
+    filter: drop-shadow(3px 3px 10px #333366);
   }
 
   @media screen and (max-width: 768px) {

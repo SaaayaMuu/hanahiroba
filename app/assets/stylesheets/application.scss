@@ -39,9 +39,9 @@ font-family: 'Zen Antique', serif;
 body {
   width: 100%;
   font-family: 'Zen Antique', serif;
-  background-image: linear-gradient(180deg, rgba(240, 238, 242, 0.68), rgba(75, 79, 155, 0.32));
+  // background-image: linear-gradient(180deg, rgba(240, 238, 242, 0.68), rgba(75, 79, 155, 0.32));
+  background-image: linear-gradient(45deg, #93a5cf 0%, #e4efe9 100%);
 }
-
 .body {
   margin-top: 100px;
   min-height: 100vh;
@@ -52,12 +52,6 @@ body {
   min-height: 100vh;
   font-family: 'Zen Antique', serif;
 }
-.container-lg {/*public/orders#show*/
-  font-family: 'Zen Antique', serif;
-  width: 100%;
-  height: 100vh;
-}
-
 
 /*admin用*/
 h3 {
@@ -70,8 +64,6 @@ h4 {/*パスワード再設定　admin/designs#show*/
   font-family: 'Kaisei Tokumin', serif;
 }
 
-
-
 .path:hover {
     text-decoration: none;
   }
@@ -80,38 +72,38 @@ h4 {/*パスワード再設定　admin/designs#show*/
 }
 
 
-#splash {
-/*fixedで全面に固定*/
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  z-index: 999;
-  background-image: image-url("white_00118.jpg");
-  text-align:center;
-  color:#fff;
-}
+// #splash {
+// /*fixedで全面に固定*/
+//   position: fixed;
+//   width: 100%;
+//   height: 100%;
+//   z-index: 999;
+//   background-image: image-url("white_00118.jpg");
+//   text-align:center;
+//   color:#fff;
+// }
 
-/* Loading画像中央配置　*/
-#splash_logo {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: #003300;
-}
+// /* Loading画像中央配置　*/
+// #splash_logo {
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   transform: translate(-50%, -50%);
+//   color: #003300;
+// }
 
-/* Loading アイコンの大きさ設定　*/
-  #splash_logo .fadeUp {
-  background-image: image-url("738540-removebg-preview.png");
-  background-position: center;
-  background-size: cover;
-  width: 500px;
-  height: 700px;
-  animation-name: fadeUpAnime;
-  animation-duration:1.0s;
-  animation-fill-mode:forwards;
-  opacity: 0;
-}
+// /* Loading アイコンの大きさ設定　*/
+//   #splash_logo .fadeUp {
+//   background-image: image-url("738540-removebg-preview.png");
+//   background-position: center;
+//   background-size: cover;
+//   width: 500px;
+//   height: 700px;
+//   animation-name: fadeUpAnime;
+//   animation-duration:1.0s;
+//   animation-fill-mode:forwards;
+//   opacity: 0;
+// }
 
 
 /* fadeUpをするアイコンの動き（テキストver） */
@@ -149,17 +141,17 @@ h4 {/*パスワード再設定　admin/designs#show*/
 // }
 
 
-@keyframes fadeUpAnime{
-  from {
-    opacity: 0;
-  transform: translateY(100px);
-  }
+// @keyframes fadeUpAnime{
+//   from {
+//     opacity: 0;
+//   transform: translateY(100px);
+//   }
 
-  to {
-    opacity: 1;
-  transform: translateY(0);
-  }
-}
+//   to {
+//     opacity: 1;
+//   transform: translateY(0);
+//   }
+// }
 
 
 
@@ -176,7 +168,6 @@ h4 {/*パスワード再設定　admin/designs#show*/
 .photo-center {
   width: 100%;
   height: 100%;
-  // z-index: 0 !important;
 }
 
 .image1 {
@@ -200,7 +191,6 @@ h4 {/*パスワード再設定　admin/designs#show*/
   background-position: top;
 }
 
-
 .sidebar {
   width: 150px;
   height: 300px;
@@ -219,16 +209,6 @@ h4 {/*パスワード再設定　admin/designs#show*/
   background-size: cover;
 }
 
-.top-menu-content {
-  margin-top: 40px;
-}
-.top-menu-content li {
-  list-style: none;
-  color: white;
-  margin: 0 auto;
-  text-align: center;
-  font-size: 10px;
-}
 
 /* ---------------------------- */
 /* -- ハンバーガーアイコンtop-- */
@@ -238,8 +218,6 @@ h4 {/*パスワード再設定　admin/designs#show*/
   position: fixed;
   vertical-align:middle;
 }
-
-
 .menu-trigger,
 .menu-trigger span {
   display: inline-block;
@@ -251,7 +229,6 @@ h4 {/*パスワード再設定　admin/designs#show*/
   width: 150px;
   height: 150px;
 }
-
 .menu-trigger span:nth-child(1) {
   position: absolute;
   left: 23px;
@@ -266,8 +243,6 @@ h4 {/*パスワード再設定　admin/designs#show*/
   height: 7px;
   background-color: #000066;
 }
-
-
 .menu-trigger span:nth-child(1) {
   top: 30px;
 }
@@ -341,7 +316,31 @@ h4 {/*パスワード再設定　admin/designs#show*/
 header {
   width: 100%;
   height: 250px;
+  background-image: image-url("IMG_9538_2.JPG");
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 5px 25px 0 rgba(63,54,97,1);
+}
 
+.header-background {
+  width: 100%;
+  height: 250px;
+  // background-color: rgba(255, 255, 255, 0.5);
+  background-image: linear-gradient(90deg, rgba(168, 202, 240, 0.5), rgba(233, 240, 250, 0.2));
+}
+
+.nav-text {
+  position: absolute;
+  top: 40px;
+  right: 250px;
+  z-index: 999;
+  width: 500px;
+  height: 170px;
+  writing-mode: vertical-rl;
+  font-family: 'Yuji Syuku', serif;
+  // font-family: 'Zen Antique', serif;
+  font-size: 20px;
+  text-shadow: 3px 3px 10px #483D8B;
 }
 
 .nav-text .nav-name {
@@ -357,25 +356,15 @@ header {
 
 .nav-text .nav-name:hover {
   background-color: #000080;
-  padding: 30px 0 30px 0;
+  padding-top: 20px;
   color: #fff;
 }
 .nav-text .nav-genre:hover {
   background-color: #008BBB;
-  padding: 20px 0 30px 0;
+  padding-top: 5px;
   color: #fff;
 }
 
-.nav-text {
-  position: absolute;
-  top: 40px;
-  right: 250px;
-  z-index: 999;
-  width: 500px;
-  writing-mode: vertical-rl;
-  font-family: 'Yuji Syuku', serif;
-  font-size: 20px;
-}
 
 .nav-hanahiroba-icon {
   background-image: image-url("IMG_6055.PNG");
@@ -383,9 +372,10 @@ header {
   width: 200px;
   height: 200px;
   position: absolute;
-  top: 10px;
+  top: 25px;
   right: 5px;
   z-index: 999;
+  filter: drop-shadow(5px 5px 5px #333366);
 }
 
 
@@ -418,6 +408,7 @@ header {
   right: 10px;
   background-color: white;
   z-index: 50;
+  font-family: 'Yuji Syuku', serif;
 }
 
 .public-hanahiroba-icon {
@@ -582,7 +573,6 @@ article{
 }
 
 
-
 .menu-trigger.active span:nth-child(1) {
   transform: translateY(26px) rotate(-45deg);
 }
@@ -591,14 +581,20 @@ article{
 }
 
 /*header画像*/
+
 header {
-  height: 250px;
+  height: 165px;
+}
+.header-background {
+  height: 165px;
 }
 
 .nav-text {
   position: absolute;
-  top: 25px;
+  top: 20px;
   right: 160px;
+  width: 300px;
+  height: 130px;
   font-size: 15px;
 }
 
@@ -649,6 +645,10 @@ header {
 
 /*public header用*/
 @media screen and (max-width: 768px) {
+
+  .body {
+    margin-top: 30px;
+  }
 
   /*top画面*/
   .sidebar {
@@ -701,6 +701,7 @@ header {
   }
 
   /*headerナビがハンバーガーに切り替わる*/
+
   .nav-hanahiroba-icon {
     display: none;
   }
@@ -715,7 +716,12 @@ header {
 
   /*public header*/
   header {
-    height: 200px;
+    background-image: none;
+    height: 165px;
+    box-shadow: none;
+  }
+  .header-background {
+    height: 0;
   }
   /*public headerここまで*/
 
@@ -746,7 +752,6 @@ header {
 /*public header*/
   header {
     height: 150px;
-    margin-bottom: 50px;
   }
 /*public headerここまで*/
 }
