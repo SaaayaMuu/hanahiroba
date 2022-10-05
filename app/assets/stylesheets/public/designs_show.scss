@@ -245,7 +245,11 @@
   .item-box {
     width: 70%;
   }
+  .item-form {/*商品1列に3つ*/
+    width: 33.3%;
+  }
   .item-box-p {
+    font-size: 1em;
     margin-bottom: 2px;
   }
   .btn-item {
@@ -263,7 +267,7 @@
   }
   @media screen and (max-width: 576px) {/*576px以下の時*/
   .design-box2 {
-    width: 90%;
+    width: 70%;
   }
   .slider6-wrap {
     width: 100%;/*sliderメイン画像横幅*/
@@ -274,35 +278,30 @@
     margin-left: 0;
   }
   .design-content p {
-    font-size: 1.2em;
+    font-size: 1.5em;
   }
-  .item-box {
-    width: 90%;
+  // .item-box {
+  //   width: 90%;
+  // }
+  .item-box-p {
+    font-size: 1.5em;
   }
   .item-form {/*商品1列に3つ*/
-    width: 33.3%;
-  }
-  .item-box-p {
-    margin-bottom: 2px;
+    width: 50%;
   }
   }
 
   @media screen and (max-width: 425px) {/*425px以下の時*/
-  .item-form {/*商品1列に2つ*/
-    width: 50%;
-  }
   .design-box2 {
-    width: 95%;
+    width: 80%;
   }
   .design-content h4 {
     font-size: 12px;
   }
-
-  .item-box-p {
-    font-size: 6px;
-    margin-bottom: 0;
-  }
   .design-content p:nth-child(3) {
     margin-top: 10px;
+  }
+  .item-box {
+    width: 80%;
   }
   }

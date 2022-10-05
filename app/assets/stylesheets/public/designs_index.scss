@@ -54,6 +54,15 @@
   .design-item {
     width: 50%;
   }
+  .design-item {
+    padding: 0 5px;
+  }
+  .design-detail p {
+    font-size: 1.5em;
+  }
+  .design-detail p:nth-child(1) {
+    font-size: 1.3em;
+  }
 
   }
   @media screen and (max-width: 425px) {
