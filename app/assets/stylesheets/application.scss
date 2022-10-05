@@ -405,21 +405,46 @@ header {
 
 
 /*header ハンバーガー*/
+// .public-sidebar {
+//   display: none;
+//   width: 50px;
+//   height: 100px;
+//   position: absolute;
+//   top: 10px;
+//   right: 10px;
+//   background-color: white;
+//   z-index: 50;
+//   font-family: 'Yuji Syuku', serif;
+// }
+
+// .public-hanahiroba-icon {
+//   width: 50px;
+//   height: 50px;
+//   background-color: #000055;
+//   background-image: image-url("IMG_6055.PNG");
+//   background-size: cover;
+// }
+
+// #public-hm-icon {
+//   position: absolute;
+//   vertical-align:middle;
+// }
+
+
 .public-sidebar {
   display: none;
-  width: 50px;
-  height: 100px;
+  width: 100px;
+  height: 200px;
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 5px;
+  right: 5px;
   background-color: white;
   z-index: 50;
   font-family: 'Yuji Syuku', serif;
 }
-
 .public-hanahiroba-icon {
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
   background-color: #000055;
   background-image: image-url("IMG_6055.PNG");
   background-size: cover;
@@ -429,6 +454,8 @@ header {
   position: absolute;
   vertical-align:middle;
 }
+
+
 /*header ハンバーガーここまで*/
 
 /*public#headerここまで*/
