@@ -20,9 +20,10 @@
     </div>
     <div class="login-content">
       <% if customer_signed_in? %>
-        <%= current_customer.last_name %>さん<br>ログイン中
+        <p><%= current_customer.last_name %>さん</p>
+        <p>ログイン中</p>
       <% else %>
-        <p class="text-center text-white"><%= flash[:notice] %></p>
+        <p><%= flash[:notice] %></p>
       <% end %>
     </div>
     </div>
