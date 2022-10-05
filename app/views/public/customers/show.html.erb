@@ -21,14 +21,6 @@
           <p class="text-center"><%= @customer.full_name_kana %></p>
         </div>
         <div class="mb-3 border-bottom border-secondary">
-          <p>郵便番号</p>
-          <p class="text-center"><%= @customer.postal_code %></p>
-        </div>
-        <div class="mb-3 border-bottom border-secondary">
-          <p>住所</p>
-          <p class="text-center"><%= @customer.address %></p>
-        </div>
-        <div class="mb-3 border-bottom border-secondary">
           <p>電話番号</p>
           <p class="text-center"><%= @customer.telephone_number %></p>
         </div>
@@ -36,6 +28,15 @@
           <p>メールアドレス</p>
           <p class="text-center"><%= @customer.email %></p>
         </div>
+        <div class="mb-3 border-bottom border-secondary">
+          <p>郵便番号</p>
+          <p class="text-center"><%= @customer.postal_code %></p>
+        </div>
+        <div class="mb-3 border-bottom border-secondary">
+          <p>住所</p>
+          <p class="text-center"><%= @customer.address %></p>
+        </div>
+
       </div>
     </div>
     <p class="text-center mt-4"><%= link_to orders_path, class: "btn btn-purple-customers ml-2" do %>注文履歴一覧を見る<% end %></p>

@@ -22,7 +22,7 @@
       <% if customer_signed_in? %>
         <%= current_customer.last_name %>さん<br>ログイン中
       <% else %>
-        <p class="text-center text-white lead"><%= flash[:notice] %></p>
+        <p class="text-center text-white"><%= flash[:notice] %></p>
       <% end %>
     </div>
     </div>

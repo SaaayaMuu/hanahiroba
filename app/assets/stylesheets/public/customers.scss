@@ -4,6 +4,28 @@
 
 
 /*editのみ*/
+.customer-edit-box {
+  width: 425px;
+  margin: 0 auto;
+}
+.customer-edit-box p {
+  margin-bottom: 3px;
+}
+
+.long-label {
+  width: 100%;
+}
+
+.short-label {
+  width: 49%;
+}
+.long-input {
+  width: 100%;
+  box-sizing:border-box;
+}
+.short-input {
+  width: 100%;
+}
 .btn-red-customers  {
   color: white;
   background: #A52A2A;
@@ -46,6 +68,9 @@
   transition: 0.5s;
 }
  @media screen and (max-width: 768px) {
+  .customer-edit-box {
+    width: 300px;
+  }
   .btn-red-customers  {
     font-size: 10px;
   }
@@ -58,6 +83,9 @@
  }
 
 @media screen and (max-width: 425px) {
+  .customer-edit-box {
+    width: 90%;
+  }
   h2 {
     font-size: 20px;
   }
