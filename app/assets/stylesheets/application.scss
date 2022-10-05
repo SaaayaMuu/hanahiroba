@@ -433,8 +433,8 @@ header {
 
 .public-sidebar {
   display: none;
-  width: 100px;
-  height: 200px;
+  width: 70px;
+  height: 140px;
   position: absolute;
   top: 5px;
   right: 5px;
@@ -443,8 +443,8 @@ header {
   font-family: 'Yuji Syuku', serif;
 }
 .public-hanahiroba-icon {
-  width: 100px;
-  height: 100px;
+  width: 70px;
+  height: 70px;
   background-color: #000055;
   background-image: image-url("IMG_6055.PNG");
   background-size: cover;
@@ -720,56 +720,58 @@ header {
 
   /*top画面*/
   .sidebar {
-    // width: 50px;
-    // height: 100px;
-    // position: absolute;
-    // top: 10px;
-    // right: 10px;
-
+    width: 70px;
+    height: 140px;
+    position: absolute;
     top: 5px;
     right: 5px;
   }
-  // .hanahiroba-icon {
-  //   width: 50px;
-  //   height: 50px;
-  // }
+  .hanahiroba-icon {
+    width: 70px;
+    height: 70px;
+  }
+  .menu-trigger {
+    width: 70px;
+    height: 70px;
+  }
+
   // /*top画面 & public header*/
-  // .menu-trigger {
-  //   width: 50px;
-  //   height: 50px;
-  // }
-  // .menu-trigger span:nth-child(1) {
-  //   position: absolute;
-  //   left: 8px;
-  //   width: 70%;
-  //   height: 4px;
-  // }
+  .menu-trigger {
+    width: 70px;
+    height: 70px;
+  }
+  .menu-trigger span:nth-child(1) {
+    position: absolute;
+    left: 10px;
+    width: 70%;
+    height: 5px;
+  }
 
-  // .menu-trigger span:nth-child(3) {
-  //   position: absolute;
-  //   left: 8px;
-  //   width: 70%;
-  //   height: 4px;
-  // }
+  .menu-trigger span:nth-child(3) {
+    position: absolute;
+    left: 10px;
+    width: 70%;
+    height: 5px;
+  }
 
-  // .menu-trigger span:nth-child(1) {
-  //   top: 10px;
-  // }
-  // .menu-trigger span:nth-child(2) {
-  //   position: absolute;
-  //   top: 15px;
-  //   left: 7px;
-  //   font-size: 13px;
-  // }
-  // .menu-trigger span:nth-child(3) {
-  //   bottom: 10px;
-  // }
-  // .menu-trigger.active span:nth-child(1) {
-  //   transform: translateY(13px) rotate(-45deg);
-  // }
-  // .menu-trigger.active span:nth-child(3) {
-  //   transform: translateY(-13px) rotate(45deg);
-  // }
+  .menu-trigger span:nth-child(1) {
+    top: 12px;
+  }
+  .menu-trigger span:nth-child(2) {
+    position: absolute;
+    top: 20px;
+    left: 11px;
+    font-size: 16px;
+  }
+  .menu-trigger span:nth-child(3) {
+    bottom: 12px;
+  }
+  .menu-trigger.active span:nth-child(1) {
+    transform: translateY(20px) rotate(-45deg);
+  }
+  .menu-trigger.active span:nth-child(3) {
+    transform: translateY(-20px) rotate(45deg);
+  }
 
   /*headerナビがハンバーガーに切り替わる*/
 
