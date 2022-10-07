@@ -1,4 +1,62 @@
 
+$pc: 1200px;
+$tb: 768px;
+$tbmini: 576px;
+$sp: 425px;
+
+
+//メディアクエリを呼び出す記述
+@mixin pc {
+  @media screen and (max-width: ($pc)) {
+    @content;
+  }
+}
+
+@mixin tb {
+  @media screen and (max-width: ($tb)) {
+    @content;
+  }
+}
+@mixin tbmini {
+  @media screen and (max-width: ($tbmini)) {
+    @content;
+  }
+}
+@mixin sp {
+  @media screen and (max-width: ($sp)) {
+    @content;
+  }
+}
+
+
+.btn-blue-designs {
+  color: white;
+  background: #006699;
+  transition: 0.5s;
+}
+.btn-blue-designs:hover {
+  color: white;
+  background: #000099;
+  transition: 0.5s;
+}
+
+.btn-item {
+  margin: 0 auto;
+  padding: 5px 2px;
+  @include pc{
+    font-size: 1em;
+  }
+  @include tb{
+    font-size: 0.9em;
+  }
+}
+
+.btn-custom {
+  @include tb{
+    font-size: 0.9em;
+  }
+}
+
   .design-box2 {
     padding-top: 100px;
     width: 50%;
@@ -7,59 +65,103 @@
     flex-wrap: wrap;
     justify-content: center;
     margin: 0 auto;
-  }
+    @include pc{
+      width: 70%;
+    }
+    @include sp{
+      width: 80%;
+    }
 
-  .design-content {
-    width: 50%;
-    height: auto;
-    padding-left: 20px;
-    filter: drop-shadow(3px 3px 10px #333366);
+    .slider6-wrap {
+      width: 50%;
+      position: relative;
+      @include tbmini{
+        width: 100%;/*sliderメイン画像横幅*/
+        position: relative;
+      }
+        ul {
+          li{
+            height: auto;/*sliderメイン画像高さ*/
+            overflow: hidden;
+            display: flex;
+            flex-wrap: wrap;
+            border: thin solid black;
+            img {
+              display: block;
+              width: 100%;
+              height: auto;
+              object-fit: contain;/*アスペクト比を維持したまま、枠に収まるように拡大縮小される。*/
+            }
+          }
+        }
+      .thumbs_dots {
+        margin: 10px 0 0;
+        ul {
+          li {
+            display: inline-block;
+            width: 25%;
+            padding-top: 25%;/*高さをwidthと同じ値にする*/
+            opacity: 0.4;
+            cursor: pointer;
+            transition: opacity 0.3s;
+            border: thin solid black;
+            &.slick-active {
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+    .design-content {
+      width: 50%;
+      height: auto;
+      padding-left: 20px;
+      filter: drop-shadow(3px 3px 10px #333366);
+      @include tbmini{
+        width: 100%;
+        margin-left: 0;
+      }
+      .review-link {
+        display: flex;
+        padding: 0;
+        a {
+          text-decoration: underline;
+          color: black;
+           &:hover {
+            text-decoration: none;
+          }
+        }
+        img {
+          width: 15px;
+        }
+      }
+      h4 {
+        font-size: 20px;
+        @include tb{
+          font-size: 15px;
+        }
+        @include sp{
+          font-size: 12px;
+        }
+      }
+      p {
+        font-size: 15px;
+        color: #444444;
+        @include tb{
+          font-size: 10px;
+        }
+        @include tbmini{
+          font-size: 1.5em;
+        }
+      }
+      p:nth-child(3) {
+        margin-top: 20px;
+        @include sp{
+          margin-top: 10px;
+        }
+      }
+    }
   }
-  .design-content h4 {
-    font-size: 20px;
-  }
-  .design-content p {
-    font-size: 15px;
-    color: #444444;
-  }
-
-  .design-content p:nth-child(3) {
-    margin-top: 20px;
-  }
-
-  .slider6-wrap {
-    width: 50%;
-    position: relative;
-  }
-  .slider-6 .slick-slide {
-    height: auto;/*sliderメイン画像高さ*/
-    overflow: hidden;
-    display: flex;
-    flex-wrap: wrap;
-    border: thin solid black;
-  }
-  .slider-6 .slick-slide img {
-    display: block;
-    width: 100%;
-    height: auto;
-    object-fit: contain;/*アスペクト比を維持したまま、枠に収まるように拡大縮小される。*/
-  }
-  .thumbs_dots {
-    margin: 10px 0 0;
-  }
-  .thumbs_list li {
-    display: inline-block;
-    width: 25%;
-    padding-top: 25%;/*高さをwidthと同じ値にする*/
-    opacity: 0.4;
-    cursor: pointer;
-    transition: opacity 0.3s;
-    border: thin solid black;
-  }
-  .thumbs_list li.slick-active {
-    opacity: 1;
-  }
-
 
   .item-box {
     width: 50%;
@@ -69,24 +171,46 @@
     justify-content: start;
     margin: 0 auto;
     margin-top: 50px;
-  }
-  .item-form {/*商品1列に5つ*/
-    width: 20%;
-    padding: 0 10px 10px 10px;
-  }
+    @include pc{
+      width: 70%;
+    }
+    @include sp{
+      width: 80%;
+    }
 
-  .item-content img {
-    width: 100%;
-    height: auto;
-    border: thin solid black;
-  }
-  .item-box-p {
-    font-size: 0.8em;
-  }
+    p:nth-child(7),p:nth-child(8) {
+      text-align: center;
+      margin: 0;
+    }
 
-  .item-box p:nth-child(7),p:nth-child(8) {
-    text-align: center;
-    margin: 0;
+    .item-form {/*商品1列に5つ*/
+      width: 20%;
+      padding: 0 10px 10px 10px;
+      @include tb{
+        width: 33.3%;
+      }
+      @include tbmini{
+        width: 50%;
+      }
+      .item-content {
+        img {
+          width: 100%;
+          height: auto;
+          border: thin solid black;
+        }
+
+        .item-box-p {
+          font-size: 0.8em;
+          @include tb{
+            font-size: 1em;
+            margin-bottom: 2px;
+          }
+          @include tbmini{
+            font-size: 1.5em;
+          }
+        }
+      }
+    }
   }
 
   .custom-item-box {
@@ -97,211 +221,88 @@
     justify-content: start;
     margin: 0 auto;
     margin-top: 50px;
+    .custom-item-content {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;/*左右中央*/
+      align-items: center;/*上下中央*/
+      #src {
+        width: 260px;
+        height: 260px;
+        margin: 20px 0;
+        position: relative;
+        font-size: 16px;
+        span:nth-child(1) {
+          position: absolute;
+          top: 5px;
+          left: 125px;
+        }
+        span:nth-child(2) {
+          position: absolute;
+          top: 38px;
+          right: 40px;
+        }
+        #svg-span3 {
+          position: absolute;
+          top: 118px;
+          right: 5px;
+          background-color: transparent;
+        }
+        span:nth-child(4) {
+          position: absolute;
+          bottom: 23px;
+          right: 40px;
+        }
+        span:nth-child(5) {
+          position: absolute;
+          bottom: 5px;
+          right: 120px;
+        }
+        span:nth-child(6) {
+          position: absolute;
+          bottom: 25px;
+          left: 45px;
+        }
+        span:nth-child(7) {
+          position: absolute;
+          top: 120px;
+          left: 7px;
+        }
+        span:nth-child(8) {
+          position: absolute;
+          top: 40px;
+          left: 40px;
+        }
+
+        svg {
+          height: 260px;
+          width: 260px;
+          border: thin solid black;
+          background-color: white;
+        }
+      }
+      .colorpicker-box {
+        width: 250px;
+        text-align: center;/*左右中央*/
+        p {
+          margin-bottom: 0;
+        }
+      }
+      .preview-box {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;/*左右中央*/
+      }
+      .custom-image-form {
+        margin-top: 90px;
+      }
+      .custom-item-submit {
+        width: 100%;
+        text-align: center;
+        margin-top: 20px;
+      }
+    }
   }
 
-  .custom-item-content {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;/*左右中央*/
-    align-items: center;/*上下中央*/
-  }
-
-  .custom-item-box p {
-    margin-bottom: 0;
-  }
-
-  svg {
-    height: 260px;
-    width: 260px;
-    border: thin solid black;
-    background-color: white;
-
-  }
-  .colorpicker-box {
-    width: 250px;
-    text-align: center;/*左右中央*/
-  }
-
-  .custom-item-submit {
-    width: 100%;
-    text-align: center;
-    margin-top: 20px;
-  }
-
-  .btn-blue-designs {
-    color: white;
-    background: #006699;
-    transition: 0.5s;
-  }
-  .btn-blue-designs:hover {
-    color: white;
-    background: #000099;
-    transition: 0.5s;
-  }
-
-  .btn-item {
-    margin: 0 auto;
-    padding: 5px 2px;
-  }
-  .preview-box {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;/*左右中央*/
-  }
-
-  .review-link {
-    display: flex;
-    padding: 0;
-  }
-
-  .review-link a {
-    text-decoration: underline;
-    color: black;
-  }
-  .review-link a:hover {
-    text-decoration: none;
-  }
-  .review-link img {
-    width: 15px;
-  }
-
-  .custom-image-form {
-    margin-top: 90px;
-  }
-
-  #src {
-    width: 260px;
-    height: 260px;
-    margin: 20px 0;
-    position: relative;
-    font-size: 16px;
-  }
-  #src span:nth-child(1) {
-    position: absolute;
-    top: 5px;
-    left: 125px;
-  }
-  #src span:nth-child(2) {
-    position: absolute;
-    top: 38px;
-    right: 40px;
-  }
-  #svg-span3 {
-    position: absolute;
-    top: 118px;
-    right: 5px;
-    background-color: transparent;
-  }
-  #src span:nth-child(4) {
-    position: absolute;
-    bottom: 23px;
-    right: 40px;
-  }
-  #src span:nth-child(5) {
-    position: absolute;
-    bottom: 5px;
-    right: 120px;
-  }
-  #src span:nth-child(6) {
-    position: absolute;
-    bottom: 25px;
-    left: 45px;
-  }
-  #src span:nth-child(7) {
-    position: absolute;
-    top: 120px;
-    left: 7px;
-  }
-  #src span:nth-child(8) {
-    position: absolute;
-    top: 40px;
-    left: 40px;
-  }
-
-
-
-
-
-
-
-
-  @media screen and (max-width: 1200px) {/*1000px以上の時*/
-  .design-box2 {
-    width: 70%;
-  }
-  .item-box {
-    width: 70%;
-  }
-  .btn-item {
-    font-size: 1em;
-  }
-  }
-  @media screen and (max-width: 768px) {
-  .design-box2 {
-    width: 70%;
-  }
-  .item-box {
-    width: 70%;
-  }
-  .item-form {/*商品1列に3つ*/
-    width: 33.3%;
-  }
-  .item-box-p {
-    font-size: 1em;
-    margin-bottom: 2px;
-  }
-  .btn-item {
-    font-size: 0.9em;
-  }
-  .design-content h4 {
-    font-size: 15px;
-  }
-  .design-content p {
-    font-size: 10px;
-  }
-  .btn-custom {
-    font-size: 0.9em;
-  }
-  }
-  @media screen and (max-width: 576px) {/*576px以下の時*/
-  .design-box2 {
-    width: 70%;
-  }
-  .slider6-wrap {
-    width: 100%;/*sliderメイン画像横幅*/
-    position: relative;
-  }
-  .design-content {
-    width: 100%;
-    margin-left: 0;
-  }
-  .design-content p {
-    font-size: 1.5em;
-  }
-  // .item-box {
-  //   width: 90%;
-  // }
-  .item-box-p {
-    font-size: 1.5em;
-  }
-  .item-form {/*商品1列に3つ*/
-    width: 50%;
-  }
-  }
-
-  @media screen and (max-width: 425px) {/*425px以下の時*/
-  .design-box2 {
-    width: 80%;
-  }
-  .design-content h4 {
-    font-size: 12px;
-  }
-  .design-content p:nth-child(3) {
-    margin-top: 10px;
-  }
-  .item-box {
-    width: 80%;
-  }
-  }

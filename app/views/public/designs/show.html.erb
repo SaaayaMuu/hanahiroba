@@ -22,17 +22,17 @@
         <div class="thumbs_dots"></div>
     </div>
     <div class="design-content">
-        <div class="review-link">
-          <%= link_to reviews_path(design_id: @design.id) do %><p>レビュー<%= @design.reviews.count %>件</p><% end %>
-          <p id="star-rate-<%= @design.id %>" class="p-0 ml-4"></p>
-        </div>
-        <h4><%= @design.design_name %></h4>
-        <p><%= @design.design_introduction %></p>
-        <% if @design.design_type == true %>
-          <p><%= "￥" %><%= @design.with_tax_price.to_s(:delimited) %><%= "～" %></p>
-        <% else %>
-          <p><%= "￥" %><%= @design.with_tax_price.to_s(:delimited) %></p>
-        <% end %>
+      <div class="review-link">
+        <%= link_to reviews_path(design_id: @design.id) do %><p>レビュー<%= @design.reviews.count %>件</p><% end %>
+        <p id="star-rate-<%= @design.id %>" class="p-0 ml-4"></p>
+      </div>
+      <h4><%= @design.design_name %></h4>
+      <p><%= @design.design_introduction %></p>
+      <% if @design.design_type == true %>
+        <p><%= "￥" %><%= @design.with_tax_price.to_s(:delimited) %><%= "～" %></p>
+      <% else %>
+        <p><%= "￥" %><%= @design.with_tax_price.to_s(:delimited) %></p>
+      <% end %>
     </div>
   </div>
 
@@ -63,14 +63,14 @@
     <div class="custom-item-box">
       <div class="custom-item-content">
         <div id="src">
-            <span>①</span>
-            <span>②</span>
-            <span id="svg-span3">③</span>
-            <span>④</span>
-            <span>⑤</span>
-            <span>⑥</span>
-            <span>⑦</span>
-            <span>⑧</span>
+          <span>①</span>
+          <span>②</span>
+          <span id="svg-span3">③</span>
+          <span>④</span>
+          <span>⑤</span>
+          <span>⑥</span>
+          <span>⑦</span>
+          <span>⑧</span>
           <svg id="svg" xmlns="http://www.w3.org/2000/svg">
             <!--左真横 上円＆下円-->
             <path d="M 130 130 C 120 110, 40 110, 30 130
