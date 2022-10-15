@@ -7,10 +7,9 @@ class Public::CartItemsController < ApplicationController
   end
 
   def create#既製品購入した場合のcreate
-    if current_customer.cart_items.find_by(item_id: params[:cart_item][:item_id]).present?
-      @cart_item = current_customer.cart_items.find_by(item_id: params[:cart_item][:item_id])
-      @cart_item.update(amount: @cart_item.amount + params[:cart_item][:amount].to_i)# 1. 一度amountを更新
-
+    @cart_item = current_customer.cart_items.find_by(item_id: params[:cart_item][:item_id])
+    if @cart_item.present?
+      @cart_item.update_amount(params[:cart_item][:amount].to_i)# 1. 一度amountを更新(cart_item.ebにupdate_amountメソッド記述)
       if @cart_item.amount > @cart_item.item.stock # 2. もしamountがstockより多くなってしまったら
         @cart_item.update(amount: @cart_item.item.stock) # 3. amountをstockと同じ数し、再度update
         flash[:danger] = "※在庫数が足りません"
@@ -20,9 +19,11 @@ class Public::CartItemsController < ApplicationController
       end
 
 		else
-		  @cart_item = CartItem.new(cart_item_params)
-		  @cart_item.customer_id = current_customer.id
-		  @cart_item.save
+		  # @cart_item = CartItem.new(cart_item_params)
+		  # @cart_item.customer_id = current_customer.id
+		  # @cart_item.save
+		  # ↑ の3行を省略したのが ↓ の1行
+		  current_customer.cart_items.create(cart_item_params)
 		  redirect_to cart_items_path
 		end
   end

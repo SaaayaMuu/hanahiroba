@@ -4,9 +4,13 @@
 }
 
 .review-box-index {
+  width: 100%;
+  height: auto;
   border: thin solid black;
   margin: 10px 0;
   background-color: white;
+  // overflow: visible;
+  word-wrap: break-word;
 }
 .review-box-index div {
   display: flex;
@@ -14,8 +18,13 @@
   justify-content: center;
 }
 
-.review-box p {
-  text-align: center;
+.review-box-index-body {
+  width: 100%;
+  height: auto;
+}
+.review-box-index p {
+  margin: 0 15px;
+  word-break: break-all;
 }
 
 .review-img {

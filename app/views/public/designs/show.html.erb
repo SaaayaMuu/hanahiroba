@@ -47,7 +47,7 @@
             <%= image_tag item.image %><!--.variant(resize: "200x00")-->
             <p class="item-box-p"><%= item.item_introduction %></p>
             <p class="item-box-p">￥<%= item.with_tax_price.to_s(:delimited) %>(税込)</p>
-            <% if item.is_active == true && item.stock >= 1 %> <!--販売中の商品、または在庫が1つ以上ある商品の場合-->
+            <% if item.is_active && item.stock >= 1 %> <!--販売中の商品、または在庫が1つ以上ある商品の場合-->
                 <p class="item-box-p">残り<%= item.stock %>個</p>
                 <p class="item-box-p"><%= f.submit "カートに入れる", class: "btn btn-item btn-blue-designs" %></p>
             <% else %>
@@ -81,7 +81,7 @@
 
             <!--上　左＆右-->
             <path d="M 130 130 C 110 120, 110 40, 130 30
-                     M 130 130 C 150 120, 150 40, 130 30" stroke="black" stroke-width="2" fill="white" id="toptop"/>
+                     M 130 130 C 150 120, 150 40, 130 30" stroke="black" stroke-width="2" fill="white" id="top"/>
 
             <!--下　左＆右-->
             <path d="M 130 130 C 110 140, 110 220, 130 230
@@ -183,79 +183,103 @@
     })();
   };
 
-  let toptop = document.getElementById('toptop');
-  let colorPicker1 = document.getElementById('colorPicker1');
-  if (colorPicker1) {
-      colorPicker1.value = "#00F000";
-      colorPicker1.addEventListener('change', function(){
-        toptop.style.fill = this.value;
-      });
-  }
+  const colorSettingList = [
+  { locationElementId: 'top', colorPickerId: 'colorPicker1' },
+  { locationElementId: 'righttop', colorPickerId: 'colorPicker2' },
+  { locationElementId: 'right', colorPickerId: 'colorPicker3' },
+  { locationElementId: 'rightbottom', colorPickerId: 'colorPicker4' },
+  { locationElementId: 'bottom', colorPickerId: 'colorPicker5' },
+  { locationElementId: 'leftbottom', colorPickerId: 'colorPicker6' },
+  { locationElementId: 'left', colorPickerId: 'colorPicker7' },
+  { locationElementId: 'lefttop', colorPickerId: 'colorPicker8' },
+]
+
+colorSettingList.forEach((obj) => {
+    const e = document.getElementById(obj.locationElementId);
+    const colorPicker = document.getElementById(obj.colorPickerId);
+    if (colorPicker) {
+        colorPicker.value = "#00F000";
+        colorPicker.addEventListener('change', function(){
+          e.style.fill = this.value;
+        });
+    }
+})
+
+//↑ 下のを省略した形
+
+//   let toptop = document.getElementById('top');
+//   let colorPicker1 = document.getElementById('colorPicker1');
+//   if (colorPicker1) {
+//       colorPicker1.value = "#00F000";
+//       colorPicker1.addEventListener('change', function(){
+//         toptop.style.fill = this.value;
+//       });
+//   }
 
 
-  let righttop = document.getElementById('righttop');
-  let colorPicker2 = document.getElementById('colorPicker2');
-  if (colorPicker2) {
-      colorPicker2.value = "#00F000";
-      colorPicker2.addEventListener('change', function(){
-        righttop.style.fill = this.value;
-      });
-  }
+//   let righttop = document.getElementById('righttop');
+//   let colorPicker2 = document.getElementById('colorPicker2');
+//   if (colorPicker2) {
+//       colorPicker2.value = "#00F000";
+//       colorPicker2.addEventListener('change', function(){
+//         righttop.style.fill = this.value;
+//       });
+//   }
 
 
-  let right = document.getElementById('right');
-  let colorPicker3 = document.getElementById('colorPicker3');
-  if (colorPicker3) {
-      colorPicker3.value = "#00F000";
-      colorPicker3.addEventListener('change', function(){
-        right.style.fill = this.value;
-      });
-  }
+//   let right = document.getElementById('right');
+//   let colorPicker3 = document.getElementById('colorPicker3');
+//   if (colorPicker3) {
+//       colorPicker3.value = "#00F000";
+//       colorPicker3.addEventListener('change', function(){
+//         right.style.fill = this.value;
+//       });
+//   }
 
-  let rightbottom = document.getElementById('rightbottom');
-  let colorPicker4 = document.getElementById('colorPicker4');
-  if (colorPicker4) {
-      colorPicker4.value = "#00F000";
-      colorPicker4.addEventListener('change', function(){
-        rightbottom.style.fill = this.value;
-      });
-  }
+//   let rightbottom = document.getElementById('rightbottom');
+//   let colorPicker4 = document.getElementById('colorPicker4');
+//   if (colorPicker4) {
+//       colorPicker4.value = "#00F000";
+//       colorPicker4.addEventListener('change', function(){
+//         rightbottom.style.fill = this.value;
+//       });
+//   }
 
-  let bottom = document.getElementById('bottom');
-  let colorPicker5 = document.getElementById('colorPicker5');
-  if (colorPicker5) {
-  colorPicker5.value = "#00F000";
-  colorPicker5.addEventListener('change', function(){
-    bottom.style.fill = this.value;
-  });
-  }
+//   let bottom = document.getElementById('bottom');
+//   let colorPicker5 = document.getElementById('colorPicker5');
+//   if (colorPicker5) {
+//   colorPicker5.value = "#00F000";
+//   colorPicker5.addEventListener('change', function(){
+//     bottom.style.fill = this.value;
+//   });
+//   }
 
-  let leftbottom = document.getElementById('leftbottom');
-  let colorPicker6 = document.getElementById('colorPicker6');
-  if (colorPicker6) {
-  colorPicker6.value = "#00F000";
-  colorPicker6.addEventListener('change', function(){
-    leftbottom.style.fill = this.value;
-  });
-  }
+//   let leftbottom = document.getElementById('leftbottom');
+//   let colorPicker6 = document.getElementById('colorPicker6');
+//   if (colorPicker6) {
+//   colorPicker6.value = "#00F000";
+//   colorPicker6.addEventListener('change', function(){
+//     leftbottom.style.fill = this.value;
+//   });
+//   }
 
-  let left = document.getElementById('left');
-  let colorPicker7 = document.getElementById('colorPicker7');
-  if (colorPicker7) {
-  colorPicker7.value = "#00F000";
-  colorPicker7.addEventListener('change', function(){
-    left.style.fill = this.value;
-  });
-  }
+//   let left = document.getElementById('left');
+//   let colorPicker7 = document.getElementById('colorPicker7');
+//   if (colorPicker7) {
+//   colorPicker7.value = "#00F000";
+//   colorPicker7.addEventListener('change', function(){
+//     left.style.fill = this.value;
+//   });
+//   }
 
-  let lefttop = document.getElementById('lefttop');
-  let colorPicker8 = document.getElementById('colorPicker8');
-  if (colorPicker8) {
-  colorPicker8.value = "#00F000";
-  colorPicker8.addEventListener('change', function(){
-    lefttop.style.fill = this.value;
-  });
-　}
+//   let lefttop = document.getElementById('lefttop');
+//   let colorPicker8 = document.getElementById('colorPicker8');
+//   if (colorPicker8) {
+//   colorPicker8.value = "#00F000";
+//   colorPicker8.addEventListener('change', function(){
+//     lefttop.style.fill = this.value;
+//   });
+// 　}
 
 
   $('#star-rate-<%= @design.id %>').raty({

@@ -5,6 +5,8 @@
 
 <%= render 'layouts/header', genre: @genre %>
 <div class="body">
+
+  <%= render 'public/shared/custom_error_messages' %>
   <div class="container">
 
     <%= form_with model: @review, url: reviews_path, local: true do |f| %>

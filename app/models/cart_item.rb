@@ -6,4 +6,9 @@ class CartItem < ApplicationRecord
   def subtotal
     item.with_tax_price * amount
   end
+
+  def update_amount(num)
+    update(amount: amount + num)
+  end
+
 end

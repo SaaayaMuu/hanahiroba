@@ -16,12 +16,15 @@ class Public::ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
-    @review.save
-    if params[:review][:rate] == nil
-      @design = Design.find(params[:design_id])
-      render :new
+    if params[:review][:rate].present?
+      @review.save
+      redirect_to reviews_path(design_id: @review.design_id)#or (design_id: params[:review][:design_id])でもOK
     else
-     redirect_to reviews_path(design_id: @review.design_id)#or (design_id: params[:review][:design_id])でもOK
+      @genre = Genre.all
+      @design = Design.find(params[:review][:design_id])
+      flash[:danger] = "※星評価をしてください。"
+      render :new
+      # redirect_to
     end
   end
 

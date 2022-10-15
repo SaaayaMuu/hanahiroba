@@ -13,10 +13,12 @@
         <div class="d-flex align-items-center">
           <% if review.image.attached? %>
             <%= image_tag review.image.variant(resize: "100x100"), class: "review-img" %>
+          <% else %>
+            <span class="text-center">画像なし</span>
           <% end %>
           <div id="star-rate-<%= review.id %>" class="ml-4"></div>
         </div>
-        <p><%= review.body %></p>
+        <p class="text-break"><%= review.body %></p>
 
       </div>
 
