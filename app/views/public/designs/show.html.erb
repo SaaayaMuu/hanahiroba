@@ -28,7 +28,7 @@
       </div>
       <h4><%= @design.design_name %></h4>
       <p><%= @design.design_introduction %></p>
-      <% if @design.design_type == true %>
+      <% if @design.design_type %>
         <p><%= "￥" %><%= @design.with_tax_price.to_s(:delimited) %><%= "～" %></p>
       <% else %>
         <p><%= "￥" %><%= @design.with_tax_price.to_s(:delimited) %></p>
@@ -37,7 +37,7 @@
   </div>
 
 
-  <% if @design.design_type == true %>
+  <% if @design.design_type %>
     <div class="item-box">
       <% @items.each do |item| %>
         <%= form_with model: @cart_item, url: cart_items_path, method: :post, local: true, class: "item-form" do |f| %>
@@ -58,7 +58,6 @@
       <% end %>
     </div>
   <% end %>
-
   <% if @design.design_type == false %>
     <div class="custom-item-box">
       <div class="custom-item-content">
@@ -149,7 +148,7 @@
           </div>
 
           <div class="custom-item-submit">
-            <% if @item1.is_active == true && @item1.stock >= 1 %> <!--販売中の商品、または在庫が1つ以上ある商品の場合-->
+            <% if @item1.is_active && @item1.stock >= 1 %> <!--販売中の商品、または在庫が1つ以上ある商品の場合-->
                 <%= f.submit "色選択した商品をカートに入れる", class: "btn btn-custom btn-blue-designs" %>
             <% else %>
                 <p class="text-danger">販売停止中</p>
@@ -270,4 +269,3 @@
   });
 
 </script>
-

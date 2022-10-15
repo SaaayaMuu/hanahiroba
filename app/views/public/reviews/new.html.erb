@@ -18,7 +18,7 @@
 
         <div class="review-star">
           <div class="star-form-group" id="star">
-            <%= f.hidden_field :rate, :value => 'score' %>
+            <%= f.hidden_field :rate, :value => 'score', required: true %>
           </div>
         </div>
 
@@ -44,6 +44,6 @@ $('#star').raty({
   starOn : '<%= asset_path('star-on.png') %>',
   starHalf: '<%= asset_path('star-half.png') %>',
   scoreName: 'review[rate]',
-  half: true,
+  half: false,
 });
 </script>

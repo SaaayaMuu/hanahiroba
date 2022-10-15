@@ -27,7 +27,7 @@
           <div class="design-detail">
             <p><%= design.genre.name %></p>
             <p><%= design.design_name %></p>
-            <% if design.design_type == true %>
+            <% if design.design_type %><%#修正前→ if design.design_type == true %>
               <p>￥<%= design.with_tax_price.to_s(:delimited) %>～</p>
             <% else %>
               <p>￥<%= design.with_tax_price.to_s(:delimited) %></p>
