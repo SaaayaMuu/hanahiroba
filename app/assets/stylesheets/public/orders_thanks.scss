@@ -1,15 +1,18 @@
-.body p {
+
+
+.orders_thanks_box p {
   text-align: center;
 }
 
 .orders_thanks_text {
   font-size: 1.7em;
 }
+
 .orders_thanks_text p {
   margin-bottom: 0;
 }
 
-.body p:nth-child(3) {
+.orders_thanks_box p:nth-child(3) {
   font-size: 1.3em;
 }
 
@@ -17,7 +20,7 @@
   .orders_thanks_text {
     font-size: 3em;
   }
-  .body p:nth-child(3) {
+  .orders_thanks_box p:nth-child(3) {
     font-size: 2.5em;
   }
 }

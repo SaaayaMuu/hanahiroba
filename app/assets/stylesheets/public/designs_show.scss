@@ -127,7 +127,7 @@ $sp: 425px;
         a {
           text-decoration: underline;
           color: black;
-           &:hover {
+          &:hover {
             text-decoration: none;
           }
         }
@@ -201,6 +201,7 @@ $sp: 425px;
 
         .item-box-p {
           font-size: 0.8em;
+          text-align: center;
           @include tb{
             font-size: 1em;
             margin-bottom: 2px;
@@ -305,4 +306,12 @@ $sp: 425px;
       }
     }
   }
+
+
+
+
+
+
+
+
 
