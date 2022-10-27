@@ -43,8 +43,7 @@
   color: white;
   background: #6A5ACD;
   transition: 0.5s;
-  width: 35%;
-  font-size: 0.8em;/*btn*/
+  font-size: 1em;/*btn*/
   margin-top: 50px;
 }
 .btn-purple-orders-new:hover {
@@ -58,14 +57,13 @@
     width: 80%;
   }
   .orders-new-box label{
-    font-size: 15px;
+    font-size: 14px;
   }
   .orders-new-box p{
-    font-size: 13px;
+    font-size: 11px;
   }
 
   .btn-purple-orders-new {
-    font-size: 13px;
-    width: 90%;
+    font-size: 11px;
   }
 }
