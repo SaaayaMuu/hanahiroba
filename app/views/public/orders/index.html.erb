@@ -5,7 +5,6 @@
 
 <%= render 'layouts/header', genre: @genre %>
 <div class="body">
-  <div class="container">
     <h5 class="text-center">注文履歴一覧</h5>
 
 
@@ -13,21 +12,31 @@
 
       <div class="order-index-box">
         <span><%= order.created_at.strftime('%Y/%m/%d') %></span>
-        <table class="table-orders">
-          <tr><th class="col-xl-1 col-lg-3 col-md-3 col-sm-3 col-3">配送先</th><td>〒<%= order.postal_code %>  <%= order.address %></td></tr>
-          <tr><th class="col-2">宛名</th><td><%= order.name %></td></tr>
-          <tr><th class="col-2">注文商品</th>
-            <td class="align-middle"><% order.order_details.each do |order_detail| %>
-              <%= image_tag order_detail.item.image %><%= order_detail.item.design.design_name %>
+
+        <div class="order-index-content">
+          <div class="order-th">
+            <p>配送先</p>
+            <p>宛名</p>
+            <p>注文商品</p>
+            <p>支払金額</p>
+            <p>製作状況</p>
+          </div>
+
+          <div class="order-td">
+            <p>〒<%= order.postal_code %>  <%= order.address %></p>
+            <p><%= order.name %></p>
+            <p>
+              <% order.order_details.each do |order_detail| %>
+                <%= image_tag order_detail.item.image %><%= order_detail.item.design.design_name %>
               <% end %>
-            </td>
-          </tr>
-          <tr><th class="col-2">支払金額</th><td><%= order.total_price.to_s(:delimited) %>円</td></tr>
-          <tr><th class="col-2">製作状況</th><td><%= order.making_status_i18n %></td></tr>
-        </table>
+            </p>
+            <p><%= order.total_price.to_s(:delimited) %>円</p>
+            <p><%= order.making_status_i18n %></p>
+          </div>
+        </div>
+
         <%= link_to order_path(order.id) do %><p>注文詳細を見る></p><% end %>
       </div>
     <% end %>
 
-  </div>
 </div>

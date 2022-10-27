@@ -1,17 +1,11 @@
-table img {
-  width: 80px;
-}
-.table-orders {
-  width: 100%;
-  border: 2px solid #000055;
-  margin: 0 auto;
-  background-color: white;
-}
+
+
+
 .order-index-box {
+  max-width: 700px;
   width: 60%;
   margin: 0 auto;
   margin-bottom: 10px;
-
 }
 .order-index-box p {
   color: black;
@@ -25,9 +19,35 @@ table img {
 .order-index-box a:hover {
   text-decoration: none;
 }
+
+.order-index-content img {
+  width: 80px;
+}
+.order-index-content {
+  display: flex;
+  width: 100%;
+  border: 2px solid #000055;
+  margin: 0 auto;
+  background-color: white;
+  padding: 20px;
+}
+
+.order-th {
+  width: 30%;
+}
+.order-th p:nth-child(3) {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.order-td {
+  width: 70%;
+}
 @media screen and (max-width: 576px) {
   .order-index-box {
-    width: 100%;
+    width: 95%;
+    font-size: 11px;
   }
   table img {
     width: 50px;

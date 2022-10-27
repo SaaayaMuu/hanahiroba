@@ -5,12 +5,11 @@
 
 <%= render 'layouts/header', genre: @genre %>
 <div class="body">
-  <div class="container">
-
+  <div class="order-show-box">
     <h5 class="text-center">注文内容</h5>
 
-    <div class="row justify-content-center">
-      <div class="col-xl-7 col-lg-8 col-md-10 col-sm-12">
+    <div>
+      <div>
         <span class="font-weight-bold">注文内容</span>
         <table class="table table-bordered bg-white">
           <thead>
@@ -25,9 +24,9 @@
             <% @order.order_details.each do |order_detail| %>
               <tr>
                 <td class="text-center"><%= image_tag order_detail.item.image.variant(resize: "100x100") %><br><%= order_detail.item.design.design_name %></td>
-                <td class="align-middle"><%= order_detail.price.to_s(:delimited) %></td>
-                <td class="align-middle"><%= order_detail.amount %></td>
-                <td class="align-middle"><%= (order_detail.price*order_detail.amount).to_s(:delimited) %></td>
+                <td><%= order_detail.price.to_s(:delimited) %></td>
+                <td><%= order_detail.amount %></td>
+                <td><%= (order_detail.price*order_detail.amount).to_s(:delimited) %></td>
               </tr>
             <% end %>
           </tbody>
@@ -35,8 +34,8 @@
       </div>
     </div>
 
-    <div class="row justify-content-center">
-      <div class="col-xl-7 col-lg-8 col-md-10 col-sm-12">
+    <div>
+      <div>
         <span class="font-weight-bold">注文情報</span>
 
         <table class="table table-bordered bg-white">
@@ -47,8 +46,8 @@
       </div>
     </div>
 
-    <div class="row justify-content-center">
-      <div class="col-xl-7 col-lg-8 col-md-10 col-sm-12">
+    <div>
+      <div>
         <span class="font-weight-bold">請求情報</span>
           <table class="table table-bordered bg-white">
             <tr><th class="title col-5">商品合計</th><td><%= (@order.total_price - @order.postage).to_s(:delimited) %></td></tr>
@@ -58,15 +57,14 @@
       </div>
     </div>
 
-    <div class="row justify-content-center">
-      <div class="col-xl-7 col-lg-8 col-md-10 col-sm-12">
+    <div>
+      <div>
         <table class="table table-bordered bg-white">
             <tr><th class="title col-5">製作状況</th><td><%= @order.making_status_i18n %></td></tr>
         </table>
       </div>
     </div>
 
-    <p class="text-center mt-5"><%= link_to "戻る", orders_path, class: "btn btn-back-orders-show" %></p>
-
+    <p class="text-center mt-5"><%= link_to "戻る", orders_path, class: "btn btn-back-order-show" %></p>
   </div>
 </div>

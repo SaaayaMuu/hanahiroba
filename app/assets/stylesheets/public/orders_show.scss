@@ -1,17 +1,36 @@
-.btn-back-orders-show {
+.order-show-box {
+  max-width: 700px;
+  width: 60%;
+  margin: 0 auto;
+}
+.table th{
+  vertical-align: middle;
+
+}
+.table td{
+  vertical-align: middle;
+
+}
+.btn-back-order-show {
   color: white;
   background: #777777;
   margin: 0 auto;
   transition: 0.5s;
   margin-bottom: 10px;
 }
-.btn-back-orders-show:hover {
+.btn-back-order-show:hover {
   color: white;
   background: #444444;
   transition: 0.5s;
 }
 @media screen and (max-width: 768px) {
-  .btn-back-orders-show {
-    font-size: 10px;
+  .btn-back-order-show {
+    font-size: 11px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .order-show-box {
+    width: 95%;
+    font-size: 11px;
   }
 }
