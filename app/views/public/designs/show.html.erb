@@ -142,7 +142,7 @@
         <%= form_with model: @item, url: cart_items_order_made_create_path, method: :post do |f| %>
           <div class="custom-image-form">
             <%= f.hidden_field :original_item_id, :value => @item1.id %>
-            <p class="custom-p">好きな画像を右クリックで保存し、画像を一枚添付してください</p>
+            <p class="custom-p">好きな画像を右クリック(スマートフォンの場合は長押し)<br>で保存し、画像を一枚添付してください</p>
             <p class="custom-p"><%= f.file_field :image, accept: "image/png", required: true %></p>
                                 　　                          　<!--　↑　変換後の画像はpngになるからファイル指定-->
           </div>
