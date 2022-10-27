@@ -49,7 +49,7 @@
             <p class="item-box-p">￥<%= item.with_tax_price.to_s(:delimited) %>(税込)</p>
             <% if item.is_active && item.stock >= 1 %> <!--販売中の商品、または在庫が1つ以上ある商品の場合-->
                 <p class="item-box-p">残り<%= item.stock %>個</p>
-                <p class="item-box-p"><%= f.submit "カートに入れる", class: "btn btn-item btn-blue-designs" %></p>
+                <p class="item-box-btn"><%= f.submit "カートに入れる", class: "btn btn-item btn-blue-designs" %></p>
             <% else %>
                 <p class="item-box-p text-danger">販売停止中</p>
             <% end %>
