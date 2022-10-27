@@ -23,6 +23,9 @@
   background: #444444;
   transition: 0.5s;
 }
+.title {
+  width: 30%;
+}
 @media screen and (max-width: 768px) {
   .btn-back-order-show {
     font-size: 11px;
