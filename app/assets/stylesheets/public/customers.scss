@@ -69,16 +69,17 @@
 }
  @media screen and (max-width: 768px) {
   .customer-edit-box {
+    font-size: 11px;
     width: 300px;
   }
   .btn-red-customers  {
-    font-size: 10px;
+    font-size: 11px;
   }
   .btn-back-customers {
-    font-size: 10px;
+    font-size: 11px;
   }
   .btn-purple-customers {
-    font-size: 10px;
+    font-size: 11px;
   }
  }
 
@@ -91,9 +92,6 @@
   }
   h5 {
     font-size: 13px;
-  }
-  .row p {
-    font-size: 2em;
   }
 }
 /*show&editここまで*/
