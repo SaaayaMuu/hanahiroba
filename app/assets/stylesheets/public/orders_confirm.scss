@@ -1,3 +1,4 @@
+
 table img {
   width: 80px;
 }
@@ -12,8 +13,17 @@ table img {
   transition: 0.5s;
 }
 @media screen and (max-width: 576px) {
+  .table-confirm {
+    font-size: 11px;
+  }
   table img {
     width: 50px;
+  }
+  .field {
+    font-size: 11px;
+  }
+  .btn-purple-orders-confirm {
+    font-size: 11px;
   }
 }
 @media screen and (max-width: 425px) {
