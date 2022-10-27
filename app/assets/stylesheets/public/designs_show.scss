@@ -119,7 +119,7 @@ $sp: 425px;
       filter: drop-shadow(3px 3px 10px #333366);
       @include tbmini{
         width: 100%;
-        margin-left: 0;
+        padding-left: 0;
       }
       .review-link {
         display: flex;
@@ -140,18 +140,12 @@ $sp: 425px;
         @include tb{
           font-size: 15px;
         }
-        @include sp{
-          font-size: 12px;
-        }
       }
       p {
         font-size: 15px;
         color: #444444;
         @include tb{
-          font-size: 10px;
-        }
-        @include tbmini{
-          font-size: 1.5em;
+          font-size: 13px;
         }
       }
       p:nth-child(3) {
@@ -222,6 +216,7 @@ $sp: 425px;
     justify-content: start;
     margin: 0 auto;
     margin-top: 50px;
+    font-size: 13px;
     .custom-item-content {
       width: 100%;
       display: flex;
@@ -290,6 +285,12 @@ $sp: 425px;
           margin-bottom: 0;
         }
       }
+      .change-img {
+        @include sp {
+          text-align: center;
+          width: 100%;
+        }
+      }
       .preview-box {
         width: 100%;
         display: flex;
@@ -297,11 +298,13 @@ $sp: 425px;
         justify-content: center;/*左右中央*/
       }
       .custom-image-form {
+        text-align: center;
         margin-top: 90px;
       }
       .custom-item-submit {
         width: 100%;
         text-align: center;
+        font-size: 17px;
         margin-top: 20px;
       }
     }
