@@ -41,7 +41,7 @@ __～身近にもっと和を。～__<br>
 
 
 ## 開発環境
-- OS：Linux(CentOS)
+- OS：Amazon Linux2
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
@@ -49,7 +49,7 @@ __～身近にもっと和を。～__<br>
 
 ## 開発環境
 - Nginx, Puma
-- MySQL 5.7.22
+- MySQL 5.7.38
 
 
 ## 使用素材
