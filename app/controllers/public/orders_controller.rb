@@ -9,6 +9,9 @@ class Public::OrdersController < ApplicationController
   end
 
   def confirm
+    @order = Order.new#render用
+    @customer = current_customer#render用
+
     @genre = Genre.all # headerの部分テンプレート用
     @cart_items = CartItem.all
     @order = Order.new(order_params)
@@ -20,16 +23,27 @@ class Public::OrdersController < ApplicationController
       @order.address = current_customer.address
       @order.name = current_customer.full_name
     elsif params[:order][:select_address] == "1"#過去のお届け先履歴から選択を選んだ場合
-      @address = Address.find(params[:order][:address_id])
-      @order.postal_code = @address.postal_code
-      @order.address = @address.address
-      @order.name = @address.name
+      if params[:order][:address_id] == nil#もし過去のお届け先履歴(address_id)がnilだったら
+        flash[:danger] = "※過去のお届け先履歴がありません"
+        redirect_to new_order_path
+      else
+        @address = Address.find(params[:order][:address_id])
+        @order.postal_code = @address.postal_code
+        @order.address = @address.address
+        @order.name = @address.name
+      end
     elsif params[:order][:select_address] == "2"#新しいお届け先を選んだ場合
+      #　↓　postal_code/address/nameの入力が1つでも欠けていたら
+      if params[:order][:postal_code] == "" || params[:order][:address] == "" || params[:order][:name] == ""
+        flash[:danger] = "※新しいお届け先が正しく入力されていません"
+        render :new
+      end
       @order.postal_code = @order.postal_code
       @order.address = @order.address
       @order.name = @order.name
+
     else
-      flash[:error] = '情報を正しく入力して下さい。'
+      flash[:danger] = "※情報を正しく入力してください"
       render :new
     end
   end

@@ -6,9 +6,12 @@
 
 <div class="body">
 
+
   <%= form_with model: @order, url: orders_confirm_path, method: :post do |f| %>
 
     <h5 class="text-center mb-5">注文情報入力(お届け先)</h5>
+
+    <%= render 'public/shared/custom_error_messages' %>
     <div class="orders-new-box">
       <div>
         <p>
@@ -48,7 +51,7 @@
         </label>
       </div>
 
-      <div class="input-orders-new"><%= f.submit "確認画面へすすむ", class: "btn btn-purple-orders-new" %></p>
+      <div class="input-orders-new"><%= f.submit "確認画面へすすむ", class: "btn btn-purple-orders-new" %></div>
     </div>
   <% end %>
 </div>
