@@ -73,6 +73,7 @@ h4 {/*パスワード再設定　admin/designs#show*/
 }
 
 
+
 // #splash {
 // /*fixedで全面に固定*/
 //   position: fixed;
@@ -800,7 +801,13 @@ header {
     height: 150px;
   }
 /*public headerここまで*/
+
+  /*view/shared/_custom_error_messagesのメッセージ用*/
+  .alert {
+    font-size: 11px;
+  }
 }
+
 
 
 
