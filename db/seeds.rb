@@ -38,31 +38,31 @@ design1 = Design.create!(
    design_introduction: '好きなカラーを選んでオリジナルのイヤリングが作れます！', design_price: '25000', design_type: 'false'
 )
 design1.images.attach(io: File.open(Rails.root.join("db/fixtures/IMG_5911.png")), filename: "IMG_5911.png")
-design1.images.attach(io: File.open(Rails.root.join("db/fixtures/IMG_5913.PNG")), filename: "IMG_5913.PNG")
-design1.images.attach(io: File.open(Rails.root.join("db/fixtures/IMG_5914.PNG")), filename: "IMG_5914.PNG")
+design1.images.attach(io: File.open(Rails.root.join("db/fixtures/IMG_5913.png")), filename: "IMG_5913.png")
+design1.images.attach(io: File.open(Rails.root.join("db/fixtures/IMG_5914.png")), filename: "IMG_5914.png")
 
 
 design2 = Design.create!(
    genre_id: '1', design_name: '段菊の髪飾り',
    design_introduction: '数種類のつまみ細工を組み合わせたスタンダードな髪飾りです。', design_price: '15000', design_type: 'true'
 )
-design2.images.attach(io: File.open(Rails.root.join("db/fixtures/IMG_9865.JPG")), filename: "IMG_9865.JPG")
-design2.images.attach(io: File.open(Rails.root.join("db/fixtures/IMG_9866.JPG")), filename: "IMG_9866.JPG")
-design2.images.attach(io: File.open(Rails.root.join("db/fixtures/IMG_9869.JPG")), filename: "IMG_9869.JPG")
-design2.images.attach(io: File.open(Rails.root.join("db/fixtures/IMG_9872.JPG")), filename: "IMG_9872.JPG")
-design2.images.attach(io: File.open(Rails.root.join("db/fixtures/IMG_9873.JPG")), filename: "IMG_9873.JPG")
-design2.images.attach(io: File.open(Rails.root.join("db/fixtures/IMG_9875.JPG")), filename: "IMG_9875.JPG")
+design2.images.attach(io: File.open(Rails.root.join("db/fixtures/IMG_9865.jpg")), filename: "IMG_9865.jpg")
+design2.images.attach(io: File.open(Rails.root.join("db/fixtures/IMG_9866.jpg")), filename: "IMG_9866.jpg")
+design2.images.attach(io: File.open(Rails.root.join("db/fixtures/IMG_9869.jpg")), filename: "IMG_9869.jpg")
+design2.images.attach(io: File.open(Rails.root.join("db/fixtures/IMG_9872.jpg")), filename: "IMG_9872.jpg")
+design2.images.attach(io: File.open(Rails.root.join("db/fixtures/IMG_9873.jpg")), filename: "IMG_9873.jpg")
+design2.images.attach(io: File.open(Rails.root.join("db/fixtures/IMG_9875.jpg")), filename: "IMG_9875.jpg")
 
 design3 = Design.create!(
    genre_id: '3', design_name: '季節のお花図鑑',
    design_introduction: '季節ごとのお花をつまみ細工で作りました。', design_price: '18000', design_type: 'true'
 )
-design3.images.attach(io: File.open(Rails.root.join("db/fixtures/IMG_9516.JPG")), filename: "IMG_9516.JPG")
-design3.images.attach(io: File.open(Rails.root.join("db/fixtures/IMG_9524.JPG")), filename: "IMG_9524.JPG")
-design3.images.attach(io: File.open(Rails.root.join("db/fixtures/IMG_9527.JPG")), filename: "IMG_9527.JPG")
-design3.images.attach(io: File.open(Rails.root.join("db/fixtures/IMG_9508.JPG")), filename: "IMG_9508.JPG")
-design3.images.attach(io: File.open(Rails.root.join("db/fixtures/IMG_9505.JPG")), filename: "IMG_9505.JPG")
-design3.images.attach(io: File.open(Rails.root.join("db/fixtures/IMG_9512.JPG")), filename: "IMG_9512.JPG")
+design3.images.attach(io: File.open(Rails.root.join("db/fixtures/IMG_9516.jpg")), filename: "IMG_9516.jpg")
+design3.images.attach(io: File.open(Rails.root.join("db/fixtures/IMG_9524.jpg")), filename: "IMG_9524.jpg")
+design3.images.attach(io: File.open(Rails.root.join("db/fixtures/IMG_9527.jpg")), filename: "IMG_9527.jpg")
+design3.images.attach(io: File.open(Rails.root.join("db/fixtures/IMG_9508.jpg")), filename: "IMG_9508.jpg")
+design3.images.attach(io: File.open(Rails.root.join("db/fixtures/IMG_9505.jpg")), filename: "IMG_9505.jpg")
+design3.images.attach(io: File.open(Rails.root.join("db/fixtures/IMG_9512.jpg")), filename: "IMG_9512.jpg")
 
 
 
@@ -73,29 +73,29 @@ Item.create!(
 
 Item.create!(
    design_id: '2', item_introduction: 'ピンク', item_price: '15000', stock: '5', is_active: 'true', clone: 'false',
-   image:ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/IMG_9865.JPG"), filename: "IMG_9865.JPG")
+   image:ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/IMG_9865.jpg"), filename: "IMG_9865.jpg")
 )
 Item.create!(
    design_id: '2', item_introduction: 'オレンジ', item_price: '15000', stock: '5', is_active: 'true', clone: 'false',
-   image:ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/IMG_9872.JPG"), filename: "IMG_9872.JPG")
+   image:ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/IMG_9872.jpg"), filename: "IMG_9872.jpg")
 )
 
 
 Item.create!(
    design_id: '3', item_introduction: '春', item_price: '18000', stock: '5', is_active: 'true', clone: 'false',
-   image:ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/IMG_9516.JPG"), filename: "IMG_9516.JPG")
+   image:ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/IMG_9516.jpg"), filename: "IMG_9516.jpg")
 )
 Item.create!(
    design_id: '3', item_introduction: '夏', item_price: '18000', stock: '5', is_active: 'true', clone: 'false',
-   image:ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/IMG_9508.JPG"), filename: "IMG_9508.JPG")
+   image:ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/IMG_9508.jpg"), filename: "IMG_9508.jpg")
 )
 Item.create!(
    design_id: '3', item_introduction: '秋', item_price: '18000', stock: '5', is_active: 'true', clone: 'false',
-   image:ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/IMG_9505.JPG"), filename: "IMG_9505.JPG")
+   image:ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/IMG_9505.jpg"), filename: "IMG_9505.jpg")
 )
 Item.create!(
    design_id: '3', item_introduction: '冬', item_price: '18000', stock: '5', is_active: 'true', clone: 'false',
-   image:ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/IMG_9512.JPG"), filename: "IMG_9512.JPG")
+   image:ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/IMG_9512.jpg"), filename: "IMG_9512.jpg")
 )
 
 Order.create!(
@@ -109,5 +109,5 @@ OrderDetail.create!(
 
 Review.create!(
    customer_id: '1', design_id: '1', rate: '5.0', body: 'とても可愛いです！',
-   image:ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/IMG_5913.PNG"), filename: "IMG_5913.PNG")
+   image:ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/IMG_5913.png"), filename: "IMG_5913.png")
 )
