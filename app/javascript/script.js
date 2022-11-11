@@ -149,16 +149,16 @@ window.onload = function(){
 
 
 /*designs#index*/
- $(document).ready(function(){
+$(document).ready(function(){
     if ($('.regular')) {
       $('.regular').slick({
-         fade: true,
-         autoplay: true, //自動再生
-         dots: false,
-         arrows: false,
+        fade: true,
+        autoplay: true, //自動再生
+        dots: false,
+        arrows: false,
       });
     }
- });
+});
 
 
 ////*designs#show*///

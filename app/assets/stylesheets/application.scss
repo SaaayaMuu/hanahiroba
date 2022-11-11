@@ -172,23 +172,25 @@ h4 {/*パスワード再設定　admin/designs#show*/
   height: 100%;
 }
 
+
+/*圧縮画像*/
 .image1 {
-  background-image: image-url("IMG_9554.JPG");
+  background-image: image-url("IMG_9554.jpg");
   background-size: cover;
   background-position: bottom;
 }
 .image2 {
-  background-image: image-url("IMG_9641.JPG");
+  background-image: image-url("IMG_9641.jpg");
   background-size: cover;
   background-position: bottom;
 }
 .image3 {
-  background-image: image-url("IMG_9654.JPG");
+  background-image: image-url("IMG_9654.jpg");
   background-size: cover;
   background-position: top;
 }
 .image4 {
-  background-image: image-url("IMG_9904.JPG");
+  background-image: image-url("IMG_9904.jpg");
   background-size: cover;
   background-position: top;
 }
@@ -660,24 +662,24 @@ header {
 
 @media screen and (max-width: 800px) {
   /*top画面スライド画像*/
-  .image1 {
-    background-image: image-url("IMG_9551.JPG");
+    .image1 {
+    background-image: image-url("IMG_9551.jpg");
     background-size: cover;
     background-position: center;
   }
 
   .image2 {
-    background-image: image-url("IMG_9590.JPG");
+    background-image: image-url("IMG_9590.jpg");
     background-size: cover;
     background-position: top;
   }
   .image3 {
-    background-image: image-url("IMG_9712.JPG");
+    background-image: image-url("IMG_9712.jpg");
     background-size: cover;
     background-position: top right;
   }
   .image4 {
-    background-image: image-url("IMG_9900.JPG");
+    background-image: image-url("IMG_9900.jpg");
     background-size: cover;
     background-position: top right;
   }
