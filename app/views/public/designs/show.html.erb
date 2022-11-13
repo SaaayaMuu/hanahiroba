@@ -49,7 +49,7 @@
             <p class="item-box-p">￥<%= item.with_tax_price.to_s(:delimited) %>(税込)</p>
             <% if item.is_active && item.stock >= 1 %> <!--販売中の商品、または在庫が1つ以上ある商品の場合-->
                 <p class="item-box-p">残り<%= item.stock %>個</p>
-                <p class="item-box-btn"><%= f.submit "カートに入れる", class: "btn btn-item btn-blue-designs" %></p>
+                <a><p class="item-box-btn"><%= f.submit "カートに入れる", class: "btn btn-item btn-blue-designs" %></p></a>
             <% else %>
                 <p class="item-box-p text-danger">販売停止中</p>
             <% end %>
@@ -149,7 +149,7 @@
 
           <div class="custom-item-submit">
             <% if @item1.is_active && @item1.stock >= 1 %> <!--販売中の商品、または在庫が1つ以上ある商品の場合-->
-                <%= f.submit "色選択した商品をカートに入れる", class: "btn btn-custom btn-blue-designs" %>
+                <a><p class="custom-item-box-btn"><%= f.submit "色選択した商品をカートに入れる", class: "btn btn-custom btn-blue-designs" %></p></a>
             <% else %>
                 <p class="text-danger">販売停止中</p>
             <% end %>

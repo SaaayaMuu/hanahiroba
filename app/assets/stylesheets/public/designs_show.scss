@@ -28,30 +28,74 @@ $sp: 425px;
   }
 }
 
+@mixin blossom {
+    content: "";
+    display: inline-block;
+    background-image: image-url("icon47_7_2.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: 0.5s;
+    z-index: 100;
+    opacity: 0;
+    position: absolute;
+
+}
+
+
+@mixin blossom_part1 {
+    content: "";
+    display: inline-block;
+    background-image: image-url("icon48_2.png");
+    background-size: contain;
+    transition: transform 1.5s;
+    // transition: 0.5s;
+    position: absolute;
+    top: -10px;
+    right: 15px;
+    opacity: 0;
+    z-index: 100;
+}
+@mixin blossom_part2 {
+    content: "";
+    display: inline-block;
+    background-image: image-url("icon48_3.png");
+    background-size: contain;
+    transition: transform 2s;
+    // transition: 0.5s;
+    position: absolute;
+    top: 0;
+    right: 5px;
+    opacity: 0;
+    z-index: 100;
+}
 
 .btn-blue-designs {
   color: white;
   background: #006699;
   transition: 0.5s;
+  position: relative;
+
 }
+
 .btn-blue-designs:hover {
   color: white;
   background: #000099;
   transition: 0.5s;
+  position: relative;
 }
 
 .btn-item {
+  width: 100%;
   margin: 0 auto;
   padding: 5px 2px;
-  @include pc{
-    font-size: 1em;
-  }
+  font-size: 1em;
   @include tb{
     font-size: 0.9em;
   }
 }
 
 .btn-custom {
+  width: 100%;
   @include tb{
     font-size: 0.9em;
   }
@@ -202,12 +246,54 @@ $sp: 425px;
             margin-bottom: 2px;
           }
         }
-        .item-box-btn {
-          font-size: 14px;
-          text-align: center;
-          @include tb{
-            font-size: 13px;
+        a {
+          position: relative;
+          /*桜の枝(左上)*/
+            &::before {
+              @include blossom
+              width: 40px;
+              height: 40px;
+              top: -20px;
+              left: -10px;
+            }
+            &:hover::before {
+                opacity: 1;
+            }
+
+
+          .item-box-btn {
+            font-size: 14px;
+            text-align: center;
+            position: relative;
+            /*blossom part1*/
+            &::before {
+              @include blossom_part1
+              width: 10px;
+              height: 10px;
+
+            }
+            &:hover::before {
+              transform: translateY(25px);
+              opacity: 1;
+            }
+
+            /*blossom part2*/
+            &::after {
+              @include blossom_part2
+              width: 15px;
+              height: 15px;
+            }
+            &:hover::after {
+              // transform: rotateZ(2turn) rotateX(2turn) rotateY(2turn) translateY(50px);
+              transform: translateY(20px);
+              opacity: 1;
+            }
+
+            @include tb{
+              font-size: 13px;
+            }
           }
+
         }
       }
     }
@@ -311,6 +397,41 @@ $sp: 425px;
         text-align: center;
         font-size: 17px;
         margin-top: 20px;
+        a {
+          position: relative;
+          &::before {
+            @include blossom
+            width: 60px;
+            height: 60px;
+            top: -30px;
+            left: -170px;
+          }
+          &:hover::before {
+            opacity: 1;
+          }
+          .custom-item-box-btn {
+            position: relative;
+            &::before {
+              @include blossom_part1
+              width: 15px;
+              height: 15px;
+            }
+            &:hover::before {
+              transform: translateY(25px);
+              opacity: 1;
+            }
+            &::after {
+              @include blossom_part2
+              width: 20px;
+              height: 20px;
+            }
+            &:hover::after {
+              transform: translateY(20px);
+              opacity: 1;
+            }
+          }
+
+        }
       }
     }
   }

@@ -5,10 +5,10 @@
 
 
 // ローディング画面 viewページに記述
-$(window).on('load',function(){
-  $("#splash").delay(1500).fadeOut('slow');//ローディング画面を1.5秒（1500ms）待機してからフェードアウト
-  $("#splash_logo").delay(1500).fadeOut('slow');//ロゴを1.2秒（1200ms）待機してからフェードアウト
-});
+// $(window).on('load',function(){
+//   $("#splash").delay(1500).fadeOut('slow');//ローディング画面を1.5秒（1500ms）待機してからフェードアウト
+//   $("#splash_logo").delay(1500).fadeOut('slow');//ロゴを1.2秒（1200ms）待機してからフェードアウト
+// });
 
 
 
@@ -168,7 +168,7 @@ $(function () {
 
   /*--- 連動サムネイル（ドット）設定 -----------------------*/
   // スライダー初期化時
-   $slider6.on('init', function (event, slick, currentSlide, nextSlide) {
+  $slider6.on('init', function (event, slick, currentSlide, nextSlide) {
         // スライドアイテム取得
         slideItem = $('#js-slider-6 .slick-slide');
         // スライドの数だけループ
@@ -186,7 +186,7 @@ $(function () {
           // 背景の表示の仕方を指定
           dot.css('background-size', 'cover');
         }
-   });
+  });
 });
 
 // designs#showのslick 参考URL(https://and-ha.com/coding/slick/)
