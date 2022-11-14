@@ -37,6 +37,9 @@ $(document).ready(function () {
   });
 });
 
+
+
+
 /*ハンバーガーメニューpublic*/
 $(document).ready(function () {
   $('.public-menu-trigger').on('click', function(event) {

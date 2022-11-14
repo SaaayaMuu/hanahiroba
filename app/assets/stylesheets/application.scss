@@ -109,51 +109,51 @@ h4 {/*パスワード再設定　admin/designs#show*/
 
 
 /* fadeUpをするアイコンの動き（テキストver） */
-.fadeUp{
-font-size: 200px;
-font-family: 'Yuji Syuku', serif;
-transform: translate(-50%, -50%);
-animation-name: fadeUpAnime;
-animation-duration:0.5s;
-animation-fill-mode:forwards;
-opacity: 0;
-}
-.fadeUp2{
-font-family: 'Yuji Syuku', serif;
-font-size: 200px;
-animation-name: fadeUpAnime;
-animation-duration:1.0s;
-animation-fill-mode:forwards;
-opacity: 0;
-}
-.fadeUp3{
-font-size: 200px;
-font-family: 'Yuji Syuku', serif;
-animation-name: fadeUpAnime;
-animation-duration:1.5s;
-animation-fill-mode:forwards;
-opacity: 0;
-}
-.fadeUp4{
-  background-image: image-url("738540.jpg");
-  animation-name: fadeUpAnime;
-  animation-duration:1.7s;
-  animation-fill-mode:forwards;
-  opacity: 0;
-}
+// .fadeUp{
+// font-size: 200px;
+// font-family: 'Yuji Syuku', serif;
+// transform: translate(-50%, -50%);
+// animation-name: fadeUpAnime;
+// animation-duration:0.5s;
+// animation-fill-mode:forwards;
+// opacity: 0;
+// }
+// .fadeUp2{
+// font-family: 'Yuji Syuku', serif;
+// font-size: 200px;
+// animation-name: fadeUpAnime;
+// animation-duration:1.0s;
+// animation-fill-mode:forwards;
+// opacity: 0;
+// }
+// .fadeUp3{
+// font-size: 200px;
+// font-family: 'Yuji Syuku', serif;
+// animation-name: fadeUpAnime;
+// animation-duration:1.5s;
+// animation-fill-mode:forwards;
+// opacity: 0;
+// }
+// .fadeUp4{
+//   background-image: image-url("738540.jpg");
+//   animation-name: fadeUpAnime;
+//   animation-duration:1.7s;
+//   animation-fill-mode:forwards;
+//   opacity: 0;
+// }
 
 
-@keyframes fadeUpAnime{
-  from {
-    opacity: 0;
-    transform: translateY(100px);
-  }
+// @keyframes fadeUpAnime{
+//   from {
+//     opacity: 0;
+//     transform: translateY(100px);
+//   }
 
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+//   to {
+//     opacity: 1;
+//     transform: translateY(0);
+//   }
+// }
 
 
 
@@ -320,18 +320,33 @@ opacity: 0;
 header {
   width: 100%;
   height: 250px;
-  background-image: image-url("IMG_9538_2.JPG");
-  background-size: cover;
-  background-position: center;
+  // background-image: image-url("IMG_9538_2.JPG");
+  // background-size: cover;
+  // background-position: center;
   box-shadow: 0 5px 25px 0 rgba(63,54,97,1);
+
+  background-image: image-url("sakura.gif");
+  opacity: 1;
+
 }
 
 .header-background {
   width: 100%;
   height: 250px;
-  background-image: linear-gradient(90deg, rgba(168, 202, 240, 0.5), rgba(233, 240, 250, 0.2));
-  // background-image: linear-gradient(180deg, rgba(195, 186, 232, 0.68), rgba(233, 240, 250, 0.68));
 
+  // background-image: image-url("icon47_10.png");
+  // background-repeat: no-repeat;
+  // background-size: contain;
+  // background-image: linear-gradient(90deg, rgba(168, 202, 240, 0.5), rgba(233, 240, 250, 0.2));
+  background-image: linear-gradient(180deg, rgba(195, 186, 232, 0.68), rgba(233, 240, 250, 0.68));
+}
+
+.header-sakura {
+  width: 100%;
+  height: 100%;
+  background-image: image-url("icon47_10.png");
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .nav-text {

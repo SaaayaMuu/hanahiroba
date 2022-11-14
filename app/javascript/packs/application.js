@@ -9,9 +9,9 @@ import "channels"
 
 import 'jquery'
 import "slick.min";
-import "skippr.min"
+import "skippr.min";
 import "popper.js";
-import "script.js"
+import "script.js";
 import "bootstrap";
 import "../stylesheets/application"
 
