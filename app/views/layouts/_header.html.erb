@@ -21,8 +21,8 @@
         </div>
         <div class="login-content">
           <% if customer_signed_in? %>
-            <p><%= current_customer.last_name %>さん</p>
-            <p>ログイン中</p>
+            <p>◆<%= current_customer.last_name %>さんログイン中</p>
+            <!--<p>ログイン中</p>-->
           <% else %>
             <p><%= flash[:notice] %></p>
           <% end %>
