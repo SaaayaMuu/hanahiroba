@@ -54,3 +54,4 @@ __～身近にもっと和を。～__<br>
 
 ## 使用素材
 - BEIZ images：https://www.beiz.jp/
+- pinterest ：https://www.pinterest.jp/
