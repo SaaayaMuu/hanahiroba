@@ -40,14 +40,18 @@ __～身近にもっと和を。～__<br>
 [DETAIL]: https://docs.google.com/spreadsheets/d/1EqV05KIyEu1zQyXfyP1HJpzPbSQOAsNPygbAHMND76E/edit?usp=sharing
 
 
-## 開発環境
-- OS：Amazon Linux2
+## 使用言語
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
-- IDE：Cloud9
 
 ## 開発環境
+- OS：Amazon Linux2
+- IDE：Cloud9
+- DB:SQLite
+
+## 本番環境
+- AWS(EC2, EIP, RDS)
 - Nginx, Puma
 - MySQL 5.7.38
 
@@ -55,3 +59,7 @@ __～身近にもっと和を。～__<br>
 ## 使用素材
 - BEIZ images：https://www.beiz.jp/
 - pinterest ：https://www.pinterest.jp/
+- 
+##その他ツール
+- Git Actions
+- Flexbox
