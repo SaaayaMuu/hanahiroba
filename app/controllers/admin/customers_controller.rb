@@ -5,9 +5,6 @@ class Admin::CustomersController < ApplicationController
     @customers = Customer.all.order("created_at DESC")
   end
 
-  def edit
-    @customer = Customer.find(params[:id])
-  end
 
   def show
     @customer = Customer.find(params[:id])
