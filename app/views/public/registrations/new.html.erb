@@ -14,7 +14,7 @@
       <%= render "public/shared/error_messages", resource: resource %>
 
       <div>
-        <p>名前</p>
+        <p class=regi-title>名前</p>
         <label class="short-label">
           <p>(姓)</p><%= f.text_field :last_name, autofocus: true, placeholder: "例)令和", class: "short-input" %>
         </label>
@@ -24,7 +24,7 @@
       </div>
 
       <div>
-        <p>フリガナ</p>
+        <p class=regi-title>フリガナ</p>
         <label class="short-label">
           <p>(セイ)</p><%= f.text_field :last_name_kana, placeholder: "例)レイワ", class: "short-input" %>
         </label>
@@ -35,40 +35,40 @@
 
       <div>
         <label class="long-label">
-        <p>メールアドレス</p>
+        <p class=regi-title>メールアドレス</p>
           <%= f.text_field :email, id:"customer_Email", placeholder: "例)〇〇〇@example.com", class: "long-input" %>
         </label>
       </div>
 
       <div>
         <label class="short-label">
-          <p>郵便番号</p>
+          <p class=regi-title>郵便番号</p>
           <%= f.text_field :postal_code, autofocus: true, id:"customer_Postal_code", placeholder: "例)0000000", class: "short-input" %>
         </label>
       </div>
 
       <div>
         <label class="long-label">
-          <p>住所</p>
+          <p class=regi-title>住所</p>
           <%= f.text_area :address, autofocus: true, id:"customer_address", placeholder: "例)東京都渋谷区代々木神園町0-0", class: "long-input" %>
         </label>
       </div>
 
       <div>
         <label class="short-label">
-          <p>電話番号(ハイフンなし)</p>
+          <p class=regi-title>電話番号(ハイフンなし)</p>
           <%= f.text_field :telephone_number, autofocus: true, id:"customer_Telephone_number", placeholder: "例)0000000000", class: "short-input" %>
         </label>
       </div>
 
       <div>
         <label class="short-label">
-          <p>パスワード(6文字以上)</p>
+          <p class=regi-title>パスワード(6文字以上)</p>
           <%= f.password_field :password, autocomplete: "new-password", class: "short-input" %>
       </div>
       <div>
         <label class="short-label">
-          <p>パスワード(確認用)</p>
+          <p class=regi-title>パスワード(確認用)</p>
           <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "short-input" %>
       </div>
 
@@ -76,7 +76,7 @@
       <%= link_to "会員登録をやめる", designs_path, class: "long-input btn btn-back-registration" %>
 
 
-      <p class="text-center">
+      <p>
         既に登録済みの方
         <%= link_to "こちら", new_customer_session_path %>からログインしてください。
       </p>

@@ -6,13 +6,23 @@
   margin: 0 auto;
 }
 
-.registration-box p {
-  margin: 3px 0 3px 0;
+#error_explanation {
+  width: 85%;
+  margin: 0 auto;
 }
-.registration-box span {
-  display: inline-block;
-  width: 50px;
+#error_explanation h4 {
   text-align: center;
+}
+#error_explanation li {
+  list-style: none;
+}
+
+
+.registration-box p {
+  margin: 0;
+}
+p.regi-title {
+  margin-bottom: 3px;
 }
 
 .long-label {
@@ -20,12 +30,13 @@
 }
 
 .short-label {
-  width: 49.5%;
+  width: 49.4%;
+
 }
 
 .long-input {
   width: 100%;
-  box-sizing:border-box;
+  box-sizing: border-box;
 }
 .short-input {
   width: 100%;
@@ -56,7 +67,7 @@
 }
 @media screen and (max-width: 768px) {
   .registration-box {
-    width: 300px;
+    width: 350px;
   }
   h2 {
     font-size: 20px;
