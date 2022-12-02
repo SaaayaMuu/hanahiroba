@@ -11,7 +11,13 @@
       <%= f.file_field :images, accept: "image/*", multiple: true, class: "mb-2" %>
       <output id="result" />
       <% @design.images.each do |image| %>
-        <%= f.check_box :image_ids, {:multiple => true}, image.id, false %>
+
+        <!--multiple: true＝複数の選択を可能にする-->
+        <!--false＝チェックしていない時はデータを送信しない-->
+        <!--参考URL＝https://prograshi.com/framework/rails/check_box/-->
+        <%= f.check_box :image_ids, {multiple: true, style: 'transform: scale(2);'}, image.id, false  %>
+        <%#= f.check_box :image_ids, {:multiple => true}, image.id, false  %>
+
         <%= image_tag image.variant(resize: "200x200"), class: "pr-3" %>
       <% end %>
     </article>

@@ -97,46 +97,55 @@ $(document).ready(function () {
 
 
 
-
+/*admin/designs#new*/
 /*ctrl押しながら選択OK　ひとつづつwクリック×　ctrlとwクリック×*/
-window.onload = function(){
+window.onload = function() {
 
     if(document.getElementById("design_images") != null) {
 
-        //Check File API support
-        if(window.File && window.FileList && window.FileReader)
-        {
+        //File APIに対応しているか確認(File API＝ファイルの読み取りを行うAPI)
+        if(window.File && window.FileList && window.FileReader) {
             var filesInput = document.getElementById("design_images");
 
+            // 対象の要素.addEventListener(イベント種類, function() {
+            // イベント種類＝change(フォーム部品の状態が変更されたとき)
             filesInput.addEventListener("change", function(event){
 
+                // event.target.files＝ファイル情報を読み込む
                 var files = event.target.files; //FileList object
                 var output = document.getElementById("result");
 
-                for(var i = 0; i< files.length; i++)
-                {
+                // ファイル情報の数を取得
+                for(var i = 0; i< files.length; i++) {
                     var file = files[i];
 
-                    //Only pics
+                    // 画像ファイル以外は処理を止める
                     if(!file.type.match('image'))
                       continue;
 
+                    // FileReader＝ファイルの読み取りを行う非同期API
                     var picReader = new FileReader();
 
-                    picReader.addEventListener("load",function(event){
+                    // 対象の要素.addEventListener(イベント種類, function() {
+                    // イベント種類＝load(Webページの読み込みが完了したとき(画像などのリソースすべて含む))
+                    picReader.addEventListener("load",function(event) {
 
                         var picFile = event.target;
 
+                        // div要素を作成
                         var div = document.createElement("div");
 
                         div.innerHTML = "<img class='thumbnail' src='" + picFile.result + "'" +
                                 "title='" + picFile.name + "'/>";
 
+                        //insertBefore＝希望の位置に要素を追加できる
+                        //親要素のoutputの最後の子要素としてdiv要素を追加
                         output.insertBefore(div,null);
 
                     });
 
-                    //Read the image
+                    // ↓画像読み込みを実行。"FileReader"の"readAsDataURL"関数を使う
+                    // 引数はユーザーが入力したファイルのオブジェクト(121行目　file = files[i];）
                     picReader.readAsDataURL(file);
                 }
 
@@ -144,7 +153,7 @@ window.onload = function(){
         }
         else
         {
-            console.log("Your browser does not support File API");
+            console.log("このブラウザはFile APIに対応していません");
         }
     }
 }
