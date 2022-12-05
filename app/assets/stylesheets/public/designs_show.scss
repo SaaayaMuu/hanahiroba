@@ -385,6 +385,14 @@ $sp: 425px;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;/*左右中央*/
+        img {
+          width: 260px;
+          height: 260px;
+          @include sp {
+            width: 160px;
+            height: 160px;
+          }
+        }
       }
       .custom-image-form {
         text-align: center;
